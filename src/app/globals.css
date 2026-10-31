@@ -1,0 +1,217 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ *
+ * Tamiale design tokens
+ * ------------------------------------------------------------------ */
+@theme {
+  --color-obsidian: #111110;
+  --color-obsidian-raised: #1a1917;
+  --color-obsidian-hairline: #2a2825;
+  --color-ivory: #f3f0e9;
+  --color-ivory-dim: #e9e4da;
+  --color-ivory-hairline: #d9d3c6;
+  --color-champagne: #c1a67d;
+  --color-champagne-dim: #a98f67;
+  --color-stone: #8c8983;
+  --color-stone-dim: #6c6a65;
+
+  --font-display: var(--font-tamiale-display), "Canela", "Didot",
+    "Times New Roman", serif;
+  --font-sans: var(--font-tamiale-sans), "Neue Haas Grotesk Display",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* Motion. Nothing in the house moves faster than it needs to. */
+  --ease-tamiale: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-tamiale-in: cubic-bezier(0.62, 0, 0.2, 1);
+
+  --spacing-gutter: clamp(1.25rem, 4vw, 4.5rem);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --header-height: 4.5rem;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-obsidian);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-obsidian);
+    color: var(--color-ivory);
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--color-champagne);
+    outline-offset: 3px;
+  }
+
+  /* The house never animates at the expense of a visitor's comfort. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Chrome over a dark stage
+ *
+ * A page opens on a full-bleed dark stage by marking it `data-stage="dark"`.
+ * Matching here rather than in the header keeps the header free of the
+ * pathname, which keeps it in the static shell of every route.
+ * ------------------------------------------------------------------ */
+/* Unlayered on purpose: these must outrank the utility classes on the header. */
+body:has([data-stage="dark"]) [data-chrome][data-scrolled="false"] {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--color-ivory);
+  backdrop-filter: none;
+}
+
+/* A dark stage sits under the chrome, so it needs no spacer above it. */
+body:has([data-stage="dark"]) [data-chrome-spacer] {
+  display: none;
+}
+
+/* ------------------------------------------------------------------ *
+ * Typographic utilities
+ * ------------------------------------------------------------------ */
+
+/* Oversized editorial statements. Optical sizing is handled by hand. */
+@utility display-hero {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.75rem, 9.2vw, 9.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+}
+
+@utility display-xl {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 5.6vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+@utility display-lg {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.875rem, 3.6vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+
+@utility display-md {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.4vw, 2.125rem);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+/* Small caps label used for section numbering and metadata. */
+@utility eyebrow {
+  font-size: 0.6875rem;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+@utility body-lg {
+  font-size: clamp(1rem, 1.15vw, 1.1875rem);
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+}
+
+/* The wordmark. Letterforms are set wide enough to read as an engraving. */
+@utility wordmark {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: 0.44em;
+  text-transform: uppercase;
+  /* Tracking adds trailing space; pull it back so the mark optically centres. */
+  text-indent: 0.44em;
+}
+
+@utility hairline-t {
+  border-top: 1px solid var(--color-ivory-hairline);
+}
+
+@utility hairline-b {
+  border-bottom: 1px solid var(--color-ivory-hairline);
+}
+
+@utility gutter {
+  padding-inline: var(--spacing-gutter);
+}
+
+/* ------------------------------------------------------------------ *
+ * Surfaces
+ * ------------------------------------------------------------------ */
+
+/* Fine film grain keeps large flat fields from banding on wide gamut screens. */
+@utility grain {
+  position: relative;
+  isolation: isolate;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@keyframes tamiale-drift {
+  0%,
+  100% {
+    transform: translate3d(-2%, -1%, 0) scale(1.04);
+  }
+  50% {
+    transform: translate3d(2%, 1%, 0) scale(1.1);
+  }
+}
+
+@keyframes tamiale-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1.25rem, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* The band is a third of the stage wide, so it must travel past 300% to clear. */
+@keyframes tamiale-sweep {
+  from {
+    transform: translateX(-130%);
+  }
+  to {
+    transform: translateX(340%);
+  }
+}

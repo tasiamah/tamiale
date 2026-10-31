@@ -1,0 +1,208 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+
+import { useRegion } from "@/components/chrome/region-provider";
+import { useOverlay } from "@/components/chrome/use-overlay";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/cn";
+import { formatMoney } from "@/lib/region";
+
+import { lineKey, useCart } from "./cart-provider";
+
+export function CartDrawer() {
+  const {
+    lines,
+    count,
+    subtotal,
+    isOpen,
+    isCheckingOut,
+    notice,
+    close,
+    setQuantity,
+    remove,
+    checkout,
+  } = useCart();
+  const { region, price } = useRegion();
+  const panelRef = useOverlay(isOpen, close);
+
+  return (
+    <>
+      <div
+        aria-hidden
+        onClick={close}
+        className={cn(
+          "fixed inset-0 z-80 bg-obsidian/45 backdrop-blur-[2px] transition-opacity duration-700 ease-tamiale",
+          isOpen ? "opacity-100" : "pointer-events-none opacity-0",
+        )}
+      />
+      <div
+        ref={panelRef}
+        role="dialog"
+        aria-modal={isOpen}
+        aria-label="Your bag"
+        inert={!isOpen}
+        className={cn(
+          "fixed inset-y-0 right-0 z-85 flex w-full max-w-[29rem] flex-col border-l border-ivory-hairline bg-ivory transition-transform duration-700 ease-tamiale",
+          isOpen ? "translate-x-0" : "translate-x-full",
+        )}
+      >
+        <div className="flex h-(--header-height) shrink-0 items-center justify-between border-b border-ivory-hairline px-7">
+          <h2 className="eyebrow">
+            Your bag<span className="ml-1.5 text-stone">({count})</span>
+          </h2>
+          <button
+            type="button"
+            onClick={close}
+            className="eyebrow cursor-pointer text-stone transition-colors hover:text-obsidian"
+          >
+            Close
+          </button>
+        </div>
+
+        {lines.length === 0 ? (
+          <div className="flex flex-1 flex-col items-center justify-center gap-6 px-10 text-center">
+            <p className="display-md text-obsidian">Your bag is empty.</p>
+            <p className="text-sm text-stone">
+              Collection 001 is open for pre-order in six lens expressions.
+            </p>
+            <Link
+              href="/collection"
+              onClick={close}
+              className="eyebrow border-b border-obsidian pb-1"
+            >
+              View the collection
+            </Link>
+          </div>
+        ) : (
+          <ul className="flex-1 overflow-y-auto px-7">
+            {lines.map((line) => {
+              const key = lineKey(line);
+              return (
+                <li
+                  key={key}
+                  className="grid grid-cols-[6.5rem_1fr] gap-5 border-b border-ivory-hairline py-7"
+                >
+                  <div className="flex aspect-4/3 items-center justify-center bg-ivory-dim">
+                    <Image
+                      src={line.image.src}
+                      alt={line.image.alt}
+                      width={line.image.width}
+                      height={line.image.height}
+                      className="w-full"
+                    />
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <div className="flex items-baseline justify-between gap-4">
+                      <p className="font-display text-xl leading-tight">
+                        {line.title}
+                      </p>
+                      <p className="text-sm tabular-nums">
+                        {price(line.priceBook)}
+                      </p>
+                    </div>
+                    <p className="text-xs text-stone">
+                      Onyx / {line.colorwayName}
+                    </p>
+                    <p className="eyebrow mt-1 text-champagne-dim">
+                      Pre-order · Ships {line.shipsFrom}
+                    </p>
+
+                    <div className="mt-3 flex items-center justify-between">
+                      <div className="flex items-center border border-ivory-hairline">
+                        <QuantityButton
+                          label={`Decrease quantity of ${line.title}`}
+                          onClick={() => setQuantity(key, line.quantity - 1)}
+                        >
+                          –
+                        </QuantityButton>
+                        <span className="w-8 text-center text-sm tabular-nums">
+                          {line.quantity}
+                        </span>
+                        <QuantityButton
+                          label={`Increase quantity of ${line.title}`}
+                          disabled={line.quantity >= 4}
+                          onClick={() => setQuantity(key, line.quantity + 1)}
+                        >
+                          +
+                        </QuantityButton>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => remove(key)}
+                        className="cursor-pointer text-xs text-stone underline-offset-4 transition-colors hover:text-obsidian hover:underline"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+
+        {lines.length > 0 && (
+          <div className="shrink-0 border-t border-ivory-hairline px-7 py-7">
+            <div className="flex items-baseline justify-between">
+              <span className="eyebrow text-stone">Subtotal</span>
+              <span className="font-display text-2xl tabular-nums">
+                {formatMoney(subtotal, region.currency, region.locale)}
+              </span>
+            </div>
+            <p className="mt-2 text-xs text-stone">
+              {region.taxNote}. {region.shippingNote} once the edition ships.
+            </p>
+
+            {notice && (
+              <p
+                role="status"
+                className="mt-5 border-l-2 border-champagne bg-ivory-dim px-4 py-3 text-xs leading-relaxed text-obsidian"
+              >
+                {notice}
+              </p>
+            )}
+
+            <Button
+              className="mt-6 w-full"
+              onClick={checkout}
+              disabled={isCheckingOut}
+            >
+              {isCheckingOut ? "Opening checkout…" : "Reserve your pair"}
+            </Button>
+            <p className="mt-4 text-center text-xs text-stone">
+              You are charged today. Your pair is reserved from the edition and
+              dispatched when it is released.
+            </p>
+          </div>
+        )}
+      </div>
+    </>
+  );
+}
+
+function QuantityButton({
+  children,
+  label,
+  onClick,
+  disabled,
+}: {
+  children: string;
+  label: string;
+  onClick: () => void;
+  disabled?: boolean;
+}) {
+  return (
+    <button
+      type="button"
+      aria-label={label}
+      onClick={onClick}
+      disabled={disabled}
+      className="size-8 cursor-pointer text-sm text-stone transition-colors hover:text-obsidian disabled:cursor-not-allowed disabled:opacity-30"
+    >
+      {children}
+    </button>
+  );
+}

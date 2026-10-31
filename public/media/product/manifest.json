@@ -1,0 +1,48 @@
+{
+  "model": "The Marina",
+  "frame": "Onyx",
+  "media": [
+    {
+      "colorway": "ember",
+      "name": "Ember",
+      "src": "/media/product/marina-onyx-ember.png",
+      "width": 698,
+      "height": 222
+    },
+    {
+      "colorway": "champagne",
+      "name": "Champagne",
+      "src": "/media/product/marina-onyx-champagne.png",
+      "width": 698,
+      "height": 222
+    },
+    {
+      "colorway": "smoke",
+      "name": "Smoke",
+      "src": "/media/product/marina-onyx-smoke.png",
+      "width": 698,
+      "height": 222
+    },
+    {
+      "colorway": "cognac",
+      "name": "Cognac",
+      "src": "/media/product/marina-onyx-cognac.png",
+      "width": 698,
+      "height": 222
+    },
+    {
+      "colorway": "jade",
+      "name": "Jade",
+      "src": "/media/product/marina-onyx-jade.png",
+      "width": 698,
+      "height": 222
+    },
+    {
+      "colorway": "cobalt",
+      "name": "Cobalt",
+      "src": "/media/product/marina-onyx-cobalt.png",
+      "width": 698,
+      "height": 222
+    }
+  ]
+}
