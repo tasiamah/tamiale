@@ -54,7 +54,7 @@ export default async function PrivateClientPage() {
 
       <section
         id="contact"
-        className="grain scroll-mt-(--header-height) border-t border-ivory-hairline bg-ivory text-obsidian"
+        className="grain scroll-mt-(--chrome-height) border-t border-ivory-hairline bg-ivory text-obsidian"
       >
         <div className="gutter grid gap-14 section-y lg:grid-cols-2 lg:gap-24">
           <Reveal>

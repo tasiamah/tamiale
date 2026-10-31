@@ -23,7 +23,7 @@ export default async function VisionStudioPage({
 
   return (
     <div data-stage="dark" className="grain min-h-screen bg-obsidian text-ivory">
-      <div className="gutter pt-(--header-height)">
+      <div className="gutter pt-(--chrome-height)">
         <header className="max-w-3xl py-16 md:py-20">
           <p className="eyebrow text-ivory/55">{dict.visionStudio.eyebrow}</p>
           <h1 className="display-hero mt-7 text-balance">

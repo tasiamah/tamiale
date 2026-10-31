@@ -16,7 +16,7 @@ export async function Craftsmanship({
   return (
     <section
       id="craftsmanship"
-      className="border-t border-ivory-hairline bg-ivory scroll-mt-(--header-height)"
+      className="border-t border-ivory-hairline bg-ivory scroll-mt-(--chrome-height)"
     >
       <div className="gutter section-y">
         <SectionHeading
@@ -32,7 +32,7 @@ export async function Craftsmanship({
            * it. The figure is far shorter than the text beside it, and left
            * to itself it leaves half the section as an empty column.
            */}
-          <Reveal className="lg:sticky lg:top-28 lg:self-start">
+          <Reveal className="lg:sticky lg:top-[calc(var(--chrome-height)+1.75rem)] lg:self-start">
             <figure className="bg-ivory-dim px-6 py-16 sm:px-16 sm:py-24">
               <FrameDrawing frame={frame} />
               <figcaption className="hairline-t mt-12 pt-5 text-xs text-stone-dim">

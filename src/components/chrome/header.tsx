@@ -7,6 +7,7 @@ import { useCart } from "@/components/cart/cart-provider";
 import { useDictionary } from "@/components/i18n/dictionary-provider";
 import { Wordmark } from "@/components/ui/wordmark";
 
+import { AnnouncementBar } from "./announcement-bar";
 import { MenuOverlay } from "./menu-overlay";
 
 /** Distance past which the chrome stops being transparent. */
@@ -39,11 +40,19 @@ export function Header() {
 
   return (
     <>
-      <header
-        data-chrome
-        data-scrolled={scrolled}
-        className="fixed inset-x-0 top-0 z-50 h-(--header-height) border-b border-ivory-hairline bg-ivory/92 text-obsidian backdrop-blur-xl transition-[background-color,border-color,color] duration-700 ease-tamiale"
-      >
+      {/*
+       * The announcement bar and the header are pinned together. The bar is
+       * opaque on every route, including the dark stages where the header
+       * below it turns transparent, so the two never half-dissolve into each
+       * other at the top of the window.
+       */}
+      <div className="fixed inset-x-0 top-0 z-50">
+        <AnnouncementBar />
+        <header
+          data-chrome
+          data-scrolled={scrolled}
+          className="h-(--header-height) border-b border-ivory-hairline bg-ivory/92 text-obsidian backdrop-blur-xl transition-[background-color,border-color,color] duration-700 ease-tamiale"
+        >
         <div className="gutter grid h-full grid-cols-[1fr_auto_1fr] items-center">
           <div className="flex h-full items-center gap-8">
             <button
@@ -103,10 +112,11 @@ export function Header() {
               <span className="ml-1.5 opacity-60">({count})</span>
             </button>
           </div>
-        </div>
-      </header>
+          </div>
+        </header>
+      </div>
 
-      <div data-chrome-spacer aria-hidden className="h-(--header-height)" />
+      <div data-chrome-spacer aria-hidden className="h-(--chrome-height)" />
 
       <MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} />
     </>

@@ -41,6 +41,7 @@ const fr: Dictionary = {
 
   header: {
     skipToContent: "Aller au contenu",
+    announcement: "Livraison offerte partout dans le monde",
     home: "Tamiale, accueil",
     menu: "Menu",
     close: "Fermer",

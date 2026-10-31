@@ -36,7 +36,7 @@ export default async function HomePage() {
 
       <section
         id="collection"
-        className="border-t border-ivory-hairline bg-ivory scroll-mt-(--header-height)"
+        className="border-t border-ivory-hairline bg-ivory scroll-mt-(--chrome-height)"
       >
         <div className="gutter section-y">
           <SectionHeading

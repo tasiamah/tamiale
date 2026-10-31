@@ -50,7 +50,7 @@ export default async function CollectionPage() {
         </dl>
       </header>
 
-      <section id="expressions" className="gutter scroll-mt-(--header-height) section-y">
+      <section id="expressions" className="gutter scroll-mt-(--chrome-height) section-y">
         <ExpressionGrid frame={frame} />
       </section>
 
@@ -88,7 +88,7 @@ export default async function CollectionPage() {
 
       <section
         id="register"
-        className="gutter scroll-mt-(--header-height) border-t border-ivory-hairline section-y"
+        className="gutter scroll-mt-(--chrome-height) border-t border-ivory-hairline section-y"
       >
         <SectionHeading
           eyebrow={dict.collection.eyebrow}

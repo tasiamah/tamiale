@@ -95,7 +95,7 @@ export default async function PassportPage() {
         </div>
 
         <Reveal delay={120}>
-          <div className="grain sticky top-28 border border-ivory-hairline bg-ivory p-8 text-obsidian">
+          <div className="grain sticky top-[calc(var(--chrome-height)+1.75rem)] border border-ivory-hairline bg-ivory p-8 text-obsidian">
             <div className="flex items-center justify-between">
               <Wordmark size="sm" />
               <span className="eyebrow text-stone">{dict.passport.specimen}</span>

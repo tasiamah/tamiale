@@ -42,6 +42,7 @@ const en = {
 
   header: {
     skipToContent: "Skip to content",
+    announcement: "Complimentary insured delivery, worldwide",
     home: "Tamiale home",
     menu: "Menu",
     close: "Close",

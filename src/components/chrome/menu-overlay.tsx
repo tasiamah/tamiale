@@ -34,7 +34,8 @@ export function MenuOverlay({
         open ? "opacity-100" : "pointer-events-none opacity-0",
       )}
     >
-      <div className="gutter flex h-(--header-height) shrink-0 items-center justify-between">
+      {/* Chrome height, so Close lands exactly where Menu was. */}
+      <div className="gutter flex h-(--chrome-height) shrink-0 items-center justify-between">
         <button
           type="button"
           onClick={onClose}

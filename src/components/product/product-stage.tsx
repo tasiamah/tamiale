@@ -165,7 +165,7 @@ export function ProductStage({
         </div>
       </div>
 
-      <div className="lg:sticky lg:top-28 lg:self-start">
+      <div className="lg:sticky lg:top-[calc(var(--chrome-height)+1.75rem)] lg:self-start">
         <p className="eyebrow text-stone">{frame.collection}</p>
         {/* Serif is the house's product voice: names and prices only. */}
         <h1 className="frame-name mt-4 text-[2.75rem] leading-none">

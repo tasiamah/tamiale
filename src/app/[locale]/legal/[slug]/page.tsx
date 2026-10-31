@@ -49,7 +49,7 @@ async function Document({ params }: PageProps<"/[locale]/legal/[slug]">) {
 
   return (
     <div className="gutter grid gap-16 section-y-sm lg:grid-cols-[16rem_1fr] lg:gap-24">
-      <nav aria-label={dict.legal.policies} className="lg:sticky lg:top-28 lg:self-start">
+      <nav aria-label={dict.legal.policies} className="lg:sticky lg:top-[calc(var(--chrome-height)+1.75rem)] lg:self-start">
         <h2 className="eyebrow text-stone">{dict.legal.policies}</h2>
         <ul className="mt-6 flex flex-col gap-3.5">
           {policies.map((item) => (
