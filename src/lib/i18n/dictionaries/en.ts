@@ -189,7 +189,7 @@ const en = {
 
   home: {
     heroLede:
-      "Eyewear conceived for those who see beyond convention. One silhouette, designed in Zurich, released in three lenses.",
+      "Eyewear conceived for those who see beyond convention. One silhouette, designed in Zurich.",
     /* Describes the placeholder band. Replace it with the photograph. */
     editorialAlt:
       "Two models wearing sunglasses, photographed against a pale studio backdrop.",

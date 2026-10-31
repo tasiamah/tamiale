@@ -172,7 +172,7 @@ const de: Dictionary = {
 
   home: {
     heroLede:
-      "Brillen für alle, die über Konventionen hinausblicken. Eine Silhouette, in Zürich entworfen, in drei Gläsern veröffentlicht.",
+      "Brillen für alle, die über Konventionen hinausblicken. Eine Silhouette, in Zürich entworfen.",
     editorialAlt:
       "Zwei Models mit Sonnenbrillen, fotografiert vor einem hellen Studiohintergrund.",
     collectionTitleFirst: "Drei Gläser.",
