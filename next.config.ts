@@ -11,6 +11,13 @@ const nextConfig: NextConfig = {
      * native size, where the encoder's own softening compounds the blur.
      */
     qualities: [75, 90],
+    /*
+     * AVIF first, WebP for anything that cannot read it. The hero is the
+     * largest contentful paint on every phone, and it is bandwidth that
+     * decides when it lands, so the smaller encoding is worth the slower
+     * first optimisation at the edge.
+     */
+    formats: ["image/avif", "image/webp"],
   },
   // The visual QA harnesses drive the dev server over the loopback address.
   allowedDevOrigins: ["127.0.0.1"],

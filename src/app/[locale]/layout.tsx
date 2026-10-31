@@ -34,11 +34,15 @@ import "../globals.css";
  * Cormorant is cut thin and set with a lot of air, so it is loaded at 300 for
  * the largest sizes and 400 where it has to hold at small ones.
  */
+/*
+ * No italic. Nothing in the house sets one, and asking for it costs a second
+ * woff2 that is preloaded at the same instant as the hero photograph and takes
+ * bandwidth from it on a phone connection.
+ */
 const serif = Cormorant_Garamond({
   variable: "--font-tamiale-serif",
   subsets: ["latin"],
   weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
   display: "swap",
 });
 
