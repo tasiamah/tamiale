@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { PrivateAccess } from "@/components/home/private-access";
-import { AppointmentForm } from "@/components/private-client/appointment-form";
+import { EnquiryForm } from "@/components/private-client/enquiry-form";
 import { Reveal } from "@/components/ui/reveal";
 import { getDictionary, getLocale } from "@/lib/i18n/dictionary";
 import { alternatesFor } from "@/lib/i18n/metadata";
@@ -20,7 +20,6 @@ export default async function PrivateClientPage() {
   const dict = await getDictionary();
   const { services } = dict.privateClient;
   const offered = [
-    { title: services.fittingTitle, body: services.fittingBody },
     { title: services.accessTitle, body: services.accessBody },
     { title: services.directTitle, body: services.directBody },
     { title: services.serviceTitle, body: services.serviceBody },
@@ -41,11 +40,11 @@ export default async function PrivateClientPage() {
       </header>
 
       <section className="gutter section-y">
-        <dl className="grid gap-x-12 gap-y-12 border-t border-ivory-hairline pt-12 sm:grid-cols-2">
+        <dl className="grid gap-x-16 gap-y-14 border-t border-ivory-hairline pt-14 sm:grid-cols-2 lg:grid-cols-3">
           {offered.map((service, index) => (
             <Reveal key={service.title} delay={index * 60}>
               <dt className="display-md">{service.title}</dt>
-              <dd className="mt-4 max-w-md leading-relaxed text-stone-dim">
+              <dd className="mt-4 max-w-sm leading-relaxed text-stone-dim">
                 {service.body}
               </dd>
             </Reveal>
@@ -59,12 +58,12 @@ export default async function PrivateClientPage() {
       >
         <div className="gutter grid gap-14 section-y lg:grid-cols-2 lg:gap-24">
           <Reveal>
-            <p className="eyebrow text-stone">{dict.privateClient.appointmentsEyebrow}</p>
+            <p className="eyebrow text-stone">{dict.privateClient.enquiriesEyebrow}</p>
             <h2 className="display-xl mt-6 text-balance">
-              {dict.privateClient.appointmentsTitle}
+              {dict.privateClient.enquiriesTitle}
             </h2>
             <p className="body-lg mt-8 max-w-md text-pretty text-stone">
-{dict.privateClient.appointmentsLede}
+{dict.privateClient.enquiriesLede}
             </p>
             <div className="mt-12 flex flex-col gap-2">
               <p className="eyebrow text-stone">{dict.privateClient.orWrite}</p>
@@ -78,7 +77,7 @@ export default async function PrivateClientPage() {
           </Reveal>
 
           <Reveal delay={120}>
-            <AppointmentForm />
+            <EnquiryForm />
           </Reveal>
         </div>
       </section>

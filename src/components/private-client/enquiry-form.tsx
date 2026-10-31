@@ -5,13 +5,13 @@ import { useActionState, useId } from "react";
 import { useRegion } from "@/components/chrome/region-provider";
 import { useDictionary } from "@/components/i18n/dictionary-provider";
 import { Button } from "@/components/ui/button";
-import { IDLE, requestAppointment } from "@/lib/actions";
+import { IDLE, requestEnquiry } from "@/lib/actions";
 import { REGIONS } from "@/lib/region";
 import { cn } from "@/lib/cn";
 
-export function AppointmentForm() {
+export function EnquiryForm() {
   const dict = useDictionary();
-  const [state, action, pending] = useActionState(requestAppointment, IDLE);
+  const [state, action, pending] = useActionState(requestEnquiry, IDLE);
   const { label } = useRegion();
   const ids = {
     name: useId(),

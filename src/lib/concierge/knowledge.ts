@@ -114,10 +114,10 @@ export const knowledge: KnowledgeEntry[] = [
     answer: `Rinse under cool water before wiping, because most lens scratches are dust being dragged across glass by a dry cloth. Use the supplied microfibre, never alcohol or glass cleaner, and keep the pair in its case rather than on your head, which is what opens hinges over time.`,
   },
   {
-    id: "appointment",
-    terms: ["appointment", "advisor", "consultation", "video call", "book", "private client", "speak", "human"],
-    answer: `A private video fitting with an advisor runs about twenty minutes. They will look at the frame on you, measure against your current eyewear and talk through the lens choice. There is no obligation to buy and no charge.`,
-    actions: [{ label: "Book an appointment", href: "/private-client" }],
+    id: "advisor",
+    terms: ["advisor", "adviser", "consultation", "private client", "speak", "human", "boutique", "shop", "showroom", "in person", "visit", "appointment", "stockist"],
+    answer: `The house sells online only, so there is no boutique to visit and no appointment to keep. An advisor answers in writing within one working day: sizing against a pair you already own, the lens choice, or whether the frame suits you at all. In the meantime the Vision Studio will put the frame on your face in the browser, every measurement is published, and any pair can go back within thirty days.`,
+    actions: [{ label: "Write to an advisor", href: "/private-client" }],
   },
   {
     id: "order",
@@ -137,10 +137,10 @@ export const knowledge: KnowledgeEntry[] = [
 ];
 
 export const CONCIERGE_FALLBACK =
-  "That is outside what I can answer accurately, and I would rather not guess. An advisor can take it from here. A private appointment is the fastest route, or write to clients@tamiale.com and you will have a reply within one working day.";
+  "That is outside what I can answer accurately, and I would rather not guess. An advisor can take it from here: write to clients@tamiale.com, or send a note from the private client page, and you will have a reply within one working day.";
 
 export const CONCIERGE_FALLBACK_ACTIONS: ConciergeAction[] = [
-  { label: "Book an advisor", href: "/private-client" },
+  { label: "Write to an advisor", href: "/private-client" },
 ];
 
 export const CONCIERGE_OPENERS = [

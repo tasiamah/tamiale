@@ -35,7 +35,7 @@ const fr: Dictionary = {
     visionStudio: "Essayage virtuel, conseils de taille, vue en 3D",
     house: "Philosophie, matériaux, savoir-faire",
     journal: "Récits éditoriaux, campagnes, collaborations",
-    privateClient: "Rendez-vous, conciergerie, sorties privées",
+    privateClient: "Conseillers, entretien, sorties privées",
     myTamiale: "Commandes, montures enregistrées, passeports numériques",
   },
 
@@ -155,8 +155,8 @@ const fr: Dictionary = {
     send: "Demander",
     thinking: "Consultation du registre…",
     fallback:
-      "Cela dépasse ce que je peux répondre avec exactitude, et je préfère ne pas deviner. Un conseiller prendra le relais. Un rendez-vous privé est la voie la plus rapide, ou écrivez à clients@tamiale.com et vous aurez une réponse sous un jour ouvré.",
-    fallbackAction: "Parler à un conseiller",
+      "Cela dépasse ce que je peux répondre avec exactitude, et je préfère ne pas deviner. Un conseiller prendra le relais : écrivez à clients@tamiale.com, ou envoyez un mot depuis la page Client Privé, et vous aurez une réponse sous un jour ouvré.",
+    fallbackAction: "Écrire à un conseiller",
     suggestions: {
       tailoring: "Quel verre s'accorde à un costume ?",
       widerFace: "Convient-elle à un visage large ?",
@@ -245,7 +245,7 @@ const fr: Dictionary = {
     plan: "Dessus",
     rear: "Arrière",
     studio: "Studio",
-    boutique: "Boutique",
+    lamplight: "Lumière de lampe",
     nocturne: "Nocturne",
     rotate: "Faire tourner",
     stop: "Arrêter",
@@ -404,15 +404,12 @@ const fr: Dictionary = {
   privateClient: {
     metaTitle: "Client Privé",
     metaDescription:
-      "Un essayage privé en vidéo avec un conseiller qui connaît les montures. Vingt minutes, sans obligation ni frais.",
+      "Une ligne directe vers un conseiller qui connaît les montures. Accès anticipé aux éditions, entretien par numéro de série et une réponse honnête avant l'achat.",
     eyebrow: "Client Privé",
     titleFirst: "Quelqu'un qui",
     titleSecond: "connaît les montures.",
-    lede: "Acheter des lunettes à ce prix sans les poser sur son visage est une hésitation légitime. Un conseiller client privé existe pour la lever, y compris en vous disant de ne pas acheter.",
+    lede: "Acheter des lunettes à ce prix sans les poser sur son visage est une hésitation légitime. La maison ne vend qu'en ligne : elle y répond par des millimètres publiés, un miroir que vous ouvrez dans votre navigateur, trente jours pour renvoyer la paire, et un conseiller qui vous dira de ne pas acheter.",
     services: {
-      fittingTitle: "Essayage privé en visio",
-      fittingBody:
-        "Vingt minutes avec un conseiller qui regardera la monture sur vous, la comparera à une paire que vous possédez déjà et passera les deux en revue. Sans engagement, sans frais.",
       accessTitle: "Accès anticipé",
       accessBody:
         "Les sorties sont proposées au registre avant d'être annoncées. Les éditions sont assez restreintes pour que ce soit la différence entre avoir le choix et en entendre parler.",
@@ -423,10 +420,10 @@ const fr: Dictionary = {
       serviceBody:
         "Les paires enregistrées sont suivies par leur numéro de série. L'atelier sait quelle charnière, quelle finition et quelle série de production sans vous le demander.",
     },
-    appointmentsEyebrow: "Rendez-vous",
-    appointmentsTitle: "Réserver un essayage privé.",
-    appointmentsLede:
-      "Un conseiller écrira sous un jour ouvré pour convenir d'un horaire à votre convenance. Les séances se tiennent en visio ; il vous faudra une caméra et, idéalement, une paire de lunettes que vous aimez déjà.",
+    enquiriesEyebrow: "Demandes",
+    enquiriesTitle: "Écrire à un conseiller.",
+    enquiriesLede:
+      "Il n'y a ni boutique ni rendez-vous à tenir. Envoyez un mot : un conseiller répondra par écrit sous un jour ouvré, avec les mesures et la réponse honnête plutôt qu'un appel commercial.",
     orWrite: "Ou écrire directement",
     form: {
       elsewhere: "Ailleurs",
@@ -436,7 +433,7 @@ const fr: Dictionary = {
       interest: "Ce dont vous souhaitez parler",
       measurements:
         "Facultatif. Les dimensions d'une paire que vous possédez déjà sont la chose la plus utile que vous puissiez apporter.",
-      submit: "Demander un rendez-vous",
+      submit: "Envoyer le mot",
       sending: "Envoi…",
       thanks: "Bien reçu. Un conseiller écrira sous un jour ouvré.",
       error:
@@ -453,7 +450,7 @@ const fr: Dictionary = {
     verified: "Vérifié",
     serviceHistory: "Historique de service",
     request: "Demande",
-    bookService: "Prendre rendez-vous pour un service",
+    bookService: "Demander un entretien",
     warrantyCovers: "Ce que couvre la garantie",
     recordCaveat: "Fiche illustrative. Le registre de production lie chaque numéro de série à une pièce fabriquée en sortie de chaîne, et un enregistrement peut être révoqué ou transféré par la maison. Un code imprimé ne constitue pas à lui seul une preuve d'authenticité.",
     metaTitle: "Passeport numérique",

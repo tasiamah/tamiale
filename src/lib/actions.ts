@@ -75,7 +75,7 @@ export async function requestPrivateAccess(
     : result;
 }
 
-export async function requestAppointment(
+export async function requestEnquiry(
   _previous: FormResult,
   formData: FormData,
 ): Promise<FormResult> {
@@ -91,7 +91,7 @@ export async function requestAppointment(
     return { status: "error", message: "Please enter a valid email address." };
   }
 
-  const result = await forward("appointment", {
+  const result = await forward("enquiry", {
     name,
     email,
     region,

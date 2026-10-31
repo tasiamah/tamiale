@@ -87,10 +87,10 @@ const fr: TranslatedRegister = {
     answer: `Rincez à l'eau fraîche avant d'essuyer : la plupart des rayures viennent de la poussière traînée sur le verre par un chiffon sec. Utilisez la microfibre fournie, jamais d'alcool ni de nettoyant pour vitres, et rangez la paire dans son étui plutôt que sur votre tête, ce qui est ce qui desserre les charnières avec le temps.`,
     labels: [],
   },
-  appointment: {
-    terms: ["rendez-vous", "conseiller", "conseillere", "conseillère", "consultation", "appel video", "appel vidéo", "reserver un creneau", "parler", "humain"],
-    answer: `Un essayage privé en vidéo avec un conseiller dure une vingtaine de minutes. Il regardera la monture sur vous, la comparera à vos lunettes actuelles et discutera du choix du verre. Sans obligation d'achat et sans frais.`,
-    labels: ["Prendre rendez-vous"],
+  advisor: {
+    terms: ["conseiller", "conseillere", "conseillère", "consultation", "client prive", "client privé", "parler", "humain", "boutique", "magasin", "showroom", "en personne", "visiter", "rendez-vous", "revendeur"],
+    answer: `La maison ne vend qu'en ligne : il n'y a donc ni boutique à visiter ni rendez-vous à tenir. Un conseiller répond par écrit sous un jour ouvré : la taille comparée à une paire que vous possédez déjà, le choix du verre, ou si la monture vous convient tout court. En attendant, le Vision Studio pose la monture sur votre visage dans le navigateur, toutes les mesures sont publiées, et chaque paire peut être renvoyée sous trente jours.`,
+    labels: ["Écrire à un conseiller"],
   },
   order: {
     terms: ["commande", "ma commande", "suivi", "statut", "ou est", "où est", "facture"],

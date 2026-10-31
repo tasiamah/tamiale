@@ -34,7 +34,7 @@ const de: Dictionary = {
     visionStudio: "Virtuelle Anprobe, Passform-Empfehlung, 3D-Ansicht",
     house: "Philosophie, Materialien, Handwerkskunst",
     journal: "Redaktionelle Beiträge, Kampagnen, Kooperationen",
-    privateClient: "Termine, Concierge, private Veröffentlichungen",
+    privateClient: "Berater, Betreuung, private Veröffentlichungen",
     myTamiale: "Bestellungen, gemerkte Fassungen, digitale Pässe",
   },
 
@@ -154,8 +154,8 @@ const de: Dictionary = {
     send: "Fragen",
     thinking: "Das Register wird eingesehen…",
     fallback:
-      "Das liegt außerhalb dessen, was ich genau beantworten kann, und ich möchte nicht raten. Ein Berater übernimmt gern. Ein privater Termin ist der schnellste Weg, oder schreiben Sie an clients@tamiale.com und Sie haben innerhalb eines Werktags eine Antwort.",
-    fallbackAction: "Einen Berater sprechen",
+      "Das liegt außerhalb dessen, was ich genau beantworten kann, und ich möchte nicht raten. Ein Berater übernimmt gern: Schreiben Sie an clients@tamiale.com, oder senden Sie eine Nachricht über die Privatkundenseite, und Sie haben innerhalb eines Werktags eine Antwort.",
+    fallbackAction: "Einem Berater schreiben",
     suggestions: {
       tailoring: "Welches Glas passt zum Anzug?",
       widerFace: "Passt sie auf ein breiteres Gesicht?",
@@ -244,7 +244,7 @@ const de: Dictionary = {
     plan: "Draufsicht",
     rear: "Rückseite",
     studio: "Studio",
-    boutique: "Boutique",
+    lamplight: "Lampenlicht",
     nocturne: "Nocturne",
     rotate: "Drehen",
     stop: "Stopp",
@@ -403,15 +403,12 @@ const de: Dictionary = {
   privateClient: {
     metaTitle: "Private Client",
     metaDescription:
-      "Eine private Videoanprobe mit einem Berater, der die Fassungen kennt. Zwanzig Minuten, ohne Verpflichtung und ohne Kosten.",
+      "Eine direkte Leitung zu einem Berater, der die Fassungen kennt. Früher Zugang zu Editionen, Betreuung über die Seriennummer und eine ehrliche Auskunft vor dem Kauf.",
     eyebrow: "Privatkunden",
     titleFirst: "Jemand, der die",
     titleSecond: "Fassungen kennt.",
-    lede: "Eine Brille zu diesem Preis zu kaufen, ohne sie aufgesetzt zu haben, ist ein nachvollziehbares Zögern. Ein Privatkundenberater ist dazu da, es auszuräumen, auch indem er Ihnen vom Kauf abrät.",
+    lede: "Eine Brille zu diesem Preis zu kaufen, ohne sie aufgesetzt zu haben, ist ein nachvollziehbares Zögern. Das Haus verkauft ausschließlich online und begegnet diesem Zögern mit veröffentlichten Millimetern, einem Spiegel, den Sie im Browser öffnen, dreißig Tagen Rückgaberecht und einem Berater, der Ihnen vom Kauf abrät.",
     services: {
-      fittingTitle: "Private Anprobe per Video",
-      fittingBody:
-        "Zwanzig Minuten mit einem Berater, der die Fassung an Ihnen betrachtet, sie mit einer Brille vergleicht, die Sie bereits besitzen, und beide durchgeht. Unverbindlich und kostenfrei.",
       accessTitle: "Früher Zugang",
       accessBody:
         "Veröffentlichungen werden dem Register angeboten, bevor sie angekündigt werden. Die Editionen sind klein genug, dass dies den Unterschied macht zwischen der Wahl und der Nachricht davon.",
@@ -422,10 +419,10 @@ const de: Dictionary = {
       serviceBody:
         "Registrierte Paare werden über ihre Seriennummer betreut. Die Werkstatt weiß ohne Nachfrage, welches Scharnier, welche Oberfläche und welche Produktionsserie.",
     },
-    appointmentsEyebrow: "Termine",
-    appointmentsTitle: "Eine private Anprobe buchen.",
-    appointmentsLede:
-      "Ein Berater schreibt innerhalb eines Werktags, um eine Zeit in Ihren Stunden zu vereinbaren. Die Sitzungen laufen per Video; Sie brauchen eine Kamera und idealerweise eine Brille, die Sie bereits mögen.",
+    enquiriesEyebrow: "Anfragen",
+    enquiriesTitle: "Einem Berater schreiben.",
+    enquiriesLede:
+      "Es gibt keine Boutiquen und keine Termine einzuhalten. Senden Sie eine Nachricht, und ein Berater antwortet innerhalb eines Werktags schriftlich, mit den Maßen und der ehrlichen Auskunft statt eines Verkaufsgesprächs.",
     orWrite: "Oder schreiben Sie direkt",
     form: {
       elsewhere: "Anderswo",
@@ -435,7 +432,7 @@ const de: Dictionary = {
       interest: "Worüber Sie sprechen möchten",
       measurements:
         "Optional. Die Maße einer Brille, die Sie bereits besitzen, sind das Nützlichste, was Sie mitbringen können.",
-      submit: "Termin anfragen",
+      submit: "Nachricht senden",
       sending: "Wird gesendet…",
       thanks:
         "Erhalten. Ein Berater schreibt innerhalb eines Werktags.",
@@ -453,7 +450,7 @@ const de: Dictionary = {
     verified: "Geprüft",
     serviceHistory: "Servicehistorie",
     request: "Anfrage",
-    bookService: "Service vereinbaren",
+    bookService: "Service anfragen",
     warrantyCovers: "Was die Garantie abdeckt",
     recordCaveat: "Beispielhafter Datensatz. Das Produktionsregister bindet jede Seriennummer am Band an ein gefertigtes Stück, und eine Registrierung kann vom Haus widerrufen oder übertragen werden. Ein gedruckter Code allein ist kein Echtheitsnachweis.",
     metaTitle: "Digitaler Pass",

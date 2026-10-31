@@ -36,7 +36,7 @@ const en = {
     visionStudio: "Virtual try-on, fit recommendations, 3D viewing",
     house: "Philosophy, materials, craftsmanship",
     journal: "Editorial stories, campaigns, collaborations",
-    privateClient: "Appointments, concierge, private releases",
+    privateClient: "Advisors, service, private releases",
     myTamiale: "Orders, saved frames, digital passports",
   },
 
@@ -155,8 +155,8 @@ const en = {
     send: "Ask",
     thinking: "Consulting the register…",
     fallback:
-      "That is outside what I can answer accurately, and I would rather not guess. An advisor can take it from here. A private appointment is the fastest route, or write to clients@tamiale.com and you will have a reply within one working day.",
-    fallbackAction: "Book an advisor",
+      "That is outside what I can answer accurately, and I would rather not guess. An advisor can take it from here: write to clients@tamiale.com, or send a note from the private client page, and you will have a reply within one working day.",
+    fallbackAction: "Write to an advisor",
     suggestions: {
       tailoring: "Which lens suits tailoring?",
       widerFace: "Will this fit a wider face?",
@@ -244,7 +244,7 @@ const en = {
     plan: "Plan",
     rear: "Rear",
     studio: "Studio",
-    boutique: "Boutique",
+    lamplight: "Lamplight",
     nocturne: "Nocturne",
     rotate: "Rotate",
     stop: "Stop",
@@ -402,15 +402,12 @@ const en = {
   privateClient: {
     metaTitle: "Private Client",
     metaDescription:
-      "A private video fitting with an advisor who knows the frames. Twenty minutes, no obligation and no charge.",
+      "A direct line to an advisor who knows the frames. Early access to editions, service against your serial, and an honest answer before you buy.",
     eyebrow: "Private Client",
     titleFirst: "Someone who",
     titleSecond: "knows the frames.",
-    lede: "Buying eyewear at this price without putting it on your face is a reasonable thing to hesitate over. A private client advisor exists to remove that hesitation, including by telling you not to buy.",
+    lede: "Buying eyewear at this price without putting it on your face is a reasonable thing to hesitate over. The house sells online only, so it answers that hesitation with published millimetres, a mirror you can open in your browser, thirty days to send the pair back, and an advisor who will tell you not to buy.",
     services: {
-      fittingTitle: "Private video fitting",
-      fittingBody:
-        "Twenty minutes with an advisor who will look at the frame on you, measure it against a pair you already own and talk through the twos. No obligation, no charge.",
       accessTitle: "Early access",
       accessBody:
         "Releases are offered to the register before they are announced. Editions are small enough that this is the difference between having the choice and reading about it.",
@@ -421,10 +418,10 @@ const en = {
       serviceBody:
         "Registered pairs are serviced against their serial. The workshop knows which hinge, which finish and which production run without asking you.",
     },
-    appointmentsEyebrow: "Appointments",
-    appointmentsTitle: "Book a private fitting.",
-    appointmentsLede:
-      "An advisor will write within one working day to arrange a time in your own hours. Sessions run over video; you will need a camera and, ideally, a pair of glasses you already like.",
+    enquiriesEyebrow: "Enquiries",
+    enquiriesTitle: "Write to an advisor.",
+    enquiriesLede:
+      "There are no boutiques and no appointments to keep. Send a note and an advisor will reply within one working day, in writing, with the measurements and the honest answer rather than a sales call.",
     orWrite: "Or write directly",
     form: {
       elsewhere: "Elsewhere",
@@ -433,7 +430,7 @@ const en = {
       region: "Where you are",
       interest: "What you would like to discuss",
       measurements: "Optional. Measurements from a pair you already own are the single most useful thing you can bring.",
-      submit: "Request an appointment",
+      submit: "Send the note",
       sending: "Sending…",
       thanks: "Received. An advisor will write within one working day.",
       error: "That did not send. Write to {email} and we will pick it up there.",
@@ -449,7 +446,7 @@ const en = {
     verified: "Verified",
     serviceHistory: "Service history",
     request: "Request",
-    bookService: "Book a service",
+    bookService: "Request a service",
     warrantyCovers: "What the warranty covers",
     recordCaveat: "Illustrative record. The production registry binds each serial to a manufactured unit at the line, and a registration can be revoked or transferred by the house. A printed code on its own is not proof of authenticity.",
     metaTitle: "Digital Passport",

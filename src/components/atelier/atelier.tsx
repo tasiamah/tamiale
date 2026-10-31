@@ -27,7 +27,7 @@ const VIEWS: {
   { id: "rear", label: "rear", position: [0, 0.2, -2.2] },
 ];
 
-type LightingId = "studio" | "boutique" | "nocturne";
+type LightingId = "studio" | "lamplight" | "nocturne";
 
 type Scheme = {
   label: keyof Dictionary["atelier"];
@@ -55,8 +55,8 @@ const LIGHTING: Record<LightingId, Scheme> = {
     rim: "#c9c4b8",
     softbox: 4.5,
   },
-  boutique: {
-    label: "boutique",
+  lamplight: {
+    label: "lamplight",
     background: "#1a1917",
     room: "#15140f",
     ambient: 0.12,

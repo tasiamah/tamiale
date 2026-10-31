@@ -87,10 +87,10 @@ const de: TranslatedRegister = {
     answer: `Vor dem Abwischen unter kühlem Wasser abspülen, denn die meisten Kratzer entstehen, wenn ein trockenes Tuch Staub über das Glas zieht. Nehmen Sie das mitgelieferte Mikrofasertuch, nie Alkohol oder Glasreiniger, und bewahren Sie das Paar im Etui auf statt auf dem Kopf, denn genau das weitet die Scharniere mit der Zeit.`,
     labels: [],
   },
-  appointment: {
-    terms: ["termin", "berater", "beratung", "videoanruf", "videotermin", "buchen", "sprechen", "mensch"],
-    answer: `Eine private Videoanprobe mit einem Berater dauert etwa zwanzig Minuten. Er sieht sich die Fassung an Ihnen an, misst gegen Ihre jetzige Brille und bespricht die Glaswahl. Ohne Kaufverpflichtung und ohne Kosten.`,
-    labels: ["Termin vereinbaren"],
+  advisor: {
+    terms: ["berater", "beratung", "privatkunden", "sprechen", "mensch", "boutique", "laden", "geschaeft", "geschäft", "showroom", "persoenlich", "persönlich", "besuchen", "termin", "haendler", "händler"],
+    answer: `Das Haus verkauft ausschließlich online, es gibt also keine Boutique zu besuchen und keinen Termin einzuhalten. Ein Berater antwortet innerhalb eines Werktags schriftlich: die Größe im Vergleich zu einer Brille, die Sie bereits besitzen, die Glaswahl, oder ob die Fassung überhaupt zu Ihnen passt. Bis dahin setzt Ihnen das Vision Studio die Fassung im Browser auf, jedes Maß ist veröffentlicht, und jedes Paar kann innerhalb von dreißig Tagen zurück.`,
+    labels: ["Einem Berater schreiben"],
   },
   order: {
     terms: ["bestellung", "meine bestellung", "sendungsverfolgung", "status", "wo ist", "rechnung"],
