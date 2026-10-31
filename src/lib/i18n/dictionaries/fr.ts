@@ -5,10 +5,15 @@ import type { Dictionary } from "./en";
  * and Vision Studio are the house's own words and are not translated in any
  * market. "Lunetterie" rather than "lunettes" because the house makes frames
  * as a trade, which is what the English "eyewear house" is reaching for.
+ *
+ * "Avoir de la vision" carries the same two senses as the English slogan,
+ * sight and foresight, where "les visionnaires" would keep only the second
+ * and read as utopian rather than discerning.
  */
 const fr: Dictionary = {
   meta: {
     statement: "Lunetterie contemporaine, dessinée à Zurich",
+    slogan: "Pour celles et ceux qui ont de la vision.",
     description:
       "Tamiale est une maison de lunetterie de luxe contemporaine. La Collection 001 est The Marina, une silhouette architecturale en acétate taillé dans la masse, déclinée en trois verres.",
     keywords: [

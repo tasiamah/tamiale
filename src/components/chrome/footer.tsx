@@ -14,7 +14,18 @@ export async function Footer() {
       <div className="gutter section-y">
         <div className="grid gap-14 lg:grid-cols-[1.2fr_2fr]">
           <div className="flex flex-col gap-8">
-            <Wordmark size="lg" className="text-ivory" />
+            {/*
+             * The slogan sits directly under the wordmark and nowhere else.
+             * That is the one position where a house line reads as a
+             * signature rather than as advertising, and it leaves the
+             * homepage free to open on the frame.
+             */}
+            <div>
+              <Wordmark size="lg" className="text-ivory" />
+              <p className="display-md mt-6 max-w-xs text-balance text-ivory">
+                {dict.meta.slogan}
+              </p>
+            </div>
             <p className="max-w-xs text-sm leading-relaxed text-ivory/50">
               {dict.footer.blurb}
             </p>
@@ -51,7 +62,6 @@ export async function Footer() {
           <p>
             © {year} Tamiale. {dict.footer.rights}
           </p>
-          <p className="eyebrow text-ivory/30">{dict.meta.statement}</p>
         </div>
       </div>
     </footer>

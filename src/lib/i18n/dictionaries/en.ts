@@ -17,6 +17,13 @@ const en = {
      * every eyewear brand has already made.
      */
     statement: "Contemporary eyewear, designed in Zurich",
+    /*
+     * The house line. It signs the page from the footer rather than opening
+     * it, because the homepage leads on the frame; a slogan set above the
+     * product is an advertisement, and the same words set under the wordmark
+     * are a signature.
+     */
+    slogan: "For Those with Vision.",
     description:
       "Tamiale is a contemporary luxury eyewear house. Collection 001 is The Marina, an architectural silhouette in block-milled acetate, released in three lens expressions.",
     keywords: [

@@ -5,10 +5,15 @@ import type { Dictionary } from "./en";
  * Cognac, Champagne, Smoke, Vision Studio. "Brillen" rather than
  * "Augenmode": the first is what the category is called in German, the
  * second is marketing language no German speaker uses about themselves.
+ *
+ * "Weitblick" is the rare case where the German is better than the English:
+ * it means seeing far and seeing ahead at once, which is exactly the pun in
+ * "For Those with Vision." A literal "mit Vision" would carry neither.
  */
 const de: Dictionary = {
   meta: {
     statement: "Zeitgenössische Brillen, entworfen in Zürich",
+    slogan: "Für alle mit Weitblick.",
     description:
       "Tamiale ist ein zeitgenössisches Haus für Luxusbrillen. Kollektion 001 ist The Marina, eine architektonische Silhouette aus massivem Acetat in drei Gläsern.",
     keywords: [
