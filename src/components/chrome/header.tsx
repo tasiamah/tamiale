@@ -45,13 +45,13 @@ export function Header() {
         className="fixed inset-x-0 top-0 z-50 h-(--header-height) border-b border-ivory-hairline bg-ivory/92 text-obsidian backdrop-blur-xl transition-[background-color,border-color,color] duration-700 ease-tamiale"
       >
         <div className="gutter grid h-full grid-cols-[1fr_auto_1fr] items-center">
-          <div className="flex items-center gap-8">
+          <div className="flex h-full items-center gap-8">
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
               aria-expanded={menuOpen}
               aria-controls="house-menu"
-              className="eyebrow flex cursor-pointer items-center gap-2.5 transition-opacity duration-300 hover:opacity-60"
+              className="eyebrow flex h-full cursor-pointer items-center gap-2.5 transition-opacity duration-300 hover:opacity-60"
             >
               {/*
                * The word alone was not reading as a control on a phone. Three
@@ -68,27 +68,36 @@ export function Header() {
             </button>
             <Link
               href="/collection"
-              className="eyebrow hidden transition-opacity duration-300 hover:opacity-60 lg:block"
+              className="eyebrow hidden h-full items-center transition-opacity duration-300 hover:opacity-60 lg:flex"
             >
               {dict.nav.collection}
             </Link>
           </div>
 
-          <Link href="/" aria-label={dict.header.home} className="px-4">
+          {/*
+           * Full height rather than hugging the text. The wordmark is a 13px
+           * line sitting in the middle of an 84px bar, which on a phone is a
+           * target you miss more often than you hit.
+           */}
+          <Link
+            href="/"
+            aria-label={dict.header.home}
+            className="flex h-full items-center justify-center px-4 transition-opacity duration-300 hover:opacity-60"
+          >
             <Wordmark size="md" />
           </Link>
 
-          <div className="flex items-center justify-end gap-8">
+          <div className="flex h-full items-center justify-end gap-8">
             <Link
               href="/vision-studio"
-              className="eyebrow hidden transition-opacity duration-300 hover:opacity-60 md:block"
+              className="eyebrow hidden h-full items-center transition-opacity duration-300 hover:opacity-60 md:flex"
             >
               {dict.nav.visionStudio}
             </Link>
             <button
               type="button"
               onClick={open}
-              className="eyebrow cursor-pointer tabular-nums transition-opacity duration-300 hover:opacity-60"
+              className="eyebrow flex h-full cursor-pointer items-center tabular-nums transition-opacity duration-300 hover:opacity-60"
             >
               {dict.header.bag}
               <span className="ml-1.5 opacity-60">({count})</span>
