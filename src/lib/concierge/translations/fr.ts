@@ -14,7 +14,7 @@ const lenses = theMarina.colorways
 const fr: TranslatedRegister = {
   price: {
     terms: ["prix", "coute", "coûte", "combien", "tarif", "cher", "euro", "euros"],
-    answer: `The Marina est à 395 € en Europe, 340 £ au Royaume-Uni, 425 $ aux États-Unis et 1 650 AED aux Émirats. Chaque marché a son prix publié ; nous ne convertissons pas au cours du jour. Les prix européens et britanniques sont affichés toutes taxes comprises.`,
+    answer: `The Marina est à 295 € en Europe, 255 £ au Royaume-Uni, 320 $ aux États-Unis et 1 250 AED aux Émirats. Chaque marché a son prix publié ; nous ne convertissons pas au cours du jour. Les prix européens et britanniques sont affichés toutes taxes comprises.`,
     labels: ["Voir The Marina"],
   },
   preorder: {

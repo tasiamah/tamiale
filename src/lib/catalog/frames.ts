@@ -19,7 +19,7 @@ import type { Colorway, Frame } from "./types";
  * Europe, the UK and the Emirates are shown with taxes in; the US figure is
  * before sales tax, which is added at the checkout.
  */
-const PRICE_EUR = 395;
+const PRICE_EUR = 295;
 
 /** Front elevation in millimetres. Drives the 3D atelier and the try-on scale. */
 /*
@@ -129,7 +129,7 @@ export const theMarina: Frame = {
     "The acetate is milled from block rather than injected, which is slower, wastes more material, and is the only way to get an edge this crisp to hold its polish. Two hand-set rivets mark the end piece. They are structural, and they are the only place the house permits itself an ornament.",
   ],
   price: { amount: PRICE_EUR, currencyCode: "EUR" },
-  priceBook: { EUR: PRICE_EUR, GBP: 340, USD: 425, AED: 1650 },
+  priceBook: { EUR: PRICE_EUR, GBP: 255, USD: 320, AED: 1250 },
   shipsFrom: "December 2026",
   edition: "Edition 001",
   geometry: MARINA_GEOMETRY,

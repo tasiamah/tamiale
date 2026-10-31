@@ -83,7 +83,7 @@ export function RegionProvider({ children }: { children: ReactNode }) {
       setCountry,
       // Currency follows the market; the thousands separator and the symbol's
       // position follow the reader. A French visitor buying in euros should
-      // see 395 €, not €395.
+      // see 295 €, not €295.
       price: (book) =>
         formatMoney(
           book[region.currency],
