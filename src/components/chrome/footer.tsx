@@ -1,6 +1,6 @@
 import { Link } from "@/components/i18n/link";
 import { LanguageSwitcher } from "@/components/i18n/language-switcher";
-import { RegionSelector } from "@/components/chrome/region-selector";
+import { ShipTo } from "@/components/chrome/ship-to";
 import { Wordmark } from "@/components/ui/wordmark";
 import { getDictionary } from "@/lib/i18n/dictionary";
 import { footerGroups } from "@/lib/site";
@@ -29,10 +29,7 @@ export async function Footer() {
             <p className="max-w-xs text-sm leading-relaxed text-ivory/50">
               {dict.footer.blurb}
             </p>
-            <div className="flex flex-col gap-6">
-              <RegionSelector tone="ivory" className="max-w-56" />
-              <LanguageSwitcher tone="ivory" className="max-w-56" />
-            </div>
+            <LanguageSwitcher tone="ivory" className="max-w-56" />
           </div>
 
           <div className="grid gap-10 sm:grid-cols-3">
@@ -58,9 +55,15 @@ export async function Footer() {
           </div>
         </div>
 
-        <div className="mt-28 flex flex-col gap-5 border-t border-obsidian-hairline pt-10 text-xs text-ivory/35 sm:flex-row sm:items-center sm:justify-between">
+        {/*
+         * Destination on the left, ownership on the right. Both are things a
+         * shop is expected to state at the foot of the page and neither is
+         * worth a heading, so they sit on one rule as a single quiet line.
+         */}
+        <div className="mt-28 flex flex-col gap-6 border-t border-obsidian-hairline pt-10 text-xs text-ivory/50 sm:flex-row sm:items-center sm:justify-between">
+          <ShipTo />
           <p>
-            © {year} Tamiale. {dict.footer.rights}
+            © Tamiale {year}. {dict.footer.rights}
           </p>
         </div>
       </div>
