@@ -10,6 +10,7 @@ import { Footer } from "@/components/chrome/footer";
 import { Header } from "@/components/chrome/header";
 import { RegionProvider } from "@/components/chrome/region-provider";
 import { DictionaryProvider } from "@/components/i18n/dictionary-provider";
+import { LanguageOffer } from "@/components/i18n/language-offer";
 import { toClientDictionary } from "@/lib/i18n/client-dictionary";
 import { SavedFramesProvider } from "@/components/account/saved-frames-provider";
 import { htmlLang, locales } from "@/lib/i18n/config";
@@ -111,6 +112,7 @@ export default async function RootLayout({ children }: LayoutProps<"/[locale]">)
               <CartProvider>
                 <BottomBarProvider>
                   <Header />
+                  <LanguageOffer locale={locale} />
                   <main id="main" className="flex-1">
                     {children}
                   </main>
