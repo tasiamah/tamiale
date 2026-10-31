@@ -190,9 +190,9 @@ const en = {
   home: {
     heroLede:
       "Eyewear conceived for those who see beyond convention. One silhouette, designed in Zurich.",
-    /* Describes the placeholder band. Replace it with the photograph. */
     editorialAlt:
-      "Two models wearing sunglasses, photographed against a pale studio backdrop.",
+      "The Marina sunglasses in Onyx acetate with cognac lenses, worn in a studio portrait.",
+    heroCta: "Discover the collection",
     collectionTitleFirst: "Three lenses.",
     collectionTitleSecond: "One silhouette.",
     collectionLede:
