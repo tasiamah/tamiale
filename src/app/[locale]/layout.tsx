@@ -59,7 +59,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(site.url),
     title: {
-      default: `${site.name} · ${dict.meta.statement}`,
+      default: `${dict.meta.homeTitle} · ${site.name}`,
       template: `%s · ${site.name}`,
     },
     description: dict.meta.description,
@@ -70,7 +70,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       siteName: site.name,
       locale: htmlLang[locale],
-      title: `${site.name} · ${dict.meta.statement}`,
+      title: `${dict.meta.homeTitle} · ${site.name}`,
       description: dict.meta.description,
       url: `${site.url}/${locale}`,
     },

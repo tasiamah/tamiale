@@ -14,14 +14,18 @@ const de: Dictionary = {
   meta: {
     statement: "Zeitgenössische Brillen, entworfen in Zürich",
     slogan: "Für alle mit Weitblick.",
+    homeTitle: "Luxus-Sonnenbrillen für Damen und Herren",
     description:
-      "Tamiale ist ein zeitgenössisches Haus für Luxusbrillen. Kollektion 001 ist The Marina, eine architektonische Silhouette aus massivem Acetat in drei Gläsern.",
+      "Luxus-Sonnenbrillen eines zeitgenössischen Hauses aus Zürich. The Marina ist eine architektonische Unisex-Fassung aus Acetat, in drei Gläsern, nummeriert.",
     keywords: [
-      "Luxusbrillen",
+      "Luxus-Sonnenbrillen",
       "Designer-Sonnenbrillen",
+      "hochwertige Sonnenbrillen",
+      "Unisex-Sonnenbrillen",
+      "Luxus-Brillenmarke",
       "Acetatfassungen",
       "Tamiale",
-      "virtuelle Anprobe",
+      "Sonnenbrille virtuell anprobieren",
     ],
   },
 
@@ -60,6 +64,7 @@ const de: Dictionary = {
     clientCare: "Kundenservice",
     theHouse: "Das Haus",
     legal: "Rechtliches",
+    faceShapeGuide: "Gesichtsformen",
     shipping: "Versand",
     returns: "Rückgabe",
     warranty: "Garantie und Reparatur",
@@ -76,7 +81,7 @@ const de: Dictionary = {
   },
 
   commerce: {
-    metaDescription: "{name} erscheint in {count} Glasausführungen, in {edition}, Versand im {month}.",
+    metaDescription: "{name}: schwarze Designer-Sonnenbrille in limitierter Auflage, aus massivem Acetat, in {count} Glasausführungen. {edition}, Versand im {month}.",
     frontElevationMm: "Frontansicht, in Millimetern",
     drawingPlaceholder: "Vorläufig, bis die Fertigungszeichnung vorliegt",
     lensExpression: "Glasausführung",
@@ -223,9 +228,9 @@ const de: Dictionary = {
 
   collection: {
     theDesign: "Der Entwurf",
-    metaTitle: "Die Kollektion",
+    metaTitle: "Unisex-Designer-Sonnenbrillen · Collection 001",
     metaDescription:
-      "Collection 001 · Die Ikonen. The Marina, eine architektonische Silhouette in Onyx-Acetat, in drei Glasausführungen und zur Vorbestellung geöffnet.",
+      "Hochwertige Designer-Sonnenbrillen in einer einzigen architektonischen Silhouette. The Marina aus Onyx-Acetat, in Cognac, Champagne und Smoke, vorbestellbar.",
     eyebrow: "Kollektion 001",
     title: "Die Ikonen.",
     lede: "Das Haus eröffnet mit einer Silhouette statt mit einem Katalog. The Marina ist als abgeflachtes Sechseck gezeichnet, acht Kanten dort, wo die meisten Fassungen eine Kurve verwenden, veröffentlicht in einem einzigen Onyx-Acetat und drei Glasausführungen, jede bestimmt durch das Licht, das sie durchlässt.",
@@ -297,13 +302,29 @@ const de: Dictionary = {
       reasonBridge: "Der Abstand zwischen Ihren Augen liegt bei etwa {gap} mm gegenüber einem Steg von {bridge} mm. Prüfen Sie das an einer Brille, die Sie schon besitzen, denn das Nasenprofil zählt ebenso viel wie der Abstand.",
       reasonShape: "Ihre Proportionen lesen sich als {shape}. Die kantige Braue von The Marina läuft waagerecht über das Gesicht, und das ist das Merkmal, auf das die meisten so oder so reagieren.",
     },
-    metaTitle: "Vision Studio",
+    metaTitle: "Sonnenbrillen virtuell anprobieren · KI & 3D",
     metaDescription:
-      "Probieren Sie The Marina mit Ihrer eigenen Kamera an, schätzen Sie Ihre Passform und vergleichen Sie die drei Gläser. Alles läuft auf Ihrem Gerät.",
+      "Probieren Sie Sonnenbrillen online mit Ihrer Kamera an. Eine KI-Schätzung liest Ihre Gesichtsform, eine 3D-Ansicht dreht die Fassung. Alles bleibt lokal.",
     eyebrow: "Vision Studio",
-    titleFirst: "Ihr Blick.",
-    titleSecond: "Ihre Passform.",
-    lede: "Ein digitaler Spiegel statt eines Filters. Die Fassung wird aus ihrer eigenen Fertigungsgeometrie gezeichnet und auf Ihr Gesicht skaliert, sodass Sie die Größe sehen, die The Marina tatsächlich hat.",
+    titleFirst: "Virtuelle Anprobe.",
+    titleSecond: "Ihre echte Passform.",
+    lede: "Probieren Sie die Sonnenbrille online an, in 3D, mit Ihrer eigenen Kamera. Die Fassung wird aus ihrer eigenen Fertigungsgeometrie gezeichnet und auf Ihr Gesicht skaliert, sodass Sie die Größe sehen, die The Marina tatsächlich hat.",
+    notesHeading: "Zur Anprobe",
+    notes: [
+      {
+        title: "Sonnenbrillen online anprobieren",
+        body: "Der Spiegel öffnet sich in diesem Browser. Nichts zu installieren, kein Konto nötig: Das Kamerabild bleibt auf der Seite, und die Fassung wird darüber gelegt, während Sie sich bewegen.",
+      },
+      {
+        title: "Eine KI-Schätzung, als Schätzung ausgewiesen",
+        body: "Ein Landmarken-Modell liest Ihre Gesichtsbreite und den Augenabstand und stellt sie den veröffentlichten Millimetern gegenüber. Das ist eine Schätzung am Bildschirm und keine Messung, und das Studio sagt es jedes Mal dazu.",
+      },
+      {
+        title: "Die Fassung in 3D",
+        body: "Der Blick durch das Glas dreht The Marina um die eigene Achse, aufgebaut aus der Fertigungsgeometrie statt aus einer Fotografie, sodass die Proportionen in jedem Winkel stimmen.",
+      },
+    ],
+    guideLink: "Welche Sonnenbrille passt zu Ihrer Gesichtsform?",
     tabMirror: "Digitaler Spiegel",
     tabLens: "Blick durch das Glas",
     mirrorClosed: "Der Spiegel ist geschlossen.",
@@ -380,9 +401,9 @@ const de: Dictionary = {
         body: "Veröffentlicht und gehalten. Nicht zum Tageskurs umgerechnet, nicht danach angepasst, von wo aus Sie geklickt haben.",
       },
     ],
-    metaTitle: "Das Haus",
+    metaTitle: "Luxus-Brillenmarke aus Zürich",
     metaDescription:
-      "In Zürich entworfen, in nummerierten Editionen veröffentlicht. Die Positionen des Hauses und die vier Dinge, die es nicht tun wird.",
+      "Eine unabhängige Luxus-Brillenmarke, in Zürich entworfen und in nummerierten Editionen veröffentlicht. Die Positionen des Hauses und seine vier Absagen.",
     eyebrow: "Das Haus",
     titleFirst: "Wahrer Luxus entsteht",
     titleSecond: "nie zufällig.",

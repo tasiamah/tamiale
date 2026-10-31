@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const dict = await getDictionary();
   const locale = await getLocale();
   return {
-    title: `${site.name} · ${dict.meta.statement}`,
+    title: `${dict.meta.homeTitle} · ${site.name}`,
     description: dict.meta.description,
     alternates: alternatesFor("/", locale),
   };

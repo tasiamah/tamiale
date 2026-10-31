@@ -35,6 +35,7 @@ export async function localiseFrame(
     personality: copy.personality,
     character: copy.character,
     tagline: copy.tagline,
+    searchDescriptor: copy.searchDescriptor,
     story: copy.story,
     shipsFrom: copy.shipsFrom,
     edition: copy.edition,

@@ -28,13 +28,26 @@ export async function generateMetadata({
   const dict = await getDictionary();
 
   return {
-    title: `${frame.name} · ${frame.collection}`,
-    description: `${frame.tagline} ${fill(dict.commerce.metaDescription, {
+    /*
+     * The collection line used to sit here, which spent the whole title on
+     * two names a stranger has never read. The descriptor says what the
+     * object is instead, and the model name keeps the first position
+     * because that is what a returning visitor searches for.
+     */
+    title: `${frame.name} · ${frame.searchDescriptor}`,
+    /*
+     * The tagline used to be pasted on the front of this. Together they ran
+     * past two hundred characters in French and German, which is forty
+     * past the point a result stops rendering, so the sentence that
+     * survived truncation was the poetic one rather than the one naming
+     * the product.
+     */
+    description: fill(dict.commerce.metaDescription, {
       name: frame.name,
       count: frame.colorways.length,
       edition: frame.edition,
       month: frame.shipsFrom,
-    })}`,
+    }),
     alternates: alternatesFor(`/collection/${frame.handle}`, await getLocale()),
     openGraph: {
       title: `${frame.name} · ${site.name}`,

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
+import { Link } from "@/components/i18n/link";
 import { VisionStudio } from "@/components/vision/vision-studio";
 import { frameFor } from "@/lib/catalog/content";
 import { findColorway, theMarina } from "@/lib/catalog/frames";
+import { faceShapeGuide } from "@/lib/catalog/guide";
 import { getDictionary, getLocale } from "@/lib/i18n/dictionary";
 import { alternatesFor } from "@/lib/i18n/metadata";
 
@@ -36,11 +38,39 @@ export default async function VisionStudioPage({
           </p>
         </header>
 
-        <div className="pb-24 md:pb-32">
+        <div className="pb-20 md:pb-28">
           <Suspense fallback={<StudioSkeleton />}>
             <ResolvedStudio searchParams={searchParams} />
           </Suspense>
         </div>
+
+        {/*
+         * Prose under the tool. The studio itself is a canvas and a set of
+         * controls, so without this the page has almost no text for a
+         * crawler to read and no answer for a reader who wants to know what
+         * the camera is doing before they switch it on.
+         */}
+        <section className="border-t border-ivory/10 pb-24 pt-14 md:pb-32 md:pt-16">
+          <h2 className="eyebrow text-ivory/55">
+            {dict.visionStudio.notesHeading}
+          </h2>
+          <div className="mt-10 grid gap-10 md:grid-cols-3 md:gap-12">
+            {dict.visionStudio.notes.map((note) => (
+              <div key={note.title}>
+                <h3 className="display-sm text-balance">{note.title}</h3>
+                <p className="mt-4 text-pretty text-sm leading-relaxed text-ivory/55">
+                  {note.body}
+                </p>
+              </div>
+            ))}
+          </div>
+          <Link
+            href={`/guide/${faceShapeGuide.slug}`}
+            className="eyebrow mt-12 inline-block border-b border-ivory/30 pb-1.5 text-ivory transition-colors duration-300 hover:border-ivory"
+          >
+            {dict.visionStudio.guideLink}
+          </Link>
+        </section>
       </div>
     </div>
   );

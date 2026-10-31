@@ -64,6 +64,14 @@ export type Frame = {
   status: FrameStatus;
   /** One line, used under the product title. */
   tagline: string;
+  /**
+   * How the frame is named in a search result, where the reader does not
+   * yet know what "The Marina" is. It is a plain description of the
+   * category and the obvious attribute, so it has to be checked against
+   * each new frame rather than inherited: a title calling a tortoiseshell
+   * pair black would be both a lie and a bounce.
+   */
+  searchDescriptor: string;
   /** Long-form editorial, one paragraph per entry. */
   story: string[];
   price: Money;
@@ -88,6 +96,42 @@ export type Frame = {
   materials: { heading: string; body: string }[];
   colorways: Colorway[];
   shopifyProductId?: string;
+};
+
+/**
+ * One face shape as this guide treats it: how a reader can tell they have
+ * it, what the industry convention claims about it, and how the house's own
+ * frame actually sits on it. The three are kept as separate fields rather
+ * than one block of prose so that the page can label which is observation
+ * and which is received opinion, which is the whole reason the page is
+ * allowed to exist.
+ */
+export type FaceShape = {
+  id: string;
+  name: string;
+  recognise: string;
+  convention: string;
+  marina: string;
+};
+
+export type FaceShapeGuide = {
+  slug: string;
+  metaTitle: string;
+  metaDescription: string;
+  eyebrow: string;
+  title: string;
+  standfirst: string;
+  intro: string[];
+  shapesHeading: string;
+  recogniseLabel: string;
+  conventionLabel: string;
+  marinaLabel: string;
+  shapes: FaceShape[];
+  measureHeading: string;
+  measure: string[];
+  measureSteps: { title: string; body: string }[];
+  caveat: string;
+  cta: { heading: string; body: string; label: string };
 };
 
 export type JournalEntry = {

@@ -113,6 +113,7 @@ export const theMarina: Frame = {
   status: "preorder",
   tagline:
     "A study in confident geometry, sculpted lines and understated presence.",
+  searchDescriptor: "Black Designer Sunglasses",
   story: [
     "The Marina began as a drawing of a building, not a frame. Its front is cut as a flattened hexagon: eight edges where most frames use a curve, each one meeting the next at an angle the eye can read from across a room.",
     "Held at the temple, the silhouette reads small and disciplined. Worn, it does the opposite. The raised brow line sits high and level, and the angular rim gives the face a horizon.",

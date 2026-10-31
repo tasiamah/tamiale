@@ -24,14 +24,28 @@ const en = {
      * are a signature.
      */
     slogan: "For Those with Vision.",
+    /*
+     * The title of the homepage, and the one piece of copy on the site
+     * written for a search result rather than for a reader. A title bar
+     * that opens with the house name spends its first and most heavily
+     * weighted words on a word nobody is searching for yet; a stranger
+     * types the category, so the category goes first and the signature
+     * follows. Under sixty characters, which is roughly where Google
+     * stops rendering the line.
+     */
+    homeTitle: "Luxury Designer Sunglasses for Men and Women",
     description:
-      "Tamiale is a contemporary luxury eyewear house. Collection 001 is The Marina, an architectural silhouette in block-milled acetate, released in three lens expressions.",
+      "Luxury sunglasses from a contemporary house in Zurich. The Marina: an architectural unisex frame in block-milled acetate, three lenses, numbered edition.",
     keywords: [
-      "luxury eyewear",
+      "luxury sunglasses",
       "designer sunglasses",
+      "premium sunglasses",
+      "high end sunglasses",
+      "unisex designer sunglasses",
+      "luxury eyewear brand",
       "acetate frames",
       "Tamiale",
-      "virtual try-on",
+      "virtual try on sunglasses",
     ],
   },
 
@@ -78,6 +92,7 @@ const en = {
     clientCare: "Client Care",
     theHouse: "The House",
     legal: "Legal",
+    faceShapeGuide: "Face Shape Guide",
     shipping: "Shipping",
     returns: "Returns",
     warranty: "Warranty & Repairs",
@@ -94,7 +109,7 @@ const en = {
   },
 
   commerce: {
-    metaDescription: "{name} is released in {count} lens expressions, in {edition}, shipping {month}.",
+    metaDescription: "{name}: limited edition black designer sunglasses in block-milled acetate, in {count} lens expressions. {edition}, shipping {month}.",
     frontElevationMm: "Front elevation, millimetres",
     drawingPlaceholder: "Placeholder pending the factory drawing",
     lensExpression: "Lens expression",
@@ -239,9 +254,9 @@ const en = {
 
   collection: {
     theDesign: "The design",
-    metaTitle: "The Collection",
+    metaTitle: "Unisex Designer Sunglasses · Collection 001",
     metaDescription:
-      "Collection 001 · The Icons. The Marina, an architectural silhouette in Onyx acetate, released in three lens expressions and open for pre-order.",
+      "High end designer sunglasses in a single architectural silhouette. The Marina in Onyx acetate, in cognac, champagne and smoke lenses, open for pre-order.",
     eyebrow: "Collection 001",
     title: "The Icons.",
     lede: "The house opens with one silhouette rather than a catalogue. The Marina is drawn as a flattened hexagon, eight edges where most frames use a curve, released in a single Onyx acetate with three lens expressions, each specified by the light it lets through.",
@@ -313,13 +328,35 @@ const en = {
       reasonBridge: "The bridge gap between your eyes reads at about {gap} mm against a {bridge} mm bridge. Worth checking against a pair you already own, since the nose profile matters as much as the gap.",
       reasonShape: "Your proportions read as {shape}. The Marina's angular brow runs level across the face, which is the characteristic most people respond to either way.",
     },
-    metaTitle: "Vision Studio",
+    metaTitle: "Virtual Try On Sunglasses · AI & 3D Fit",
     metaDescription:
-      "Try the Marina on through your own camera, estimate your fit and compare the three lenses. Everything runs on your device.",
+      "Try sunglasses on online with your own camera. An AI fit estimate reads your face shape, and a 3D view turns the frame. Everything runs on your device.",
     eyebrow: "Vision Studio",
-    titleFirst: "Your perspective.",
-    titleSecond: "Your fit.",
-    lede: "A digital mirror rather than a filter. The frame is drawn from its own factory geometry and scaled to your face, so what you see is the size the Marina will actually be.",
+    /*
+     * The heading used to read "Your perspective. / Your fit.", which is
+     * the page's own name for itself and tells a crawler nothing. This is
+     * the one page on the site with a realistic chance of ranking, so the
+     * h1 says what the thing is before it says how it feels.
+     */
+    titleFirst: "Virtual try-on.",
+    titleSecond: "Your actual fit.",
+    lede: "Try the sunglasses on online, in 3D, through your own camera. The frame is drawn from its own factory geometry and scaled to your face, so what you see is the size the Marina will actually be.",
+    notesHeading: "About the try-on",
+    notes: [
+      {
+        title: "Try sunglasses on online",
+        body: "The mirror opens in this browser. There is nothing to install and no account to make: the camera feed stays in the page, and the frame is composited over it as you move.",
+      },
+      {
+        title: "An AI fit estimate, labelled as an estimate",
+        body: "A face-landmark model reads your temple-to-temple width and your bridge gap and sets them against the published millimetres. It is a screen estimate rather than a measurement, and the studio says so every time it gives you one.",
+      },
+      {
+        title: "The frame in 3D",
+        body: "Lens perspective turns the Marina on its own axis, built from the factory geometry rather than from a photograph, so the proportions hold at every angle.",
+      },
+    ],
+    guideLink: "Which sunglasses suit your face shape?",
     tabMirror: "Digital mirror",
     tabLens: "Lens perspective",
     mirrorClosed: "The mirror is closed.",
@@ -396,9 +433,9 @@ const en = {
         body: "Published and held. Not converted at the spot rate, not adjusted by where you clicked from.",
       },
     ],
-    metaTitle: "The House",
+    metaTitle: "Luxury Eyewear Brand from Zurich",
     metaDescription:
-      "Designed in Zurich, released in numbered editions. The positions the house holds, and the four things it will not do.",
+      "An independent luxury eyewear brand, designed in Zurich and released in numbered editions. The positions the house holds, and the four things it will not do.",
     eyebrow: "The House",
     titleFirst: "True luxury is",
     titleSecond: "never accidental.",

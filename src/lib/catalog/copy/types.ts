@@ -13,6 +13,7 @@ export type FrameCopy = {
   personality: string;
   character: string;
   tagline: string;
+  searchDescriptor: string;
   story: string[];
   /** The dispatch month, written out in the reader's language. */
   shipsFrom: string;

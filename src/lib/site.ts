@@ -28,6 +28,12 @@ export const footerGroups = [
   {
     heading: "clientCare",
     links: [
+      /*
+       * The guide sits in client care rather than in the main menu. It is
+       * advice about buying, not a section of the house, and a footer link
+       * is on every page where a menu item is behind a button.
+       */
+      { key: "faceShapeGuide", href: "/guide/sunglasses-for-your-face-shape" },
       { key: "shipping", href: "/legal/shipping" },
       { key: "returns", href: "/legal/returns" },
       { key: "warranty", href: "/legal/warranty" },

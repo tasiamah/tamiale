@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { frames } from "@/lib/catalog/frames";
+import { faceShapeGuide } from "@/lib/catalog/guide";
 import { journal } from "@/lib/catalog/journal";
 import { legalDocuments } from "@/lib/catalog/legal";
 import { defaultLocale, localePath, locales } from "@/lib/i18n/config";
@@ -22,6 +23,7 @@ const entries: Entry[] = [
     changeFrequency: "weekly" as const,
   })),
   { path: "/vision-studio", priority: 0.8 },
+  { path: `/guide/${faceShapeGuide.slug}`, priority: 0.7 },
   { path: "/house", priority: 0.7 },
   { path: "/journal", priority: 0.6 },
   ...journal.map((entry) => ({

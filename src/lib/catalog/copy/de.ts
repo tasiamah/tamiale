@@ -8,6 +8,7 @@ const de: CatalogCopy = {
       character: "Architektonisch, bestimmt",
       tagline:
         "Eine Studie in souveräner Geometrie, skulpturalen Linien und zurückhaltender Präsenz.",
+      searchDescriptor: "Schwarze Designer-Sonnenbrille",
       story: [
         "The Marina begann als Zeichnung eines Gebäudes, nicht einer Fassung. Ihre Front ist als abgeflachtes Sechseck geschnitten: acht Kanten, wo die meisten Fassungen eine Rundung nehmen, und jede trifft die nächste in einem Winkel, den das Auge quer durch den Raum liest.",
         "Am Bügel gehalten wirkt die Silhouette klein und diszipliniert. Getragen tut sie das Gegenteil. Die erhöhte Brauenlinie sitzt hoch und gerade, und der kantige Rand gibt dem Gesicht einen Horizont.",

@@ -14,14 +14,18 @@ const fr: Dictionary = {
   meta: {
     statement: "Lunetterie contemporaine, dessinée à Zurich",
     slogan: "Pour celles et ceux qui ont de la vision.",
+    homeTitle: "Lunettes de soleil de luxe pour homme et femme",
     description:
-      "Tamiale est une maison de lunetterie de luxe contemporaine. La Collection 001 est The Marina, une silhouette architecturale en acétate taillé dans la masse, déclinée en trois verres.",
+      "Lunettes de soleil de luxe d'une maison contemporaine à Zurich. The Marina, une monture unisexe architecturale en acétate, trois verres, édition numérotée.",
     keywords: [
-      "lunettes de luxe",
+      "lunettes de soleil de luxe",
       "lunettes de soleil de créateur",
+      "lunettes de soleil haut de gamme",
+      "lunettes de soleil unisexes",
+      "marque de lunettes de luxe",
       "montures en acétate",
       "Tamiale",
-      "essayage virtuel",
+      "essayage virtuel de lunettes",
     ],
   },
 
@@ -62,6 +66,7 @@ const fr: Dictionary = {
     clientCare: "Service client",
     theHouse: "La Maison",
     legal: "Mentions légales",
+    faceShapeGuide: "Formes de visage",
     shipping: "Livraison",
     returns: "Retours",
     warranty: "Garantie et réparations",
@@ -78,7 +83,7 @@ const fr: Dictionary = {
   },
 
   commerce: {
-    metaDescription: "{name} paraît en {count} expressions de verre, en {edition}, expédiée en {month}.",
+    metaDescription: "{name} : lunettes de soleil noires de créateur en édition limitée, en acétate taillé dans la masse, en {count} verres. {edition}, expédiées en {month}.",
     frontElevationMm: "Vue de face, en millimètres",
     drawingPlaceholder: "Provisoire, en attente du plan d'usine",
     lensExpression: "Expression du verre",
@@ -225,9 +230,9 @@ const fr: Dictionary = {
 
   collection: {
     theDesign: "Le dessin",
-    metaTitle: "La Collection",
+    metaTitle: "Lunettes de soleil de créateur · Collection 001",
     metaDescription:
-      "Collection 001 · Les Icônes. The Marina, une silhouette architecturale en acétate Onyx, déclinée en trois expressions de verre et ouverte en précommande.",
+      "Des lunettes de soleil unisexes haut de gamme dans une seule silhouette architecturale. The Marina en acétate Onyx, verres cognac, champagne et smoke.",
     eyebrow: "Collection 001",
     title: "Les Icônes.",
     lede: "La maison ouvre avec une silhouette plutôt qu'un catalogue. The Marina est dessinée comme un hexagone aplati, huit arêtes là où la plupart des montures emploient une courbe, éditée dans un seul acétate Onyx et trois déclinaisons de verre, chacune définie par la lumière qu'elle laisse passer.",
@@ -299,13 +304,29 @@ const fr: Dictionary = {
       reasonBridge: "L'écart entre vos yeux se lit autour de {gap} mm face à un pont de {bridge} mm. À vérifier avec une paire que vous possédez déjà, car le profil du nez compte autant que l'écart.",
       reasonShape: "Vos proportions se lisent comme {shape}. Le sourcil anguleux de The Marina court à l'horizontale sur le visage, et c'est la caractéristique à laquelle on réagit, dans un sens ou dans l'autre.",
     },
-    metaTitle: "Vision Studio",
+    metaTitle: "Essayage virtuel de lunettes de soleil · IA et 3D",
     metaDescription:
-      "Essayez The Marina avec votre propre caméra, estimez votre ajustement et comparez les trois verres. Tout tourne sur votre appareil.",
+      "Essayez des lunettes de soleil en ligne avec votre caméra. L'estimation IA lit la forme de votre visage et la vue 3D fait tourner la monture.",
     eyebrow: "Vision Studio",
-    titleFirst: "Votre regard.",
-    titleSecond: "Votre taille.",
-    lede: "Un miroir numérique plutôt qu'un filtre. La monture est tracée à partir de sa propre géométrie d'usine et mise à l'échelle de votre visage : ce que vous voyez est la taille réelle de The Marina.",
+    titleFirst: "Essayage virtuel.",
+    titleSecond: "Votre taille réelle.",
+    lede: "Essayez les lunettes de soleil en ligne, en 3D, avec votre propre caméra. La monture est tracée à partir de sa propre géométrie d'usine et mise à l'échelle de votre visage : ce que vous voyez est la taille réelle de The Marina.",
+    notesHeading: "À propos de l'essayage",
+    notes: [
+      {
+        title: "Essayer des lunettes de soleil en ligne",
+        body: "Le miroir s'ouvre dans ce navigateur. Rien à installer, aucun compte à créer : le flux de la caméra reste dans la page, et la monture s'y superpose à mesure que vous bougez.",
+      },
+      {
+        title: "Une estimation IA, annoncée comme telle",
+        body: "Un modèle de points de repère lit la largeur de votre visage et l'écart entre vos yeux, puis les confronte aux millimètres publiés. C'est une estimation à l'écran et non une mesure, et le studio le dit chaque fois qu'il en donne une.",
+      },
+      {
+        title: "La monture en 3D",
+        body: "La vue à travers le verre fait tourner The Marina sur son axe, construite à partir de la géométrie d'usine plutôt que d'une photographie, de sorte que les proportions tiennent sous tous les angles.",
+      },
+    ],
+    guideLink: "Quelles lunettes de soleil pour la forme de votre visage ?",
     tabMirror: "Miroir numérique",
     tabLens: "Vue à travers le verre",
     mirrorClosed: "Le miroir est fermé.",
@@ -382,9 +403,9 @@ const fr: Dictionary = {
         body: "Publié et tenu. Ni converti au cours du jour, ni ajusté selon l'endroit d'où vous avez cliqué.",
       },
     ],
-    metaTitle: "La Maison",
+    metaTitle: "Marque de lunettes de luxe à Zurich",
     metaDescription:
-      "Dessinée à Zurich, éditée en séries numérotées. Les positions que tient la maison, et les quatre choses qu'elle ne fera pas.",
+      "Une marque de lunettes de luxe indépendante, dessinée à Zurich et éditée en séries numérotées. Les positions de la maison, et les quatre choses qu'elle refuse.",
     eyebrow: "La Maison",
     titleFirst: "Le vrai luxe n'est",
     titleSecond: "jamais accidentel.",

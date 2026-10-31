@@ -8,6 +8,7 @@ const fr: CatalogCopy = {
       character: "Architectural, imposant",
       tagline:
         "Une étude de géométrie assumée, aux lignes sculptées et à la présence retenue.",
+      searchDescriptor: "Lunettes de soleil noires de créateur",
       story: [
         "The Marina est née du dessin d'un bâtiment, pas d'une monture. Sa façade est taillée en hexagone aplati : huit arêtes là où la plupart des montures emploient une courbe, chacune rejoignant la suivante selon un angle que l'œil lit d'un bout à l'autre d'une pièce.",
         "Tenue par la branche, la silhouette paraît petite et disciplinée. Portée, elle fait l'inverse. La ligne de sourcil relevée se tient haute et droite, et le cerclage anguleux donne un horizon au visage.",
