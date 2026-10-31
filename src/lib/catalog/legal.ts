@@ -25,7 +25,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "Pre-orders",
         body: [
-          "Collection 001 is sold as a pre-order. Payment is taken when you reserve, which is what holds your pair against the edition, and the pair is dispatched in March 2027.",
+          "Collection 001 is sold as a pre-order. Payment is taken when you reserve, which is what holds your pair against the edition, and the pair is dispatched in December 2026.",
           "If that date moves you will be told before it passes, not after. A delay of more than thirty days entitles you to cancel for a full refund, and you may cancel for any reason at any point before dispatch.",
         ],
       },

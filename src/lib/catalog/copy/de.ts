@@ -13,7 +13,7 @@ const de: CatalogCopy = {
         "Am Bügel gehalten wirkt die Silhouette klein und diszipliniert. Getragen tut sie das Gegenteil. Die erhöhte Brauenlinie sitzt hoch und gerade, und der kantige Rand gibt dem Gesicht einen Horizont.",
         "Das Acetat wird aus dem Block gefräst statt gespritzt. Das dauert länger, kostet mehr Material und ist der einzige Weg, eine so scharfe Kante zu bekommen, die ihre Politur hält. Zwei von Hand gesetzte Nieten markieren das Endstück. Sie tragen, und sie sind die einzige Stelle, an der sich das Haus ein Ornament erlaubt.",
       ],
-      shipsFrom: "März 2027",
+      shipsFrom: "Dezember 2026",
       edition: "Edition 001",
       measurements: [
         { label: "Glasbreite" },

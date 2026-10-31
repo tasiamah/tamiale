@@ -110,7 +110,7 @@ export const theMarina: Frame = {
   ],
   price: { amount: PRICE_EUR, currencyCode: "EUR" },
   priceBook: { EUR: PRICE_EUR, GBP: 360, USD: 450, AED: 1750 },
-  shipsFrom: "March 2027",
+  shipsFrom: "December 2026",
   edition: "Edition 001",
   geometry: MARINA_GEOMETRY,
   measurements: [

@@ -15,7 +15,7 @@ const de: LegalCopy = {
       {
         heading: "Vorbestellungen",
         body: [
-          "Collection 001 wird als Vorbestellung verkauft. Die Zahlung erfolgt bei der Reservierung, und genau das hält Ihr Paar in der Edition zurück; versandt wird es im März 2027.",
+          "Collection 001 wird als Vorbestellung verkauft. Die Zahlung erfolgt bei der Reservierung, und genau das hält Ihr Paar in der Edition zurück; versandt wird es im Dezember 2026.",
           "Verschiebt sich dieses Datum, erfahren Sie es, bevor es verstreicht, nicht danach. Eine Verzögerung von mehr als dreißig Tagen berechtigt Sie zur Stornierung mit voller Rückerstattung, und Sie können bis zum Versand jederzeit und ohne Grund stornieren.",
         ],
       },

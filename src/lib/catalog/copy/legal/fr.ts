@@ -15,7 +15,7 @@ const fr: LegalCopy = {
       {
         heading: "Précommandes",
         body: [
-          "Collection 001 est vendue en précommande. Le paiement est prélevé à la réservation, et c'est ce qui retient votre paire sur l'édition ; la paire est expédiée en mars 2027.",
+          "Collection 001 est vendue en précommande. Le paiement est prélevé à la réservation, et c'est ce qui retient votre paire sur l'édition ; la paire est expédiée en décembre 2026.",
           "Si cette date bouge, vous en serez informé avant qu'elle ne passe, et non après. Un retard de plus de trente jours vous autorise à annuler avec remboursement intégral, et vous pouvez annuler pour n'importe quelle raison à tout moment avant l'expédition.",
         ],
       },

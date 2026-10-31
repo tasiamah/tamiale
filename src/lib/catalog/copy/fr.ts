@@ -13,7 +13,7 @@ const fr: CatalogCopy = {
         "Tenue par la branche, la silhouette paraît petite et disciplinée. Portée, elle fait l'inverse. La ligne de sourcil relevée se tient haute et droite, et le cerclage anguleux donne un horizon au visage.",
         "L'acétate est taillée dans la masse plutôt qu'injectée, ce qui est plus lent, gaspille davantage de matière, et reste la seule façon d'obtenir une arête aussi nette qui garde son poli. Deux rivets posés à la main marquent le tenon. Ils sont structurels, et c'est le seul endroit où la maison s'autorise un ornement.",
       ],
-      shipsFrom: "mars 2027",
+      shipsFrom: "décembre 2026",
       edition: "Édition 001",
       measurements: [
         { label: "Largeur de verre" },
