@@ -10,7 +10,13 @@
  */
 const en = {
   meta: {
-    statement: "A Different Perspective.",
+    /*
+     * Not a slogan. This is the line that follows the wordmark in the title
+     * bar and signs off the footer, so it has to say what the house is in
+     * words a stranger can check, rather than make a claim about vision that
+     * every eyewear brand has already made.
+     */
+    statement: "Contemporary eyewear, designed in Zurich",
     description:
       "Tamiale is a contemporary luxury eyewear house. Collection 001 is The Marina, an architectural silhouette in block-milled acetate, released in three lens expressions.",
     keywords: [

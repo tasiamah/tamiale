@@ -2,13 +2,13 @@ import type { Dictionary } from "./en";
 
 /**
  * As in French, the house's own words are left alone: The Marina, Onyx,
- * Cognac, Champagne, Smoke, Vision Studio. "A Different Perspective." becomes
- * "Ein anderer Blick.", which carries both the viewpoint and the act of
- * looking, where "Perspektive" would only carry the first.
+ * Cognac, Champagne, Smoke, Vision Studio. "Brillen" rather than
+ * "Augenmode": the first is what the category is called in German, the
+ * second is marketing language no German speaker uses about themselves.
  */
 const de: Dictionary = {
   meta: {
-    statement: "Ein anderer Blick.",
+    statement: "Zeitgenössische Brillen, entworfen in Zürich",
     description:
       "Tamiale ist ein zeitgenössisches Haus für Luxusbrillen. Kollektion 001 ist The Marina, eine architektonische Silhouette aus massivem Acetat in drei Gläsern.",
     keywords: [

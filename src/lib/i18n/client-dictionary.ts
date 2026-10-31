@@ -30,7 +30,6 @@ export type ClientDictionary = Pick<
   (typeof clientSections)[number]
 > & {
   /** Two strings pulled out of otherwise server-only sections. */
-  meta: Pick<Dictionary["meta"], "statement">;
   footer: Pick<Dictionary["footer"], "theHouse">;
   privateClient: { form: Dictionary["privateClient"]["form"] };
 };
@@ -42,7 +41,6 @@ export function toClientDictionary(dict: Dictionary): ClientDictionary {
 
   return {
     ...picked,
-    meta: { statement: dict.meta.statement },
     footer: { theHouse: dict.footer.theHouse },
     privateClient: { form: dict.privateClient.form },
   };

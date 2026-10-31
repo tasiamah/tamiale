@@ -3,13 +3,12 @@ import type { Dictionary } from "./en";
 /**
  * Product names stay as they are: The Marina, Onyx, Cognac, Champagne, Smoke
  * and Vision Studio are the house's own words and are not translated in any
- * market. "A Different Perspective." becomes "Un autre regard.", which keeps
- * the double meaning of a viewpoint and a way of looking that the literal
- * translation loses.
+ * market. "Lunetterie" rather than "lunettes" because the house makes frames
+ * as a trade, which is what the English "eyewear house" is reaching for.
  */
 const fr: Dictionary = {
   meta: {
-    statement: "Un autre regard.",
+    statement: "Lunetterie contemporaine, dessinée à Zurich",
     description:
       "Tamiale est une maison de lunetterie de luxe contemporaine. La Collection 001 est The Marina, une silhouette architecturale en acétate taillé dans la masse, déclinée en trois verres.",
     keywords: [

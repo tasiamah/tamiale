@@ -14,10 +14,11 @@ import { findColorway } from "@/lib/catalog/frames";
 import type { Frame } from "@/lib/catalog/types";
 
 /**
- * The opening of the store. The statement comes first because the house has
- * one, but the frame, its price, its three lenses and a way to buy it are all
- * above the fold. A visitor should never have to go looking for the product
- * on the page that is selling it.
+ * The opening of the store. The object is named first and the slogan is gone:
+ * houses of this kind open on the thing they make, not on a line about it.
+ * The frame, its price, its three lenses and a way to buy it are all above
+ * the fold. A visitor should never have to go looking for the product on the
+ * page that is selling it.
  *
  * What is deliberately absent is the reassurance list. Shipping, returns and
  * warranty belong on the frame page, where someone is deciding; putting them
@@ -33,14 +34,18 @@ export function Hero({ frame }: { frame: Frame }) {
   return (
     <section className="gutter pt-24 pb-24 lg:pt-36 lg:pb-32">
       {/*
-       * Centred rather than set across the page. A statement squared up in
-       * the middle of its own empty paper is the oldest formal gesture a
-       * house has, and it costs nothing to make; the asymmetric spread this
+       * Centred rather than set across the page. A name squared up in the
+       * middle of its own empty paper is the oldest formal gesture a house
+       * has, and it costs nothing to make; the asymmetric spread this
        * replaces read as a design studio, not a maison.
+       *
+       * No full stop after the name. A product is a proper noun, and
+       * punctuating it is what turns a nameplate back into a slogan.
        */}
-      <div className="mx-auto flex max-w-2xl flex-col items-center gap-7 text-center">
-        <h1 className="display-hero text-balance">{dict.meta.statement}</h1>
-        <p className="body-lg max-w-md text-pretty text-stone">
+      <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+        <p className="eyebrow text-stone">{frame.collection}</p>
+        <h1 className="display-hero mt-5 text-balance">{frame.name}</h1>
+        <p className="body-lg mt-7 max-w-md text-pretty text-stone">
           {dict.home.heroLede}
         </p>
       </div>
@@ -73,15 +78,13 @@ export function Hero({ frame }: { frame: Frame }) {
         </figure>
 
         <div className="lg:col-span-5 lg:self-center">
-          <p className="eyebrow text-stone">{frame.collection}</p>
-
-          <h2 className="frame-name mt-5 text-4xl md:text-[2.75rem]">
-            {frame.name}
-          </h2>
-
-          <p className="mt-7 max-w-md text-pretty leading-relaxed text-stone">
-            {frame.tagline}
-          </p>
+          {/*
+           * The column is anchored by the description rather than by the
+           * name, because the name is now the headline of this same section
+           * and setting it twice would read as a mistake rather than as
+           * emphasis.
+           */}
+          <h2 className="display-md max-w-md text-balance">{frame.tagline}</h2>
 
           {/*
            * The price sits under the description at reading size, not beside
