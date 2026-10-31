@@ -30,10 +30,10 @@ const COLORWAY_SEEDS: ColorwaySeed[] = [
   {
     id: "cognac",
     name: "Cognac",
-    lensHex: "#E8402F",
-    lensHexLower: "#F7A682",
+    lensHex: "#A9602A",
+    lensHexLower: "#DCA97A",
     lensDescription:
-      "A warm red gradient that burns at the brow and clears toward the cheekbone.",
+      "A warm amber brown, deepest at the brow and clearing toward the cheekbone.",
     vlt: 32,
     filterCategory: 2,
     gradient: true,

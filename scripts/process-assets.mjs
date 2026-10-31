@@ -1,7 +1,9 @@
 /**
  * Derives the Tamiale product media set from the single master photograph.
  *
- * The master is a studio 3/4 view of THE MARINA in Onyx / Ember on white.
+ * The master is a studio 3/4 view of THE MARINA in Onyx on white, shot with
+ * the factory's stock red glass. Every launch colorway is re-tinted from it,
+ * including Cognac: the red in the photograph is the sample, not the product.
  * From it we produce, for every launch colorway, a background-free PNG whose
  * lens region has been re-tinted in HSV while preserving the original
  * gradient, specular highlights and frame shading.
@@ -27,8 +29,8 @@ const CROP = { left: 120, top: 250, width: 790, height: 340 };
 const WHITE = 236;
 /**
  * Chroma above this is lens glass; the acetate and the sweep are achromatic.
- * The low floor also catches the ember spill on the rims, which would
- * otherwise read as red fringing in the cool colorways.
+ * The low floor also catches the glass spill on the rims, which would
+ * otherwise read as red fringing in the cooler colorways.
  */
 const CHROMA_MIN = 12;
 const CHROMA_FULL = 34;
@@ -38,7 +40,7 @@ const CHROMA_FULL = 34;
  * 0-1 saturation; `value` lifts or deepens the tint density.
  */
 const COLORWAYS = [
-  { id: "ember", name: "Ember", hue: null, sat: 1, value: 1 },
+  { id: "cognac", name: "Cognac", hue: 28, sat: 0.85, value: 0.8 },
   { id: "champagne", name: "Champagne", hue: 40, sat: 0.6, value: 1.02 },
   { id: "smoke", name: "Smoke", hue: 220, sat: 0.07, value: 0.72 },
 ];

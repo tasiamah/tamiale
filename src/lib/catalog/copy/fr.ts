@@ -46,9 +46,9 @@ const fr: CatalogCopy = {
       colorways: {
         cognac: {
           lensDescription:
-            "Un dégradé rouge chaud qui brûle au sourcil et s'éclaircit vers la pommette.",
+            "Un brun ambré chaud, le plus dense au sourcil, qui s'éclaircit vers la pommette.",
           imageAlt:
-            "The Marina en acétate Onyx avec un verre dégradé rouge Cognac, vue de trois quarts en studio",
+            "The Marina en acétate Onyx avec un verre dégradé Cognac, vue de trois quarts en studio",
         },
         champagne: {
           lensDescription:

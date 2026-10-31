@@ -46,9 +46,9 @@ const de: CatalogCopy = {
       colorways: {
         cognac: {
           lensDescription:
-            "Ein warmer roter Verlauf, der an der Braue brennt und zum Wangenknochen hin aufklart.",
+            "Ein warmes Bernsteinbraun, an der Braue am dichtesten, zum Wangenknochen hin aufklarend.",
           imageAlt:
-            "The Marina in Onyx-Acetat mit rotem Cognac-Verlaufsglas, Dreiviertelansicht im Studio",
+            "The Marina in Onyx-Acetat mit Cognac-Verlaufsglas, Dreiviertelansicht im Studio",
         },
         champagne: {
           lensDescription:
