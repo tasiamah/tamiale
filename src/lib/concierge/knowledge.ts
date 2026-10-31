@@ -26,7 +26,7 @@ export const knowledge: KnowledgeEntry[] = [
   {
     id: "price",
     terms: ["price", "cost", "how much", "expensive", "eur", "euro", "dollar"],
-    answer: `The Marina is €420 in Europe, £360 in the United Kingdom, $450 in the United States and AED 1,750 in the Emirates. Each market has its own published price; we do not convert at the spot rate. European and UK prices are shown with taxes included.`,
+    answer: `The Marina is €395 in Europe, £340 in the United Kingdom, $425 in the United States and AED 1,650 in the Emirates. Each market has its own published price; we do not convert at the spot rate. European and UK prices are shown with taxes included.`,
     actions: [{ label: "View The Marina", href: "/collection/the-marina" }],
   },
   {
