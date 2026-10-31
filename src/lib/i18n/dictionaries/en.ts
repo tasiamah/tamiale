@@ -203,8 +203,6 @@ const en = {
   },
 
   home: {
-    heroLede:
-      "Eyewear conceived for those who see beyond convention. One silhouette, designed in Zurich.",
     editorialAlt:
       "The Marina sunglasses in Onyx acetate with cognac lenses, worn in a studio portrait.",
     heroCta: "Discover the collection",

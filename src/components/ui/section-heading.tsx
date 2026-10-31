@@ -8,6 +8,13 @@ export function SectionHeading({
   eyebrow,
   title,
   lede,
+  /*
+   * A section heading is an h2 everywhere except the first section of a
+   * page that has no other title above it, which is the homepage now that
+   * the product block is gone. The alternative was a visually hidden h1,
+   * which is a heading written for a crawler and read by nobody.
+   */
+  level = 2,
   tone = "obsidian",
   /*
    * Centred by default. Every section on the page used to be ranged left
@@ -23,11 +30,13 @@ export function SectionHeading({
   eyebrow?: string;
   title: ReactNode;
   lede?: ReactNode;
+  level?: 1 | 2;
   tone?: "obsidian" | "ivory";
   align?: "left" | "center";
   className?: string;
 }) {
   const muted = tone === "ivory" ? "text-ivory/55" : "text-stone";
+  const Title = level === 1 ? "h1" : "h2";
   return (
     <Reveal
       as="header"
@@ -46,14 +55,14 @@ export function SectionHeading({
           {eyebrow}
         </p>
       )}
-      <h2
+      <Title
         className={cn(
           "display-xl text-balance",
           tone === "ivory" ? "text-ivory" : "text-obsidian",
         )}
       >
         {title}
-      </h2>
+      </Title>
       {lede && (
         <div className={cn("body-lg max-w-lg text-pretty", muted)}>{lede}</div>
       )}

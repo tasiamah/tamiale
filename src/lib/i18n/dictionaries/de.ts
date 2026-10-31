@@ -176,8 +176,6 @@ const de: Dictionary = {
   },
 
   home: {
-    heroLede:
-      "Brillen für alle, die über Konventionen hinausblicken. Eine Silhouette, in Zürich entworfen.",
     editorialAlt:
       "Die Sonnenbrille The Marina aus Onyx-Acetat mit Cognac-Gläsern, im Studio getragen.",
     heroCta: "Die Kollektion entdecken",

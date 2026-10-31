@@ -14,7 +14,7 @@ export async function Philosophy() {
     <section className="bg-ivory-dim">
       <div className="gutter py-40 md:py-56">
         <Reveal className="mx-auto max-w-4xl text-center">
-          <p className="eyebrow text-stone-dim">03 · {dict.home.houseEyebrow}</p>
+          <p className="eyebrow text-stone-dim">04 · {dict.home.houseEyebrow}</p>
           <p className="display-xl mt-14 text-balance leading-[1.14]">
             {dict.home.manifesto}
             <span className="text-stone"> {dict.home.manifestoTail}</span>

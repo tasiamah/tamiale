@@ -11,9 +11,16 @@ import { cn } from "@/lib/cn";
 export function PrivateAccess({
   heading,
   lede,
+  /*
+   * The register appears on three pages and is the last section of each,
+   * so the number is a property of where it is standing rather than of
+   * what it is. Only the homepage has had to say otherwise so far.
+   */
+  index = "06",
 }: {
   heading?: string;
   lede?: string;
+  index?: string;
 }) {
   const dict = useDictionary();
   const [state, action, pending] = useActionState(requestPrivateAccess, IDLE);
@@ -28,7 +35,9 @@ export function PrivateAccess({
     >
       <div className="gutter grid gap-14 section-y lg:grid-cols-2 lg:gap-24">
         <Reveal>
-          <p className="eyebrow text-stone">06 · {dict.home.registerEyebrow}</p>
+          <p className="eyebrow text-stone">
+            {index} · {dict.home.registerEyebrow}
+          </p>
           <h2 className="display-xl mt-6 text-balance">{title}</h2>
         </Reveal>
 

@@ -178,8 +178,6 @@ const fr: Dictionary = {
   },
 
   home: {
-    heroLede:
-      "Une lunetterie pensée pour celles et ceux qui voient au-delà des conventions. Une silhouette, dessinée à Zurich.",
     editorialAlt:
       "Les lunettes The Marina en acétate Onyx à verres cognac, portées en studio.",
     heroCta: "Découvrir la collection",
