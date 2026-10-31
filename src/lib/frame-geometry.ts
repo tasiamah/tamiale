@@ -8,18 +8,33 @@
 export type Point = readonly [number, number];
 
 /**
- * The lens aperture as a normalised polygon, traced from the master
- * photograph. Seven edges: a near-flat brow, a chamfered outer shoulder, a
- * raked lower edge and a short vertical return at the bridge.
+ * The lens aperture as a normalised polygon, traced off the product
+ * photograph: the glass is the only warm mid-dark region in the picture, so
+ * it separates cleanly, and its convex hull reduced to eight corners is the
+ * cut. The frame sits at 5.8 degrees in that shot, measured from the line
+ * between the two lens centres and taken out before normalising.
+ *
+ * Eight edges, which is what the house says the front is cut with and what
+ * the photograph shows: a level brow, a short chamfer off each end of it,
+ * a near-vertical outer edge, a level base, and a long rake back up to the
+ * bridge. The previous polygon had seven, a brow that sloped toward the
+ * nose and a single raked base, and read as a soft lozenge rather than
+ * something milled.
+ *
+ * The photograph is a three-quarter view and so compressed horizontally.
+ * That does not survive normalising u and v to [0,1] separately, which is
+ * why the aspect ratio of the real lens lives in the spec below rather than
+ * in these numbers.
  */
 const APERTURE_UNIT: Point[] = [
-  [0.1, 0.03],
-  [0.86, 0.0],
-  [1.0, 0.31],
-  [0.93, 0.83],
-  [0.56, 1.0],
-  [0.12, 0.89],
-  [0.0, 0.4],
+  [0.142, 0.027],
+  [0.7, 0.02],
+  [0.89, 0.19],
+  [1.0, 0.673],
+  [0.891, 0.975],
+  [0.311, 0.96],
+  [0.059, 0.583],
+  [0.0, 0.267],
 ];
 
 export type FrameSpec = {
@@ -133,14 +148,22 @@ export function buildOutline(spec: FrameSpec): FrameOutline {
   );
   const [innerX, innerY] = rimRight[nasal];
   const [upperX, upperY] = rimRight[(nasal + 1) % rimRight.length];
-  const arch = (innerY - upperY) * 0.5;
+  /*
+   * How far the keyhole is cut up into the saddle, as a fraction of the drop
+   * from the brow to the rims' nasal corner. At a half, lifted by a further
+   * third at the centre, the cut reached almost to the brow line and the two
+   * rims met in a narrow peak: an aviator's double bridge, not this frame.
+   * A fifth leaves the saddle solid and takes a shallow scoop out of its
+   * underside, which is what the photograph shows.
+   */
+  const arch = (innerY - upperY) * 0.2;
 
   const bridge: Point[] = [
     [-upperX, upperY],
     [upperX, upperY],
     [innerX, innerY],
     [innerX * 0.52, innerY - arch],
-    [0, innerY - arch * 1.3],
+    [0, innerY - arch * 0.9],
     [-innerX * 0.52, innerY - arch],
     [-innerX, innerY],
   ];

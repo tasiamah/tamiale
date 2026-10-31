@@ -22,9 +22,18 @@ import type { Colorway, Frame } from "./types";
 const PRICE_EUR = 395;
 
 /** Front elevation in millimetres. Drives the 3D atelier and the try-on scale. */
+/*
+ * Lens height is 30 rather than the 36 first written here. At 36 the drawn
+ * frame, laid over the campaign photograph at the pose that photograph
+ * implies, hung a third of a lens below the acetate it was supposed to be
+ * of. The same proportion measured off the product shot agrees. Every
+ * figure in this block is still provisional until the factory sheet
+ * arrives; this one is at least now measured against the pictures the shop
+ * actually shows.
+ */
 const MARINA_GEOMETRY = {
   lensWidth: 48,
-  lensHeight: 36,
+  lensHeight: 30,
   bridge: 21,
   templeLength: 145,
   totalWidth: 136,
@@ -126,7 +135,7 @@ export const theMarina: Frame = {
   geometry: MARINA_GEOMETRY,
   measurements: [
     { label: "Lens width", value: "48 mm" },
-    { label: "Lens height", value: "36 mm" },
+    { label: "Lens height", value: "30 mm" },
     { label: "Bridge", value: "21 mm" },
     { label: "Temple length", value: "145 mm" },
     { label: "Total front width", value: "136 mm" },
