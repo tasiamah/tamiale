@@ -9,7 +9,7 @@
  *
  * The landmark model itself is not on npm. Download it once from
  * https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task
- * into public/vision/models/ — this script only reports whether it is there.
+ * into public/vision/models/. This script only reports whether it is there.
  *
  *   pnpm vision:sync
  */
@@ -32,6 +32,6 @@ console.log(`${files.length} runtime files → ${WASM_TARGET}`);
 const model = await stat(MODEL).catch(() => null);
 console.log(
   model
-    ? `model present — ${(model.size / 1024 / 1024).toFixed(1)} MB`
-    : `MISSING ${MODEL} — see the note at the top of this script`,
+    ? `model present, ${(model.size / 1024 / 1024).toFixed(1)} MB`
+    : `MISSING ${MODEL}, see the note at the top of this script`,
 );

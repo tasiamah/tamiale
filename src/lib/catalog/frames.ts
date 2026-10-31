@@ -1,14 +1,12 @@
 import type { Colorway, Frame } from "./types";
 
 /**
- * ─────────────────────────────────────────────────────────────────────────
- * PLACEHOLDER TECHNICAL DATA
+ * PLACEHOLDER TECHNICAL DATA.
  *
  * Every millimetre, gram, VLT figure and material name below is a working
  * placeholder written to build and lay out the store. Replace this file with
- * the factory specification sheet and the lens certificates before launch —
- * these values are published to customers and to Schema.org product data.
- * ─────────────────────────────────────────────────────────────────────────
+ * the factory specification sheet and the lens certificates before launch,
+ * because these values are published to customers and to Schema.org data.
  */
 
 const PRICE_EUR = 420;
@@ -99,7 +97,7 @@ export const theMarina: Frame = {
   handle: "the-marina",
   name: "The Marina",
   shortName: "Marina",
-  collection: "Collection 001 — The Icons",
+  collection: "Collection 001 · The Icons",
   personality: "Bold sophistication",
   character: "Architectural, commanding",
   status: "preorder",
@@ -107,7 +105,7 @@ export const theMarina: Frame = {
     "A study in confident geometry, sculpted lines and understated presence.",
   story: [
     "The Marina began as a drawing of a building, not a frame. Its front is cut as a flattened hexagon: eight edges where most frames use a curve, each one meeting the next at an angle the eye can read from across a room.",
-    "Held at the temple, the silhouette reads small and disciplined. Worn, it does the opposite — the raised brow line sits high and level, and the angular rim gives the face a horizon.",
+    "Held at the temple, the silhouette reads small and disciplined. Worn, it does the opposite. The raised brow line sits high and level, and the angular rim gives the face a horizon.",
     "The acetate is milled from block rather than injected, which is slower, wastes more material, and is the only way to get an edge this crisp to hold its polish. Two hand-set rivets mark the end piece. They are structural, and they are the only place the house permits itself an ornament.",
   ],
   price: { amount: PRICE_EUR, currencyCode: "EUR" },
@@ -125,7 +123,7 @@ export const theMarina: Frame = {
     { label: "Weight", value: "28 g", note: "Complete, with lenses" },
     {
       label: "Recommended face width",
-      value: "128 – 144 mm",
+      value: "128 to 144 mm",
       note: "Temple to temple",
     },
   ],

@@ -1,6 +1,6 @@
 # Tamiale
 
-The storefront for Tamiale — a contemporary eyewear house. Next.js App Router,
+The storefront for Tamiale, a contemporary eyewear house. Next.js App Router,
 headless Shopify, with the collection presented as a pre-order on Edition 001.
 
 ```bash
@@ -16,22 +16,22 @@ pnpm lint
 Four things in here are stand-ins. They are all plausible and internally
 consistent, which is exactly why they need to be checked rather than trusted.
 
-**Technical specifications** — `src/lib/catalog/frames.ts`. Every millimetre,
+**Technical specifications** in `src/lib/catalog/frames.ts`. Every millimetre,
 the 28 g weight, the VLT percentages, the filter categories and the material
 names are working values chosen to build and lay out the store. They are
 published to customers and emitted as Schema.org product data. Replace the file
 with the factory specification sheet and the lens certificates.
 
-**Policy copy** — `src/lib/catalog/legal.ts`. Drafts, not reviewed by counsel.
+**Policy copy** in `src/lib/catalog/legal.ts`. Drafts, not reviewed by counsel.
 The pre-order terms in particular need checking against EU and UK distance
 selling rules, which treat a deposit taken months before dispatch differently
 from an ordinary sale.
 
-**Prices** — the €420 / £360 / $450 / AED 1,750 price book in `frames.ts` is
+**Prices**: the €420 / £360 / $450 / AED 1,750 price book in `frames.ts` is
 illustrative. The house publishes a price list per market rather than
 converting at the spot rate, so each figure is set deliberately.
 
-**Photography** — there is one real photograph of the product. Ember is that
+**Photography**: there is one real photograph of the product. Ember is that
 photograph; Champagne and Smoke are derived from it by re-tinting the lens
 (`scripts/process-assets.mjs`). They are honest previews of the colourways and
 they are not product photography. Shoot the other two.
@@ -39,8 +39,8 @@ they are not product photography. Shoot the other two.
 ## Shopify
 
 The store runs headless against the Storefront API. Without credentials the
-site still builds and renders from the editorial catalogue in `src/lib/catalog`
-— a storefront outage, or a store that does not exist yet, must never take the
+site still builds and renders from the editorial catalogue in `src/lib/catalog`.
+A storefront outage, or a store that does not exist yet, must never take the
 shop window down with it. What you lose without credentials is checkout.
 
 Set up in Shopify:
@@ -68,7 +68,7 @@ the one-off model download.
 What the page promises, and what the code has to keep promising:
 
 - Camera access is requested when the visitor opens the mirror, not on load.
-  `pnpm qa:vision` asserts this — it fails the check if the vision runtime is
+  `pnpm qa:vision` asserts this. It fails the check if the vision runtime is
   fetched before consent.
 - No image, video or landmark is sent anywhere. There is no upload path.
 - Nothing is stored unless the visitor saves a fit profile, which lives in

@@ -16,7 +16,7 @@ export default function MyTamialePage() {
     <>
       <header className="gutter border-b border-ivory-hairline py-20 md:py-28">
         <Reveal className="max-w-3xl">
-          <p className="eyebrow text-stone">06 — My Tamiale</p>
+          <p className="eyebrow text-stone">06 · My Tamiale</p>
           <h1 className="display-hero mt-8">My Tamiale.</h1>
           <p className="body-lg mt-10 max-w-xl text-pretty text-stone-dim">
             Saved frames and your fit profile live in this browser and nowhere

@@ -70,7 +70,7 @@ export function ButtonLink({
 }
 
 /**
- * An underlined text link whose rule draws itself in from the left on hover —
+ * An underlined text link whose rule draws itself in from the left on hover,
  * the only decorative motion the house allows in running text.
  */
 export function QuietLink({

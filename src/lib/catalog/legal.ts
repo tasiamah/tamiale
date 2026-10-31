@@ -83,13 +83,13 @@ export const legalDocuments: LegalDocument[] = [
         heading: "What is covered",
         body: [
           "Two years from delivery against defects in materials and manufacture: hinge failure, delamination of the acetate, lens coating failure, and any fault in assembly.",
-          "The warranty does not cover accidental damage, normal wear to the finish, scratches from use, or damage from heat — leaving a pair on a dashboard will distort acetate, and no house can warrant against that.",
+          "The warranty does not cover accidental damage, normal wear to the finish, scratches from use, or damage from heat. Leaving a pair on a dashboard will distort acetate, and no house can warrant against that.",
         ],
       },
       {
         heading: "Repair before replacement",
         body: [
-          "Hinges, temples and lenses are all serviceable. Where a pair can be repaired it will be, in preference to replacing it, and that applies after the warranty has expired as well — out-of-warranty repairs are charged at cost.",
+          "Hinges, temples and lenses are all serviceable. Where a pair can be repaired it will be, in preference to replacing it, and that applies after the warranty has expired as well, where repairs are charged at cost.",
           "Register the serial engraved on the inner left temple to a Digital Passport and the warranty follows the pair rather than the receipt, including to a second owner.",
         ],
       },
@@ -141,7 +141,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "Where the processing happens",
         body: [
-          "The face tracking model and its WebAssembly runtime are served from tamiale.com and executed in your browser. Video frames are read from the camera, measured, drawn over, and discarded — they are never uploaded, and the studio makes no network request once it has loaded.",
+          "The face tracking model and its WebAssembly runtime are served from tamiale.com and executed in your browser. Video frames are read from the camera, measured, drawn over, and discarded. They are never uploaded, and the studio makes no network request once it has loaded.",
           "You can verify this: open your browser's network inspector and use the studio. There is no traffic.",
         ],
       },
@@ -180,7 +180,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "Known limitations",
         body: [
-          "The 3D atelier is a canvas and cannot be read by a screen reader. Everything it shows — every dimension, material and finish — is published as text in the specification table on the same page, and the technical elevation carries a full text description.",
+          "The 3D atelier is a canvas and cannot be read by a screen reader. Every dimension, material and finish it shows is published as text in the specification table on the same page, and the technical elevation carries a full text description.",
           "Vision Studio requires a camera and a face, and is therefore not available to everyone. It is an addition to the shopping experience and never a requirement of it.",
         ],
       },

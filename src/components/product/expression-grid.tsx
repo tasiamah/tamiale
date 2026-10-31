@@ -4,7 +4,7 @@ import type { Frame } from "@/lib/catalog/types";
 
 /**
  * Three cuts of one silhouette, so the only question the page asks is "which
- * lens". That comparison needs tiles of equal size on a shared baseline —
+ * lens". That comparison needs tiles of equal size on a shared baseline;
  * an offset editorial spread makes two frames look different when the only
  * difference is the glass.
  */

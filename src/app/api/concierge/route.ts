@@ -6,7 +6,7 @@ const MAX_QUESTION_LENGTH = 500;
 
 /**
  * The register answers directly. An LLM, when configured, is allowed to
- * rephrase the retrieved entry conversationally — it is never given licence to
+ * rephrase the retrieved entry conversationally. It is never given licence to
  * supply facts of its own, because the facts it would invent here are
  * measurements and shipping dates.
  */

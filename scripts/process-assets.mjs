@@ -117,8 +117,8 @@ function backgroundMask(data, width, height, channels) {
 /**
  * Depth of each product pixel inside the silhouette, counted in pixels from
  * the studio sweep and capped at BAND. Used to ramp the alpha so that the
- * specular highlight running along the top of the temple — which is as bright
- * as the background it sits against — fades out instead of being cut into
+ * specular highlight running along the top of the temple, which is as bright
+ * as the background it sits against, fades out instead of being cut into
  * a row of white teeth.
  */
 const BAND = 3;

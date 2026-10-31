@@ -27,7 +27,7 @@ export function VisionTeaser({ frame }: { frame: Frame }) {
     <section className="grain border-t border-obsidian-hairline bg-obsidian text-ivory">
       <div className="gutter grid items-center gap-16 py-24 md:py-32 lg:grid-cols-[1fr_1.05fr] lg:gap-24">
         <Reveal>
-          <p className="eyebrow text-ivory/55">04 — Vision Studio</p>
+          <p className="eyebrow text-ivory/55">04 · Vision Studio</p>
           <h2 className="display-xl mt-6 text-balance">
             Your perspective.
             <br />

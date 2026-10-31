@@ -6,7 +6,7 @@ import { cn } from "@/lib/cn";
 
 /**
  * Content settles into place once, on first sight. No parallax, no re-trigger
- * on scroll-back — the page should feel composed rather than animated.
+ * on scroll-back, so the page feels composed rather than animated.
  */
 export function Reveal({
   children,

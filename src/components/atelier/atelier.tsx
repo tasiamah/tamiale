@@ -71,7 +71,7 @@ const LIGHTING: Record<LightingId, Scheme> = {
 
 /**
  * A black acetate frame is almost entirely described by what it reflects, so
- * the rig is built from softbox panels rather than an HDR file — nothing to
+ * the rig is built from softbox panels rather than an HDR file, so nothing to
  * download, and the highlights travel correctly as the frame turns.
  */
 function Rig({ scheme }: { scheme: Scheme }) {
@@ -158,7 +158,7 @@ export function Atelier({
         gl={{ antialias: true, alpha: true }}
         /*
          * Contact shadows clear their depth target with the renderer's clear
-         * colour, so it has to be transparent — otherwise the shadow plane
+         * colour, so it has to be transparent. Otherwise the shadow plane
          * paints an opaque slab under the frame. The visible backdrop comes
          * from the scene background below, which follows the lighting rig.
          */

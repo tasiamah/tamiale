@@ -38,7 +38,7 @@ export const knowledge: KnowledgeEntry[] = [
   {
     id: "sizing",
     terms: ["size", "sizing", "measurement", "mm", "width", "bridge", "temple", "wide", "wider", "narrow", "small", "big", "fit"],
-    answer: `The Marina measures ${theMarina.geometry.lensWidth} mm lens width, ${theMarina.geometry.bridge} mm bridge and ${theMarina.geometry.templeLength} mm temples, for a total front of ${theMarina.geometry.totalWidth} mm. It suits a face measuring roughly 128–144 mm temple to temple. If your current glasses carry three numbers on the inside of the temple, compare them with those first — that is the most reliable check there is.`,
+    answer: `The Marina measures ${theMarina.geometry.lensWidth} mm lens width, ${theMarina.geometry.bridge} mm bridge and ${theMarina.geometry.templeLength} mm temples, for a total front of ${theMarina.geometry.totalWidth} mm. It suits a face measuring roughly 128 to 144 mm temple to temple. If your current glasses carry three numbers on the inside of the temple, compare them with those first. That is the most reliable check there is.`,
     actions: [
       { label: "Estimate your fit", href: "/vision-studio#fit" },
       { label: "Full specification", href: "/collection/the-marina#specification" },
@@ -59,7 +59,7 @@ export const knowledge: KnowledgeEntry[] = [
   {
     id: "suit",
     terms: ["suit", "tailored", "formal", "wedding", "office", "evening", "smart"],
-    answer: `With tailoring, the house would put you in Onyx with Smoke. It is quiet at a distance, which is what you want beside a sharp lapel — the frame's angular brow does the work, and the lens stays out of the conversation. Champagne is the evening choice if you want the eyes to stay visible.`,
+    answer: `With tailoring, the house would put you in Onyx with Smoke. It is quiet at a distance, which is what you want beside a sharp lapel. The frame's angular brow does the work, and the lens stays out of the conversation. Champagne is the evening choice if you want the eyes to stay visible.`,
     actions: [{ label: "Try them on", href: "/vision-studio" }],
   },
   {
@@ -81,7 +81,7 @@ export const knowledge: KnowledgeEntry[] = [
   {
     id: "tryon",
     terms: ["try", "try-on", "tryon", "virtual", "camera", "mirror", "vision studio", "3d", "see on"],
-    answer: `Vision Studio puts the frame on your face through your own camera, and will estimate your face width and bridge fit from the same view. Everything runs on your device — the video never reaches our servers and nothing is stored unless you choose to keep the fit profile.`,
+    answer: `Vision Studio puts the frame on your face through your own camera, and will estimate your face width and bridge fit from the same view. Everything runs on your device. The video never reaches our servers, and nothing is stored unless you choose to keep the fit profile.`,
     actions: [{ label: "Enter Vision Studio", href: "/vision-studio" }],
   },
   {
@@ -111,7 +111,7 @@ export const knowledge: KnowledgeEntry[] = [
   {
     id: "care",
     terms: ["care", "clean", "scratch", "maintain", "wash"],
-    answer: `Rinse under cool water before wiping — most lens scratches are dust being dragged across glass by a dry cloth. Use the supplied microfibre, never alcohol or glass cleaner, and keep the pair in its case rather than on your head, which is what opens hinges over time.`,
+    answer: `Rinse under cool water before wiping, because most lens scratches are dust being dragged across glass by a dry cloth. Use the supplied microfibre, never alcohol or glass cleaner, and keep the pair in its case rather than on your head, which is what opens hinges over time.`,
   },
   {
     id: "appointment",
@@ -128,7 +128,7 @@ export const knowledge: KnowledgeEntry[] = [
   {
     id: "collection",
     terms: ["collection", "models", "other frames", "jordaan", "bahnhof", "palm", "dam", "new", "next"],
-    answer: `One silhouette is released: The Marina, in three lens expressions. Four more — The Jordaan, The Bahnhof, The Palm and The Dam — are drawn and in development, and are not yet available to order. Private Clients see each release before it is announced.`,
+    answer: `One silhouette is released: The Marina, in three lens expressions. Four more are drawn and in development and are not yet available to order: The Jordaan, The Bahnhof, The Palm and The Dam. Private Clients see each release before it is announced.`,
     actions: [
       { label: "The register", href: "/collection#register" },
       { label: "Request early access", href: "/private-client" },
@@ -137,7 +137,7 @@ export const knowledge: KnowledgeEntry[] = [
 ];
 
 export const CONCIERGE_FALLBACK =
-  "That is outside what I can answer accurately, and I would rather not guess. An advisor can take it from here — a private appointment is the fastest route, or write to clients@tamiale.com and you will have a reply within one working day.";
+  "That is outside what I can answer accurately, and I would rather not guess. An advisor can take it from here. A private appointment is the fastest route, or write to clients@tamiale.com and you will have a reply within one working day.";
 
 export const CONCIERGE_FALLBACK_ACTIONS: ConciergeAction[] = [
   { label: "Book an advisor", href: "/private-client" },

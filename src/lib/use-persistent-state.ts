@@ -7,7 +7,7 @@ import { useCallback, useSyncExternalStore } from "react";
  *
  * Backed by `useSyncExternalStore` rather than an effect, so the server render
  * and the hydration pass both see the fallback and React swaps in the stored
- * value itself — no mismatch, and no cascading render on mount.
+ * value itself, so there is no mismatch and no cascading render on mount.
  *
  * `fallback` must be referentially stable; declare it at module scope.
  */

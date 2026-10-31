@@ -116,7 +116,7 @@ async function Record({ params }: PageProps<"/passport/[serial]">) {
                 year: "numeric",
               })}
             </Entry>
-            <Entry label="Registered to">{record.registeredTo ?? "—"}</Entry>
+            <Entry label="Registered to">{record.registeredTo ?? "Not yet registered"}</Entry>
             <Entry label="Warranty until">
               {new Date(record.warrantyUntil).toLocaleDateString("en-GB", {
                 day: "numeric",

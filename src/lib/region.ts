@@ -26,7 +26,7 @@ export const REGIONS: Region[] = [
     currency: "EUR",
     locale: "en-NL",
     taxNote: "VAT included",
-    shippingNote: "Complimentary insured delivery, 2–3 working days",
+    shippingNote: "Complimentary insured delivery, 2 to 3 working days",
   },
   {
     id: "uk",
@@ -35,7 +35,7 @@ export const REGIONS: Region[] = [
     currency: "GBP",
     locale: "en-GB",
     taxNote: "VAT and duties included",
-    shippingNote: "Complimentary insured delivery, 2–4 working days",
+    shippingNote: "Complimentary insured delivery, 2 to 4 working days",
   },
   {
     id: "us",
@@ -44,7 +44,7 @@ export const REGIONS: Region[] = [
     currency: "USD",
     locale: "en-US",
     taxNote: "Sales tax calculated at checkout",
-    shippingNote: "Complimentary insured delivery, 3–5 working days",
+    shippingNote: "Complimentary insured delivery, 3 to 5 working days",
   },
   {
     id: "ae",
@@ -53,7 +53,7 @@ export const REGIONS: Region[] = [
     currency: "AED",
     locale: "en-AE",
     taxNote: "VAT and duties included",
-    shippingNote: "Complimentary insured delivery, 2–4 working days",
+    shippingNote: "Complimentary insured delivery, 2 to 4 working days",
   },
 ];
 

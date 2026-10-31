@@ -155,7 +155,7 @@ body:has([data-stage="dark"]) [data-chrome-spacer] {
 }
 
 /*
- * Section and metadata label. Kept to retail tracking — wide letterspacing on
+ * Section and metadata label. Kept to retail tracking, because wide spacing on
  * every small label is what makes a site read as a service brand.
  */
 @utility eyebrow {

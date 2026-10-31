@@ -11,8 +11,8 @@ const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 /**
  * Client registrations are forwarded to whichever CRM or ESP the house runs.
- * Nothing is written locally — a luxury client list does not belong in an
- * application log — so with no destination configured the form says so
+ * Nothing is written locally, because a luxury client list does not belong
+ * in an application log, so with no destination configured the form says so
  * plainly rather than pretending to have captured an address.
  */
 async function forward(

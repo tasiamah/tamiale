@@ -9,7 +9,7 @@ import { cn } from "@/lib/cn";
 
 export function PrivateAccess({
   heading = "Private access.",
-  lede = "Editions are small and are offered to the house register before they are announced. No campaigns, no discounts — a note when something is ready, and the first opportunity to take it.",
+  lede = "Editions are small and are offered to the house register before they are announced. No campaigns and no discounts. Just a note when something is ready, and the first opportunity to take it.",
 }: {
   heading?: string;
   lede?: string;
@@ -24,7 +24,7 @@ export function PrivateAccess({
     >
       <div className="gutter grid gap-14 py-24 md:py-32 lg:grid-cols-2 lg:gap-24">
         <Reveal>
-          <p className="eyebrow text-stone">06 — The Register</p>
+          <p className="eyebrow text-stone">06 · The Register</p>
           <h2 className="display-xl mt-6 text-balance">{heading}</h2>
         </Reveal>
 

@@ -5,7 +5,7 @@ import { cn } from "@/lib/cn";
 /**
  * The four things a visitor wants to know before spending several hundred on
  * a frame they cannot hold. Shown beside the buy button rather than filed in
- * a closed accordion — a reassurance nobody opens reassures nobody.
+ * a closed accordion, because a reassurance nobody opens reassures nobody.
  *
  * Every claim here has to match src/lib/catalog/legal.ts. If a policy
  * changes, this is the second place to change.

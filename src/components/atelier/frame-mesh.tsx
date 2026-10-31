@@ -11,7 +11,7 @@ const MM = 0.01;
 
 /**
  * Radius in millimetres of the front's base curve. The Marina is a flat,
- * architectural front, so the sweep is slight — enough for the light to travel
+ * architectural front, so the sweep is slight, enough for the light to travel
  * across the brow rather than sit on it as one dead highlight.
  */
 const BASE_CURVE = 520;
@@ -79,7 +79,7 @@ function extrude(
  * Pushes a polygon outward by a fixed distance. The lens is cut to the
  * aperture, but the rim's chamfer opens the hole slightly at the front face,
  * so the glass is oversized to sit in the groove behind the rim as it would
- * on the bench — otherwise daylight shows between the two.
+ * on the bench, otherwise daylight shows between the two.
  */
 function grow(points: Point[], mm: number): Point[] {
   const cx = points.reduce((sum, [x]) => sum + x, 0) / points.length;

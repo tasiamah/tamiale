@@ -67,4 +67,4 @@ const clip = Buffer.concat([
 ]);
 
 await writeFile(output, clip);
-console.log(`${output} — ${W}×${H}, ${frames} frames`);
+console.log(`${output}: ${W}x${H}, ${frames} frames`);

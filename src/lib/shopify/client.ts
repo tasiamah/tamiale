@@ -32,7 +32,7 @@ export async function storefront<T>(
   query: string,
   variables: Record<string, unknown> = {},
   /**
-   * Leave `cache` unset for reads wrapped in `use cache` — the directive owns
+   * Leave `cache` unset for reads wrapped in `use cache`. The directive owns
    * their lifetime. Mutations pass `no-store` explicitly.
    */
   init?: { cache?: RequestCache; tags?: string[] },

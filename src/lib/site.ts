@@ -3,7 +3,7 @@ export const site = {
   wordmark: "TAMIALE",
   statement: "A Different Perspective.",
   description:
-    "Tamiale is a contemporary luxury eyewear house. Collection 001 — The Marina, an architectural silhouette in Italian acetate, released in three lens expressions.",
+    "Tamiale is a contemporary luxury eyewear house. Collection 001 is The Marina, an architectural silhouette in Italian acetate, released in three lens expressions.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://tamiale.com",
   email: "clients@tamiale.com",
   instagram: "https://instagram.com/tamiale",

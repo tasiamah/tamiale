@@ -36,7 +36,7 @@ export default function PrivateClientPage() {
     <>
       <header className="gutter border-b border-ivory-hairline py-20 md:py-28">
         <Reveal className="max-w-4xl">
-          <p className="eyebrow text-stone">05 — Private Client</p>
+          <p className="eyebrow text-stone">05 · Private Client</p>
           <h1 className="display-hero mt-8 text-balance">
             Someone who knows the frames.
           </h1>

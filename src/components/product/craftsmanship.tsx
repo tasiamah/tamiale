@@ -28,7 +28,7 @@ export function Craftsmanship({
             <figure className="bg-ivory-dim px-6 py-12 sm:px-14 sm:py-16">
               <FrameDrawing frame={frame} />
               <figcaption className="mt-10 flex items-baseline justify-between border-t border-ivory-hairline pt-4 text-xs text-stone">
-                <span>{frame.name} — front elevation</span>
+                <span>{frame.name} front elevation</span>
                 <span className="eyebrow">Millimetres</span>
               </figcaption>
             </figure>

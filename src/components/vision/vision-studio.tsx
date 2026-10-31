@@ -382,7 +382,7 @@ export function VisionStudio({
               <p className="mt-5 text-xs leading-relaxed text-ivory/35">
                 Estimated from a single camera, assuming an average pupil
                 distance. Confidence is {fit.confidence}
-                {fit.confidence === "low" ? " — face the camera squarely and try again" : ""}.
+                {fit.confidence === "low" ? ". Face the camera squarely and try again" : ""}.
                 It is not a measurement and cannot guarantee physical fit.
               </p>
 
@@ -438,7 +438,7 @@ export function VisionStudio({
             Against that, {recommendation.primary.name} at{" "}
             {recommendation.primary.vlt}% transmission is the closer match, with{" "}
             {recommendation.alternate.name} as the alternative. This follows
-            your stated preference and the measured density of each lens — it
+            your stated preference and the measured density of each lens. It
             is not a judgement about your face.
           </p>
           <div className="mt-7 flex flex-col gap-3">
@@ -476,7 +476,7 @@ export function VisionStudio({
 function cameraMessage(state: CameraState): string {
   switch (state) {
     case "denied":
-      return "Camera access was declined. You can grant it from the icon in the address bar, or carry on shopping without it — nothing on this site requires the camera.";
+      return "Camera access was declined. You can grant it from the icon in the address bar, or carry on shopping without it, because nothing on this site requires the camera.";
     case "unavailable":
       return "No camera is available on this device, or the browser will not share one over this connection. A camera needs a secure (https) connection.";
     case "failed":

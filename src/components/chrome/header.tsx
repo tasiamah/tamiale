@@ -26,7 +26,7 @@ function useScrolledPastHero(): boolean {
 
 /**
  * The header lives in the root layout and must therefore stay in the static
- * shell of every route — which rules out reading the pathname here. Instead,
+ * shell of every route, which rules out reading the pathname here. Instead,
  * a page announces a dark opening stage with `data-stage="dark"` and the
  * stylesheet matches on it, so the chrome inverts without knowing the URL.
  */
@@ -61,7 +61,7 @@ export function Header() {
             </Link>
           </div>
 
-          <Link href="/" aria-label="Tamiale — home" className="px-4">
+          <Link href="/" aria-label="Tamiale home" className="px-4">
             <Wordmark size="md" />
           </Link>
 

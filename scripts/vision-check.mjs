@@ -42,7 +42,7 @@ await new Promise((resolve) => setTimeout(resolve, 800));
 console.log(
   vision.length
     ? `camera runtime requested before consent: ${vision.join(", ")}`
-    : "no vision runtime requested before consent — correct",
+    : "no vision runtime requested before consent, correct",
 );
 
 await page.evaluate(() => {

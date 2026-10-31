@@ -16,7 +16,7 @@ import type { Frame } from "@/lib/catalog/types";
 /**
  * The opening of the store. The statement comes first because the house has
  * one, but the frame, its price, its three lenses and a way to buy it are all
- * above the fold — a visitor should never have to go looking for the product
+ * above the fold. A visitor should never have to go looking for the product
  * on the page that is selling it.
  */
 export function Hero({ frame }: { frame: Frame }) {
@@ -52,7 +52,7 @@ export function Hero({ frame }: { frame: Frame }) {
           </div>
           <figcaption className="mt-3 flex justify-between text-xs text-stone">
             <span>
-              {frame.name} — {colorway.frameFinish} / {colorway.name}
+              {frame.name} · {colorway.frameFinish} / {colorway.name}
             </span>
             <span className="figure-num">{colorway.sku}</span>
           </figcaption>

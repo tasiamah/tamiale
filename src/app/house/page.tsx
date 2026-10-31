@@ -11,7 +11,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "The House",
   description:
-    "The Tamiale position on design, material and manufacture — written as commitments that can be checked rather than claims that cannot.",
+    "The Tamiale position on design, material and manufacture, written as commitments that can be checked rather than claims that cannot.",
   alternates: { canonical: "/house" },
 };
 
@@ -52,7 +52,7 @@ export default async function HousePage() {
     <>
       <header className="gutter border-b border-ivory-hairline py-20 md:py-28">
         <Reveal className="max-w-4xl">
-          <p className="eyebrow text-stone">03 — The House</p>
+          <p className="eyebrow text-stone">03 · The House</p>
           <h1 className="display-hero mt-8 text-balance">
             True luxury is never accidental.
           </h1>
@@ -101,7 +101,7 @@ export default async function HousePage() {
         </div>
       </section>
 
-      <Craftsmanship frame={frame} index="—" />
+      <Craftsmanship frame={frame} />
 
       <section className="gutter border-t border-ivory-hairline py-24 md:py-32">
         <SectionHeading

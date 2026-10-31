@@ -72,8 +72,8 @@ export function estimateFit(reading: FaceReading, frame: Frame): FitEstimate {
   }
 
   const reasoning = [
-    `Your face measures an estimated ${faceWidthMm.toFixed(0)} mm temple to temple. ${frame.name} is cut for ${lower}–${upper} mm.`,
-    `The bridge gap between your eyes reads at about ${bridgeGapMm.toFixed(0)} mm against a ${frame.geometry.bridge} mm bridge — worth checking against a pair you already own, since the nose profile matters as much as the gap.`,
+    `Your face measures an estimated ${faceWidthMm.toFixed(0)} mm temple to temple. ${frame.name} is cut for ${lower} to ${upper} mm.`,
+    `The bridge gap between your eyes reads at about ${bridgeGapMm.toFixed(0)} mm against a ${frame.geometry.bridge} mm bridge. Worth checking against a pair you already own, since the nose profile matters as much as the gap.`,
     `Your proportions read as ${faceShape}. The Marina's angular brow runs level across the face, which is the characteristic most people respond to either way.`,
   ];
 
@@ -107,7 +107,7 @@ export const STYLING: { id: StylingPreference; label: string; note: string }[] =
 /**
  * Only one silhouette is released, so the recommendation is a lens choice.
  * The mapping is from the visitor's stated preference to measured
- * transmission — not an inference about their face.
+ * transmission, not an inference about their face.
  */
 const LENS_FOR_STYLE: Record<StylingPreference, string[]> = {
   understated: ["smoke", "champagne"],

@@ -8,7 +8,7 @@ import type { FaceReading } from "./tracker";
  * Draws the frame onto a transparent canvas stacked over the video. The
  * geometry is held in millimetres throughout and converted to pixels only in
  * the final transform, so what the wearer sees is the published frame at the
- * scale their own face implies — not an image resized until it looks right.
+ * scale their own face implies, not an image resized until it looks right.
  */
 
 export type Pose = {

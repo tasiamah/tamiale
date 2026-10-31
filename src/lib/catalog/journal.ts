@@ -21,7 +21,7 @@ export const journal: JournalEntry[] = [
       { kind: "heading", text: "What a level brow does" },
       {
         kind: "paragraph",
-        text: "A straight brow line gives the upper half of the face a horizon. The eye reads it as a datum and measures everything else against it — the line of the eyebrow, the set of the cheekbone, the tilt of the head. A curved frame has no datum; it follows the face instead of organising it.",
+        text: "A straight brow line gives the upper half of the face a horizon. The eye reads it as a datum and measures everything else against it: the line of the eyebrow, the set of the cheekbone, the tilt of the head. A curved frame has no datum; it follows the face instead of organising it.",
       },
       {
         kind: "pull",
@@ -53,7 +53,7 @@ export const journal: JournalEntry[] = [
     body: [
       {
         kind: "paragraph",
-        text: "Lens colour is usually sold as a mood. Warm, cool, vintage, modern. These are not useless words, but they describe the lens from the outside — how it looks on someone else's face — rather than from behind it, which is where you will spend your time.",
+        text: "Lens colour is usually sold as a mood. Warm, cool, vintage, modern. These are not useless words, but they describe how the lens looks on someone else's face rather than how it reads from behind, which is where you will spend your time.",
       },
       {
         kind: "paragraph",
@@ -62,7 +62,7 @@ export const journal: JournalEntry[] = [
       { kind: "heading", text: "Reading the categories" },
       {
         kind: "paragraph",
-        text: "European filter categories bundle transmission into five bands. Category 2 covers 18 to 43 per cent and suits most daylight. Category 3 covers 8 to 18 and is the standard for bright sun. Neither category says anything about ultraviolet protection, which is a separate specification — all three Tamiale lenses block to 400 nanometres regardless of how dark they are.",
+        text: "European filter categories bundle transmission into five bands. Category 2 covers 18 to 43 per cent and suits most daylight. Category 3 covers 8 to 18 and is the standard for bright sun. Neither category says anything about ultraviolet protection, which is a separate specification. All three Tamiale lenses block to 400 nanometres regardless of how dark they are.",
       },
       {
         kind: "pull",
@@ -94,7 +94,7 @@ export const journal: JournalEntry[] = [
       },
       {
         kind: "paragraph",
-        text: "A passport is not a certificate of authenticity. A printed code can be copied, and a copied code proves nothing. What the passport does is bind a serial to a registration the house controls and can revoke — which is a weaker claim than most brands make, and a true one.",
+        text: "A passport is not a certificate of authenticity. A printed code can be copied, and a copied code proves nothing. What the passport does is bind a serial to a registration the house controls and can revoke. That is a weaker claim than most brands make, and a true one.",
       },
       { kind: "heading", text: "What it is actually for" },
       {

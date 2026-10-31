@@ -28,7 +28,7 @@ export function ColorwaySwatches({
             type="button"
             role="radio"
             aria-checked={active}
-            aria-label={`${colorway.name} — ${colorway.vlt} percent transmission, filter category ${colorway.filterCategory}`}
+            aria-label={`${colorway.name}, ${colorway.vlt} percent transmission, filter category ${colorway.filterCategory}`}
             title={colorway.name}
             disabled={!colorway.availableForSale}
             onClick={() => onSelect(colorway.id)}

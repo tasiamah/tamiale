@@ -22,11 +22,11 @@ export async function generateMetadata({
   if (!frame) return { title: "Not found" };
 
   return {
-    title: `${frame.name} — ${frame.collection}`,
+    title: `${frame.name} · ${frame.collection}`,
     description: `${frame.tagline} ${frame.name} is released in ${frame.colorways.length} lens expressions, in ${frame.edition}, shipping ${frame.shipsFrom}.`,
     alternates: { canonical: `/collection/${frame.handle}` },
     openGraph: {
-      title: `${frame.name} — ${site.name}`,
+      title: `${frame.name} · ${site.name}`,
       description: frame.tagline,
       images: [{ url: frame.colorways[0].image.src }],
     },
@@ -92,7 +92,7 @@ async function FrameView({
         </div>
       </section>
 
-      <Craftsmanship frame={frame} index="—" />
+      <Craftsmanship frame={frame} />
 
       <script
         type="application/ld+json"
@@ -151,7 +151,7 @@ function productSchema(
     },
     offers: frame.colorways.map((way) => ({
       "@type": "Offer",
-      name: `${frame.name} — ${way.frameFinish} / ${way.name}`,
+      name: `${frame.name} ${way.frameFinish} / ${way.name}`,
       sku: way.sku,
       price: frame.price.amount,
       priceCurrency: frame.price.currencyCode,

@@ -14,7 +14,7 @@ import { getFrames } from "@/lib/shopify/catalog";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: `${site.name} — ${site.statement}`,
+  title: `${site.name} · ${site.statement}`,
   description: site.description,
   alternates: { canonical: "/" },
 };

@@ -42,7 +42,7 @@ export default function PassportPage() {
           <p className="body-lg mt-10 max-w-xl text-pretty text-stone-dim">
             A record the house keeps for a pair rather than for a purchase. It
             holds the edition number, the warranty, the service history and the
-            proof of purchase — and it survives the loss of your email.
+            proof of purchase, and it survives the loss of your email.
           </p>
         </Reveal>
       </header>

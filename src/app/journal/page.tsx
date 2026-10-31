@@ -7,7 +7,7 @@ import { journal } from "@/lib/catalog/journal";
 export const metadata: Metadata = {
   title: "Journal",
   description:
-    "Writing from the house on design, craft and ownership. Not search-engine filler — the arguments behind the objects.",
+    "Writing from the house on design, craft and ownership. Not search-engine filler, but the arguments behind the objects.",
   alternates: { canonical: "/journal" },
 };
 
@@ -22,7 +22,7 @@ export default function JournalPage() {
     <>
       <header className="gutter border-b border-ivory-hairline py-20 md:py-28">
         <Reveal className="max-w-3xl">
-          <p className="eyebrow text-stone">04 — Journal</p>
+          <p className="eyebrow text-stone">04 · Journal</p>
           <h1 className="display-hero mt-8">Journal.</h1>
           <p className="body-lg mt-10 max-w-xl text-pretty text-stone-dim">
             Writing from the house on design, craft and ownership. Each piece

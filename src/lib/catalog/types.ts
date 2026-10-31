@@ -28,7 +28,7 @@ export type Colorway = {
   editionSize: number;
   /**
    * Pieces still unsold. Only Shopify knows this, so it is absent until the
-   * storefront is connected — and the store must say "an edition of 150",
+   * storefront is connected, and the store must say "an edition of 150",
    * never "150 remaining", while it is absent.
    */
   remaining?: number;

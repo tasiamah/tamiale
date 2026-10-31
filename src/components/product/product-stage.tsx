@@ -98,7 +98,7 @@ export function ProductStage({
             </div>
             <figcaption className="mt-4 flex justify-between text-xs text-stone">
               <span>
-                {frame.name} — {colorway.frameFinish} / {colorway.name}
+                {frame.name} · {colorway.frameFinish} / {colorway.name}
               </span>
               <span className="tabular-nums">{colorway.sku}</span>
             </figcaption>
@@ -157,7 +157,7 @@ export function ProductStage({
 
       <div className="lg:sticky lg:top-28 lg:self-start">
         <p className="eyebrow text-stone">{frame.collection}</p>
-        {/* Serif is the house's product voice — names and prices only. */}
+        {/* Serif is the house's product voice: names and prices only. */}
         <h1 className="frame-name mt-4 text-6xl leading-none">{frame.name}</h1>
 
         <div className="mt-5 flex items-baseline gap-4">

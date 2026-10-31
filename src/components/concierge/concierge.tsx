@@ -19,7 +19,7 @@ const GREETING: Turn = {
   id: 0,
   role: "advisor",
   text:
-    "Good day. I hold the register for Collection 001 — measurements, lenses, " +
+    "Good day. I hold the register for Collection 001: measurements, lenses, " +
     "release dates and care. Ask directly; if it is outside what I know, I will " +
     "pass you to an advisor rather than guess.",
 };

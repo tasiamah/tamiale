@@ -47,7 +47,7 @@ function variantForColorway(
 
 /**
  * Overlays live commerce data onto the editorial frame. Anything Shopify does
- * not know about — story, measurements, lens physics — is left untouched.
+ * not know about, such as story, measurements and lens physics, is untouched.
  */
 function mergeCommerce(frame: Frame, product: ShopifyProduct): Frame {
   const minPrice = product.priceRange.minVariantPrice;
