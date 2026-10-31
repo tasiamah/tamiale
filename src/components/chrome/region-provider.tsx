@@ -15,7 +15,6 @@ import type { CurrencyCode } from "@/lib/catalog/types";
 import { dateLocale } from "@/lib/i18n/config";
 import {
   DEFAULT_REGION,
-  countryName,
   findRegion,
   formatMoney,
   isShippingCountry,
@@ -38,9 +37,8 @@ const UNSET = "";
 type RegionContextValue = {
   region: Region;
   setRegion: (id: RegionId) => void;
-  /** ISO code of the destination, and its name in the reader's language. */
+  /** ISO code of the destination. Names are resolved on the server. */
   country: string;
-  countryLabel: string;
   setCountry: (code: string) => void;
   /** Formats a price book in the visitor's market. */
   price: (book: Record<CurrencyCode, number>) => string;
@@ -82,7 +80,6 @@ export function RegionProvider({ children }: { children: ReactNode }) {
       region,
       setRegion,
       country,
-      countryLabel: countryName(country, dateLocale[locale]),
       setCountry,
       // Currency follows the market; the thousands separator and the symbol's
       // position follow the reader. A French visitor buying in euros should

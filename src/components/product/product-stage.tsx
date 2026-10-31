@@ -100,7 +100,8 @@ export function ProductStage({
                 alt={colorway.image.alt}
                 width={colorway.image.width}
                 height={colorway.image.height}
-                priority
+                fetchPriority="high"
+                loading="eager"
                 sizes="(max-width: 1024px) 88vw, 640px"
                 className="w-full max-w-[640px]"
               />

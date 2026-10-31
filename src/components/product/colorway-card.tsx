@@ -11,12 +11,10 @@ import type { Colorway, Frame } from "@/lib/catalog/types";
 export function ColorwayCard({
   frame,
   colorway,
-  priority = false,
   className,
 }: {
   frame: Frame;
   colorway: Colorway;
-  priority?: boolean;
   className?: string;
 }) {
   const dict = useDictionary();
@@ -37,7 +35,6 @@ export function ColorwayCard({
           alt={colorway.image.alt}
           width={colorway.image.width}
           height={colorway.image.height}
-          priority={priority}
           sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 31vw"
           className="relative z-10 w-full"
         />

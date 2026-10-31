@@ -13,11 +13,13 @@ export function ExpressionGrid({ frame }: { frame: Frame }) {
     <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
       {frame.colorways.map((colorway, index) => (
         <Reveal key={colorway.id} delay={(index % 3) * 70}>
-          <ColorwayCard
-            frame={frame}
-            colorway={colorway}
-            priority={index === 0}
-          />
+          {/*
+           * Every tile lazy. The first one used to be eager, which made
+           * Next preload it, and on the homepage that is a full-size
+           * photograph two screens down competing with the banner for the
+           * same connection at the moment the largest paint is decided.
+           */}
+          <ColorwayCard frame={frame} colorway={colorway} />
         </Reveal>
       ))}
     </div>

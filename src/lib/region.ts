@@ -101,15 +101,51 @@ export function isShippingCountry(code: string | undefined | null): boolean {
 }
 
 /**
+ * Names ICU gives in their long constitutional form, which is not what a
+ * shipping list wants. Node and Chrome also disagree on exactly these, so
+ * pinning them here removes a difference as well as a mouthful.
+ */
+const SHORT_NAMES: Record<string, Record<string, string>> = {
+  HK: { "en-GB": "Hong Kong", "fr-FR": "Hong Kong", "de-DE": "Hongkong" },
+};
+
+/**
  * The destination's name in the reader's language. Falls back to the raw
  * code, which is wrong but legible, rather than to an empty line.
+ *
+ * Only ever call this on the server. Node and the browser ship different
+ * ICU data, so a client that recomputed these would hydrate against text
+ * the server never wrote; see `shippingCountries`.
  */
 export function countryName(code: string, locale: string): string {
+  const pinned = SHORT_NAMES[code]?.[locale];
+  if (pinned) return pinned;
   try {
     return new Intl.DisplayNames([locale], { type: "region" }).of(code) ?? code;
   } catch {
     return code;
   }
+}
+
+export type Destination = { code: string; name: string };
+
+/**
+ * Every destination, named and ordered for one reader.
+ *
+ * Resolved on the server and handed to the client as data. Doing it in the
+ * component instead was a hydration error: Node called Hong Kong "Hong Kong
+ * SAR China" and Chrome called it "Hong Kong", so React threw out the tree
+ * and rebuilt it on every page load. Passing the strings down means the two
+ * engines cannot disagree, whatever ICU does next.
+ *
+ * Sorted by the name the reader sees rather than by the code behind it: in
+ * French, Germany files under A.
+ */
+export function shippingCountries(locale: string): Destination[] {
+  return SHIPPING_COUNTRIES.map((code) => ({
+    code,
+    name: countryName(code, locale),
+  })).sort((a, b) => a.name.localeCompare(b.name, locale));
 }
 
 export function formatMoney(

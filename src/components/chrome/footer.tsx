@@ -2,12 +2,16 @@ import { Link } from "@/components/i18n/link";
 import { LanguageSwitcher } from "@/components/i18n/language-switcher";
 import { ShipTo } from "@/components/chrome/ship-to";
 import { Wordmark } from "@/components/ui/wordmark";
-import { getDictionary } from "@/lib/i18n/dictionary";
+import { getDictionary, getLocale } from "@/lib/i18n/dictionary";
+import { dateLocale } from "@/lib/i18n/config";
+import { shippingCountries } from "@/lib/region";
 import { footerGroups } from "@/lib/site";
 
 export async function Footer() {
   const dict = await getDictionary();
+  const locale = await getLocale();
   const year = 2026;
+  const countries = shippingCountries(dateLocale[locale]);
 
   return (
     <footer className="grain border-t border-obsidian-hairline bg-obsidian text-ivory">
@@ -61,7 +65,7 @@ export async function Footer() {
          * worth a heading, so they sit on one rule as a single quiet line.
          */}
         <div className="mt-28 flex flex-col gap-6 border-t border-obsidian-hairline pt-10 text-xs text-ivory/50 sm:flex-row sm:items-center sm:justify-between">
-          <ShipTo />
+          <ShipTo countries={countries} />
           <p>
             © Tamiale {year}. {dict.footer.rights}
           </p>

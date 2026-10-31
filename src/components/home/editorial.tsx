@@ -26,7 +26,13 @@ export async function Editorial() {
         alt={dict.home.editorialAlt}
         width={1024}
         height={348}
-        priority
+        /*
+         * The largest paint on the site. `priority` is deprecated in Next
+         * 16 and never emitted a priority hint anyway; these two attributes
+         * are what the browser actually reads.
+         */
+        fetchPriority="high"
+        loading="eager"
         sizes="100vw"
         /* Enlarged well past its native width; see the note above. */
         quality={90}

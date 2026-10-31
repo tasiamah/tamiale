@@ -1,10 +1,9 @@
 "use client";
 
-import { useId, useMemo } from "react";
+import { useId } from "react";
 
-import { useDictionary, useLocale } from "@/components/i18n/dictionary-provider";
-import { dateLocale } from "@/lib/i18n/config";
-import { SHIPPING_COUNTRIES, countryName } from "@/lib/region";
+import { useDictionary } from "@/components/i18n/dictionary-provider";
+import type { Destination } from "@/lib/region";
 
 import { useRegion } from "./region-provider";
 
@@ -20,22 +19,18 @@ import { useRegion } from "./region-provider";
  * The country is filled in from the edge on a first visit and remembered
  * after that. It also decides the price list, so changing it here changes
  * the currency on every price in the store.
+ *
+ * The named list arrives as a prop rather than being built here, because
+ * Node and the browser do not name every country identically and this
+ * component is rendered by both. See `shippingCountries`.
  */
-export function ShipTo() {
+export function ShipTo({ countries }: { countries: Destination[] }) {
   const id = useId();
   const dict = useDictionary();
-  const locale = useLocale();
-  const { country, countryLabel, setCountry } = useRegion();
+  const { country, setCountry } = useRegion();
 
-  // Sorted by the name the reader sees, not by the code behind it: in French
-  // Germany files under A, and a list ordered by "DE" would look broken.
-  const options = useMemo(() => {
-    const tag = dateLocale[locale];
-    return SHIPPING_COUNTRIES.map((code) => ({
-      code,
-      name: countryName(code, tag),
-    })).sort((a, b) => a.name.localeCompare(b.name, tag));
-  }, [locale]);
+  const label =
+    countries.find((entry) => entry.code === country)?.name ?? country;
 
   return (
     <div className="flex items-center gap-2">
@@ -58,7 +53,7 @@ export function ShipTo() {
        */}
       <span className="relative inline-block border-b border-ivory/30 pb-1 transition-colors duration-300 hover:border-ivory has-[:focus-visible]:border-ivory">
         <span aria-hidden className="eyebrow -mr-[0.185em] block text-ivory">
-          {countryLabel}
+          {label}
         </span>
         <select
           id={id}
@@ -66,7 +61,7 @@ export function ShipTo() {
           onChange={(event) => setCountry(event.target.value)}
           className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
         >
-          {options.map((option) => (
+          {countries.map((option) => (
             <option
               key={option.code}
               value={option.code}
