@@ -28,7 +28,7 @@ export default async function PrivateClientPage() {
 
   return (
     <>
-      <header className="gutter border-b border-ivory-hairline py-20 md:py-28">
+      <header className="gutter border-b border-ivory-hairline section-y">
         <Reveal className="max-w-4xl">
           <p className="eyebrow text-stone">05 · {dict.privateClient.eyebrow}</p>
           <h1 className="display-hero mt-8 text-balance">
@@ -40,7 +40,7 @@ export default async function PrivateClientPage() {
         </Reveal>
       </header>
 
-      <section className="gutter py-20 md:py-28">
+      <section className="gutter section-y">
         <dl className="grid gap-x-12 gap-y-12 border-t border-ivory-hairline pt-12 sm:grid-cols-2">
           {offered.map((service, index) => (
             <Reveal key={service.title} delay={index * 60}>
@@ -57,7 +57,7 @@ export default async function PrivateClientPage() {
         id="contact"
         className="grain scroll-mt-(--header-height) border-t border-ivory-hairline bg-ivory text-obsidian"
       >
-        <div className="gutter grid gap-14 py-24 md:py-32 lg:grid-cols-2 lg:gap-24">
+        <div className="gutter grid gap-14 section-y lg:grid-cols-2 lg:gap-24">
           <Reveal>
             <p className="eyebrow text-stone">{dict.privateClient.appointmentsEyebrow}</p>
             <h2 className="display-xl mt-6 text-balance">

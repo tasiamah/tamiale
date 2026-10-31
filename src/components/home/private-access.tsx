@@ -26,7 +26,7 @@ export function PrivateAccess({
       id="private-access"
       className="grain border-t border-ivory-hairline bg-ivory text-obsidian"
     >
-      <div className="gutter grid gap-14 py-24 md:py-32 lg:grid-cols-2 lg:gap-24">
+      <div className="gutter grid gap-14 section-y lg:grid-cols-2 lg:gap-24">
         <Reveal>
           <p className="eyebrow text-stone">06 · {dict.home.registerEyebrow}</p>
           <h2 className="display-xl mt-6 text-balance">{title}</h2>

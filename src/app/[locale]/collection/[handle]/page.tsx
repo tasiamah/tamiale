@@ -84,7 +84,7 @@ async function FrameView({
       <ResolvedStage frame={frame} searchParams={searchParams} />
 
       <section className="border-t border-ivory-hairline bg-ivory">
-        <div className="gutter grid gap-14 py-24 md:py-32 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
+        <div className="gutter grid gap-14 section-y lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
           <Reveal>
             <p className="eyebrow text-stone">{dict.collection.theDesign}</p>
             <h2 className="display-lg mt-6 text-balance">

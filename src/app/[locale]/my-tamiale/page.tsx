@@ -22,7 +22,7 @@ export default async function MyTamialePage() {
 
   return (
     <>
-      <header className="gutter border-b border-ivory-hairline py-20 md:py-28">
+      <header className="gutter border-b border-ivory-hairline section-y">
         <Reveal className="max-w-3xl">
           <p className="eyebrow text-stone">06 · {dict.myTamiale.eyebrow}</p>
           <h1 className="display-hero mt-8">{dict.myTamiale.title}</h1>

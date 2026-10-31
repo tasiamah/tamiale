@@ -38,7 +38,7 @@ export default async function HomePage() {
         id="collection"
         className="border-t border-ivory-hairline bg-ivory scroll-mt-(--header-height)"
       >
-        <div className="gutter py-24 md:py-32">
+        <div className="gutter section-y">
           <div className="flex flex-col justify-between gap-10 lg:flex-row lg:items-end">
             <SectionHeading
               index="02"

@@ -64,9 +64,9 @@ export function ProductStage({
   }, []);
 
   return (
-    <div className="gutter grid gap-14 pb-20 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
+    <div className="gutter grid gap-16 pb-28 lg:grid-cols-[1.2fr_1fr] lg:gap-24">
       <div>
-        <div className="flex gap-1.5 pb-4">
+        <div className="flex gap-8 pb-6">
           {mediaViews.map((entry) => (
             <button
               key={entry.id}
@@ -74,20 +74,27 @@ export function ProductStage({
               aria-pressed={view === entry.id}
               onClick={() => setView(entry.id)}
               className={cn(
-                "cursor-pointer border px-3.5 py-2.5 text-[0.625rem] font-medium tracking-[0.16em] uppercase transition-colors duration-300",
+                "eyebrow relative cursor-pointer pb-2 transition-colors duration-500 ease-tamiale",
                 view === entry.id
-                  ? "border-obsidian bg-obsidian text-ivory"
-                  : "border-obsidian/15 text-stone hover:border-obsidian/50 hover:text-obsidian",
+                  ? "text-obsidian"
+                  : "text-stone-dim hover:text-obsidian",
               )}
             >
               {entry.label}
+              <span
+                aria-hidden
+                className={cn(
+                  "absolute inset-x-0 bottom-0 h-px bg-obsidian transition-opacity duration-500 ease-tamiale",
+                  view === entry.id ? "opacity-100" : "opacity-0",
+                )}
+              />
             </button>
           ))}
         </div>
 
         {view === "studio" && (
           <figure>
-            <div className="flex aspect-4/3 items-center justify-center bg-ivory-dim px-[7%]">
+            <div className="plate flex aspect-4/3 items-center justify-center px-[2%]">
               <Image
                 src={colorway.image.src}
                 alt={colorway.image.alt}
@@ -98,7 +105,7 @@ export function ProductStage({
                 className="w-full"
               />
             </div>
-            <figcaption className="mt-4 flex justify-between text-xs text-stone">
+            <figcaption className="mt-5 flex justify-between text-xs text-stone-dim">
               <span>
                 {frame.name} · {colorway.frameFinish} / {colorway.name}
               </span>
@@ -120,14 +127,14 @@ export function ProductStage({
             <div className="flex aspect-4/3 items-center justify-center bg-ivory-dim px-[8%]">
               <FrameDrawing frame={frame} />
             </div>
-            <figcaption className="mt-4 flex justify-between text-xs text-stone">
+            <figcaption className="mt-5 flex justify-between text-xs text-stone-dim">
               <span>{dict.commerce.frontElevationMm}</span>
               <span>{dict.commerce.drawingPlaceholder}</span>
             </figcaption>
           </figure>
         )}
 
-        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-4">
           {frame.colorways.map((entry) => (
             <button
               key={entry.id}
@@ -138,10 +145,11 @@ export function ProductStage({
               }}
               aria-label={`View ${entry.name}`}
               className={cn(
-                "flex cursor-pointer items-center justify-center bg-ivory-dim px-3 py-2 transition-opacity duration-500",
+                "flex cursor-pointer items-center justify-center bg-ivory-dim px-2 py-2",
+                "ring-offset-2 ring-offset-ivory transition-all duration-500 ease-tamiale",
                 entry.id === colorway.id
-                  ? "opacity-100 outline outline-obsidian"
-                  : "opacity-50 hover:opacity-90",
+                  ? "opacity-100 ring-1 ring-obsidian"
+                  : "opacity-45 ring-0 ring-obsidian/25 hover:opacity-90 hover:ring-1",
               )}
             >
               <Image
@@ -202,36 +210,34 @@ export function ProductStage({
           </dl>
         </div>
 
-        <div className="mt-8 border border-ivory-hairline bg-ivory-dim/60 px-5 py-4">
+        <div className="hairline-t mt-12 pt-6">
           <EditionNote frame={frame} colorway={colorway} />
-          <p className="mt-2.5 text-sm leading-relaxed text-stone">
+          <p className="mt-3 max-w-md text-sm leading-relaxed text-stone">
             {fill(dict.commerce.preorderNote, { month: frame.shipsFrom })}
           </p>
         </div>
 
         <Button
-          className="mt-6 w-full"
+          className="mt-10 w-full"
           disabled={!colorway.availableForSale}
           onClick={() => reserve(frame, colorway)}
         >
           {colorway.availableForSale
-            ? fill(dict.commerce.reserveThisPair, {
-                price: price(frame.priceBook),
-              })
+            ? dict.commerce.reserve
             : dict.commerce.expressionSpokenFor}
         </Button>
 
         <ButtonLink
           href={`/vision-studio?lens=${colorway.id}`}
           variant="outline"
-          className="mt-2.5 w-full"
+          className="mt-3 w-full"
         >
           {dict.commerce.seeItOnYourFace}
         </ButtonLink>
 
-        <TrustRow className="mt-6 border border-ivory-hairline" />
+        <TrustRow className="mt-12" />
 
-        <div className="mt-6 flex items-center justify-between text-xs">
+        <div className="hairline-t mt-8 flex items-center justify-between pt-6 text-xs">
           <button
             type="button"
             onClick={() => toggleSaved(frame.handle, colorway.id)}
@@ -247,7 +253,7 @@ export function ProductStage({
           </Link>
         </div>
 
-        <div className="mt-12">
+        <div className="mt-16">
           <Detail summary={dict.commerce.details.measurements}>
             <dl>
               {frame.measurements.map((measurement) => (
@@ -298,7 +304,7 @@ function Detail({
 }) {
   return (
     <details className="group border-t border-ivory-hairline last:border-b">
-      <summary className="flex cursor-pointer list-none items-center justify-between py-4 eyebrow marker:content-none">
+      <summary className="flex cursor-pointer list-none items-center justify-between py-5 eyebrow transition-opacity duration-500 ease-tamiale hover:opacity-60 marker:content-none">
         {summary}
         <span
           aria-hidden
@@ -307,7 +313,7 @@ function Detail({
           +
         </span>
       </summary>
-      <div className="pb-6 text-sm">{children}</div>
+      <div className="pb-8 text-sm">{children}</div>
     </details>
   );
 }

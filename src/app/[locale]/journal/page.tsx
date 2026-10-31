@@ -28,7 +28,7 @@ export default async function JournalPage() {
 
   return (
     <>
-      <header className="gutter border-b border-ivory-hairline py-20 md:py-28">
+      <header className="gutter border-b border-ivory-hairline section-y">
         <Reveal className="max-w-3xl">
           <p className="eyebrow text-stone">04 · {dict.journal.eyebrow}</p>
           <h1 className="display-hero mt-8">{dict.journal.title}</h1>
@@ -38,7 +38,7 @@ export default async function JournalPage() {
         </Reveal>
       </header>
 
-      <div className="gutter py-16 md:py-24">
+      <div className="gutter section-y-sm">
         <ul className="border-t border-ivory-hairline">
           {entries.map((entry, index) => (
             <Reveal as="li" key={entry.slug} delay={index * 70}>

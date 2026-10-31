@@ -24,7 +24,7 @@ export default async function HousePage() {
 
   return (
     <>
-      <header className="gutter border-b border-ivory-hairline py-20 md:py-28">
+      <header className="gutter border-b border-ivory-hairline section-y">
         <Reveal className="max-w-4xl">
           <p className="eyebrow text-stone">03 · {dict.house.eyebrow}</p>
           <h1 className="display-hero mt-8 text-balance">
@@ -36,7 +36,7 @@ export default async function HousePage() {
         </Reveal>
       </header>
 
-      <section className="gutter py-24 md:py-32">
+      <section className="gutter section-y">
         <SectionHeading
           eyebrow={dict.house.pillarsEyebrow}
           title={dict.house.positionTitle}
@@ -62,7 +62,7 @@ export default async function HousePage() {
       </section>
 
       <section className="grain border-y border-ivory-hairline bg-ivory text-obsidian">
-        <div className="gutter py-24 md:py-32">
+        <div className="gutter section-y">
           <Reveal className="mx-auto max-w-4xl text-center">
             <p className="display-lg text-balance leading-[1.15]">
 {dict.house.manifesto}
@@ -73,7 +73,7 @@ export default async function HousePage() {
 
       <Craftsmanship frame={frame} />
 
-      <section className="gutter border-t border-ivory-hairline py-24 md:py-32">
+      <section className="gutter border-t border-ivory-hairline section-y">
         <SectionHeading
           eyebrow={dict.house.commitmentsEyebrow}
           title={dict.house.commitmentsTitle}

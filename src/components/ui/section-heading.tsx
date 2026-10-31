@@ -25,7 +25,7 @@ export function SectionHeading({
     <Reveal
       as="header"
       className={cn(
-        "flex max-w-3xl flex-col gap-6",
+        "flex max-w-3xl flex-col gap-8",
         align === "center" && "mx-auto items-center text-center",
         className,
       )}
@@ -48,7 +48,7 @@ export function SectionHeading({
         {title}
       </h2>
       {lede && (
-        <div className={cn("body-lg max-w-xl text-pretty", muted)}>{lede}</div>
+        <div className={cn("body-lg max-w-lg text-pretty", muted)}>{lede}</div>
       )}
     </Reveal>
   );

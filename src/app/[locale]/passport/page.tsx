@@ -27,7 +27,7 @@ export default async function PassportPage() {
 
   return (
     <>
-      <header className="gutter border-b border-ivory-hairline py-20 md:py-28">
+      <header className="gutter border-b border-ivory-hairline section-y">
         <Reveal className="max-w-3xl">
           <p className="eyebrow text-stone">{dict.passport.eyebrow}</p>
           <h1 className="display-hero mt-8 text-balance">
@@ -39,7 +39,7 @@ export default async function PassportPage() {
         </Reveal>
       </header>
 
-      <section className="gutter grid gap-16 py-20 md:py-28 lg:grid-cols-[1fr_1fr] lg:gap-24">
+      <section className="gutter grid gap-16 section-y lg:grid-cols-[1fr_1fr] lg:gap-24">
         <div>
           <ol className="border-t border-ivory-hairline">
             {stages.map((step, index) => (

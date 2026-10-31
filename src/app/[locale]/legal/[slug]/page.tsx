@@ -48,7 +48,7 @@ async function Document({ params }: PageProps<"/[locale]/legal/[slug]">) {
   const policies = await legalDocumentsFor();
 
   return (
-    <div className="gutter grid gap-16 py-16 md:py-24 lg:grid-cols-[16rem_1fr] lg:gap-24">
+    <div className="gutter grid gap-16 section-y-sm lg:grid-cols-[16rem_1fr] lg:gap-24">
       <nav aria-label={dict.legal.policies} className="lg:sticky lg:top-28 lg:self-start">
         <h2 className="eyebrow text-stone">{dict.legal.policies}</h2>
         <ul className="mt-6 flex flex-col gap-3.5">

@@ -26,7 +26,7 @@ export default async function CollectionPage() {
 
   return (
     <>
-      <header className="gutter border-b border-ivory-hairline py-20 md:py-28">
+      <header className="gutter border-b border-ivory-hairline section-y">
         <Reveal className="max-w-4xl">
           <p className="eyebrow text-stone">{frame.collection}</p>
           <h1 className="display-hero mt-8 text-balance">{dict.collection.title}</h1>
@@ -50,12 +50,12 @@ export default async function CollectionPage() {
         </dl>
       </header>
 
-      <section id="expressions" className="gutter scroll-mt-(--header-height) py-20 md:py-28">
+      <section id="expressions" className="gutter scroll-mt-(--header-height) section-y">
         <ExpressionGrid frame={frame} />
       </section>
 
       <section className="grain border-t border-ivory-hairline bg-ivory text-obsidian">
-        <div className="gutter py-24 md:py-32">
+        <div className="gutter section-y">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-24">
             <Reveal>
               <p className="eyebrow text-stone">{dict.collection.storyEyebrow}</p>
@@ -88,7 +88,7 @@ export default async function CollectionPage() {
 
       <section
         id="register"
-        className="gutter scroll-mt-(--header-height) border-t border-ivory-hairline py-24 md:py-32"
+        className="gutter scroll-mt-(--header-height) border-t border-ivory-hairline section-y"
       >
         <SectionHeading
           eyebrow={dict.collection.eyebrow}

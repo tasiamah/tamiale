@@ -11,7 +11,7 @@ export async function Footer() {
 
   return (
     <footer className="grain border-t border-obsidian-hairline bg-obsidian text-ivory">
-      <div className="gutter py-20 md:py-24">
+      <div className="gutter section-y">
         <div className="grid gap-14 lg:grid-cols-[1.2fr_2fr]">
           <div className="flex flex-col gap-8">
             <Wordmark size="lg" className="text-ivory" />
@@ -30,7 +30,7 @@ export async function Footer() {
                 <h2 className="eyebrow text-ivory/40">
                   {dict.footer[group.heading]}
                 </h2>
-                <ul className="mt-5 flex flex-col gap-3">
+                <ul className="mt-7 flex flex-col gap-4">
                   {group.links.map((link) => (
                     <li key={link.href}>
                       <Link
@@ -47,7 +47,7 @@ export async function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 flex flex-col gap-5 border-t border-obsidian-hairline pt-8 text-xs text-ivory/35 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-28 flex flex-col gap-5 border-t border-obsidian-hairline pt-10 text-xs text-ivory/35 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} Tamiale. {dict.footer.rights}
           </p>

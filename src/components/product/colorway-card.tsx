@@ -27,7 +27,7 @@ export function ColorwayCard({
   return (
     <article className={cn("group relative", className)}>
       <div
-        className="grain relative flex aspect-5/4 items-center justify-center overflow-hidden bg-ivory-dim px-[8%] sm:aspect-16/10"
+        className="plate grain relative flex aspect-5/4 items-center justify-center px-[3%] sm:aspect-16/10"
       >
         <div
           aria-hidden
@@ -43,7 +43,7 @@ export function ColorwayCard({
           height={colorway.image.height}
           priority={priority}
           sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 31vw"
-          className="relative z-10 w-full transition-transform duration-[1400ms] ease-tamiale group-hover:scale-[1.035]"
+          className="relative z-10 w-full"
         />
 
         {/*
@@ -55,7 +55,7 @@ export function ColorwayCard({
           disabled={!colorway.availableForSale}
           onClick={() => reserve(frame, colorway)}
           className={cn(
-            "absolute inset-x-3 bottom-3 z-20 cursor-pointer py-2.5 text-[0.625rem] font-medium tracking-[0.085em] uppercase transition-all duration-500 ease-tamiale disabled:cursor-not-allowed disabled:opacity-40",
+            "eyebrow absolute inset-x-4 bottom-4 z-20 cursor-pointer py-3.5 transition-all duration-700 ease-tamiale disabled:cursor-not-allowed disabled:opacity-40",
             "bg-obsidian text-ivory hover:bg-obsidian-raised",
             "sm:translate-y-1 sm:opacity-0 sm:group-focus-within:translate-y-0 sm:group-focus-within:opacity-100 sm:group-hover:translate-y-0 sm:group-hover:opacity-100",
           )}
@@ -65,10 +65,10 @@ export function ColorwayCard({
       </div>
 
       <div
-        className="mt-4 flex items-baseline justify-between gap-6 border-t border-ivory-hairline pt-3.5"
+        className="hairline-t mt-6 flex items-baseline justify-between gap-6 pt-5"
       >
         <div>
-          <h3 className="frame-name text-2xl leading-none">
+          <h3 className="frame-name text-[1.75rem] leading-none">
             <Link
               href={`/collection/${frame.handle}?lens=${colorway.id}`}
               className="after:absolute after:inset-0 after:z-10 after:content-['']"
@@ -77,11 +77,11 @@ export function ColorwayCard({
               <span className="text-stone"> / {colorway.name}</span>
             </Link>
           </h3>
-          <p className="mt-2.5 text-xs text-stone">
+          <p className="mt-3 text-xs text-stone-dim">
             {fill(dict.commerce.preorderShips, { month: frame.shipsFrom })}
           </p>
         </div>
-        <p className="frame-name figure-num shrink-0 text-xl">
+        <p className="frame-name figure-num shrink-0 text-xl text-stone">
           {price(frame.priceBook)}
         </p>
       </div>

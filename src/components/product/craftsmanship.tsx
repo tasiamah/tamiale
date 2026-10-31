@@ -18,7 +18,7 @@ export async function Craftsmanship({
       id="craftsmanship"
       className="border-t border-ivory-hairline bg-ivory scroll-mt-(--header-height)"
     >
-      <div className="gutter py-24 md:py-32">
+      <div className="gutter section-y">
         <SectionHeading
           index={index}
           eyebrow={dict.home.craftEyebrow}
@@ -28,45 +28,44 @@ export async function Craftsmanship({
 
         <div className="mt-20 grid gap-16 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
           <Reveal>
-            <figure className="bg-ivory-dim px-6 py-12 sm:px-14 sm:py-16">
+            <figure className="bg-ivory-dim px-6 py-16 sm:px-16 sm:py-24">
               <FrameDrawing frame={frame} />
-              <figcaption className="mt-10 flex items-baseline justify-between border-t border-ivory-hairline pt-4 text-xs text-stone">
-                <span>{frame.name} {dict.commerce.frontElevation}</span>
-                <span className="eyebrow">Millimetres</span>
+              <figcaption className="hairline-t mt-12 pt-5 text-xs text-stone-dim">
+                {frame.name}, {dict.commerce.frontElevationMm}
               </figcaption>
             </figure>
           </Reveal>
 
           <div className="flex flex-col gap-14">
             <Reveal delay={80}>
-              <h3 className="eyebrow text-stone">Measurements</h3>
-              <dl className="mt-6">
+              <h3 className="eyebrow text-stone-dim">{dict.commerce.details.measurements}</h3>
+              <dl className="mt-8">
                 {frame.measurements.map((measurement) => (
                   <div
                     key={measurement.label}
-                    className="flex items-baseline justify-between gap-6 border-b border-ivory-hairline py-3.5"
+                    className="hairline-b flex items-baseline justify-between gap-8 py-5"
                   >
-                    <dt className="text-sm text-stone-dim">
+                    <dt className="text-sm text-stone">
                       {measurement.label}
                       {measurement.note && (
-                        <span className="block text-xs text-stone">
+                        <span className="mt-1 block text-xs text-stone-dim">
                           {measurement.note}
                         </span>
                       )}
                     </dt>
-                    <dd className="text-sm tabular-nums">{measurement.value}</dd>
+                    <dd className="frame-name figure-num shrink-0 text-base">{measurement.value}</dd>
                   </div>
                 ))}
               </dl>
             </Reveal>
 
             <Reveal delay={160}>
-              <h3 className="eyebrow text-stone">Materials and process</h3>
-              <div className="mt-6 flex flex-col gap-8">
+              <h3 className="eyebrow text-stone-dim">{dict.commerce.details.materials}</h3>
+              <div className="mt-8 flex flex-col gap-10">
                 {frame.materials.map((material) => (
                   <div key={material.heading}>
-                    <h4 className="font-display text-xl">{material.heading}</h4>
-                    <p className="mt-2.5 text-sm leading-relaxed text-stone-dim">
+                    <h4 className="display-md">{material.heading}</h4>
+                    <p className="mt-3 text-sm leading-relaxed text-stone">
                       {material.body}
                     </p>
                   </div>

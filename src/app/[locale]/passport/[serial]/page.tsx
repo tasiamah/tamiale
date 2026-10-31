@@ -73,7 +73,7 @@ async function Record({ params }: PageProps<"/[locale]/passport/[serial]">) {
   const colorway = frame ? findColorway(frame, record.colorwayId) : null;
 
   return (
-    <div className="gutter mx-auto max-w-4xl py-20 md:py-28">
+    <div className="gutter mx-auto max-w-4xl section-y">
       <div className="flex items-center justify-between border-b border-ivory-hairline pb-6">
         <Wordmark size="sm" />
         <p className="eyebrow text-stone">{dict.passport.fields.passport}</p>

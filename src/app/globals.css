@@ -8,38 +8,47 @@
    * The house shows on paper, not on black. A gallery wall is the right
    * backdrop for eyewear: the only colour in the room should be the lens.
    * There is deliberately no metallic accent in this palette.
+   *
+   * The paper is warm. A neutral grey-white photographs as a screen; the
+   * creams below read as a material, which is the whole point of showing an
+   * object on them.
    */
-  --color-ivory: #f6f5f2;
-  --color-ivory-raised: #ffffff;
-  --color-ivory-dim: #eceae4;
-  --color-ivory-hairline: #dedcd5;
+  --color-ivory: #f5f2ec;
+  --color-ivory-raised: #fbf9f5;
+  --color-ivory-dim: #ebe7de;
+  --color-ivory-hairline: #e2ddd2;
 
-  --color-obsidian: #141413;
-  --color-obsidian-raised: #1e1e1c;
-  --color-obsidian-hairline: #32312e;
+  --color-obsidian: #16150f;
+  --color-obsidian-raised: #201f18;
+  --color-obsidian-hairline: #33312a;
 
-  --color-stone: #75736c;
-  --color-stone-dim: #9a978f;
+  --color-stone: #6e6a5f;
+  --color-stone-dim: #9a9488;
 
-  /* Display is a grotesque set tight and large; the serif is kept back for
-   * the names of things and the prices beside them. */
-  --font-display: var(--font-tamiale-display), "Neue Haas Grotesk Display",
-    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*
+   * A high-contrast serif carries everything the house says, and the
+   * grotesque is demoted to wayfinding: navigation, labels, buttons, tables.
+   * That division is what separates a maison from a storefront. The serif is
+   * a voice; the sans is a signpost.
+   */
+  --font-display: var(--font-tamiale-serif), "Canela", "Times New Roman", serif;
   --font-sans: var(--font-tamiale-sans), "Neue Haas Grotesk Text",
     "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-serif: var(--font-tamiale-serif), "Canela", "Times New Roman", serif;
+  --font-grotesque: var(--font-tamiale-display), "Neue Haas Grotesk Display",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   /* Motion. Nothing in the house moves faster than it needs to. */
   --ease-tamiale: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-tamiale-in: cubic-bezier(0.62, 0, 0.2, 1);
 
-  --spacing-gutter: clamp(1.25rem, 4vw, 4.5rem);
+  --spacing-gutter: clamp(1.5rem, 5.2vw, 6rem);
 }
 
 @layer base {
   :root {
     color-scheme: light;
-    --header-height: 4.5rem;
+    --header-height: 5.25rem;
   }
 
   html {
@@ -61,8 +70,8 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-obsidian);
-    outline-offset: 2px;
+    outline: 1px solid var(--color-obsidian);
+    outline-offset: 3px;
   }
 
   /* The house never animates at the expense of a visitor's comfort. */
@@ -105,81 +114,92 @@ body:has([data-stage="dark"]) [data-chrome-spacer] {
  * ------------------------------------------------------------------ */
 
 /*
- * Display sizes. A grotesque has to be set much tighter than a serif to read
- * as display rather than as a large paragraph, so tracking goes negative and
- * keeps tightening as the size grows.
+ * Display sizes, set in the serif.
+ *
+ * A serif of this contrast needs far less negative tracking than a grotesque
+ * did: the letterforms already lock together, and squeezing them collapses
+ * the thin strokes. Line height stays near 1 so a two-line statement reads as
+ * one object rather than as two sentences.
  */
 @utility display-hero {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(2.5rem, 7.6vw, 7.5rem);
-  line-height: 0.9;
-  letter-spacing: -0.042em;
+  font-weight: 400;
+  font-size: clamp(2.875rem, 8vw, 8rem);
+  line-height: 0.96;
+  letter-spacing: -0.021em;
 }
 
 @utility display-xl {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(2rem, 4.8vw, 4.25rem);
-  line-height: 0.95;
-  letter-spacing: -0.035em;
+  font-weight: 400;
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.018em;
 }
 
 @utility display-lg {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(1.625rem, 3.1vw, 2.75rem);
-  line-height: 1.02;
-  letter-spacing: -0.03em;
+  font-weight: 400;
+  font-size: clamp(1.75rem, 3.2vw, 2.875rem);
+  line-height: 1.1;
+  letter-spacing: -0.014em;
 }
 
 @utility display-md {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(1.25rem, 2vw, 1.75rem);
-  line-height: 1.12;
-  letter-spacing: -0.022em;
+  font-weight: 400;
+  font-size: clamp(1.375rem, 2.1vw, 1.875rem);
+  line-height: 1.22;
+  letter-spacing: -0.01em;
 }
 
-/* The serif is reserved for the names of frames and the prices beside them. */
+/* The names of frames and the prices beside them, in the same serif voice. */
 @utility frame-name {
   font-family: var(--font-serif);
   font-weight: 400;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.008em;
 }
 
 /* Prices and measurements line up in columns, so the figures must be even. */
 @utility figure-num {
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 
 /*
- * Section and metadata label. Kept to retail tracking, because wide spacing on
- * every small label is what makes a site read as a service brand.
+ * Section and metadata label.
+ *
+ * Small, wide and quiet. This is the one place the house spends letter
+ * spacing, because a wide-tracked line of small capitals is what signals that
+ * a label is an annotation on the page rather than something to be read.
  */
 @utility eyebrow {
-  font-size: 0.6875rem;
+  font-family: var(--font-grotesque);
+  font-size: 0.625rem;
   line-height: 1;
   font-weight: 500;
-  letter-spacing: 0.085em;
+  letter-spacing: 0.165em;
   text-transform: uppercase;
 }
 
+/*
+ * Running text. Luxury reading is slow reading: the leading is long and the
+ * measure is short, so the eye is never asked to travel.
+ */
 @utility body-lg {
-  font-size: clamp(1rem, 1.15vw, 1.1875rem);
-  line-height: 1.6;
-  letter-spacing: -0.005em;
+  font-size: clamp(1rem, 1.05vw, 1.125rem);
+  line-height: 1.75;
+  letter-spacing: -0.003em;
 }
 
 /* The wordmark. Letterforms are set wide enough to read as an engraving. */
 @utility wordmark {
-  font-family: var(--font-display);
+  font-family: var(--font-grotesque);
   font-weight: 500;
-  letter-spacing: 0.26em;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
   /* Tracking adds trailing space; pull it back so the mark optically centres. */
-  text-indent: 0.26em;
+  text-indent: 0.34em;
 }
 
 @utility hairline-t {
@@ -192,6 +212,23 @@ body:has([data-stage="dark"]) [data-chrome-spacer] {
 
 @utility gutter {
   padding-inline: var(--spacing-gutter);
+}
+
+/*
+ * The vertical rhythm of a section.
+ *
+ * One utility rather than a padding pair repeated down the page, because the
+ * amount of air between two ideas is the loudest thing on a luxury site and
+ * it has to be identical everywhere. These are deliberately larger than an
+ * ordinary store would use: a section should not be able to share the
+ * viewport with the next one.
+ */
+@utility section-y {
+  padding-block: clamp(5.5rem, 11vw, 11rem);
+}
+
+@utility section-y-sm {
+  padding-block: clamp(4rem, 7vw, 7rem);
 }
 
 /* ------------------------------------------------------------------ *
@@ -209,8 +246,28 @@ body:has([data-stage="dark"]) [data-chrome-spacer] {
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    opacity: 0.035;
+    opacity: 0.022;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/*
+ * A frame photographed on paper. The image drifts up a fraction on hover
+ * rather than zooming: an object on a gallery wall is approached, not
+ * magnified.
+ */
+@utility plate {
+  overflow: hidden;
+  background-color: var(--color-ivory-dim);
+
+  & img {
+    transition:
+      transform 1200ms var(--ease-tamiale),
+      opacity 1200ms var(--ease-tamiale);
+  }
+
+  &:hover img {
+    transform: scale(1.028);
   }
 }
 

@@ -35,7 +35,7 @@ export function MyTamiale({ frames }: { frames: Frame[] }) {
     .filter((item): item is NonNullable<typeof item> => item !== null);
 
   return (
-    <div className="gutter grid gap-16 py-20 md:py-24 lg:grid-cols-[1.4fr_1fr] lg:gap-24">
+    <div className="gutter grid gap-16 section-y lg:grid-cols-[1.4fr_1fr] lg:gap-24">
       <section>
         <h2 className="eyebrow text-stone">{dict.myTamiale.savedFrames}</h2>
 

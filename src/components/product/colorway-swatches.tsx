@@ -21,7 +21,7 @@ export function ColorwaySwatches({
     <div
       role="radiogroup"
       aria-label={dict.commerce.lensExpression}
-      className="flex flex-wrap gap-2.5"
+      className="flex flex-wrap gap-6"
     >
       {colorways.map((colorway) => {
         const active = colorway.id === selected;
@@ -36,14 +36,16 @@ export function ColorwaySwatches({
             disabled={!colorway.availableForSale}
             onClick={() => onSelect(colorway.id)}
             className={cn(
-              "relative size-11 cursor-pointer border p-1 transition-colors duration-300 disabled:cursor-not-allowed disabled:opacity-30",
+              "relative size-12 cursor-pointer ring-offset-4 transition-all duration-500 ease-tamiale",
+              "disabled:cursor-not-allowed disabled:opacity-30",
+              tone === "ivory" ? "ring-offset-obsidian" : "ring-offset-ivory",
               active
                 ? tone === "ivory"
-                  ? "border-ivory"
-                  : "border-obsidian"
+                  ? "ring-1 ring-ivory"
+                  : "ring-1 ring-obsidian"
                 : tone === "ivory"
-                  ? "border-ivory/20 hover:border-ivory/60"
-                  : "border-obsidian/15 hover:border-obsidian/50",
+                  ? "ring-0 ring-ivory/40 hover:ring-1"
+                  : "ring-0 ring-obsidian/30 hover:ring-1",
             )}
           >
             <span
