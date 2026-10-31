@@ -55,7 +55,15 @@ const en = {
 
   header: {
     skipToContent: "Skip to content",
-    announcement: "Complimentary insured delivery, worldwide",
+    /*
+     * Plain words on purpose. French and German visitors are routed to /fr
+     * and /de, so the readers of this line are everyone else on earth, most
+     * of whom read English as a second language. "Complimentary insured
+     * delivery" is three register words in a row to that reader. The
+     * insurance is still stated on the frame, in the shipping terms and in
+     * the delivery note beside the price, where there is room to say it.
+     */
+    announcement: "Free worldwide shipping",
     home: "Tamiale home",
     menu: "Menu",
     close: "Close",

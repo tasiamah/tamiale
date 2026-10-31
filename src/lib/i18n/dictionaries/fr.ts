@@ -45,7 +45,9 @@ const fr: Dictionary = {
 
   header: {
     skipToContent: "Aller au contenu",
-    announcement: "Livraison offerte partout dans le monde",
+    /* "dans le monde entier" is the natural phrase but it is clipped on a
+     * 320px screen; "internationale" says the same thing in one word. */
+    announcement: "Livraison gratuite internationale",
     home: "Tamiale, accueil",
     menu: "Menu",
     close: "Fermer",

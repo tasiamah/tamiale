@@ -45,7 +45,7 @@ const de: Dictionary = {
 
   header: {
     skipToContent: "Zum Inhalt springen",
-    announcement: "Versicherter Versand weltweit inklusive",
+    announcement: "Kostenloser Versand weltweit",
     home: "Tamiale, Startseite",
     menu: "Menü",
     close: "Schließen",
