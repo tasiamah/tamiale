@@ -48,7 +48,13 @@ export function ColorwayCard({
        * and the edition are. The whole card is the link.
        */}
       <div className="mt-7 flex flex-col items-center gap-2.5 text-center">
-        <h3 className="frame-name text-xl leading-none">
+        {/*
+         * h2, not h3. On both pages that use this grid the tiles sit
+         * directly under the page's own title with nothing in between, so
+         * an h3 was skipping a level. It was already doing that on the
+         * collection page before the homepage was rearranged.
+         */}
+        <h2 className="frame-name text-xl leading-none">
           <Link
             href={`/collection/${frame.handle}?lens=${colorway.id}`}
             className="after:absolute after:inset-0 after:z-10 after:content-['']"
@@ -56,7 +62,7 @@ export function ColorwayCard({
             {frame.name}
             <span className="text-stone"> / {colorway.name}</span>
           </Link>
-        </h3>
+        </h2>
         <p className="text-xs text-stone-dim">
           {fill(dict.commerce.preorderShips, { month: frame.shipsFrom })}
         </p>
