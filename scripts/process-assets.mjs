@@ -41,9 +41,6 @@ const COLORWAYS = [
   { id: "ember", name: "Ember", hue: null, sat: 1, value: 1 },
   { id: "champagne", name: "Champagne", hue: 40, sat: 0.6, value: 1.02 },
   { id: "smoke", name: "Smoke", hue: 220, sat: 0.07, value: 0.72 },
-  { id: "cognac", name: "Cognac", hue: 27, sat: 0.85, value: 0.76 },
-  { id: "jade", name: "Jade", hue: 150, sat: 0.5, value: 0.74 },
-  { id: "cobalt", name: "Cobalt", hue: 216, sat: 0.78, value: 0.8 },
 ];
 
 function rgbToHsv(r, g, b) {

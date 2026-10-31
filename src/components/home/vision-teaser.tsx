@@ -14,7 +14,7 @@ const CAPABILITIES = [
   },
   {
     title: "Lens perspective",
-    body: "See what each of the six tints does to the light in front of you.",
+    body: "See what each of the three tints does to the light in front of you.",
   },
   {
     title: "On your device",

@@ -15,7 +15,7 @@ import type { Frame } from "@/lib/catalog/types";
 
 /**
  * The opening of the store. The statement comes first because the house has
- * one, but the frame, its price, its six lenses and a way to buy it are all
+ * one, but the frame, its price, its three lenses and a way to buy it are all
  * above the fold — a visitor should never have to go looking for the product
  * on the page that is selling it.
  */
@@ -33,7 +33,7 @@ export function Hero({ frame }: { frame: Frame }) {
         </h1>
         <p className="body-lg max-w-sm text-pretty text-stone lg:pb-3">
           Eyewear conceived for those who see beyond convention. One
-          silhouette, cut in Italy, released in six lenses.
+          silhouette, cut in Italy, released in three lenses.
         </p>
       </div>
 

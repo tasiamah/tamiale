@@ -38,12 +38,12 @@ export default async function HomePage() {
               eyebrow={frame.collection}
               title={
                 <>
-                  Six lenses.
+                  Three lenses.
                   <br />
                   One silhouette.
                 </>
               }
-              lede="The Marina is released in a single Onyx acetate and six lens expressions, each with its own measured transmission. Choosing between them is a question of light, not of shape."
+              lede="The Marina is released in a single Onyx acetate and three lens expressions, each with its own measured transmission. Choosing between them is a question of light, not of shape."
             />
             <Reveal delay={120}>
               <ButtonLink href="/collection" variant="outline">

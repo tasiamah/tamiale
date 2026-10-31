@@ -110,10 +110,10 @@ export const STYLING: { id: StylingPreference; label: string; note: string }[] =
  * transmission — not an inference about their face.
  */
 const LENS_FOR_STYLE: Record<StylingPreference, string[]> = {
-  understated: ["smoke", "cognac"],
-  architectural: ["smoke", "cobalt"],
-  bold: ["ember", "cobalt"],
-  classic: ["cognac", "champagne"],
+  understated: ["smoke", "champagne"],
+  architectural: ["smoke", "ember"],
+  bold: ["ember", "champagne"],
+  classic: ["champagne", "smoke"],
 };
 
 export function recommendLenses(

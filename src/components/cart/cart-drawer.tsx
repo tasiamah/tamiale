@@ -65,7 +65,7 @@ export function CartDrawer() {
           <div className="flex flex-1 flex-col items-center justify-center gap-6 px-10 text-center">
             <p className="display-md text-obsidian">Your bag is empty.</p>
             <p className="text-sm text-stone">
-              Collection 001 is open for pre-order in six lens expressions.
+              Collection 001 is open for pre-order in three lens expressions.
             </p>
             <Link
               href="/collection"

@@ -77,54 +77,6 @@ const COLORWAY_SEEDS: ColorwaySeed[] = [
     imageAlt:
       "The Marina in Onyx acetate with a Smoke grey lens, three-quarter studio view",
   },
-  {
-    id: "cognac",
-    name: "Cognac",
-    lensHex: "#8A4E18",
-    lensHexLower: "#C98B4A",
-    lensDescription:
-      "A deep amber that lifts contrast in flat, overcast light.",
-    vlt: 22,
-    filterCategory: 3,
-    gradient: true,
-    sku: "TM-M-001-COG",
-    editionSize: 150,
-    availableForSale: true,
-    imageAlt:
-      "The Marina in Onyx acetate with a Cognac brown gradient lens, three-quarter studio view",
-  },
-  {
-    id: "jade",
-    name: "Jade",
-    lensHex: "#2E6F52",
-    lensHexLower: "#7FBE9B",
-    lensDescription:
-      "A cool green held just short of the classic G15, for depth without cast.",
-    vlt: 24,
-    filterCategory: 3,
-    gradient: true,
-    sku: "TM-M-001-JAD",
-    editionSize: 150,
-    availableForSale: true,
-    imageAlt:
-      "The Marina in Onyx acetate with a Jade green gradient lens, three-quarter studio view",
-  },
-  {
-    id: "cobalt",
-    name: "Cobalt",
-    lensHex: "#1D4FA8",
-    lensHexLower: "#6E9BDC",
-    lensDescription:
-      "The boldest expression of the edition. Released in the smallest numbers.",
-    vlt: 20,
-    filterCategory: 3,
-    gradient: true,
-    sku: "TM-M-001-COB",
-    editionSize: 90,
-    availableForSale: true,
-    imageAlt:
-      "The Marina in Onyx acetate with a Cobalt blue gradient lens, three-quarter studio view",
-  },
 ];
 
 /** Studio renders derived from the master photograph by `pnpm assets`. */
@@ -188,7 +140,7 @@ export const theMarina: Frame = {
     },
     {
       heading: "Lenses",
-      body: "Nylon lenses in six tints, each specified with a measured visible light transmission and a declared filter category. All six block UVA and UVB to 400 nm and are supplied with their conformity documentation.",
+      body: "Nylon lenses in three tints, each specified with a measured visible light transmission and a declared filter category. All three block UVA and UVB to 400 nm and are supplied with their conformity documentation.",
     },
     {
       heading: "Engraving",

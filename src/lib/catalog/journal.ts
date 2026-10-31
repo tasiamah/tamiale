@@ -46,7 +46,7 @@ export const journal: JournalEntry[] = [
     slug: "a-note-on-transmission",
     title: "A note on transmission",
     standfirst:
-      "Six lenses, six numbers, and why the figure on the specification sheet tells you more than the name of the colour.",
+      "Three lenses, three numbers, and why the figure on the specification sheet tells you more than the name of the colour.",
     category: "Craft",
     readingMinutes: 5,
     publishedAt: "2026-10-02",
@@ -62,7 +62,7 @@ export const journal: JournalEntry[] = [
       { kind: "heading", text: "Reading the categories" },
       {
         kind: "paragraph",
-        text: "European filter categories bundle transmission into five bands. Category 2 covers 18 to 43 per cent and suits most daylight. Category 3 covers 8 to 18 and is the standard for bright sun. Neither category says anything about ultraviolet protection, which is a separate specification — all six Tamiale lenses block to 400 nanometres regardless of how dark they are.",
+        text: "European filter categories bundle transmission into five bands. Category 2 covers 18 to 43 per cent and suits most daylight. Category 3 covers 8 to 18 and is the standard for bright sun. Neither category says anything about ultraviolet protection, which is a separate specification — all three Tamiale lenses block to 400 nanometres regardless of how dark they are.",
       },
       {
         kind: "pull",
@@ -75,7 +75,7 @@ export const journal: JournalEntry[] = [
       { kind: "heading", text: "Gradients" },
       {
         kind: "paragraph",
-        text: "Five of the six are gradients, denser at the brow than at the cheek. The practical effect is that you can read a menu, a phone or a dashboard through the lower half of the lens while the upper half is still doing its job against the sky. The aesthetic effect is that the eye stays visible, which is the whole argument for a gradient.",
+        text: "All three are gradients, denser at the brow than at the cheek. The practical effect is that you can read a menu, a phone or a dashboard through the lower half of the lens while the upper half is still doing its job against the sky. The aesthetic effect is that the eye stays visible, which is the whole argument for a gradient.",
       },
     ],
   },

@@ -10,7 +10,7 @@ import { getFrames } from "@/lib/shopify/catalog";
 export const metadata: Metadata = {
   title: "The Collection",
   description:
-    "Collection 001 — The Icons. The Marina, an architectural silhouette in Onyx acetate, released in six lens expressions and open for pre-order.",
+    "Collection 001 — The Icons. The Marina, an architectural silhouette in Onyx acetate, released in three lens expressions and open for pre-order.",
   alternates: { canonical: "/collection" },
 };
 
@@ -27,7 +27,7 @@ export default async function CollectionPage() {
           <p className="body-lg mt-10 max-w-xl text-pretty text-stone-dim">
             The house opens with one silhouette rather than a catalogue. The
             Marina is drawn as a flattened hexagon — eight edges where most
-            frames use a curve — and released in a single Onyx acetate with six
+            frames use a curve — and released in a single Onyx acetate with three
             lenses, each specified by the light it lets through.
           </p>
         </Reveal>

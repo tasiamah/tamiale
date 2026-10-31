@@ -8,7 +8,7 @@ import { getFrame } from "@/lib/shopify/catalog";
 export const metadata: Metadata = {
   title: "Vision Studio",
   description:
-    "Try The Marina on through your own camera, estimate your fit against the published millimetres, and see what each of the six lenses does to the light. Everything runs on your device.",
+    "Try The Marina on through your own camera, estimate your fit against the published millimetres, and see what each of the three lenses does to the light. Everything runs on your device.",
   alternates: { canonical: "/vision-studio" },
 };
 

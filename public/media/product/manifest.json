@@ -22,27 +22,6 @@
       "src": "/media/product/marina-onyx-smoke.png",
       "width": 698,
       "height": 222
-    },
-    {
-      "colorway": "cognac",
-      "name": "Cognac",
-      "src": "/media/product/marina-onyx-cognac.png",
-      "width": 698,
-      "height": 222
-    },
-    {
-      "colorway": "jade",
-      "name": "Jade",
-      "src": "/media/product/marina-onyx-jade.png",
-      "width": 698,
-      "height": 222
-    },
-    {
-      "colorway": "cobalt",
-      "name": "Cobalt",
-      "src": "/media/product/marina-onyx-cobalt.png",
-      "width": 698,
-      "height": 222
     }
   ]
 }

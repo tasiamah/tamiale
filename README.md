@@ -32,9 +32,9 @@ illustrative. The house publishes a price list per market rather than
 converting at the spot rate, so each figure is set deliberately.
 
 **Photography** — there is one real photograph of the product. Ember is that
-photograph; Champagne, Smoke, Cognac, Jade and Cobalt are derived from it by
-re-tinting the lens (`scripts/process-assets.mjs`). They are honest previews of
-the colourways and they are not product photography. Shoot the other five.
+photograph; Champagne and Smoke are derived from it by re-tinting the lens
+(`scripts/process-assets.mjs`). They are honest previews of the colourways and
+they are not product photography. Shoot the other two.
 
 ## Shopify
 
@@ -46,9 +46,9 @@ shop window down with it. What you lose without credentials is checkout.
 Set up in Shopify:
 
 - A product with the handle **`the-marina`**.
-- One option named **`Lens`**, with the values `Ember`, `Champagne`, `Smoke`,
-  `Cognac`, `Jade`, `Cobalt`. The storefront matches variants on this value, so
-  the spelling has to agree with the `name` fields in `frames.ts`.
+- One option named **`Lens`**, with the values `Ember`, `Champagne`, `Smoke`.
+  The storefront matches variants on this value, so the spelling has to agree
+  with the `name` fields in `frames.ts`.
 - Each variant set to continue selling when out of stock, and attached to a
   selling plan for the pre-order. The storefront reads
   `sellingPlanAllocations` and will pass the plan through to the cart.
