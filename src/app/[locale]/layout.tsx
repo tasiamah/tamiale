@@ -2,7 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 
 import { Concierge } from "@/components/concierge/concierge";
+import { BagBar } from "@/components/cart/bag-bar";
 import { CartDrawer } from "@/components/cart/cart-drawer";
+import { BottomBarProvider } from "@/components/commerce/bottom-bar";
 import { CartProvider } from "@/components/cart/cart-provider";
 import { Footer } from "@/components/chrome/footer";
 import { Header } from "@/components/chrome/header";
@@ -107,13 +109,16 @@ export default async function RootLayout({ children }: LayoutProps<"/[locale]">)
           <RegionProvider>
             <SavedFramesProvider>
               <CartProvider>
-                <Header />
-                <main id="main" className="flex-1">
-                  {children}
-                </main>
-                <Footer />
-                <CartDrawer />
-                <Concierge />
+                <BottomBarProvider>
+                  <Header />
+                  <main id="main" className="flex-1">
+                    {children}
+                  </main>
+                  <Footer />
+                  <BagBar />
+                  <CartDrawer />
+                  <Concierge />
+                </BottomBarProvider>
               </CartProvider>
             </SavedFramesProvider>
           </RegionProvider>

@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 
+import { useCart } from "@/components/cart/cart-provider";
 import { useDictionary, useLocale } from "@/components/i18n/dictionary-provider";
 import { Link } from "@/components/i18n/link";
 import { useOverlay } from "@/components/chrome/use-overlay";
@@ -26,6 +27,8 @@ export function Concierge() {
   const [draft, setDraft] = useState("");
   const [pending, setPending] = useState(false);
   const panelRef = useOverlay(open, () => setOpen(false));
+  const { count, isOpen: bagOpen } = useCart();
+  const bagBarShown = count > 0 && !bagOpen;
   const logRef = useRef<HTMLDivElement>(null);
   const inputId = useId();
   const openers = [
@@ -96,7 +99,10 @@ export function Concierge() {
         onClick={() => setOpen(true)}
         aria-expanded={open}
         className={cn(
-          "fixed right-5 bottom-5 z-70 hidden cursor-pointer items-center gap-2.5 border border-obsidian/15 bg-ivory/90 py-3 pr-5 pl-4 eyebrow text-obsidian shadow-[0_1px_40px_-12px_rgba(17,17,16,0.3)] backdrop-blur-xl transition-[opacity,transform] duration-500 ease-tamiale hover:-translate-y-0.5 sm:flex",
+          "fixed right-5 bottom-5 z-70 hidden cursor-pointer items-center gap-2.5 border border-obsidian/15 bg-ivory/90 py-3 pr-5 pl-4 eyebrow text-obsidian shadow-[0_1px_40px_-12px_rgba(17,17,16,0.3)] backdrop-blur-xl transition-[opacity,bottom,transform] duration-500 ease-tamiale hover:-translate-y-0.5 sm:flex",
+          // The bag bar takes the foot of the screen once there is something
+          // in it, so the pill steps up out of its way.
+          bagBarShown && "bottom-24",
           open && "pointer-events-none opacity-0",
         )}
       >

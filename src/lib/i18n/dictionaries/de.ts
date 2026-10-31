@@ -144,6 +144,8 @@ const de: Dictionary = {
     remove: "Entfernen",
     decrease: "Menge von {name} verringern",
     increase: "Menge von {name} erhöhen",
+    itemOne: "{count} Artikel",
+    itemMany: "{count} Artikel",
     subtotal: "Zwischensumme",
     subtotalNote: "{tax}. {shipping}, sobald die Edition versandt wird.",
     checkout: "Ihr Paar reservieren",

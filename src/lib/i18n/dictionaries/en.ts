@@ -171,6 +171,8 @@ const en = {
     remove: "Remove",
     decrease: "Decrease quantity of {name}",
     increase: "Increase quantity of {name}",
+    itemOne: "{count} item",
+    itemMany: "{count} items",
     subtotal: "Subtotal",
     subtotalNote: "{tax}. {shipping} once the edition ships.",
     checkout: "Reserve your pair",

@@ -146,6 +146,8 @@ const fr: Dictionary = {
     remove: "Retirer",
     decrease: "Diminuer la quantité de {name}",
     increase: "Augmenter la quantité de {name}",
+    itemOne: "{count} article",
+    itemMany: "{count} articles",
     subtotal: "Sous-total",
     subtotalNote: "{tax}. {shipping}, dès l'expédition de l'édition.",
     checkout: "Réserver votre paire",

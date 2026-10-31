@@ -4,6 +4,7 @@ import { useCallback, useSyncExternalStore } from "react";
 
 import { useRegion } from "@/components/chrome/region-provider";
 import { fill, useDictionary } from "@/components/i18n/dictionary-provider";
+import { useClaimBottomBar } from "@/components/commerce/bottom-bar";
 import { useReserve } from "@/components/commerce/use-reserve";
 import { cn } from "@/lib/cn";
 import type { Colorway, Frame } from "@/lib/catalog/types";
@@ -39,6 +40,9 @@ export function StickyBuyBar({
   const { price } = useRegion();
   const reserve = useReserve();
   const shown = useScrolledPast(APPEARS_AFTER);
+
+  // Below `lg` this bar owns the bottom edge, so the bag bar stands down.
+  useClaimBottomBar();
 
   return (
     <div
