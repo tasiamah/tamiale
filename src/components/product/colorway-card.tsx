@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
+import { Link } from "@/components/i18n/link";
 import { useRegion } from "@/components/chrome/region-provider";
 import { useReserve } from "@/components/commerce/use-reserve";
+import { fill, useDictionary } from "@/components/i18n/dictionary-provider";
 import { cn } from "@/lib/cn";
 import type { Colorway, Frame } from "@/lib/catalog/types";
 
@@ -19,6 +20,7 @@ export function ColorwayCard({
   priority?: boolean;
   className?: string;
 }) {
+  const dict = useDictionary();
   const { price } = useRegion();
   const reserve = useReserve();
 
@@ -58,7 +60,7 @@ export function ColorwayCard({
             "sm:translate-y-1 sm:opacity-0 sm:group-focus-within:translate-y-0 sm:group-focus-within:opacity-100 sm:group-hover:translate-y-0 sm:group-hover:opacity-100",
           )}
         >
-          {colorway.availableForSale ? "Reserve" : "Spoken for"}
+          {colorway.availableForSale ? dict.commerce.reserve : dict.commerce.spokenFor}
         </button>
       </div>
 
@@ -76,7 +78,7 @@ export function ColorwayCard({
             </Link>
           </h3>
           <p className="mt-2.5 text-xs text-stone">
-            Pre-order · Ships {frame.shipsFrom}
+            {fill(dict.commerce.preorderShips, { month: frame.shipsFrom })}
           </p>
         </div>
         <p className="frame-name figure-num shrink-0 text-xl">

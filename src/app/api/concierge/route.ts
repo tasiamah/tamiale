@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 
+import { getFallback, getRegister } from "@/lib/concierge/register";
 import { respond } from "@/lib/concierge/respond";
+import { defaultLocale, isLocale, type Locale } from "@/lib/i18n/config";
 
 const MAX_QUESTION_LENGTH = 500;
 
@@ -12,8 +14,12 @@ const MAX_QUESTION_LENGTH = 500;
  */
 export async function POST(request: Request) {
   let question: unknown;
+  let locale: unknown;
   try {
-    ({ question } = (await request.json()) as { question?: unknown });
+    ({ question, locale } = (await request.json()) as {
+      question?: unknown;
+      locale?: unknown;
+    });
   } catch {
     return NextResponse.json({ error: "Malformed request" }, { status: 400 });
   }
@@ -22,8 +28,16 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Ask a question" }, { status: 400 });
   }
 
-  const reply = respond(question.slice(0, MAX_QUESTION_LENGTH));
-  const polished = await polish(question, reply.answer);
+  const language: Locale =
+    typeof locale === "string" && isLocale(locale) ? locale : defaultLocale;
+
+  const trimmed = question.slice(0, MAX_QUESTION_LENGTH);
+  const reply = respond(
+    trimmed,
+    await getRegister(language),
+    await getFallback(language),
+  );
+  const polished = await polish(trimmed, reply.answer, language);
 
   return NextResponse.json(
     { answer: polished, actions: reply.actions, source: reply.source },
@@ -31,7 +45,17 @@ export async function POST(request: Request) {
   );
 }
 
-async function polish(question: string, answer: string): Promise<string> {
+const LANGUAGE_RULE: Record<Locale, string> = {
+  en: "Reply in British English.",
+  fr: "Reply in French, vouvoyant the customer throughout.",
+  de: "Reply in German, addressing the customer as Sie throughout.",
+};
+
+async function polish(
+  question: string,
+  answer: string,
+  locale: Locale,
+): Promise<string> {
   const key = process.env.OPENAI_API_KEY;
   if (!key) return answer;
 
@@ -48,8 +72,9 @@ async function polish(question: string, answer: string): Promise<string> {
         instructions:
           "You are an advisor at Tamiale, a luxury eyewear house. Rewrite the " +
           "SOURCE answer so it reads as a reply to the customer's question. " +
-          "Understated, precise, never effusive, never a sales pitch. British " +
-          "English. Under 90 words. You may only use facts present in SOURCE: " +
+          "Understated, precise, never effusive, never a sales pitch. " +
+          `${LANGUAGE_RULE[locale]} ` +
+          "Under 90 words. You may only use facts present in SOURCE: " +
           "do not add measurements, prices, dates, materials or claims. If " +
           "SOURCE does not answer the question, say so and offer an advisor.",
         input: `QUESTION: ${question}\n\nSOURCE: ${answer}`,

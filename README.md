@@ -22,10 +22,15 @@ names are working values chosen to build and lay out the store. They are
 published to customers and emitted as Schema.org product data. Replace the file
 with the factory specification sheet and the lens certificates.
 
-**Policy copy** in `src/lib/catalog/legal.ts`. Drafts, not reviewed by counsel.
+**Policy copy** in `src/lib/catalog/legal.ts`, and its French and German
+translations in `src/lib/catalog/copy/legal/`. Drafts, not reviewed by counsel.
 The pre-order terms in particular need checking against EU and UK distance
 selling rules, which treat a deposit taken months before dispatch differently
-from an ordinary sale.
+from an ordinary sale. Opening in France and Germany raises this further: the
+translations are faithful to the English, but German law wants a
+Widerrufsbelehrung in a specific form and an Impressum that does not exist
+here, and French law states the droit de rétractation differently again. Have
+a lawyer in each market read the local text, not the English one.
 
 **Prices**: the €420 / £360 / $450 / AED 1,750 price book in `frames.ts` is
 illustrative. The house publishes a price list per market rather than
@@ -35,6 +40,40 @@ converting at the spot rate, so each figure is set deliberately.
 photograph; Champagne and Smoke are derived from it by re-tinting the lens
 (`scripts/process-assets.mjs`). They are honest previews of the colourways and
 they are not product photography. Shoot the other two.
+
+## Languages
+
+English, French and German, at `/en`, `/fr` and `/de`. Every route lives under
+`src/app/[locale]/`, and `generateStaticParams` in the locale layout is what
+prerenders all three.
+
+`src/proxy.ts` redirects a bare path to a prefixed one. It weighs four things
+in order: the `tamiale_locale` cookie, the browser's `Accept-Language`, the
+`x-vercel-ip-country` header, and then English. Browser language is ranked
+above IP country deliberately, because what someone reads is a better guess
+than where they happen to be sitting. The redirect is a 307 rather than a 308,
+so nothing caches a decision that depends on the visitor.
+
+Strings live in three places, by lifetime:
+
+- `src/lib/i18n/dictionaries/{en,fr,de}.ts` for interface text. English is the
+  source: its shape becomes the `Dictionary` type, so a key missing from
+  French or German fails the build rather than falling back silently.
+- `src/lib/catalog/copy/` for catalog prose: frame stories, journal entries,
+  policies. Hard data stays in the English catalog files. A translator can
+  change how a lens is described and cannot change its transmission figure.
+- `src/lib/concierge/translations/` for the advisor's register. Translated
+  search terms are added to the English ones rather than replacing them, so a
+  French visitor typing "preorder" still reaches the right answer.
+
+Server components read the dictionary through `getDictionary()`, which resolves
+the locale from `next/root-params`. Client components read it from
+`DictionaryProvider`, which is handed a subset: `src/lib/i18n/client-dictionary.ts`
+lists the sections the browser is allowed to see, and the long server-only
+prose never enters the RSC payload.
+
+Adding a language means adding it to `locales` in `src/lib/i18n/config.ts`,
+writing the dictionary and the three copy files, and nothing else.
 
 ## Shopify
 

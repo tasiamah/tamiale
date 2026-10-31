@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { useCallback, useState, useSyncExternalStore } from "react";
 
+import { Link } from "@/components/i18n/link";
 import { useCart } from "@/components/cart/cart-provider";
+import { useDictionary } from "@/components/i18n/dictionary-provider";
 import { Wordmark } from "@/components/ui/wordmark";
 
 import { MenuOverlay } from "./menu-overlay";
@@ -31,6 +32,7 @@ function useScrolledPastHero(): boolean {
  * stylesheet matches on it, so the chrome inverts without knowing the URL.
  */
 export function Header() {
+  const dict = useDictionary();
   const { count, open } = useCart();
   const scrolled = useScrolledPastHero();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -51,17 +53,17 @@ export function Header() {
               aria-controls="house-menu"
               className="eyebrow cursor-pointer transition-opacity duration-300 hover:opacity-60"
             >
-              Menu
+              {dict.header.menu}
             </button>
             <Link
               href="/collection"
               className="eyebrow hidden transition-opacity duration-300 hover:opacity-60 lg:block"
             >
-              Collection
+              {dict.nav.collection}
             </Link>
           </div>
 
-          <Link href="/" aria-label="Tamiale home" className="px-4">
+          <Link href="/" aria-label={dict.header.home} className="px-4">
             <Wordmark size="md" />
           </Link>
 
@@ -70,14 +72,15 @@ export function Header() {
               href="/vision-studio"
               className="eyebrow hidden transition-opacity duration-300 hover:opacity-60 md:block"
             >
-              Vision Studio
+              {dict.nav.visionStudio}
             </Link>
             <button
               type="button"
               onClick={open}
               className="eyebrow cursor-pointer tabular-nums transition-opacity duration-300 hover:opacity-60"
             >
-              Bag<span className="ml-1.5 opacity-60">({count})</span>
+              {dict.header.bag}
+              <span className="ml-1.5 opacity-60">({count})</span>
             </button>
           </div>
         </div>

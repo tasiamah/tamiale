@@ -3,6 +3,7 @@
 import { useCallback, useSyncExternalStore } from "react";
 
 import { useRegion } from "@/components/chrome/region-provider";
+import { fill, useDictionary } from "@/components/i18n/dictionary-provider";
 import { useReserve } from "@/components/commerce/use-reserve";
 import { cn } from "@/lib/cn";
 import type { Colorway, Frame } from "@/lib/catalog/types";
@@ -34,6 +35,7 @@ export function StickyBuyBar({
   frame: Frame;
   colorway: Colorway;
 }) {
+  const dict = useDictionary();
   const { price } = useRegion();
   const reserve = useReserve();
   const shown = useScrolledPast(APPEARS_AFTER);
@@ -56,7 +58,8 @@ export function StickyBuyBar({
             <span className="text-stone"> / {colorway.name}</span>
           </p>
           <p className="figure-num text-xs text-stone">
-            {price(frame.priceBook)} · Ships {frame.shipsFrom}
+            {price(frame.priceBook)} ·{" "}
+            {fill(dict.commerce.ships, { month: frame.shipsFrom })}
           </p>
         </div>
         <button
@@ -65,7 +68,7 @@ export function StickyBuyBar({
           onClick={() => reserve(frame, colorway)}
           className="shrink-0 cursor-pointer bg-obsidian px-6 py-3.5 text-[0.625rem] font-medium tracking-[0.085em] text-ivory uppercase transition-colors hover:bg-obsidian-raised disabled:cursor-not-allowed disabled:opacity-40"
         >
-          {colorway.availableForSale ? "Reserve" : "Spoken for"}
+          {colorway.availableForSale ? dict.commerce.reserve : dict.commerce.spokenFor}
         </button>
       </div>
     </div>

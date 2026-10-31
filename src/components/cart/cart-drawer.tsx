@@ -1,8 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
+import {
+  fill,
+  useDictionary,
+  useLocale,
+} from "@/components/i18n/dictionary-provider";
+import { dateLocale } from "@/lib/i18n/config";
+import { Link } from "@/components/i18n/link";
 import { useRegion } from "@/components/chrome/region-provider";
 import { useOverlay } from "@/components/chrome/use-overlay";
 import { Button } from "@/components/ui/button";
@@ -24,7 +30,9 @@ export function CartDrawer() {
     remove,
     checkout,
   } = useCart();
-  const { region, price } = useRegion();
+  const dict = useDictionary();
+  const locale = useLocale();
+  const { region, price, taxNote, shippingNote } = useRegion();
   const panelRef = useOverlay(isOpen, close);
 
   return (
@@ -41,7 +49,7 @@ export function CartDrawer() {
         ref={panelRef}
         role="dialog"
         aria-modal={isOpen}
-        aria-label="Your bag"
+        aria-label={dict.cart.yourBag}
         inert={!isOpen}
         className={cn(
           "fixed inset-y-0 right-0 z-85 flex w-full max-w-[29rem] flex-col border-l border-ivory-hairline bg-ivory transition-transform duration-700 ease-tamiale",
@@ -50,29 +58,30 @@ export function CartDrawer() {
       >
         <div className="flex h-(--header-height) shrink-0 items-center justify-between border-b border-ivory-hairline px-7">
           <h2 className="eyebrow">
-            Your bag<span className="ml-1.5 text-stone">({count})</span>
+            {dict.cart.yourBag}
+            <span className="ml-1.5 text-stone">({count})</span>
           </h2>
           <button
             type="button"
             onClick={close}
             className="eyebrow cursor-pointer text-stone transition-colors hover:text-obsidian"
           >
-            Close
+            {dict.cart.close}
           </button>
         </div>
 
         {lines.length === 0 ? (
           <div className="flex flex-1 flex-col items-center justify-center gap-6 px-10 text-center">
-            <p className="display-md text-obsidian">Your bag is empty.</p>
+            <p className="display-md text-obsidian">{dict.cart.emptyTitle}</p>
             <p className="text-sm text-stone">
-              Collection 001 is open for pre-order in three lens expressions.
+              {dict.cart.emptyBody}
             </p>
             <Link
               href="/collection"
               onClick={close}
               className="eyebrow border-b border-obsidian pb-1"
             >
-              View the collection
+              {dict.cart.viewCollection}
             </Link>
           </div>
         ) : (
@@ -107,22 +116,24 @@ export function CartDrawer() {
                       Onyx / {line.colorwayName}
                     </p>
                     <p className="eyebrow mt-1 text-stone">
-                      Pre-order · Ships {line.shipsFrom}
+                      {fill(dict.commerce.preorderShips, {
+                        month: line.shipsFrom,
+                      })}
                     </p>
 
                     <div className="mt-3 flex items-center justify-between">
                       <div className="flex items-center border border-ivory-hairline">
                         <QuantityButton
-                          label={`Decrease quantity of ${line.title}`}
+                          label={fill(dict.cart.decrease, { name: line.title })}
                           onClick={() => setQuantity(key, line.quantity - 1)}
                         >
-                          –
+                          −
                         </QuantityButton>
                         <span className="w-8 text-center text-sm tabular-nums">
                           {line.quantity}
                         </span>
                         <QuantityButton
-                          label={`Increase quantity of ${line.title}`}
+                          label={fill(dict.cart.increase, { name: line.title })}
                           disabled={line.quantity >= 4}
                           onClick={() => setQuantity(key, line.quantity + 1)}
                         >
@@ -134,7 +145,7 @@ export function CartDrawer() {
                         onClick={() => remove(key)}
                         className="cursor-pointer text-xs text-stone underline-offset-4 transition-colors hover:text-obsidian hover:underline"
                       >
-                        Remove
+                        {dict.cart.remove}
                       </button>
                     </div>
                   </div>
@@ -147,13 +158,16 @@ export function CartDrawer() {
         {lines.length > 0 && (
           <div className="shrink-0 border-t border-ivory-hairline px-7 py-7">
             <div className="flex items-baseline justify-between">
-              <span className="eyebrow text-stone">Subtotal</span>
+              <span className="eyebrow text-stone">{dict.cart.subtotal}</span>
               <span className="frame-name figure-num text-2xl">
-                {formatMoney(subtotal, region.currency, region.locale)}
+                {formatMoney(subtotal, region.currency, dateLocale[locale])}
               </span>
             </div>
             <p className="mt-2 text-xs text-stone">
-              {region.taxNote}. {region.shippingNote} once the edition ships.
+              {fill(dict.cart.subtotalNote, {
+                tax: taxNote,
+                shipping: shippingNote,
+              })}
             </p>
 
             {notice && (
@@ -170,11 +184,10 @@ export function CartDrawer() {
               onClick={checkout}
               disabled={isCheckingOut}
             >
-              {isCheckingOut ? "Opening checkout…" : "Reserve your pair"}
+              {isCheckingOut ? dict.privateClient.form.sending : dict.cart.checkout}
             </Button>
             <p className="mt-4 text-center text-xs text-stone">
-              You are charged today. Your pair is reserved from the edition and
-              dispatched when it is released.
+{dict.cart.checkoutNote}
             </p>
           </div>
         )}

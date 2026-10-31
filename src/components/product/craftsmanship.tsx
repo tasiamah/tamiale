@@ -1,15 +1,18 @@
 import { FrameDrawing } from "@/components/product/frame-drawing";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { getDictionary } from "@/lib/i18n/dictionary";
 import type { Frame } from "@/lib/catalog/types";
 
-export function Craftsmanship({
+export async function Craftsmanship({
   frame,
   index = "05",
 }: {
   frame: Frame;
   index?: string;
 }) {
+  const dict = await getDictionary();
+
   return (
     <section
       id="craftsmanship"
@@ -18,9 +21,9 @@ export function Craftsmanship({
       <div className="gutter py-24 md:py-32">
         <SectionHeading
           index={index}
-          eyebrow="Craftsmanship"
-          title="What the measurements actually mean."
-          lede="Rather than claim quality, the house publishes the figures and the processes behind them. Every number below appears on the technical drawing."
+          eyebrow={dict.home.craftEyebrow}
+          title={dict.home.craftTitle}
+          lede={dict.home.craftLede}
         />
 
         <div className="mt-20 grid gap-16 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
@@ -28,7 +31,7 @@ export function Craftsmanship({
             <figure className="bg-ivory-dim px-6 py-12 sm:px-14 sm:py-16">
               <FrameDrawing frame={frame} />
               <figcaption className="mt-10 flex items-baseline justify-between border-t border-ivory-hairline pt-4 text-xs text-stone">
-                <span>{frame.name} front elevation</span>
+                <span>{frame.name} {dict.commerce.frontElevation}</span>
                 <span className="eyebrow">Millimetres</span>
               </figcaption>
             </figure>

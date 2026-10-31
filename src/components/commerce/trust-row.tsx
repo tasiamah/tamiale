@@ -1,5 +1,8 @@
-import Link from "next/link";
+"use client";
 
+
+import { Link } from "@/components/i18n/link";
+import { useDictionary } from "@/components/i18n/dictionary-provider";
 import { cn } from "@/lib/cn";
 
 /**
@@ -10,33 +13,18 @@ import { cn } from "@/lib/cn";
  * Every claim here has to match src/lib/catalog/legal.ts. If a policy
  * changes, this is the second place to change.
  */
-const ASSURANCES = [
-  {
-    label: "Cancel any time before it ships",
-    detail: "Full refund, no reason needed",
-    href: "/legal/shipping",
-  },
-  {
-    label: "Complimentary insured delivery",
-    detail: "Tracked, in every market we serve",
-    href: "/legal/shipping",
-  },
-  {
-    label: "Thirty-day returns",
-    detail: "Unworn, in the case, at our cost",
-    href: "/legal/returns",
-  },
-  {
-    label: "Two-year warranty",
-    detail: "Repaired by preference, not replaced",
-    href: "/legal/warranty",
-  },
-] as const;
-
 export function TrustRow({ className }: { className?: string }) {
+  const { trust } = useDictionary().commerce;
+  const assurances = [
+    { label: trust.cancelLabel, detail: trust.cancelDetail, href: "/legal/shipping" },
+    { label: trust.deliveryLabel, detail: trust.deliveryDetail, href: "/legal/shipping" },
+    { label: trust.returnsLabel, detail: trust.returnsDetail, href: "/legal/returns" },
+    { label: trust.warrantyLabel, detail: trust.warrantyDetail, href: "/legal/warranty" },
+  ];
+
   return (
     <ul className={cn("grid gap-px overflow-hidden bg-ivory-hairline sm:grid-cols-2", className)}>
-      {ASSURANCES.map((item) => (
+      {assurances.map((item) => (
         <li key={item.label} className="bg-ivory">
           <Link
             href={item.href}

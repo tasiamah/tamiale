@@ -2,13 +2,14 @@
 
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import Link from "next/link";
 import { useCallback, useState } from "react";
 
+import { Link } from "@/components/i18n/link";
 import { useSavedFrames } from "@/components/account/saved-frames-provider";
 import { useRegion } from "@/components/chrome/region-provider";
 import { EditionNote } from "@/components/commerce/edition-note";
 import { StickyBuyBar } from "@/components/commerce/sticky-buy-bar";
+import { fill, useDictionary } from "@/components/i18n/dictionary-provider";
 import { TrustRow } from "@/components/commerce/trust-row";
 import { useReserve } from "@/components/commerce/use-reserve";
 import { ColorwaySwatches } from "@/components/product/colorway-swatches";
@@ -33,11 +34,6 @@ const Atelier = dynamic(
 
 type MediaView = "studio" | "atelier" | "elevation";
 
-const MEDIA_VIEWS: { id: MediaView; label: string }[] = [
-  { id: "studio", label: "Studio" },
-  { id: "atelier", label: "3D Atelier" },
-  { id: "elevation", label: "Elevation" },
-];
 
 export function ProductStage({
   frame,
@@ -47,8 +43,14 @@ export function ProductStage({
   initialColorwayId: string;
 }) {
   const [colorwayId, setColorwayId] = useState(initialColorwayId);
+  const dict = useDictionary();
   const [view, setView] = useState<MediaView>("studio");
-  const { region, price } = useRegion();
+  const mediaViews: { id: MediaView; label: string }[] = [
+    { id: "studio", label: dict.commerce.tabs.studio },
+    { id: "atelier", label: dict.commerce.tabs.atelier },
+    { id: "elevation", label: dict.commerce.tabs.elevation },
+  ];
+  const { price, taxNote, shippingNote } = useRegion();
   const reserve = useReserve();
   const { isSaved, toggleSaved, hydrated } = useSavedFrames();
 
@@ -65,7 +67,7 @@ export function ProductStage({
     <div className="gutter grid gap-14 pb-20 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
       <div>
         <div className="flex gap-1.5 pb-4">
-          {MEDIA_VIEWS.map((entry) => (
+          {mediaViews.map((entry) => (
             <button
               key={entry.id}
               type="button"
@@ -119,8 +121,8 @@ export function ProductStage({
               <FrameDrawing frame={frame} />
             </div>
             <figcaption className="mt-4 flex justify-between text-xs text-stone">
-              <span>Front elevation, millimetres</span>
-              <span>Placeholder pending the factory drawing</span>
+              <span>{dict.commerce.frontElevationMm}</span>
+              <span>{dict.commerce.drawingPlaceholder}</span>
             </figcaption>
           </figure>
         )}
@@ -162,7 +164,7 @@ export function ProductStage({
 
         <div className="mt-5 flex items-baseline gap-4">
           <p className="frame-name text-3xl">{price(frame.priceBook)}</p>
-          <p className="text-xs text-stone">{region.taxNote}</p>
+          <p className="text-xs text-stone">{taxNote}</p>
         </div>
 
         <p className="body-lg mt-7 max-w-md text-pretty text-stone-dim">
@@ -171,7 +173,7 @@ export function ProductStage({
 
         <div className="mt-10">
           <div className="flex items-baseline justify-between">
-            <p className="eyebrow text-stone">Lens</p>
+            <p className="eyebrow text-stone">{dict.commerce.lens}</p>
             <p className="text-sm">
               {colorway.frameFinish} / {colorway.name}
             </p>
@@ -188,11 +190,11 @@ export function ProductStage({
           </p>
           <dl className="mt-5 flex flex-wrap gap-x-8 gap-y-2 text-xs text-stone">
             <div className="flex gap-2">
-              <dt>Transmission</dt>
+              <dt>{dict.commerce.transmission}</dt>
               <dd className="figure-num text-obsidian">{colorway.vlt}%</dd>
             </div>
             <div className="flex gap-2">
-              <dt>Filter category</dt>
+              <dt>{dict.commerce.filterCategory}</dt>
               <dd className="figure-num text-obsidian">
                 {colorway.filterCategory}
               </dd>
@@ -203,9 +205,7 @@ export function ProductStage({
         <div className="mt-8 border border-ivory-hairline bg-ivory-dim/60 px-5 py-4">
           <EditionNote frame={frame} colorway={colorway} />
           <p className="mt-2.5 text-sm leading-relaxed text-stone">
-            Reserved from the edition today and dispatched in{" "}
-            <span className="text-obsidian">{frame.shipsFrom}</span>.
-            Cancellable for a full refund at any point before it ships.
+            {fill(dict.commerce.preorderNote, { month: frame.shipsFrom })}
           </p>
         </div>
 
@@ -215,8 +215,10 @@ export function ProductStage({
           onClick={() => reserve(frame, colorway)}
         >
           {colorway.availableForSale
-            ? `Reserve this pair · ${price(frame.priceBook)}`
-            : "This expression is spoken for"}
+            ? fill(dict.commerce.reserveThisPair, {
+                price: price(frame.priceBook),
+              })
+            : dict.commerce.expressionSpokenFor}
         </Button>
 
         <ButtonLink
@@ -224,7 +226,7 @@ export function ProductStage({
           variant="outline"
           className="mt-2.5 w-full"
         >
-          See it on your face
+          {dict.commerce.seeItOnYourFace}
         </ButtonLink>
 
         <TrustRow className="mt-6 border border-ivory-hairline" />
@@ -235,18 +237,18 @@ export function ProductStage({
             onClick={() => toggleSaved(frame.handle, colorway.id)}
             className="cursor-pointer text-stone underline-offset-4 transition-colors hover:text-obsidian hover:underline"
           >
-            {saved ? "Saved to My Tamiale" : "Save for later"}
+            {saved ? dict.commerce.saved : dict.commerce.saveForLater}
           </button>
           <Link
             href="/private-client"
             className="text-stone underline-offset-4 transition-colors hover:text-obsidian hover:underline"
           >
-            Speak to an advisor
+            {dict.commerce.speakToAdvisor}
           </Link>
         </div>
 
         <div className="mt-12">
-          <Detail summary="Measurements">
+          <Detail summary={dict.commerce.details.measurements}>
             <dl>
               {frame.measurements.map((measurement) => (
                 <div
@@ -259,7 +261,7 @@ export function ProductStage({
               ))}
             </dl>
           </Detail>
-          <Detail summary="Materials and hardware">
+          <Detail summary={dict.commerce.details.materials}>
             <div className="flex flex-col gap-5">
               {frame.materials.map((material) => (
                 <div key={material.heading}>
@@ -271,11 +273,12 @@ export function ProductStage({
               ))}
             </div>
           </Detail>
-          <Detail summary="Delivery and returns">
+          <Detail summary={dict.commerce.details.delivery}>
             <p className="leading-relaxed text-stone-dim">
-              {region.shippingNote}, from {frame.shipsFrom}. Thirty days to
-              return, unworn and in its case, at our cost. Two years against
-              manufacturing defects, with repair offered before replacement.
+              {fill(dict.commerce.details.deliveryBody, {
+                note: shippingNote,
+                month: frame.shipsFrom,
+              })}
             </p>
           </Detail>
         </div>

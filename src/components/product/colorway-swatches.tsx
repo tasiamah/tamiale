@@ -1,5 +1,6 @@
 "use client";
 
+import { useDictionary } from "@/components/i18n/dictionary-provider";
 import { cn } from "@/lib/cn";
 import type { Colorway } from "@/lib/catalog/types";
 
@@ -14,10 +15,12 @@ export function ColorwaySwatches({
   onSelect: (id: string) => void;
   tone?: "obsidian" | "ivory";
 }) {
+  const dict = useDictionary();
+
   return (
     <div
       role="radiogroup"
-      aria-label="Lens expression"
+      aria-label={dict.commerce.lensExpression}
       className="flex flex-wrap gap-2.5"
     >
       {colorways.map((colorway) => {

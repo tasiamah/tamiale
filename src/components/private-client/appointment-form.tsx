@@ -3,14 +3,16 @@
 import { useActionState, useId } from "react";
 
 import { useRegion } from "@/components/chrome/region-provider";
+import { useDictionary } from "@/components/i18n/dictionary-provider";
 import { Button } from "@/components/ui/button";
 import { IDLE, requestAppointment } from "@/lib/actions";
 import { REGIONS } from "@/lib/region";
 import { cn } from "@/lib/cn";
 
 export function AppointmentForm() {
+  const dict = useDictionary();
   const [state, action, pending] = useActionState(requestAppointment, IDLE);
-  const { region } = useRegion();
+  const { label } = useRegion();
   const ids = {
     name: useId(),
     email: useId(),
@@ -20,7 +22,7 @@ export function AppointmentForm() {
 
   return (
     <form action={action} className="flex flex-col gap-7">
-      <Field id={ids.name} label="Name">
+      <Field id={ids.name} label={dict.privateClient.form.name}>
         <input
           id={ids.name}
           name="name"
@@ -30,7 +32,7 @@ export function AppointmentForm() {
         />
       </Field>
 
-      <Field id={ids.email} label="Email">
+      <Field id={ids.email} label={dict.privateClient.form.email}>
         <input
           id={ids.email}
           name="email"
@@ -41,28 +43,28 @@ export function AppointmentForm() {
         />
       </Field>
 
-      <Field id={ids.region} label="Where you are">
+      <Field id={ids.region} label={dict.privateClient.form.region}>
         <select
           id={ids.region}
           name="region"
-          defaultValue={region.label}
+          defaultValue={label}
           className={cn(inputClass, "cursor-pointer appearance-none")}
         >
           {REGIONS.map((option) => (
-            <option key={option.id} value={option.label} className="text-obsidian">
-              {option.label}
+            <option key={option.id} value={option.id} className="text-obsidian">
+              {dict.region[option.id]}
             </option>
           ))}
           <option value="Elsewhere" className="text-obsidian">
-            Elsewhere
+            {dict.privateClient.form.elsewhere}
           </option>
         </select>
       </Field>
 
       <Field
         id={ids.note}
-        label="What you would like to discuss"
-        hint="Optional. Measurements from a pair you already own are the single most useful thing you can bring."
+        label={dict.privateClient.form.interest}
+        hint={dict.privateClient.form.measurements}
       >
         <textarea
           id={ids.note}
@@ -75,7 +77,7 @@ export function AppointmentForm() {
 
       <div>
         <Button type="submit" tone="obsidian" variant="outline" disabled={pending}>
-          {pending ? "Sending…" : "Request an appointment"}
+          {pending ? dict.privateClient.form.sending : dict.privateClient.form.submit}
         </Button>
       </div>
 

@@ -1,6 +1,6 @@
-import Link from "next/link";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
+import { Link } from "@/components/i18n/link";
 import { cn } from "@/lib/cn";
 
 type Variant = "solid" | "outline" | "ghost";

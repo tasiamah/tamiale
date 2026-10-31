@@ -1,10 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import { Link } from "@/components/i18n/link";
 import { useSavedFrames } from "@/components/account/saved-frames-provider";
 import { useCart } from "@/components/cart/cart-provider";
+import { fill, useDictionary } from "@/components/i18n/dictionary-provider";
+import type { Dictionary } from "@/lib/i18n/dictionaries/en";
 import { ColorwaySwatches } from "@/components/product/colorway-swatches";
 import { Button, ButtonLink } from "@/components/ui/button";
 import { findColorway } from "@/lib/catalog/frames";
@@ -13,7 +15,8 @@ import { cn } from "@/lib/cn";
 import {
   estimateFit,
   recommendLenses,
-  STYLING,
+  STYLING_ORDER,
+  describeFit,
   type FitEstimate,
   type StylingPreference,
 } from "@/lib/vision/fit";
@@ -30,11 +33,6 @@ type CameraState =
 
 type Mode = "mirror" | "perspective";
 
-const MODES: { id: Mode; label: string }[] = [
-  { id: "mirror", label: "Digital mirror" },
-  { id: "perspective", label: "Lens perspective" },
-];
-
 export function VisionStudio({
   frame,
   initialColorwayId,
@@ -44,6 +42,17 @@ export function VisionStudio({
 }) {
   const [colorwayId, setColorwayId] = useState(initialColorwayId);
   const [camera, setCamera] = useState<CameraState>("idle");
+  const dict = useDictionary();
+  const vs = dict.visionStudio;
+  const modes: { id: Mode; label: string }[] = [
+    { id: "mirror", label: vs.tabMirror },
+    { id: "perspective", label: vs.tabLens },
+  ];
+  const styling_options = STYLING_ORDER.map((id) => ({
+    id,
+    label: vs.styles[id],
+    note: vs.styles[`${id}Note` as const],
+  }));
   const [mode, setMode] = useState<Mode>("mirror");
   const [detected, setDetected] = useState(false);
   const [fit, setFit] = useState<FitEstimate | null>(null);
@@ -60,6 +69,7 @@ export function VisionStudio({
   const modeRef = useRef<Mode>("mirror");
 
   const { add } = useCart();
+  const described = fit ? describeFit(fit, frame, vs.fit) : null;
   const { saveFitProfile } = useSavedFrames();
   const colorway = findColorway(frame, colorwayId);
 
@@ -124,7 +134,7 @@ export function VisionStudio({
     } catch (error) {
       console.error("[tamiale] face tracking unavailable:", error);
       setFailureDetail(
-        "The face tracking engine could not start on this device. The camera is still live, so you can use lens perspective.",
+        vs.engineDegraded,
       );
       setCamera("failed");
       return;
@@ -163,13 +173,13 @@ export function VisionStudio({
       );
     };
     render();
-  }, [frame]);
+  }, [frame, vs.engineDegraded]);
 
   const estimate = useCallback(() => {
     const reading = readingRef.current;
     if (!reading) return;
-    setFit(estimateFit(reading, frame));
-  }, [frame]);
+    setFit(estimateFit(reading));
+  }, []);
 
   const capture = useCallback(() => {
     const video = videoRef.current;
@@ -201,7 +211,7 @@ export function VisionStudio({
     <div className="grid gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-16">
       <div>
         <div className="flex flex-wrap gap-1.5 pb-4">
-          {MODES.map((entry) => (
+          {modes.map((entry) => (
             <button
               key={entry.id}
               type="button"
@@ -264,16 +274,14 @@ export function VisionStudio({
           {!live && mode === "mirror" && (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-10 text-center">
               <p className="display-md text-ivory">
-                {camera === "starting"
-                  ? "Opening the mirror…"
-                  : "The mirror is closed."}
+                {camera === "starting" ? vs.opening : vs.mirrorClosed}
               </p>
               <p className="max-w-sm text-sm leading-relaxed text-ivory/45">
-                {cameraMessage(camera)}
+                {cameraMessage(camera, vs)}
               </p>
               {camera !== "starting" && (
                 <Button tone="ivory" variant="outline" onClick={start}>
-                  {camera === "idle" ? "Open the camera" : "Try again"}
+                  {camera === "idle" ? vs.openCamera : vs.tryAgain}
                 </Button>
               )}
             </div>
@@ -284,15 +292,18 @@ export function VisionStudio({
               <span className="eyebrow text-ivory/50">
                 {mode === "mirror"
                   ? detected
-                    ? "Tracking"
-                    : "Looking for a face"
-                  : `${colorway.name} · ${colorway.vlt}% transmission`}
+                    ? vs.tracking
+                    : vs.lookingForFace
+                  : fill(vs.transmissionReadout, {
+                      name: colorway.name,
+                      vlt: colorway.vlt,
+                    })}
               </span>
               <div className="flex gap-2">
                 {mode === "mirror" && (
-                  <GhostButton onClick={capture}>Capture</GhostButton>
+                  <GhostButton onClick={capture}>{vs.capture}</GhostButton>
                 )}
-                <GhostButton onClick={stop}>Close camera</GhostButton>
+                <GhostButton onClick={stop}>{vs.closeCamera}</GhostButton>
               </div>
             </div>
           )}
@@ -310,14 +321,12 @@ export function VisionStudio({
         )}
 
         <p className="mt-5 text-xs leading-relaxed text-ivory/35">
-          Face tracking runs in this browser. No image, video or landmark is
-          transmitted to Tamiale, and nothing is kept unless you save a fit
-          profile.{" "}
+{vs.privacyNote}{" "}
           <Link
             href="/legal/vision-privacy"
             className="underline underline-offset-4 hover:text-ivory/70"
           >
-            How this works
+            {vs.howThisWorks}
           </Link>
           .
         </p>
@@ -325,7 +334,7 @@ export function VisionStudio({
 
       <div className="flex flex-col gap-10">
         <section>
-          <h2 className="eyebrow text-ivory/45">Lens</h2>
+          <h2 className="eyebrow text-ivory/45">{vs.lens}</h2>
           <div className="mt-4">
             <ColorwaySwatches
               colorways={frame.colorways}
@@ -341,10 +350,10 @@ export function VisionStudio({
         </section>
 
         <section id="fit" className="scroll-mt-28 border-t border-obsidian-hairline pt-8">
-          <h2 className="eyebrow text-ivory/45">Fit intelligence</h2>
+          <h2 className="eyebrow text-ivory/45">{vs.fitIntelligence}</h2>
 
           <div className="mt-5 flex flex-wrap gap-1.5">
-            {STYLING.map((option) => (
+            {styling_options.map((option) => (
               <button
                 key={option.id}
                 type="button"
@@ -363,27 +372,35 @@ export function VisionStudio({
             ))}
           </div>
 
-          {fit ? (
+          {fit && described ? (
             <div className="mt-7">
-              <p className="eyebrow text-ivory/55">Fit estimate</p>
-              <p className="display-md mt-3">{fit.headline}</p>
+              <p className="eyebrow text-ivory/55">{vs.fitEstimate}</p>
+              <p className="display-md mt-3">{described.headline}</p>
               <dl className="mt-6 grid grid-cols-3 gap-4 border-y border-obsidian-hairline py-5">
-                <Metric label="Face width" value={`${fit.faceWidthMm.toFixed(0)} mm`} />
-                <Metric label="Bridge gap" value={`${fit.bridgeGapMm.toFixed(0)} mm`} />
-                <Metric label="Proportion" value={fit.faceShape} />
+                <Metric label={vs.faceWidth} value={`${fit.faceWidthMm.toFixed(0)} mm`} />
+                <Metric label={vs.bridgeGap} value={`${fit.bridgeGapMm.toFixed(0)} mm`} />
+                <Metric
+                  label={vs.proportion}
+                  value={vs.fit.shapes[fit.faceShape]}
+                />
               </dl>
               <ul className="mt-5 flex flex-col gap-3">
-                {fit.reasoning.map((line) => (
+                {described.reasoning.map((line: string) => (
                   <li key={line.slice(0, 24)} className="text-sm leading-relaxed text-ivory/55">
                     {line}
                   </li>
                 ))}
               </ul>
               <p className="mt-5 text-xs leading-relaxed text-ivory/35">
-                Estimated from a single camera, assuming an average pupil
-                distance. Confidence is {fit.confidence}
-                {fit.confidence === "low" ? ". Face the camera squarely and try again" : ""}.
-                It is not a measurement and cannot guarantee physical fit.
+                {fill(
+                  fit.confidence === "low" ? vs.estimateNoteLow : vs.estimateNote,
+                  {
+                    confidence:
+                      fit.confidence === "low"
+                        ? vs.confidenceLow
+                        : vs.confidenceFair,
+                  },
+                )}
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3">
@@ -400,19 +417,17 @@ export function VisionStudio({
                     })
                   }
                 >
-                  Keep this profile
+                  {vs.keepProfile}
                 </Button>
                 <Button tone="ivory" variant="ghost" onClick={() => setFit(null)}>
-                  Discard
+                  {vs.discard}
                 </Button>
               </div>
             </div>
           ) : (
             <div className="mt-7">
               <p className="text-sm leading-relaxed text-ivory/55">
-                With the mirror open and your face square to the camera, the
-                studio will estimate your face width and bridge gap and compare
-                them with the published millimetres.
+{vs.fitPrompt}
               </p>
               <Button
                 tone="ivory"
@@ -421,25 +436,25 @@ export function VisionStudio({
                 disabled={!detected}
                 onClick={estimate}
               >
-                {detected ? "Estimate my fit" : "Open the mirror first"}
+                {detected ? vs.estimateMyFit : vs.openMirrorFirst}
               </Button>
             </div>
           )}
         </section>
 
         <section className="border-t border-obsidian-hairline pt-8">
-          <h2 className="eyebrow text-ivory/45">For your stated preference</h2>
+          <h2 className="eyebrow text-ivory/45">{vs.stated}</h2>
           <p className="display-md mt-4">
             {frame.name}
             <span className="text-ivory/40"> / {recommendation.primary.name}</span>
           </p>
           <p className="mt-4 text-sm leading-relaxed text-ivory/55">
-            You chose {STYLING.find((entry) => entry.id === styling)?.label.toLowerCase()}.
-            Against that, {recommendation.primary.name} at{" "}
-            {recommendation.primary.vlt}% transmission is the closer match, with{" "}
-            {recommendation.alternate.name} as the alternative. This follows
-            your stated preference and the measured density of each lens. It
-            is not a judgement about your face.
+            {fill(vs.recommendation, {
+              style: vs.styles[styling].toLowerCase(),
+              primary: recommendation.primary.name,
+              vlt: recommendation.primary.vlt,
+              alternate: recommendation.alternate.name,
+            })}
           </p>
           <div className="mt-7 flex flex-col gap-3">
             <Button
@@ -457,14 +472,14 @@ export function VisionStudio({
               }}
               tone="ivory"
             >
-              Reserve {recommendation.primary.name}
+              {fill(vs.reserveLens, { name: recommendation.primary.name })}
             </Button>
             <ButtonLink
               href={`/collection/${frame.handle}?lens=${colorway.id}`}
               tone="ivory"
               variant="outline"
             >
-              Open the full frame
+              {vs.openFullFrame}
             </ButtonLink>
           </div>
         </section>
@@ -473,16 +488,19 @@ export function VisionStudio({
   );
 }
 
-function cameraMessage(state: CameraState): string {
+function cameraMessage(
+  state: CameraState,
+  vs: Dictionary["visionStudio"],
+): string {
   switch (state) {
     case "denied":
-      return "Camera access was declined. You can grant it from the icon in the address bar, or carry on shopping without it, because nothing on this site requires the camera.";
+      return vs.cameraDenied;
     case "unavailable":
-      return "No camera is available on this device, or the browser will not share one over this connection. A camera needs a secure (https) connection.";
+      return vs.noCamera;
     case "failed":
-      return "The tracking engine did not start.";
+      return vs.engineFailed;
     default:
-      return "Open your camera and the Marina will sit where it would sit, at the size your own face implies. Processing happens here, on your device.";
+      return vs.mirrorClosedBody;
   }
 }
 

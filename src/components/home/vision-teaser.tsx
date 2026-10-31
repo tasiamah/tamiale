@@ -1,46 +1,34 @@
 import { FrameDrawing } from "@/components/product/frame-drawing";
 import { ButtonLink } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
+import { getDictionary } from "@/lib/i18n/dictionary";
 import type { Frame } from "@/lib/catalog/types";
 
-const CAPABILITIES = [
-  {
-    title: "Real-time try-on",
-    body: "The frame tracks your head, scales to your face and changes lens in place.",
-  },
-  {
-    title: "Fit estimate",
-    body: "Face width and bridge fit read from the same view, compared against the published millimetres.",
-  },
-  {
-    title: "Lens perspective",
-    body: "See what each of the three tints does to the light in front of you.",
-  },
-  {
-    title: "On your device",
-    body: "Face tracking runs in the browser. No frame of video reaches the house.",
-  },
-];
+export async function VisionTeaser({ frame }: { frame: Frame }) {
+  const dict = await getDictionary();
+  const capabilities = [
+    { title: dict.home.visionFeatures.tryOnTitle, body: dict.home.visionFeatures.tryOnBody },
+    { title: dict.home.visionFeatures.fitTitle, body: dict.home.visionFeatures.fitBody },
+    { title: dict.home.visionFeatures.lensTitle, body: dict.home.visionFeatures.lensBody },
+    { title: dict.home.visionFeatures.privacyTitle, body: dict.home.visionFeatures.privacyBody },
+  ];
 
-export function VisionTeaser({ frame }: { frame: Frame }) {
   return (
     <section className="grain border-t border-obsidian-hairline bg-obsidian text-ivory">
       <div className="gutter grid items-center gap-16 py-24 md:py-32 lg:grid-cols-[1fr_1.05fr] lg:gap-24">
         <Reveal>
-          <p className="eyebrow text-ivory/55">04 · Vision Studio</p>
+          <p className="eyebrow text-ivory/55">04 · {dict.home.visionEyebrow}</p>
           <h2 className="display-xl mt-6 text-balance">
-            Your perspective.
+            {dict.home.visionTitleFirst}
             <br />
-            Your fit.
+            {dict.home.visionTitleSecond}
           </h2>
           <p className="body-lg mt-8 max-w-md text-pretty text-ivory/55">
-            A digital mirror rather than a filter. Open the camera and the
-            Marina sits where it would sit, at the size it would be, in the
-            lens you are considering.
+{dict.home.visionLede}
           </p>
 
           <dl className="mt-12 grid gap-x-10 gap-y-7 sm:grid-cols-2">
-            {CAPABILITIES.map((item) => (
+            {capabilities.map((item) => (
               <div key={item.title} className="border-t border-obsidian-hairline pt-4">
                 <dt className="eyebrow text-ivory/80">{item.title}</dt>
                 <dd className="mt-2.5 text-sm leading-relaxed text-ivory/45">
@@ -56,7 +44,7 @@ export function VisionTeaser({ frame }: { frame: Frame }) {
             variant="outline"
             className="mt-12"
           >
-            Enter Vision Studio
+            {dict.home.visionCta}
           </ButtonLink>
         </Reveal>
 
@@ -78,7 +66,7 @@ export function VisionTeaser({ frame }: { frame: Frame }) {
             </div>
 
             <div className="absolute inset-x-6 bottom-6 flex items-center justify-between">
-              <span className="eyebrow text-ivory/40">Alignment · Live</span>
+              <span className="eyebrow text-ivory/40">{dict.home.visionEyebrow}</span>
               <span className="eyebrow text-ivory/55 figure-num">
                 {frame.geometry.totalWidth} mm
               </span>

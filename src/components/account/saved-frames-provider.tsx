@@ -8,6 +8,8 @@ import {
   type ReactNode,
 } from "react";
 
+import type { FaceShape } from "@/lib/vision/fit";
+
 import { useHydrated, usePersistentState } from "@/lib/use-persistent-state";
 
 const SAVED_KEY = "tamiale.saved";
@@ -31,7 +33,11 @@ export type FitProfile = {
   faceWidthMm: number;
   /** Inter-pupillary distance assumed during the estimate, millimetres. */
   pupillaryDistanceMm: number;
-  faceShape: string;
+  /**
+   * A stable key, not display text: profiles written before a translation
+   * existed must still render in whatever language is read next.
+   */
+  faceShape: FaceShape;
   /** Styling preference chosen by the visitor, not inferred from their face. */
   styling?: string;
   capturedAt: string;

@@ -2,15 +2,16 @@ import type { CurrencyCode } from "@/lib/catalog/types";
 
 export type RegionId = "eu" | "uk" | "us" | "ae";
 
+/**
+ * A market, not a language. Which prices and duties apply is a question of
+ * where the parcel goes; which words describe them is a question of what the
+ * reader reads, so the prose lives in the dictionary under `region`.
+ */
 export type Region = {
   id: RegionId;
-  label: string;
   /** ISO country passed to Shopify `@inContext` for market pricing. */
   countryCode: string;
   currency: CurrencyCode;
-  locale: string;
-  taxNote: string;
-  shippingNote: string;
 };
 
 /**
@@ -21,39 +22,23 @@ export type Region = {
 export const REGIONS: Region[] = [
   {
     id: "eu",
-    label: "Europe",
     countryCode: "NL",
     currency: "EUR",
-    locale: "en-NL",
-    taxNote: "VAT included",
-    shippingNote: "Complimentary insured delivery, 2 to 3 working days",
   },
   {
     id: "uk",
-    label: "United Kingdom",
     countryCode: "GB",
     currency: "GBP",
-    locale: "en-GB",
-    taxNote: "VAT and duties included",
-    shippingNote: "Complimentary insured delivery, 2 to 4 working days",
   },
   {
     id: "us",
-    label: "United States",
     countryCode: "US",
     currency: "USD",
-    locale: "en-US",
-    taxNote: "Sales tax calculated at checkout",
-    shippingNote: "Complimentary insured delivery, 3 to 5 working days",
   },
   {
     id: "ae",
-    label: "United Arab Emirates",
     countryCode: "AE",
     currency: "AED",
-    locale: "en-AE",
-    taxNote: "VAT and duties included",
-    shippingNote: "Complimentary insured delivery, 2 to 4 working days",
   },
 ];
 

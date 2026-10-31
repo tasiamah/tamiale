@@ -1,12 +1,13 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 
+import { useDictionary, useLocale } from "@/components/i18n/dictionary-provider";
+import { Link } from "@/components/i18n/link";
 import { useOverlay } from "@/components/chrome/use-overlay";
 import { Rivet } from "@/components/ui/wordmark";
 import { cn } from "@/lib/cn";
-import { CONCIERGE_OPENERS, type ConciergeAction } from "@/lib/concierge/knowledge";
+import { type ConciergeAction } from "@/lib/concierge/knowledge";
 
 type Turn = {
   id: number;
@@ -15,23 +16,24 @@ type Turn = {
   actions?: ConciergeAction[];
 };
 
-const GREETING: Turn = {
-  id: 0,
-  role: "advisor",
-  text:
-    "Good day. I hold the register for Collection 001: measurements, lenses, " +
-    "release dates and care. Ask directly; if it is outside what I know, I will " +
-    "pass you to an advisor rather than guess.",
-};
-
 export function Concierge() {
+  const dict = useDictionary();
+  const locale = useLocale();
   const [open, setOpen] = useState(false);
-  const [turns, setTurns] = useState<Turn[]>([GREETING]);
+  const [turns, setTurns] = useState<Turn[]>([
+    { id: 0, role: "advisor", text: dict.concierge.greeting },
+  ]);
   const [draft, setDraft] = useState("");
   const [pending, setPending] = useState(false);
   const panelRef = useOverlay(open, () => setOpen(false));
   const logRef = useRef<HTMLDivElement>(null);
   const inputId = useId();
+  const openers = [
+    dict.concierge.suggestions.tailoring,
+    dict.concierge.suggestions.widerFace,
+    dict.concierge.suggestions.shipping,
+    dict.concierge.suggestions.material,
+  ];
 
   useEffect(() => {
     logRef.current?.scrollTo({
@@ -55,7 +57,7 @@ export function Concierge() {
       const response = await fetch("/api/concierge", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: trimmed }),
+        body: JSON.stringify({ question: trimmed, locale }),
       });
       const data = (await response.json()) as {
         answer?: string;
@@ -68,7 +70,7 @@ export function Concierge() {
           role: "advisor",
           text:
             data.answer ??
-            "Something interrupted that. Please ask again, or write to clients@tamiale.com.",
+            dict.concierge.interrupted,
           actions: data.actions,
         },
       ]);
@@ -98,14 +100,14 @@ export function Concierge() {
           open && "pointer-events-none opacity-0",
         )}
       >
-        Concierge
+        {dict.concierge.open}
       </button>
 
       <div
         ref={panelRef}
         role="dialog"
         aria-modal={open}
-        aria-label="Tamiale Concierge"
+        aria-label={dict.concierge.title}
         inert={!open}
         className={cn(
           "fixed right-0 bottom-0 z-95 flex h-[min(40rem,92dvh)] w-full flex-col border-l border-ivory-hairline bg-ivory text-obsidian transition-[opacity,transform] duration-600 ease-tamiale sm:right-5 sm:bottom-5 sm:w-[25rem] sm:border",
@@ -117,14 +119,14 @@ export function Concierge() {
         <div className="flex shrink-0 items-center justify-between border-b border-ivory-hairline px-5 py-4">
           <div className="flex items-center gap-2.5">
             <Rivet className="text-stone" aria-hidden />
-            <h2 className="eyebrow">Concierge</h2>
+            <h2 className="eyebrow">{dict.concierge.title}</h2>
           </div>
           <button
             type="button"
             onClick={() => setOpen(false)}
             className="eyebrow cursor-pointer text-stone transition-colors hover:text-obsidian"
           >
-            Close
+            {dict.concierge.close}
           </button>
         </div>
 
@@ -164,12 +166,12 @@ export function Concierge() {
           ))}
 
           {pending && (
-            <p className="eyebrow text-stone">Consulting the register…</p>
+            <p className="eyebrow text-stone">{dict.concierge.thinking}</p>
           )}
 
           {turns.length === 1 && (
             <div className="flex flex-wrap gap-2 pt-2">
-              {CONCIERGE_OPENERS.map((opener) => (
+              {openers.map((opener) => (
                 <button
                   key={opener}
                   type="button"
@@ -191,13 +193,13 @@ export function Concierge() {
           className="flex shrink-0 items-center gap-3 border-t border-ivory-hairline px-5 py-4"
         >
           <label htmlFor={inputId} className="sr-only">
-            Ask the concierge
+            {dict.concierge.title}
           </label>
           <input
             id={inputId}
             value={draft}
             onChange={(event) => setDraft(event.target.value)}
-            placeholder="Ask about fit, lenses or delivery"
+            placeholder={dict.concierge.placeholder}
             autoComplete="off"
             className="flex-1 bg-transparent py-1 text-sm text-obsidian placeholder:text-stone focus:outline-none"
           />
@@ -206,7 +208,7 @@ export function Concierge() {
             disabled={pending || draft.trim().length === 0}
             className="eyebrow cursor-pointer text-obsidian transition-opacity hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-25"
           >
-            Ask
+            {dict.concierge.send}
           </button>
         </form>
       </div>

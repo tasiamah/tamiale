@@ -2,6 +2,7 @@
 
 import { useId } from "react";
 
+import { useDictionary } from "@/components/i18n/dictionary-provider";
 import { REGIONS, type RegionId } from "@/lib/region";
 import { cn } from "@/lib/cn";
 
@@ -15,7 +16,8 @@ export function RegionSelector({
   className?: string;
 }) {
   const id = useId();
-  const { region, setRegion } = useRegion();
+  const dict = useDictionary();
+  const { region, setRegion, taxNote } = useRegion();
 
   return (
     <div className={cn("flex flex-col gap-2", className)}>
@@ -26,7 +28,7 @@ export function RegionSelector({
           tone === "ivory" ? "text-ivory/50" : "text-stone",
         )}
       >
-        Shipping to
+        {dict.region.label}
       </label>
       <select
         id={id}
@@ -41,7 +43,7 @@ export function RegionSelector({
       >
         {REGIONS.map((option) => (
           <option key={option.id} value={option.id} className="text-obsidian">
-            {option.label} · {option.currency}
+            {dict.region[option.id]} · {option.currency}
           </option>
         ))}
       </select>
@@ -51,7 +53,7 @@ export function RegionSelector({
           tone === "ivory" ? "text-ivory/40" : "text-stone",
         )}
       >
-        {region.taxNote}
+        {taxNote}
       </p>
     </div>
   );

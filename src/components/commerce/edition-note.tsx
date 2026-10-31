@@ -1,3 +1,6 @@
+"use client";
+
+import { fill, useDictionary } from "@/components/i18n/dictionary-provider";
 import { cn } from "@/lib/cn";
 import type { Colorway, Frame } from "@/lib/catalog/types";
 
@@ -16,6 +19,7 @@ export function EditionNote({
   colorway: Colorway;
   className?: string;
 }) {
+  const dict = useDictionary();
   const remaining = colorway.remaining;
   const scarce = typeof remaining === "number" && remaining <= 25;
 
@@ -23,14 +27,15 @@ export function EditionNote({
     <p className={cn("text-xs leading-relaxed text-stone", className)}>
       <span className="text-obsidian">{frame.edition}</span>
       {" · "}
-      An edition of{" "}
-      <span className="figure-num text-obsidian">{colorway.editionSize}</span>{" "}
-      in {colorway.name}
+      {fill(dict.commerce.edition.editionOf, {
+        count: colorway.editionSize,
+        lens: colorway.name,
+      })}
       {typeof remaining === "number" && (
         <>
           {" · "}
           <span className={cn("figure-num", scarce ? "text-obsidian" : "")}>
-            {remaining} unsold
+            {fill(dict.commerce.edition.unsold, { count: remaining })}
           </span>
         </>
       )}

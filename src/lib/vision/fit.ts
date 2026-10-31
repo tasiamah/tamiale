@@ -12,15 +12,36 @@ export const ASSUMED_IPD_MM = 63;
 
 export type FitVerdict = "recommended" | "snug" | "wide" | "unknown";
 
+/** Stored in the fit profile, so it must be a stable key, not display text. */
+export type FaceShape =
+  | "tapered"
+  | "elongated"
+  | "square"
+  | "rounded"
+  | "balanced";
+
 export type FitEstimate = {
   faceWidthMm: number;
   pupillaryDistanceMm: number;
   bridgeGapMm: number;
-  faceShape: string;
+  faceShape: FaceShape;
   verdict: FitVerdict;
-  headline: string;
-  reasoning: string[];
   confidence: "fair" | "low";
+};
+
+/**
+ * The sentences the estimate is written into. They are passed in rather than
+ * held here because the geometry is the same in every language and the prose
+ * is not.
+ */
+export type FitCopy = {
+  shapes: Record<FaceShape, string>;
+  wide: string;
+  narrow: string;
+  recommended: string;
+  reasonWidth: string;
+  reasonBridge: string;
+  reasonShape: string;
 };
 
 /** Pixels per millimetre, corrected for how far the head is turned. */
@@ -30,7 +51,7 @@ export function pixelsPerMillimetre(reading: FaceReading): number {
   return irisSpan / foreshortening / ASSUMED_IPD_MM;
 }
 
-function describeShape(reading: FaceReading, scale: number): string {
+function describeShape(reading: FaceReading, scale: number): FaceShape {
   const faceWidth = distance(reading.cheekRight, reading.cheekLeft) / scale;
   const faceHeight = distance(reading.forehead, reading.chin) / scale;
   const jawWidth = distance(reading.jawRight, reading.jawLeft) / scale;
@@ -42,10 +63,10 @@ function describeShape(reading: FaceReading, scale: number): string {
   if (lengthRatio > 1.52) return "elongated";
   if (lengthRatio < 1.3 && jawRatio > 0.86) return "square";
   if (lengthRatio < 1.3) return "rounded";
-  return "balanced oval";
+  return "balanced";
 }
 
-export function estimateFit(reading: FaceReading, frame: Frame): FitEstimate {
+export function estimateFit(reading: FaceReading): FitEstimate {
   const scale = pixelsPerMillimetre(reading);
   const foreshortening = Math.max(0.45, Math.cos(reading.yaw));
 
@@ -56,26 +77,14 @@ export function estimateFit(reading: FaceReading, frame: Frame): FitEstimate {
   const pupillaryDistanceMm = ASSUMED_IPD_MM;
 
   const faceShape = describeShape(reading, scale);
-  const [lower, upper] = [128, 144];
+  const [lower, upper] = FACE_WIDTH_RANGE;
 
-  let verdict: FitVerdict;
-  let headline: string;
-  if (faceWidthMm < lower - 3) {
-    verdict = "wide";
-    headline = "The front is likely to sit wide";
-  } else if (faceWidthMm > upper + 3) {
-    verdict = "snug";
-    headline = "The front is likely to sit narrow";
-  } else {
-    verdict = "recommended";
-    headline = "Recommended to try";
-  }
-
-  const reasoning = [
-    `Your face measures an estimated ${faceWidthMm.toFixed(0)} mm temple to temple. ${frame.name} is cut for ${lower} to ${upper} mm.`,
-    `The bridge gap between your eyes reads at about ${bridgeGapMm.toFixed(0)} mm against a ${frame.geometry.bridge} mm bridge. Worth checking against a pair you already own, since the nose profile matters as much as the gap.`,
-    `Your proportions read as ${faceShape}. The Marina's angular brow runs level across the face, which is the characteristic most people respond to either way.`,
-  ];
+  const verdict: FitVerdict =
+    faceWidthMm < lower - 3
+      ? "wide"
+      : faceWidthMm > upper + 3
+        ? "snug"
+        : "recommended";
 
   return {
     faceWidthMm,
@@ -83,10 +92,45 @@ export function estimateFit(reading: FaceReading, frame: Frame): FitEstimate {
     bridgeGapMm,
     faceShape,
     verdict,
-    headline,
-    reasoning,
     // Turned heads and long lenses both degrade the estimate.
     confidence: Math.abs(reading.yaw) > 0.3 ? "low" : "fair",
+  };
+}
+
+/** The bounds the frame is cut for, published on the specification sheet. */
+export const FACE_WIDTH_RANGE = [128, 144] as const;
+
+export function describeFit(
+  fit: FitEstimate,
+  frame: Frame,
+  copy: FitCopy,
+): { headline: string; reasoning: string[] } {
+  const [lower, upper] = FACE_WIDTH_RANGE;
+  const values = {
+    width: fit.faceWidthMm.toFixed(0),
+    lower,
+    upper,
+    name: frame.name,
+    gap: fit.bridgeGapMm.toFixed(0),
+    bridge: frame.geometry.bridge,
+    shape: copy.shapes[fit.faceShape],
+  };
+
+  const headline =
+    fit.verdict === "wide"
+      ? copy.wide
+      : fit.verdict === "snug"
+        ? copy.narrow
+        : copy.recommended;
+
+  return {
+    headline,
+    reasoning: [copy.reasonWidth, copy.reasonBridge, copy.reasonShape].map(
+      (template) =>
+        template.replace(/\{(\w+)\}/g, (match, key: string) =>
+          key in values ? String(values[key as keyof typeof values]) : match,
+        ),
+    ),
   };
 }
 
@@ -96,13 +140,12 @@ export type StylingPreference =
   | "bold"
   | "classic";
 
-export const STYLING: { id: StylingPreference; label: string; note: string }[] =
-  [
-    { id: "understated", label: "Understated", note: "Quiet at a distance" },
-    { id: "architectural", label: "Architectural", note: "Edges, not curves" },
-    { id: "bold", label: "Bold", note: "Seen across a room" },
-    { id: "classic", label: "Classic", note: "Nothing to date it" },
-  ];
+export const STYLING_ORDER: StylingPreference[] = [
+  "understated",
+  "architectural",
+  "bold",
+  "classic",
+];
 
 /**
  * Only one silhouette is released, so the recommendation is a lens choice.

@@ -1,10 +1,12 @@
-import Link from "next/link";
-
+import { Link } from "@/components/i18n/link";
+import { LanguageSwitcher } from "@/components/i18n/language-switcher";
 import { RegionSelector } from "@/components/chrome/region-selector";
 import { Wordmark } from "@/components/ui/wordmark";
-import { footerLinks, site } from "@/lib/site";
+import { getDictionary } from "@/lib/i18n/dictionary";
+import { footerGroups } from "@/lib/site";
 
-export function Footer() {
+export async function Footer() {
+  const dict = await getDictionary();
   const year = 2026;
 
   return (
@@ -14,16 +16,20 @@ export function Footer() {
           <div className="flex flex-col gap-8">
             <Wordmark size="lg" className="text-ivory" />
             <p className="max-w-xs text-sm leading-relaxed text-ivory/50">
-              A contemporary eyewear house. Designed in {site.foundedIn},
-              made in Italy, released in numbered editions.
+              {dict.footer.blurb}
             </p>
-            <RegionSelector tone="ivory" className="max-w-56" />
+            <div className="flex flex-col gap-6">
+              <RegionSelector tone="ivory" className="max-w-56" />
+              <LanguageSwitcher tone="ivory" className="max-w-56" />
+            </div>
           </div>
 
           <div className="grid gap-10 sm:grid-cols-3">
-            {footerLinks.map((group) => (
-              <nav key={group.heading} aria-label={group.heading}>
-                <h2 className="eyebrow text-ivory/40">{group.heading}</h2>
+            {footerGroups.map((group) => (
+              <nav key={group.heading} aria-label={dict.footer[group.heading]}>
+                <h2 className="eyebrow text-ivory/40">
+                  {dict.footer[group.heading]}
+                </h2>
                 <ul className="mt-5 flex flex-col gap-3">
                   {group.links.map((link) => (
                     <li key={link.href}>
@@ -31,7 +37,7 @@ export function Footer() {
                         href={link.href}
                         className="text-sm text-ivory/75 transition-colors duration-300 hover:text-ivory"
                       >
-                        {link.label}
+                        {dict.footer[link.key]}
                       </Link>
                     </li>
                   ))}
@@ -43,9 +49,9 @@ export function Footer() {
 
         <div className="mt-20 flex flex-col gap-5 border-t border-obsidian-hairline pt-8 text-xs text-ivory/35 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {year} Tamiale. All rights reserved.
+            © {year} Tamiale. {dict.footer.rights}
           </p>
-          <p className="eyebrow text-ivory/30">{site.statement}</p>
+          <p className="eyebrow text-ivory/30">{dict.meta.statement}</p>
         </div>
       </div>
     </footer>

@@ -8,23 +8,29 @@ import { FrameDrawing } from "@/components/product/frame-drawing";
 import { cn } from "@/lib/cn";
 import type { Colorway, Frame } from "@/lib/catalog/types";
 
+import { useDictionary } from "@/components/i18n/dictionary-provider";
+import type { Dictionary } from "@/lib/i18n/dictionaries/en";
+
 import { FrameMesh } from "./frame-mesh";
 
 type ViewId = "three-quarter" | "front" | "side" | "top" | "rear";
 
-const VIEWS: { id: ViewId; label: string; position: [number, number, number] }[] =
-  [
-    { id: "three-quarter", label: "Three-quarter", position: [1.08, 0.3, 1.78] },
-    { id: "front", label: "Front", position: [0, 0, 2.15] },
-    { id: "side", label: "Profile", position: [2.35, 0.05, 0.18] },
-    { id: "top", label: "Plan", position: [0, 2.2, 0.3] },
-    { id: "rear", label: "Rear", position: [0, 0.2, -2.2] },
-  ];
+const VIEWS: {
+  id: ViewId;
+  label: keyof Dictionary["atelier"];
+  position: [number, number, number];
+}[] = [
+  { id: "three-quarter", label: "threeQuarter", position: [1.08, 0.3, 1.78] },
+  { id: "front", label: "front", position: [0, 0, 2.15] },
+  { id: "side", label: "profile", position: [2.35, 0.05, 0.18] },
+  { id: "top", label: "plan", position: [0, 2.2, 0.3] },
+  { id: "rear", label: "rear", position: [0, 0.2, -2.2] },
+];
 
 type LightingId = "studio" | "boutique" | "nocturne";
 
 type Scheme = {
-  label: string;
+  label: keyof Dictionary["atelier"];
   background: string;
   ambient: number;
   key: string;
@@ -41,7 +47,7 @@ type Scheme = {
 
 const LIGHTING: Record<LightingId, Scheme> = {
   studio: {
-    label: "Studio",
+    label: "studio",
     background: "#e9e4da",
     room: "#272520",
     ambient: 0.3,
@@ -50,7 +56,7 @@ const LIGHTING: Record<LightingId, Scheme> = {
     softbox: 4.5,
   },
   boutique: {
-    label: "Boutique",
+    label: "boutique",
     background: "#1a1917",
     room: "#15140f",
     ambient: 0.12,
@@ -59,7 +65,7 @@ const LIGHTING: Record<LightingId, Scheme> = {
     softbox: 4,
   },
   nocturne: {
-    label: "Nocturne",
+    label: "nocturne",
     background: "#111110",
     room: "#0c0c10",
     ambient: 0.1,
@@ -120,6 +126,7 @@ export function Atelier({
 }) {
   const [view, setView] = useState<ViewId>("three-quarter");
   const [lighting, setLighting] = useState<LightingId>("studio");
+  const dict = useDictionary();
   const [spinning, setSpinning] = useState(false);
   const [failed, setFailed] = useState(false);
   const controlsRef = useRef<CameraControls>(null);
@@ -226,7 +233,7 @@ export function Atelier({
               active={view === entry.id}
               onClick={() => setView(entry.id)}
             >
-              {entry.label}
+              {dict.atelier[entry.label]}
             </Chip>
           ))}
         </div>
@@ -238,7 +245,7 @@ export function Atelier({
               active={lighting === id}
               onClick={() => setLighting(id)}
             >
-              {LIGHTING[id].label}
+              {dict.atelier[LIGHTING[id].label]}
             </Chip>
           ))}
           <Chip
@@ -246,7 +253,7 @@ export function Atelier({
             active={spinning}
             onClick={() => setSpinning((value) => !value)}
           >
-            {spinning ? "Stop" : "Rotate"}
+            {spinning ? dict.atelier.stop : dict.atelier.rotate}
           </Chip>
         </div>
       </div>
