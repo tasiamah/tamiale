@@ -94,18 +94,18 @@ export function ProductStage({
 
         {view === "studio" && (
           <figure>
-            <div className="plate flex aspect-4/3 items-center justify-center px-[2%]">
+            <div className="plate flex aspect-4/3 items-center justify-center">
               <Image
                 src={colorway.image.src}
                 alt={colorway.image.alt}
                 width={colorway.image.width}
                 height={colorway.image.height}
                 priority
-                sizes="(max-width: 1024px) 94vw, 56vw"
-                className="w-full"
+                sizes="(max-width: 1024px) 88vw, 640px"
+                className="w-full max-w-[640px]"
               />
             </div>
-            <figcaption className="mt-5 flex justify-between text-xs text-stone-dim">
+            <figcaption className="mt-8 flex justify-between text-xs text-stone-dim">
               <span>
                 {frame.name} · {colorway.frameFinish} / {colorway.name}
               </span>
@@ -145,11 +145,11 @@ export function ProductStage({
               }}
               aria-label={`View ${entry.name}`}
               className={cn(
-                "flex cursor-pointer items-center justify-center bg-ivory-dim px-2 py-2",
-                "ring-offset-2 ring-offset-ivory transition-all duration-500 ease-tamiale",
+                "flex cursor-pointer items-center justify-center px-3 py-3",
+                "border-b transition-all duration-500 ease-tamiale",
                 entry.id === colorway.id
-                  ? "opacity-100 ring-1 ring-obsidian"
-                  : "opacity-45 ring-0 ring-obsidian/25 hover:opacity-90 hover:ring-1",
+                  ? "border-obsidian opacity-100"
+                  : "border-transparent opacity-40 hover:border-ivory-hairline hover:opacity-85",
               )}
             >
               <Image
@@ -168,15 +168,18 @@ export function ProductStage({
       <div className="lg:sticky lg:top-28 lg:self-start">
         <p className="eyebrow text-stone">{frame.collection}</p>
         {/* Serif is the house's product voice: names and prices only. */}
-        <h1 className="frame-name mt-4 text-6xl leading-none">{frame.name}</h1>
-
-        <div className="mt-5 flex items-baseline gap-4">
-          <p className="frame-name text-3xl">{price(frame.priceBook)}</p>
-          <p className="text-xs text-stone">{taxNote}</p>
-        </div>
+        <h1 className="frame-name mt-4 text-[2.75rem] leading-none">
+          {frame.name}
+        </h1>
 
         <p className="body-lg mt-7 max-w-md text-pretty text-stone-dim">
           {frame.tagline}
+        </p>
+
+        {/* Reading size, below the description, as on the homepage. */}
+        <p className="figure-num mt-7 text-base">
+          {price(frame.priceBook)}
+          <span className="ml-3 text-xs text-stone">{taxNote}</span>
         </p>
 
         <div className="mt-10">

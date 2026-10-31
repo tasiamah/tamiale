@@ -28,12 +28,12 @@ export default async function PassportPage() {
   return (
     <>
       <header className="gutter border-b border-ivory-hairline section-y">
-        <Reveal className="max-w-3xl">
+        <Reveal className="mx-auto flex max-w-2xl flex-col items-center text-center">
           <p className="eyebrow text-stone">{dict.passport.eyebrow}</p>
           <h1 className="display-hero mt-8 text-balance">
             {dict.passport.titleFirst} {dict.passport.titleSecond}
           </h1>
-          <p className="body-lg mt-10 max-w-xl text-pretty text-stone-dim">
+          <p className="body-lg mt-8 max-w-xl text-pretty text-stone-dim">
 {dict.passport.lede}
           </p>
         </Reveal>

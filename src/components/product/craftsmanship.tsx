@@ -26,8 +26,13 @@ export async function Craftsmanship({
           lede={dict.home.craftLede}
         />
 
-        <div className="mt-20 grid gap-16 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
-          <Reveal>
+        <div className="mt-24 grid gap-16 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
+          {/*
+           * The drawing holds its place while the specifications scroll past
+           * it. The figure is far shorter than the text beside it, and left
+           * to itself it leaves half the section as an empty column.
+           */}
+          <Reveal className="lg:sticky lg:top-28 lg:self-start">
             <figure className="bg-ivory-dim px-6 py-16 sm:px-16 sm:py-24">
               <FrameDrawing frame={frame} />
               <figcaption className="hairline-t mt-12 pt-5 text-xs text-stone-dim">

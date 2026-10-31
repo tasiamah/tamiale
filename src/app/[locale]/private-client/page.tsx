@@ -28,12 +28,12 @@ export default async function PrivateClientPage() {
   return (
     <>
       <header className="gutter border-b border-ivory-hairline section-y">
-        <Reveal className="max-w-4xl">
+        <Reveal className="mx-auto flex max-w-2xl flex-col items-center text-center">
           <p className="eyebrow text-stone">05 · {dict.privateClient.eyebrow}</p>
           <h1 className="display-hero mt-8 text-balance">
             {dict.privateClient.titleFirst} {dict.privateClient.titleSecond}
           </h1>
-          <p className="body-lg mt-10 max-w-xl text-pretty text-stone-dim">
+          <p className="body-lg mt-8 max-w-xl text-pretty text-stone-dim">
 {dict.privateClient.lede}
           </p>
         </Reveal>

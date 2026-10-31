@@ -29,10 +29,10 @@ export default async function JournalPage() {
   return (
     <>
       <header className="gutter border-b border-ivory-hairline section-y">
-        <Reveal className="max-w-3xl">
+        <Reveal className="mx-auto flex max-w-2xl flex-col items-center text-center">
           <p className="eyebrow text-stone">04 · {dict.journal.eyebrow}</p>
           <h1 className="display-hero mt-8">{dict.journal.title}</h1>
-          <p className="body-lg mt-10 max-w-xl text-pretty text-stone-dim">
+          <p className="body-lg mt-8 max-w-xl text-pretty text-stone-dim">
 {dict.journal.lede}
           </p>
         </Reveal>

@@ -116,6 +116,13 @@ body:has([data-stage="dark"]) [data-chrome-spacer] {
 /*
  * Display sizes, set in the serif.
  *
+ * These are deliberately smaller than they were. The page had five headlines
+ * at nearly the same size running down it, each one shouting, and a shout
+ * repeated five times is not emphasis. The houses this is measured against
+ * set their largest homepage type far smaller than this and let photography
+ * and empty paper do the work; restraint is the thing being imitated, not
+ * scale. The serif still carries the voice, only at speaking volume.
+ *
  * A serif of this contrast needs far less negative tracking than a grotesque
  * did: the letterforms already lock together, and squeezing them collapses
  * the thin strokes. Line height stays near 1 so a two-line statement reads as
@@ -124,33 +131,33 @@ body:has([data-stage="dark"]) [data-chrome-spacer] {
 @utility display-hero {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.875rem, 8vw, 8rem);
-  line-height: 0.96;
-  letter-spacing: -0.021em;
+  font-size: clamp(2.375rem, 4.6vw, 4.25rem);
+  line-height: 1.04;
+  letter-spacing: -0.018em;
 }
 
 @utility display-xl {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.25rem, 5vw, 4.5rem);
-  line-height: 1.02;
-  letter-spacing: -0.018em;
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.014em;
 }
 
 @utility display-lg {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(1.75rem, 3.2vw, 2.875rem);
-  line-height: 1.1;
-  letter-spacing: -0.014em;
+  font-size: clamp(1.5rem, 2.3vw, 2.125rem);
+  line-height: 1.2;
+  letter-spacing: -0.011em;
 }
 
 @utility display-md {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(1.375rem, 2.1vw, 1.875rem);
-  line-height: 1.22;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.25rem, 1.75vw, 1.625rem);
+  line-height: 1.3;
+  letter-spacing: -0.008em;
 }
 
 /* The names of frames and the prices beside them, in the same serif voice. */
@@ -252,22 +259,35 @@ body:has([data-stage="dark"]) [data-chrome-spacer] {
 }
 
 /*
- * A frame photographed on paper. The image drifts up a fraction on hover
- * rather than zooming: an object on a gallery wall is approached, not
- * magnified.
+ * A frame resting on the page.
+ *
+ * There is deliberately no panel behind it. A tinted box drawn around a
+ * cut-out photograph is the tell of a catalogue, and it was the cheapest
+ * looking thing in the house: it reads as a placeholder waiting for a real
+ * picture. The object now sits on the same paper as the text and casts its
+ * own shadow, which is what makes it look photographed rather than pasted.
  */
 @utility plate {
-  overflow: hidden;
-  background-color: var(--color-ivory-dim);
-
   & img {
-    transition:
-      transform 1200ms var(--ease-tamiale),
-      opacity 1200ms var(--ease-tamiale);
+    filter: drop-shadow(0 1.75rem 2.5rem rgb(22 21 15 / 0.14));
+    transition: transform 1200ms var(--ease-tamiale);
+  }
+
+  /* Approached, not magnified. The object lifts; it does not zoom. */
+  &:hover img {
+    transform: translate3d(0, -0.4rem, 0);
+  }
+}
+
+/* The same object on a dark stage, where a warm shadow would read as haze. */
+@utility plate-dark {
+  & img {
+    filter: drop-shadow(0 1.75rem 2.5rem rgb(0 0 0 / 0.5));
+    transition: transform 1200ms var(--ease-tamiale);
   }
 
   &:hover img {
-    transform: scale(1.028);
+    transform: translate3d(0, -0.4rem, 0);
   }
 }
 

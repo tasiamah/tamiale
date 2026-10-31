@@ -9,7 +9,14 @@ export function SectionHeading({
   title,
   lede,
   tone = "obsidian",
-  align = "left",
+  /*
+   * Centred by default. Every section on the page used to be ranged left
+   * under a numbered eyebrow, which is a magazine convention; the houses this
+   * is measured against square their titles in the middle of the column and
+   * let the symmetry do the formality. Sections that genuinely sit in a
+   * two-column layout pass align="left" explicitly.
+   */
+  align = "center",
   className,
 }: {
   index?: string;

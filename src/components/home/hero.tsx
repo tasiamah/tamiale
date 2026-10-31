@@ -31,30 +31,40 @@ export function Hero({ frame }: { frame: Frame }) {
   const reserve = useReserve();
 
   return (
-    <section className="gutter pt-16 pb-24 lg:pt-24 lg:pb-32">
-      <div className="hairline-b flex flex-col gap-10 pb-14 lg:flex-row lg:items-end lg:justify-between lg:gap-24">
-        <h1 className="display-hero max-w-[13ch] text-balance">
-          {dict.meta.statement}
-        </h1>
-        <p className="body-lg max-w-sm text-pretty text-stone lg:pb-4">
+    <section className="gutter pt-24 pb-24 lg:pt-36 lg:pb-32">
+      {/*
+       * Centred rather than set across the page. A statement squared up in
+       * the middle of its own empty paper is the oldest formal gesture a
+       * house has, and it costs nothing to make; the asymmetric spread this
+       * replaces read as a design studio, not a maison.
+       */}
+      <div className="mx-auto flex max-w-2xl flex-col items-center gap-7 text-center">
+        <h1 className="display-hero text-balance">{dict.meta.statement}</h1>
+        <p className="body-lg max-w-md text-pretty text-stone">
           {dict.home.heroLede}
         </p>
       </div>
 
-      <div className="grid gap-14 pt-14 lg:grid-cols-12 lg:gap-20 lg:pt-20">
+      <div className="grid gap-14 pt-24 lg:grid-cols-12 lg:gap-20 lg:pt-32">
         <figure className="lg:col-span-7">
-          <div className="plate flex aspect-5/4 items-center justify-center px-[2%] sm:aspect-16/10">
+          {/*
+           * Capped near the photograph's own width. It was being blown up to
+           * roughly 840px from a 698px master, and a soft product shot is the
+           * one thing a luxury store cannot survive. Small and sharp on a lot
+           * of paper reads as more expensive than large and approximate.
+           */}
+          <div className="plate flex items-center justify-center py-8">
             <Image
               src={colorway.image.src}
               alt={colorway.image.alt}
               width={colorway.image.width}
               height={colorway.image.height}
               priority
-              sizes="(max-width: 1024px) 94vw, 58vw"
-              className="w-full"
+              sizes="(max-width: 1024px) 88vw, 640px"
+              className="w-full max-w-[640px]"
             />
           </div>
-          <figcaption className="mt-5 flex justify-between text-xs text-stone-dim">
+          <figcaption className="mt-8 flex justify-between text-xs text-stone-dim">
             <span>
               {frame.name} · {colorway.frameFinish} / {colorway.name}
             </span>
@@ -65,16 +75,22 @@ export function Hero({ frame }: { frame: Frame }) {
         <div className="lg:col-span-5 lg:self-center">
           <p className="eyebrow text-stone">{frame.collection}</p>
 
-          <div className="mt-5 flex items-baseline justify-between gap-6">
-            <h2 className="frame-name text-5xl md:text-6xl">{frame.name}</h2>
-            <p className="frame-name figure-num text-3xl text-stone md:text-[2.125rem]">
-              {price(frame.priceBook)}
-            </p>
-          </div>
-          <p className="mt-3 text-xs text-stone-dim">{taxNote}</p>
+          <h2 className="frame-name mt-5 text-4xl md:text-[2.75rem]">
+            {frame.name}
+          </h2>
 
-          <p className="mt-8 max-w-md text-pretty leading-relaxed text-stone">
+          <p className="mt-7 max-w-md text-pretty leading-relaxed text-stone">
             {frame.tagline}
+          </p>
+
+          {/*
+           * The price sits under the description at reading size, not beside
+           * the name at display size. A figure set as large as the product it
+           * belongs to is how a discount site opens a conversation.
+           */}
+          <p className="figure-num mt-7 text-base">
+            {price(frame.priceBook)}
+            <span className="ml-3 text-xs text-stone-dim">{taxNote}</span>
           </p>
 
           <div className="mt-12">

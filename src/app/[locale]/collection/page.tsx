@@ -27,24 +27,24 @@ export default async function CollectionPage() {
   return (
     <>
       <header className="gutter border-b border-ivory-hairline section-y">
-        <Reveal className="max-w-4xl">
+        <Reveal className="mx-auto flex max-w-2xl flex-col items-center text-center">
           <p className="eyebrow text-stone">{frame.collection}</p>
           <h1 className="display-hero mt-8 text-balance">{dict.collection.title}</h1>
-          <p className="body-lg mt-10 max-w-xl text-pretty text-stone-dim">
-{dict.collection.lede}
+          <p className="body-lg mt-8 max-w-xl text-pretty text-stone-dim">
+            {dict.collection.lede}
           </p>
         </Reveal>
 
-        <dl className="mt-16 grid gap-y-8 border-t border-ivory-hairline pt-8 sm:grid-cols-2 lg:grid-cols-4">
+        <dl className="mt-20 grid gap-y-10 border-t border-ivory-hairline pt-10 sm:grid-cols-2 lg:grid-cols-4">
           {[
             [dict.collection.stats.silhouettes, "1"],
             [dict.collection.stats.expressions, String(frame.colorways.length)],
             [dict.collection.stats.edition, frame.edition],
             [dict.collection.stats.shipping, frame.shipsFrom],
           ].map(([label, value]) => (
-            <div key={label}>
+            <div key={label} className="text-center">
               <dt className="eyebrow text-stone">{label}</dt>
-              <dd className="mt-3 font-display text-3xl">{value}</dd>
+              <dd className="mt-3 font-display text-2xl">{value}</dd>
             </div>
           ))}
         </dl>

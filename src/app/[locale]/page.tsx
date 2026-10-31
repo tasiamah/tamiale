@@ -39,29 +39,29 @@ export default async function HomePage() {
         className="border-t border-ivory-hairline bg-ivory scroll-mt-(--header-height)"
       >
         <div className="gutter section-y">
-          <div className="flex flex-col justify-between gap-10 lg:flex-row lg:items-end">
-            <SectionHeading
-              index="02"
-              eyebrow={frame.collection}
-              title={
-                <>
-                  {dict.home.collectionTitleFirst}
-                  <br />
-                  {dict.home.collectionTitleSecond}
-                </>
-              }
-              lede={dict.home.collectionLede}
-            />
-            <Reveal delay={120}>
-              <ButtonLink href="/collection" variant="outline">
-                {dict.commerce.fullCollection}
-              </ButtonLink>
-            </Reveal>
-          </div>
+          <SectionHeading
+            index="02"
+            eyebrow={frame.collection}
+            title={
+              <>
+                {dict.home.collectionTitleFirst}
+                <br />
+                {dict.home.collectionTitleSecond}
+              </>
+            }
+            lede={dict.home.collectionLede}
+          />
 
-          <div className="mt-20">
+          <div className="mt-24">
             <ExpressionGrid frame={frame} />
           </div>
+
+          {/* The way out of the section sits under it, on the centre line. */}
+          <Reveal delay={120} className="mt-20 flex justify-center">
+            <ButtonLink href="/collection" variant="outline">
+              {dict.commerce.fullCollection}
+            </ButtonLink>
+          </Reveal>
         </div>
       </section>
 
