@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Inter, Inter_Tight } from "next/font/google";
+import { Cormorant_Garamond, Jost } from "next/font/google";
 
 import { Concierge } from "@/components/concierge/concierge";
 import { CartDrawer } from "@/components/cart/cart-drawer";
@@ -18,31 +18,34 @@ import { site } from "@/lib/site";
 import "../globals.css";
 
 /**
- * Three roles, bound to CSS variables so the licensed cuts can replace them
- * without touching markup: a tight grotesque carries the headlines, a text
- * grotesque carries the interface, and the serif is kept back for the names
- * of frames and the prices beside them.
+ * Two families, bound to CSS variables so licensed cuts can replace them
+ * without touching markup.
+ *
+ * An old-style serif carries everything the house says and a geometric sans
+ * carries the wayfinding. That pairing is the one nearly every maison has
+ * settled on, and the pair this replaces was the problem: Instrument Serif
+ * has become the default display face of the free-font landing page, and
+ * Inter reads as software no matter what you set it in. Neither is bad type.
+ * Both are the wrong accent for a house.
+ *
+ * Cormorant is cut thin and set with a lot of air, so it is loaded at 300 for
+ * the largest sizes and 400 where it has to hold at small ones.
  */
-const display = Inter_Tight({
-  variable: "--font-tamiale-display",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-});
-
-const sans = Inter({
-  variable: "--font-tamiale-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const serif = Instrument_Serif({
+const serif = Cormorant_Garamond({
   variable: "--font-tamiale-serif",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["300", "400", "500"],
   style: ["normal", "italic"],
   display: "swap",
 });
+
+const sans = Jost({
+  variable: "--font-tamiale-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  display: "swap",
+});
+
 
 /** Required by Cache Components: every root parameter needs a known value. */
 export function generateStaticParams() {
@@ -91,7 +94,7 @@ export default async function RootLayout({ children }: LayoutProps<"/[locale]">)
   return (
     <html
       lang={htmlLang[locale]}
-      className={`${display.variable} ${sans.variable} ${serif.variable} h-full antialiased`}
+      className={`${sans.variable} ${serif.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-ivory text-obsidian">
         <DictionaryProvider locale={locale} dict={toClientDictionary(dict)}>

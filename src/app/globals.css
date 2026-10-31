@@ -23,7 +23,14 @@
   --color-obsidian-hairline: #33312a;
 
   --color-stone: #6e6a5f;
-  --color-stone-dim: #9a9488;
+  /*
+   * Darkened from #9a9488, which measured 2.7:1 against the paper and so
+   * failed the AA minimum the accessibility page says the house meets. The
+   * two greys are now close to each other on purpose: on a cream this light
+   * there is no tone that reads as faint and still passes, so the quieter
+   * level is made with size and weight instead of with colour.
+   */
+  --color-stone-dim: #726d5e;
 
   /*
    * A high-contrast serif carries everything the house says, and the
@@ -31,11 +38,13 @@
    * That division is what separates a maison from a storefront. The serif is
    * a voice; the sans is a signpost.
    */
-  --font-display: var(--font-tamiale-serif), "Canela", "Times New Roman", serif;
-  --font-sans: var(--font-tamiale-sans), "Neue Haas Grotesk Text",
+  --font-display: var(--font-tamiale-serif), "Canela", "Didot", "Times New Roman",
+    serif;
+  --font-sans: var(--font-tamiale-sans), "Futura", "Avenir Next",
     "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-serif: var(--font-tamiale-serif), "Canela", "Times New Roman", serif;
-  --font-grotesque: var(--font-tamiale-display), "Neue Haas Grotesk Display",
+  --font-serif: var(--font-tamiale-serif), "Canela", "Didot", "Times New Roman",
+    serif;
+  --font-grotesque: var(--font-tamiale-sans), "Futura", "Avenir Next",
     "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   /* Motion. Nothing in the house moves faster than it needs to. */
@@ -135,43 +144,50 @@ body:has([data-stage="dark"]) [data-chrome-spacer] {
  * the thin strokes. Line height stays near 1 so a two-line statement reads as
  * one object rather than as two sentences.
  */
+/*
+ * An old-style serif cut this thin wants the opposite settings to the one it
+ * replaces: larger, because the strokes are fine enough that size reads as
+ * composure rather than as shouting, and tracked open rather than closed,
+ * because negative tracking is what made the last face feel cramped. Nothing
+ * here is set below 300 weight, and only the hero goes that light.
+ */
 @utility display-hero {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(2.375rem, 4.6vw, 4.25rem);
-  line-height: 1.04;
-  letter-spacing: -0.018em;
+  font-weight: 300;
+  font-size: clamp(2.75rem, 5.6vw, 5.5rem);
+  line-height: 1.06;
+  letter-spacing: 0.002em;
 }
 
 @utility display-xl {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(1.75rem, 3vw, 2.75rem);
-  line-height: 1.12;
-  letter-spacing: -0.014em;
+  font-weight: 300;
+  font-size: clamp(2rem, 3.6vw, 3.375rem);
+  line-height: 1.14;
+  letter-spacing: 0.004em;
 }
 
 @utility display-lg {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(1.5rem, 2.3vw, 2.125rem);
-  line-height: 1.2;
-  letter-spacing: -0.011em;
+  font-size: clamp(1.625rem, 2.6vw, 2.375rem);
+  line-height: 1.22;
+  letter-spacing: 0.004em;
 }
 
 @utility display-md {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(1.25rem, 1.75vw, 1.625rem);
-  line-height: 1.3;
-  letter-spacing: -0.008em;
+  font-size: clamp(1.3125rem, 1.9vw, 1.75rem);
+  line-height: 1.32;
+  letter-spacing: 0.006em;
 }
 
 /* The names of frames and the prices beside them, in the same serif voice. */
 @utility frame-name {
   font-family: var(--font-serif);
   font-weight: 400;
-  letter-spacing: -0.008em;
+  letter-spacing: 0.004em;
 }
 
 /* Prices and measurements line up in columns, so the figures must be even. */
@@ -189,10 +205,10 @@ body:has([data-stage="dark"]) [data-chrome-spacer] {
  */
 @utility eyebrow {
   font-family: var(--font-grotesque);
-  font-size: 0.625rem;
+  font-size: 0.6875rem;
   line-height: 1;
-  font-weight: 500;
-  letter-spacing: 0.165em;
+  font-weight: 400;
+  letter-spacing: 0.185em;
   text-transform: uppercase;
 }
 
@@ -202,14 +218,14 @@ body:has([data-stage="dark"]) [data-chrome-spacer] {
  */
 @utility body-lg {
   font-size: clamp(1rem, 1.05vw, 1.125rem);
-  line-height: 1.75;
-  letter-spacing: -0.003em;
+  line-height: 1.8;
+  letter-spacing: 0.004em;
 }
 
 /* The wordmark. Letterforms are set wide enough to read as an engraving. */
 @utility wordmark {
   font-family: var(--font-grotesque);
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.34em;
   text-transform: uppercase;
   /* Tracking adds trailing space; pull it back so the mark optically centres. */
