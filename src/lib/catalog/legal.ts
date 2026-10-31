@@ -61,7 +61,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "Cancelling a pre-order",
         body: [
-          "A pre-order can be cancelled for a full refund at any point before it is dispatched. Write to clients@tamiale.com with the order number; no reason is required and none will be asked for.",
+          "A pre-order can be cancelled for a full refund at any point before it is dispatched. Write to info@tamiale.com with the order number; no reason is required and none will be asked for.",
         ],
       },
       {
@@ -96,7 +96,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "Making a claim",
         body: [
-          "Write to clients@tamiale.com with the serial and a photograph. An advisor will arrange collection. Nothing in this warranty affects your statutory rights against the seller.",
+          "Write to info@tamiale.com with the serial and a photograph. An advisor will arrange collection. Nothing in this warranty affects your statutory rights against the seller.",
         ],
       },
     ],
@@ -125,7 +125,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "Your rights",
         body: [
-          "Under the GDPR and equivalent legislation you may request a copy of your data, ask for it to be corrected, or ask for it to be erased. Write to clients@tamiale.com and expect a reply within thirty days.",
+          "Under the GDPR and equivalent legislation you may request a copy of your data, ask for it to be corrected, or ask for it to be erased. Write to info@tamiale.com and expect a reply within thirty days.",
           "The house does not sell personal data, and does not share the register with anyone.",
         ],
       },
@@ -187,7 +187,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "Telling us",
         body: [
-          "If something here does not work for you, write to clients@tamiale.com. An accessibility fault is treated as a defect, not a feature request.",
+          "If something here does not work for you, write to info@tamiale.com. An accessibility fault is treated as a defect, not a feature request.",
         ],
       },
     ],

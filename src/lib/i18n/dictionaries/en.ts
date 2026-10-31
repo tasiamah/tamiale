@@ -145,7 +145,7 @@ const en = {
 
   concierge: {
     interrupted:
-      "Something interrupted that. Please ask again, or write to clients@tamiale.com.",
+      "Something interrupted that. Please ask again, or write to info@tamiale.com.",
     title: "Concierge",
     open: "Concierge",
     close: "Close",
@@ -155,7 +155,7 @@ const en = {
     send: "Ask",
     thinking: "Consulting the register…",
     fallback:
-      "That is outside what I can answer accurately, and I would rather not guess. An advisor can take it from here: write to clients@tamiale.com, or send a note from the private client page, and you will have a reply within one working day.",
+      "That is outside what I can answer accurately, and I would rather not guess. An advisor can take it from here: write to info@tamiale.com, or send a note from the private client page, and you will have a reply within one working day.",
     fallbackAction: "Write to an advisor",
     suggestions: {
       tailoring: "Which lens suits tailoring?",

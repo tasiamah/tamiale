@@ -25,7 +25,7 @@ async function forward(
     return {
       status: "pending-connection",
       message:
-        "The client register is not yet connected to this deployment, so this request was not recorded. Write to clients@tamiale.com in the meantime.",
+        "The client register is not yet connected to this deployment, so this request was not recorded. Write to info@tamiale.com in the meantime.",
     };
   }
 
@@ -49,7 +49,7 @@ async function forward(
     return {
       status: "error",
       message:
-        "We could not record that just now. Please try again, or write to clients@tamiale.com.",
+        "We could not record that just now. Please try again, or write to info@tamiale.com.",
     };
   }
 

@@ -81,7 +81,7 @@ export function Concierge() {
           id: Date.now() + 1,
           role: "advisor",
           text:
-            "I have lost the connection. Please write to clients@tamiale.com and an advisor will reply within one working day.",
+            "I have lost the connection. Please write to info@tamiale.com and an advisor will reply within one working day.",
         },
       ]);
     } finally {

@@ -2,7 +2,7 @@ export const site = {
   name: "Tamiale",
   wordmark: "TAMIALE",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://tamiale.com",
-  email: "clients@tamiale.com",
+  email: "info@tamiale.com",
   instagram: "https://instagram.com/tamiale",
   foundedIn: "Amsterdam",
 } as const;

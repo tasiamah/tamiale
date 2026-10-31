@@ -49,7 +49,7 @@ const de: LegalCopy = {
       {
         heading: "Eine Vorbestellung stornieren",
         body: [
-          "Eine Vorbestellung kann bis zum Versand jederzeit mit voller Rückerstattung storniert werden. Schreiben Sie an clients@tamiale.com unter Angabe der Bestellnummer; ein Grund ist nicht erforderlich und wird nicht erfragt.",
+          "Eine Vorbestellung kann bis zum Versand jederzeit mit voller Rückerstattung storniert werden. Schreiben Sie an info@tamiale.com unter Angabe der Bestellnummer; ein Grund ist nicht erforderlich und wird nicht erfragt.",
         ],
       },
       {
@@ -82,7 +82,7 @@ const de: LegalCopy = {
       {
         heading: "Einen Anspruch geltend machen",
         body: [
-          "Schreiben Sie an clients@tamiale.com mit der Seriennummer und einem Foto. Ein Berater veranlasst die Abholung. Diese Garantie lässt Ihre gesetzlichen Gewährleistungsrechte gegenüber dem Verkäufer unberührt.",
+          "Schreiben Sie an info@tamiale.com mit der Seriennummer und einem Foto. Ein Berater veranlasst die Abholung. Diese Garantie lässt Ihre gesetzlichen Gewährleistungsrechte gegenüber dem Verkäufer unberührt.",
         ],
       },
     ],
@@ -108,7 +108,7 @@ const de: LegalCopy = {
       {
         heading: "Ihre Rechte",
         body: [
-          "Nach der DSGVO und entsprechenden Gesetzen können Sie eine Kopie Ihrer Daten verlangen, ihre Berichtigung oder ihre Löschung. Schreiben Sie an clients@tamiale.com und rechnen Sie mit einer Antwort innerhalb von dreißig Tagen.",
+          "Nach der DSGVO und entsprechenden Gesetzen können Sie eine Kopie Ihrer Daten verlangen, ihre Berichtigung oder ihre Löschung. Schreiben Sie an info@tamiale.com und rechnen Sie mit einer Antwort innerhalb von dreißig Tagen.",
           "Das Haus verkauft keine personenbezogenen Daten und gibt das Register an niemanden weiter.",
         ],
       },
@@ -167,7 +167,7 @@ const de: LegalCopy = {
       {
         heading: "Uns Bescheid geben",
         body: [
-          "Wenn hier etwas für Sie nicht funktioniert, schreiben Sie an clients@tamiale.com. Ein Barrierefreiheitsfehler wird als Mangel behandelt, nicht als Funktionswunsch.",
+          "Wenn hier etwas für Sie nicht funktioniert, schreiben Sie an info@tamiale.com. Ein Barrierefreiheitsfehler wird als Mangel behandelt, nicht als Funktionswunsch.",
         ],
       },
     ],

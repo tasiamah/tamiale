@@ -49,7 +49,7 @@ const fr: LegalCopy = {
       {
         heading: "Annuler une précommande",
         body: [
-          "Une précommande peut être annulée avec remboursement intégral à tout moment avant son expédition. Écrivez à clients@tamiale.com avec le numéro de commande ; aucun motif n'est requis et aucun ne vous sera demandé.",
+          "Une précommande peut être annulée avec remboursement intégral à tout moment avant son expédition. Écrivez à info@tamiale.com avec le numéro de commande ; aucun motif n'est requis et aucun ne vous sera demandé.",
         ],
       },
       {
@@ -82,7 +82,7 @@ const fr: LegalCopy = {
       {
         heading: "Faire une réclamation",
         body: [
-          "Écrivez à clients@tamiale.com avec le numéro de série et une photographie. Un conseiller organisera l'enlèvement. Rien dans cette garantie n'affecte vos droits légaux à l'égard du vendeur.",
+          "Écrivez à info@tamiale.com avec le numéro de série et une photographie. Un conseiller organisera l'enlèvement. Rien dans cette garantie n'affecte vos droits légaux à l'égard du vendeur.",
         ],
       },
     ],
@@ -108,7 +108,7 @@ const fr: LegalCopy = {
       {
         heading: "Vos droits",
         body: [
-          "Au titre du RGPD et des législations équivalentes, vous pouvez demander une copie de vos données, leur rectification ou leur effacement. Écrivez à clients@tamiale.com et comptez une réponse sous trente jours.",
+          "Au titre du RGPD et des législations équivalentes, vous pouvez demander une copie de vos données, leur rectification ou leur effacement. Écrivez à info@tamiale.com et comptez une réponse sous trente jours.",
           "La maison ne vend pas de données personnelles et ne partage le registre avec personne.",
         ],
       },
@@ -167,7 +167,7 @@ const fr: LegalCopy = {
       {
         heading: "Nous le signaler",
         body: [
-          "Si quelque chose ici ne fonctionne pas pour vous, écrivez à clients@tamiale.com. Un défaut d'accessibilité est traité comme un défaut, pas comme une demande d'évolution.",
+          "Si quelque chose ici ne fonctionne pas pour vous, écrivez à info@tamiale.com. Un défaut d'accessibilité est traité comme un défaut, pas comme une demande d'évolution.",
         ],
       },
     ],

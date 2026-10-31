@@ -137,7 +137,7 @@ export const knowledge: KnowledgeEntry[] = [
 ];
 
 export const CONCIERGE_FALLBACK =
-  "That is outside what I can answer accurately, and I would rather not guess. An advisor can take it from here: write to clients@tamiale.com, or send a note from the private client page, and you will have a reply within one working day.";
+  "That is outside what I can answer accurately, and I would rather not guess. An advisor can take it from here: write to info@tamiale.com, or send a note from the private client page, and you will have a reply within one working day.";
 
 export const CONCIERGE_FALLBACK_ACTIONS: ConciergeAction[] = [
   { label: "Write to an advisor", href: "/private-client" },

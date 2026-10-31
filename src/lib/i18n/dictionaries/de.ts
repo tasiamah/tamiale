@@ -144,7 +144,7 @@ const de: Dictionary = {
 
   concierge: {
     interrupted:
-      "Etwas hat das unterbrochen. Fragen Sie bitte noch einmal, oder schreiben Sie an clients@tamiale.com.",
+      "Etwas hat das unterbrochen. Fragen Sie bitte noch einmal, oder schreiben Sie an info@tamiale.com.",
     title: "Concierge",
     open: "Concierge",
     close: "Schließen",
@@ -154,7 +154,7 @@ const de: Dictionary = {
     send: "Fragen",
     thinking: "Das Register wird eingesehen…",
     fallback:
-      "Das liegt außerhalb dessen, was ich genau beantworten kann, und ich möchte nicht raten. Ein Berater übernimmt gern: Schreiben Sie an clients@tamiale.com, oder senden Sie eine Nachricht über die Privatkundenseite, und Sie haben innerhalb eines Werktags eine Antwort.",
+      "Das liegt außerhalb dessen, was ich genau beantworten kann, und ich möchte nicht raten. Ein Berater übernimmt gern: Schreiben Sie an info@tamiale.com, oder senden Sie eine Nachricht über die Privatkundenseite, und Sie haben innerhalb eines Werktags eine Antwort.",
     fallbackAction: "Einem Berater schreiben",
     suggestions: {
       tailoring: "Welches Glas passt zum Anzug?",

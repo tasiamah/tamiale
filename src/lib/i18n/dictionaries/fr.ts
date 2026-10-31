@@ -145,7 +145,7 @@ const fr: Dictionary = {
 
   concierge: {
     interrupted:
-      "Quelque chose a interrompu l'échange. Reposez votre question, ou écrivez à clients@tamiale.com.",
+      "Quelque chose a interrompu l'échange. Reposez votre question, ou écrivez à info@tamiale.com.",
     title: "Conciergerie",
     open: "Conciergerie",
     close: "Fermer",
@@ -155,7 +155,7 @@ const fr: Dictionary = {
     send: "Demander",
     thinking: "Consultation du registre…",
     fallback:
-      "Cela dépasse ce que je peux répondre avec exactitude, et je préfère ne pas deviner. Un conseiller prendra le relais : écrivez à clients@tamiale.com, ou envoyez un mot depuis la page Client Privé, et vous aurez une réponse sous un jour ouvré.",
+      "Cela dépasse ce que je peux répondre avec exactitude, et je préfère ne pas deviner. Un conseiller prendra le relais : écrivez à info@tamiale.com, ou envoyez un mot depuis la page Client Privé, et vous aurez une réponse sous un jour ouvré.",
     fallbackAction: "Écrire à un conseiller",
     suggestions: {
       tailoring: "Quel verre s'accorde à un costume ?",
