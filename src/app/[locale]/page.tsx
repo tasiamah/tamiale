@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { Editorial } from "@/components/home/editorial";
 import { Hero } from "@/components/home/hero";
 import { Philosophy } from "@/components/home/philosophy";
 import { PrivateAccess } from "@/components/home/private-access";
@@ -32,6 +33,7 @@ export default async function HomePage() {
 
   return (
     <>
+      <Editorial />
       <Hero frame={frame} />
 
       <section

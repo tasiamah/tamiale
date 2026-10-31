@@ -32,7 +32,7 @@ export function Hero({ frame }: { frame: Frame }) {
   const reserve = useReserve();
 
   return (
-    <section className="gutter pt-24 pb-24 lg:pt-36 lg:pb-32">
+    <section className="gutter pt-20 pb-24 lg:pt-28 lg:pb-32">
       {/*
        * Centred rather than set across the page. A name squared up in the
        * middle of its own empty paper is the oldest formal gesture a house
@@ -64,7 +64,6 @@ export function Hero({ frame }: { frame: Frame }) {
               alt={colorway.image.alt}
               width={colorway.image.width}
               height={colorway.image.height}
-              priority
               sizes="(max-width: 1024px) 88vw, 640px"
               className="w-full max-w-[640px]"
             />

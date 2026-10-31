@@ -175,6 +175,8 @@ const fr: Dictionary = {
   home: {
     heroLede:
       "Une lunetterie pensée pour celles et ceux qui voient au-delà des conventions. Une silhouette, dessinée à Zurich, déclinée en trois verres.",
+    editorialAlt:
+      "Deux mannequins portant des lunettes de soleil, photographiés sur un fond de studio clair.",
     collectionTitleFirst: "Trois verres.",
     collectionTitleSecond: "Une silhouette.",
     collectionLede:
