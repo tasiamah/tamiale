@@ -51,8 +51,19 @@ export function Header() {
               onClick={() => setMenuOpen(true)}
               aria-expanded={menuOpen}
               aria-controls="house-menu"
-              className="eyebrow cursor-pointer transition-opacity duration-300 hover:opacity-60"
+              className="eyebrow flex cursor-pointer items-center gap-2.5 transition-opacity duration-300 hover:opacity-60"
             >
+              {/*
+               * The word alone was not reading as a control on a phone. Three
+               * hairlines rather than a drawn icon: they take their colour
+               * from the label, so the mark inverts with the chrome over a
+               * dark opening stage without a second rule for it.
+               */}
+              <span aria-hidden className="flex w-[0.9375rem] flex-col gap-[0.25rem]">
+                <span className="h-px w-full bg-current" />
+                <span className="h-px w-full bg-current" />
+                <span className="h-px w-full bg-current" />
+              </span>
               {dict.header.menu}
             </button>
             <Link
