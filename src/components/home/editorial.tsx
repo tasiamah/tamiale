@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { Link } from "@/components/i18n/link";
 import { getDictionary } from "@/lib/i18n/dictionary";
 
@@ -16,86 +14,104 @@ import { getDictionary } from "@/lib/i18n/dictionary";
  * chrome and pushes the line off the bottom, and `dvh` changes as that
  * chrome retracts, which re-lays out the hero while it is being read.
  *
- * THE TWO LAYOUTS. The photograph is 2.95:1 and a phone is roughly 1:1.9,
- * so a single full-bleed crop cannot hold both models: filling a portrait
- * screen with this frame shows about a sixth of its width, which is one
- * face with the sunglasses cut off at either edge. Two people wearing the
- * product is the more persuasive picture, so on a phone the photograph
- * takes a three-by-two band at the top of the screen, which is about the
- * tallest it can be while still showing the stretch of width that holds
- * both faces with their frames intact, and the slogan sits below it on the
- * paper. A ratio is used rather than a share of the viewport because the
- * crop depends on the box's own proportions and not on the phone: 3:2
- * against a 2.95:1 source shows the middle half of the width at any
- * screen size, where a percentage of height would show less of it on a
- * tall phone and clip the very thing it is there to keep. The section still
- * fills the viewport; only the picture stops short of it. From `lg` up the
- * frame is wide enough to do both at once and the image goes full bleed
- * with the line over it.
+ * TWO FILES, NOT TWO CROPS. The campaign frame is 2.95:1 and a phone is
+ * about 1:1.9. Filling a portrait screen from the landscape file shows
+ * roughly a sixth of its width, which is one face with the sunglasses cut
+ * off at either edge, and no object-position rescues that: `cover` cannot
+ * show more width than the box's own proportions allow. So the phone gets
+ * its own portrait file, cut to the stretch of width that holds both
+ * models and extended downward into the paper. See
+ * scripts/make-portrait-hero.mjs, which derives it and explains itself.
  *
- * NOTE ON THE SOURCE: campaign.jpg is 1024px wide against a full viewport,
- * so it is enlarged roughly 1.4x on a laptop. It wants a master around
- * 2800px, and a second portrait crop would let the phone go full bleed too.
+ * It is pinned to the top. The portrait file is taller than any phone in
+ * circulation, so the width is always complete and the only thing a short
+ * screen loses is the extended paper at the foot, which is the one part of
+ * it that was never photographed.
+ *
+ * NOTE ON THE SOURCE: the landscape master is 1024px against a full
+ * viewport, so it is enlarged roughly 1.4x on a laptop, and the portrait
+ * file is cut from it and so cannot be wider than 560px. Both are soft on a
+ * dense screen. A real master around 2800px, with a portrait crop shot or
+ * cropped by the editor, replaces all of this and lets the script go.
  */
+
+/*
+ * Written out rather than left to next/image. The two files are different
+ * pictures, not two sizes of one, and `<Image>` has no art direction: the
+ * usual workaround of two of them behind `lg:hidden` makes the browser
+ * preload both, so every phone pays for the desktop frame it will never
+ * paint. A `<picture>` with media-scoped preloads fetches exactly one.
+ *
+ * One width each because neither master is wide enough to need a set: the
+ * optimiser returns the source size once the requested width passes it.
+ */
+const source = (file: string, width: number) =>
+  `/_next/image?url=${encodeURIComponent(`/media/editorial/${file}`)}&w=${width}&q=90`;
+
+const WIDE = source("campaign.jpg", 1080);
+const TALL = source("campaign-portrait.jpg", 640);
+const PHONE = "(max-width: 1023px)";
+const DESK = "(min-width: 1024px)";
+
 export async function Editorial() {
   const dict = await getDictionary();
 
   return (
-    <section className="relative isolate flex h-[calc(100svh-var(--chrome-height))] w-full flex-col overflow-hidden bg-ivory">
-      <div className="relative aspect-3/2 w-full shrink-0 bg-ivory-dim lg:absolute lg:inset-0 lg:aspect-auto">
-        <Image
-          src="/media/editorial/campaign.jpg"
+    <section className="relative isolate h-[calc(100svh-var(--chrome-height))] w-full overflow-hidden bg-ivory">
+      {/* React hoists these into the head, ahead of the markup below. */}
+      <link
+        rel="preload"
+        as="image"
+        href={TALL}
+        media={PHONE}
+        fetchPriority="high"
+      />
+      <link
+        rel="preload"
+        as="image"
+        href={WIDE}
+        media={DESK}
+        fetchPriority="high"
+      />
+
+      <picture>
+        <source media={PHONE} srcSet={TALL} />
+        <img
+          src={WIDE}
           alt={dict.home.editorialAlt}
-          fill
-          /*
-           * The largest paint on the site. `priority` is deprecated in Next
-           * 16 and never emitted a priority hint anyway; these two
-           * attributes are what the browser actually reads. Quality is
-           * raised because an enlarged photograph compounds the encoder's
-           * own softening.
-           */
           fetchPriority="high"
           loading="eager"
-          quality={90}
-          sizes="100vw"
+          decoding="async"
           /*
-           * Two centres for two crops. The phone window is centred on the
-           * midpoint between the two models so neither is clipped; the
-           * desktop window is held left of centre, where the frame that
-           * carries the picture actually is.
+           * Two centres for two files. The phone frame is already cut to
+           * the models and is held at its top edge, where the faces are.
+           * The desktop frame is held left of centre, where the sunglasses
+           * that carry the picture actually are.
            */
-          className="object-cover object-[47%_center] lg:object-[38%_center]"
+          className="absolute inset-0 size-full object-cover object-top lg:object-[38%_center]"
         />
-
-        {/*
-         * The photograph is pale, so the line is set dark and the scrim
-         * lightens rather than darkens: a dark wash over a light image
-         * reads as a smudge. It runs to full ivory at the foot so the
-         * picture dissolves into the paper the rest of the page is printed
-         * on. On a phone that is all it does, softening the cut edge of the
-         * band; on a desktop it also gives the words a clean ground, and at
-         * two fifths and 90% it stopped short and the slogan landed on a
-         * chin.
-         */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-1/5 bg-gradient-to-t from-ivory to-transparent lg:h-1/2 lg:via-ivory/70"
-        />
-      </div>
+      </picture>
 
       {/*
-       * The padding is not symmetry: on a phone the line is centred in the
-       * paper below the band, and the extra foot lifts it to the optical
-       * centre rather than the measured one, which is where the eye expects
-       * to find it under a picture.
+       * The photograph is pale, so the line is set dark and the scrim
+       * lightens rather than darkens: a dark wash over a light image reads
+       * as a smudge. It runs to full ivory at the foot so the picture
+       * dissolves into the paper the rest of the page is printed on, which
+       * is also what gives the words a clean ground to sit on. At two
+       * fifths and 90% it stopped short, and the slogan landed on a chin.
        */}
-      <div className="gutter relative flex flex-1 items-center justify-center pb-20 lg:absolute lg:inset-x-0 lg:bottom-0 lg:flex-none lg:items-end lg:pb-16">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ivory via-ivory/70 to-transparent"
+      />
+
+      <div className="gutter absolute inset-x-0 bottom-0 pb-12 lg:pb-16">
         <div className="mx-auto flex max-w-xl flex-col items-center gap-7 text-center">
           {/*
-           * Not an h1. The heading of this page is the frame's name further
-           * down; a slogan set in large type is still a slogan, and marking
-           * it up as the page's title would tell a crawler the page is about
-           * having vision rather than about sunglasses.
+           * Not an h1. The heading of this page is the collection title
+           * below; a slogan set in large type is still a slogan, and
+           * marking it up as the page's title would tell a crawler the
+           * page is about having vision rather than about sunglasses.
            */}
           <p className="display-xl text-balance text-obsidian">
             {dict.meta.slogan}
