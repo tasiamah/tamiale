@@ -19,22 +19,20 @@ import { getDictionary } from "@/lib/i18n/dictionary";
  * only a narrow band of its width, which is one face with the sunglasses
  * cut off at either edge, and no object-position rescues that: `cover`
  * cannot show more width than the box's own proportions allow. So the
- * phone gets its own portrait file, cut to the stretch of width that holds
- * both models and extended downward into the paper. See
- * scripts/make-portrait-hero.mjs, which derives it and explains itself.
+ * phone gets a second master, composed in portrait, with the same two
+ * models in the same frames against the same sweep.
  *
- * It is pinned to the top. The portrait file is taller than any phone in
- * circulation, so the width is always complete and the only thing a short
- * screen loses is the extended paper at the foot, which is the one part of
- * it that was never photographed.
+ * Earlier versions cut the phone frame out of the landscape one and
+ * extended it downwards into the paper, because there was nothing else to
+ * work with. That could never fill a phone: the landscape master is 438px
+ * tall, so the photograph's share of the screen was its height over the
+ * crop width, and the crop could not go narrower than two faces. It topped
+ * out a little under half, and everything below that was invented. The
+ * portrait master removes the arithmetic along with the invention.
  *
- * NOTE ON THE SOURCE: the landscape master is 1024px against a full
- * viewport, so it is enlarged on a laptop, and the portrait file is cut
- * from it and so is narrower again. Both are soft on a dense screen, and
- * the picture can only reach about half the height of a phone, because the
- * master is 438px tall and the crop has to stay wide enough for two faces.
- * A master around 2800px, with a frame actually composed in portrait,
- * replaces all of this and lets the script go.
+ * NOTE ON THE SOURCES: 1024px wide and 720px wide respectively, so both are
+ * enlarged on a dense screen and are soft under close inspection. Masters
+ * around 2800px replace them with no change to anything here.
  */
 
 /*
@@ -85,26 +83,26 @@ export async function Editorial() {
           loading="eager"
           decoding="async"
           /*
-           * Two centres for two files. The phone frame is already cut to
-           * the models and is held at its top edge, where the faces are.
-           * The desktop frame is held left of centre, where the sunglasses
-           * that carry the picture actually are.
+           * The portrait master is 9:16 and a phone is near enough the
+           * same, so `cover` trims a few pixels off the sides and shows
+           * the frame whole, top to bottom. The desktop frame is held left
+           * of centre, where the sunglasses that carry the picture are.
            */
-          className="absolute inset-0 size-full object-cover object-top lg:object-[38%_center]"
+          className="absolute inset-0 size-full object-cover lg:object-[38%_center]"
         />
       </picture>
 
       {/*
        * The photograph is pale, so the line is set dark and the scrim
        * lightens rather than darkens: a dark wash over a light image reads
-       * as a smudge. It runs to full ivory at the foot so the picture
-       * dissolves into the paper the rest of the page is printed on, which
-       * is also what gives the words a clean ground to sit on. At two
-       * fifths and 90% it stopped short, and the slogan landed on a chin.
+       * as a smudge. It stops short of opaque now that there is a real
+       * picture underneath for its whole height, because running it to
+       * solid ivory would hide the thing the frame was shot for and put
+       * the bottom of the screen back to being paper.
        */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ivory via-ivory/70 to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ivory/95 via-ivory/55 to-transparent"
       />
 
       <div className="gutter absolute inset-x-0 bottom-0 pb-12 lg:pb-16">

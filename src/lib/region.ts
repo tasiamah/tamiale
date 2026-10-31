@@ -75,6 +75,30 @@ const EURO = [
   "NZ", "PH", "SG", "TH", "TR", "TW", "VN", "ZA",
 ];
 
+/**
+ * The destination, in a cookie rather than in local storage.
+ *
+ * It has to be readable by three things that cannot see each other: the
+ * proxy, which fills it in from the edge's idea of where the visitor is; the
+ * inline script in the document head, which has to choose a price list
+ * before the first paint; and React, once it takes over. Only a cookie is
+ * visible to all three, and only on the first frame does it matter.
+ */
+export const COUNTRY_COOKIE = "tamiale-country";
+
+/**
+ * The three price lists that are not the default, as the inline script needs
+ * them: a flat country-to-list table. Everywhere absent from it pays in
+ * euros, which is the same rule as below and the reason the lists are shared
+ * rather than written out twice.
+ */
+export const NON_EURO_COUNTRIES: Readonly<Record<string, RegionId>> =
+  Object.fromEntries([
+    ...STERLING.map((code) => [code, "uk"] as const),
+    ...DOLLAR.map((code) => [code, "us"] as const),
+    ...DIRHAM.map((code) => [code, "ae"] as const),
+  ]);
+
 const REGION_BY_COUNTRY = new Map<string, RegionId>([
   ...STERLING.map((code) => [code, "uk"] as const),
   ...DOLLAR.map((code) => [code, "us"] as const),
