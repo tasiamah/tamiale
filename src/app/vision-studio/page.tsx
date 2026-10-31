@@ -19,7 +19,7 @@ export default function VisionStudioPage({
     <div data-stage="dark" className="grain min-h-screen bg-obsidian text-ivory">
       <div className="gutter pt-(--header-height)">
         <header className="max-w-3xl py-16 md:py-20">
-          <p className="eyebrow text-champagne">Vision Studio</p>
+          <p className="eyebrow text-ivory/55">Vision Studio</p>
           <h1 className="display-hero mt-7 text-balance">
             Your perspective.
             <br />

@@ -38,9 +38,9 @@ export default async function HomePage() {
               eyebrow={frame.collection}
               title={
                 <>
-                  One silhouette.
+                  Six lenses.
                   <br />
-                  Six ways to be seen.
+                  One silhouette.
                 </>
               }
               lede="The Marina is released in a single Onyx acetate and six lens expressions, each with its own measured transmission. Choosing between them is a question of light, not of shape."
@@ -58,9 +58,13 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <Philosophy frame={frame} />
+      {/*
+       * Try-on before story: the mirror is the thing that converts a visitor
+       * who likes the frame but cannot picture it on their own face.
+       */}
       <VisionTeaser frame={frame} />
       <Craftsmanship frame={frame} />
+      <Philosophy />
       <PrivateAccess />
     </>
   );

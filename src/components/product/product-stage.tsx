@@ -6,8 +6,11 @@ import Link from "next/link";
 import { useCallback, useState } from "react";
 
 import { useSavedFrames } from "@/components/account/saved-frames-provider";
-import { useCart } from "@/components/cart/cart-provider";
 import { useRegion } from "@/components/chrome/region-provider";
+import { EditionNote } from "@/components/commerce/edition-note";
+import { StickyBuyBar } from "@/components/commerce/sticky-buy-bar";
+import { TrustRow } from "@/components/commerce/trust-row";
+import { useReserve } from "@/components/commerce/use-reserve";
 import { ColorwaySwatches } from "@/components/product/colorway-swatches";
 import { FrameDrawing } from "@/components/product/frame-drawing";
 import { Button, ButtonLink } from "@/components/ui/button";
@@ -45,8 +48,8 @@ export function ProductStage({
 }) {
   const [colorwayId, setColorwayId] = useState(initialColorwayId);
   const [view, setView] = useState<MediaView>("studio");
-  const { add } = useCart();
   const { region, price } = useRegion();
+  const reserve = useReserve();
   const { isSaved, toggleSaved, hydrated } = useSavedFrames();
 
   const colorway = findColorway(frame, colorwayId);
@@ -154,12 +157,11 @@ export function ProductStage({
 
       <div className="lg:sticky lg:top-28 lg:self-start">
         <p className="eyebrow text-stone">{frame.collection}</p>
-        <h1 className="display-xl mt-5">{frame.name}</h1>
+        {/* Serif is the house's product voice — names and prices only. */}
+        <h1 className="frame-name mt-4 text-6xl leading-none">{frame.name}</h1>
 
         <div className="mt-5 flex items-baseline gap-4">
-          <p className="font-display text-3xl tabular-nums">
-            {price(frame.priceBook)}
-          </p>
+          <p className="frame-name text-3xl">{price(frame.priceBook)}</p>
           <p className="text-xs text-stone">{region.taxNote}</p>
         </div>
 
@@ -187,28 +189,20 @@ export function ProductStage({
           <dl className="mt-5 flex flex-wrap gap-x-8 gap-y-2 text-xs text-stone">
             <div className="flex gap-2">
               <dt>Transmission</dt>
-              <dd className="tabular-nums text-obsidian">{colorway.vlt}%</dd>
+              <dd className="figure-num text-obsidian">{colorway.vlt}%</dd>
             </div>
             <div className="flex gap-2">
               <dt>Filter category</dt>
-              <dd className="tabular-nums text-obsidian">
+              <dd className="figure-num text-obsidian">
                 {colorway.filterCategory}
-              </dd>
-            </div>
-            <div className="flex gap-2">
-              <dt>Allocation</dt>
-              <dd className="tabular-nums text-obsidian">
-                {colorway.allocation} pieces
               </dd>
             </div>
           </dl>
         </div>
 
-        <div className="mt-9 border border-ivory-hairline bg-ivory-dim/60 px-5 py-4">
-          <p className="eyebrow text-champagne-dim">
-            {frame.edition} · Pre-order
-          </p>
-          <p className="mt-2.5 text-sm leading-relaxed text-stone-dim">
+        <div className="mt-8 border border-ivory-hairline bg-ivory-dim/60 px-5 py-4">
+          <EditionNote frame={frame} colorway={colorway} />
+          <p className="mt-2.5 text-sm leading-relaxed text-stone">
             Reserved from the edition today and dispatched in{" "}
             <span className="text-obsidian">{frame.shipsFrom}</span>.
             Cancellable for a full refund at any point before it ships.
@@ -216,32 +210,24 @@ export function ProductStage({
         </div>
 
         <Button
-          className="mt-7 w-full"
+          className="mt-6 w-full"
           disabled={!colorway.availableForSale}
-          onClick={() =>
-            add({
-              handle: frame.handle,
-              colorwayId: colorway.id,
-              title: frame.name,
-              colorwayName: colorway.name,
-              shipsFrom: frame.shipsFrom,
-              priceBook: frame.priceBook,
-              image: colorway.image,
-            })
-          }
+          onClick={() => reserve(frame, colorway)}
         >
           {colorway.availableForSale
-            ? "Reserve this pair"
+            ? `Reserve this pair · ${price(frame.priceBook)}`
             : "This expression is spoken for"}
         </Button>
 
         <ButtonLink
           href={`/vision-studio?lens=${colorway.id}`}
           variant="outline"
-          className="mt-3 w-full"
+          className="mt-2.5 w-full"
         >
-          Experience in Vision Studio
+          See it on your face
         </ButtonLink>
+
+        <TrustRow className="mt-6 border border-ivory-hairline" />
 
         <div className="mt-6 flex items-center justify-between text-xs">
           <button
@@ -294,6 +280,8 @@ export function ProductStage({
           </Detail>
         </div>
       </div>
+
+      <StickyBuyBar frame={frame} colorway={colorway} />
     </div>
   );
 }

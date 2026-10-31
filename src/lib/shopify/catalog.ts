@@ -72,7 +72,9 @@ function mergeCommerce(frame: Frame, product: ShopifyProduct): Frame {
         // A pre-order sells through `continue selling when out of stock`, so
         // `availableForSale` is the signal, not the on-hand quantity.
         availableForSale: variant.availableForSale,
-        allocation: variant.quantityAvailable ?? colorway.allocation,
+        // Null when the shop does not track inventory for the variant, which
+        // must read as "unknown" rather than as "none left".
+        remaining: variant.quantityAvailable ?? undefined,
         sellingPlanId:
           variant.sellingPlanAllocations.nodes[0]?.sellingPlan.id ??
           colorway.sellingPlanId,

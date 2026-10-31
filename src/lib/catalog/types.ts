@@ -24,8 +24,14 @@ export type Colorway = {
   filterCategory: 0 | 1 | 2 | 3 | 4;
   gradient: boolean;
   sku: string;
-  /** Pieces released in this expression of Edition 001. */
-  allocation: number;
+  /** Pieces released in this expression of Edition 001. A published figure. */
+  editionSize: number;
+  /**
+   * Pieces still unsold. Only Shopify knows this, so it is absent until the
+   * storefront is connected — and the store must say "an edition of 150",
+   * never "150 remaining", while it is absent.
+   */
+  remaining?: number;
   image: {
     src: string;
     width: number;

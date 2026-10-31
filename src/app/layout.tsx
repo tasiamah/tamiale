@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Inter } from "next/font/google";
+import { Instrument_Serif, Inter, Inter_Tight } from "next/font/google";
 
 import { Concierge } from "@/components/concierge/concierge";
 import { CartDrawer } from "@/components/cart/cart-drawer";
@@ -13,20 +13,29 @@ import { site } from "@/lib/site";
 import "./globals.css";
 
 /**
- * Display and interface families are bound to CSS variables so the licensed
- * Canela and Neue Haas Grotesk cuts can replace them without touching markup.
+ * Three roles, bound to CSS variables so the licensed cuts can replace them
+ * without touching markup: a tight grotesque carries the headlines, a text
+ * grotesque carries the interface, and the serif is kept back for the names
+ * of frames and the prices beside them.
  */
-const display = Instrument_Serif({
+const display = Inter_Tight({
   variable: "--font-tamiale-display",
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
 const sans = Inter({
   variable: "--font-tamiale-sans",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const serif = Instrument_Serif({
+  variable: "--font-tamiale-serif",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -58,8 +67,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F3F0E9" },
-    { media: "(prefers-color-scheme: dark)", color: "#111110" },
+    { media: "(prefers-color-scheme: light)", color: "#F6F5F2" },
+    { media: "(prefers-color-scheme: dark)", color: "#141413" },
   ],
   colorScheme: "light",
 };
@@ -68,7 +77,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${display.variable} ${sans.variable} h-full antialiased`}
+      className={`${display.variable} ${sans.variable} ${serif.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-ivory text-obsidian">
         <a

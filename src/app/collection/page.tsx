@@ -51,18 +51,18 @@ export default async function CollectionPage() {
         <ExpressionGrid frame={frame} />
       </section>
 
-      <section className="grain border-t border-obsidian-hairline bg-obsidian text-ivory">
+      <section className="grain border-t border-ivory-hairline bg-ivory text-obsidian">
         <div className="gutter py-24 md:py-32">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-24">
             <Reveal>
-              <p className="eyebrow text-champagne">The silhouette</p>
+              <p className="eyebrow text-stone">The silhouette</p>
               <h2 className="display-xl mt-6 text-balance">{frame.name}</h2>
-              <p className="body-lg mt-8 max-w-md text-pretty text-ivory/55">
+              <p className="body-lg mt-8 max-w-md text-pretty text-stone">
                 {frame.tagline}
               </p>
               <ButtonLink
                 href={`/collection/${frame.handle}`}
-                tone="ivory"
+                tone="obsidian"
                 variant="outline"
                 className="mt-10"
               >
@@ -73,7 +73,7 @@ export default async function CollectionPage() {
               {frame.story.map((paragraph) => (
                 <p
                   key={paragraph.slice(0, 32)}
-                  className="text-pretty text-ivory/50"
+                  className="text-pretty text-stone"
                 >
                   {paragraph}
                 </p>

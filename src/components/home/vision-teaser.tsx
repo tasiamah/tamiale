@@ -27,7 +27,7 @@ export function VisionTeaser({ frame }: { frame: Frame }) {
     <section className="grain border-t border-obsidian-hairline bg-obsidian text-ivory">
       <div className="gutter grid items-center gap-16 py-24 md:py-32 lg:grid-cols-[1fr_1.05fr] lg:gap-24">
         <Reveal>
-          <p className="eyebrow text-champagne">04 — Vision Studio</p>
+          <p className="eyebrow text-ivory/55">04 — Vision Studio</p>
           <h2 className="display-xl mt-6 text-balance">
             Your perspective.
             <br />
@@ -73,13 +73,13 @@ export function VisionTeaser({ frame }: { frame: Frame }) {
                 frame={frame}
                 tone="ivory"
                 dimensions={false}
-                className="w-full opacity-70 [&_path]:stroke-champagne"
+                className="w-full opacity-70 [&_path]:stroke-ivory"
               />
             </div>
 
             <div className="absolute inset-x-6 bottom-6 flex items-center justify-between">
               <span className="eyebrow text-ivory/40">Alignment · Live</span>
-              <span className="eyebrow text-champagne tabular-nums">
+              <span className="eyebrow text-ivory/55 figure-num">
                 {frame.geometry.totalWidth} mm
               </span>
             </div>
@@ -99,7 +99,7 @@ function Bracket({ className }: { className: string }) {
   return (
     <span
       aria-hidden
-      className={`absolute size-5 border-t border-l border-champagne/40 ${className}`}
+      className={`absolute size-5 border-t border-l border-ivory/25 ${className}`}
     />
   );
 }

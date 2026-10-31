@@ -1,18 +1,14 @@
-import { FrameDrawing } from "@/components/product/frame-drawing";
 import { QuietLink } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
-import type { Frame } from "@/lib/catalog/types";
 
-export function Philosophy({ frame }: { frame: Frame }) {
+/**
+ * Type on paper and nothing else. A watermarked outline of the frame used to
+ * sit behind this — it crossed the words and read as decoration, which is the
+ * opposite of what a statement like this needs.
+ */
+export function Philosophy() {
   return (
-    <section className="relative isolate overflow-hidden border-t border-ivory-hairline bg-ivory">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-1/2 -z-10 -translate-y-1/2 opacity-[0.045]"
-      >
-        <FrameDrawing frame={frame} dimensions={false} className="w-full" />
-      </div>
-
+    <section className="border-t border-ivory-hairline bg-ivory">
       <div className="gutter py-28 md:py-40">
         <Reveal className="mx-auto max-w-4xl text-center">
           <p className="eyebrow text-stone">03 — The House</p>

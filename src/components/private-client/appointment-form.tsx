@@ -74,7 +74,7 @@ export function AppointmentForm() {
       </Field>
 
       <div>
-        <Button type="submit" tone="ivory" variant="outline" disabled={pending}>
+        <Button type="submit" tone="obsidian" variant="outline" disabled={pending}>
           {pending ? "Sending…" : "Request an appointment"}
         </Button>
       </div>
@@ -85,8 +85,8 @@ export function AppointmentForm() {
           className={cn(
             "border-l-2 py-1 pl-4 text-sm leading-relaxed",
             state.status === "ok"
-              ? "border-champagne text-ivory/75"
-              : "border-stone text-ivory/55",
+              ? "border-obsidian text-stone"
+              : "border-stone text-stone",
           )}
         >
           {state.message}
@@ -97,7 +97,7 @@ export function AppointmentForm() {
 }
 
 const inputClass =
-  "w-full border-b border-ivory/20 bg-transparent py-3 text-base text-ivory transition-colors placeholder:text-ivory/25 focus:border-champagne focus:outline-none";
+  "w-full border-b border-ivory-hairline bg-transparent py-3 text-base text-obsidian transition-colors placeholder:text-stone focus:border-obsidian focus:outline-none";
 
 function Field({
   id,
@@ -112,11 +112,11 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="eyebrow text-ivory/45">
+      <label htmlFor={id} className="eyebrow text-stone">
         {label}
       </label>
       <div className="mt-3">{children}</div>
-      {hint && <p className="mt-3 text-xs leading-relaxed text-ivory/30">{hint}</p>}
+      {hint && <p className="mt-3 text-xs leading-relaxed text-stone">{hint}</p>}
     </div>
   );
 }

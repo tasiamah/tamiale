@@ -1,106 +1,127 @@
-import Image from "next/image";
+"use client";
 
-import { ButtonLink } from "@/components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+
+import { useRegion } from "@/components/chrome/region-provider";
+import { EditionNote } from "@/components/commerce/edition-note";
+import { TrustRow } from "@/components/commerce/trust-row";
+import { useReserve } from "@/components/commerce/use-reserve";
+import { ColorwaySwatches } from "@/components/product/colorway-swatches";
+import { Button, ButtonLink } from "@/components/ui/button";
+import { findColorway } from "@/lib/catalog/frames";
 import type { Frame } from "@/lib/catalog/types";
 
 /**
- * Campaign film slot. Drop an art-directed loop at this path and the hero
- * plays it behind the product; until then the stage is lit in CSS.
+ * The opening of the store. The statement comes first because the house has
+ * one, but the frame, its price, its six lenses and a way to buy it are all
+ * above the fold — a visitor should never have to go looking for the product
+ * on the page that is selling it.
  */
-const CAMPAIGN_FILM: string | null = null;
-
 export function Hero({ frame }: { frame: Frame }) {
-  const hero = frame.colorways[0];
+  const [lens, setLens] = useState(frame.colorways[0].id);
+  const colorway = findColorway(frame, lens);
+  const { price, region } = useRegion();
+  const reserve = useReserve();
 
   return (
-    <section
-      data-stage="dark"
-      className="grain relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-obsidian text-ivory"
-    >
-      {/* Stage lighting: two slow, opposed washes that keep the black alive. */}
-      <div aria-hidden className="absolute inset-0 -z-10">
-        <div className="absolute top-[-20%] left-1/2 h-[80vmax] w-[80vmax] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(193,166,125,0.16),transparent_62%)] [animation:tamiale-drift_26s_ease-in-out_infinite]" />
-        <div className="absolute right-[-15%] bottom-[-25%] h-[60vmax] w-[60vmax] rounded-full bg-[radial-gradient(circle,rgba(140,137,131,0.14),transparent_65%)] [animation:tamiale-drift_34s_ease-in-out_infinite_reverse]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(17,17,16,0.85))]" />
+    <section className="gutter pt-10 pb-16 lg:pt-16">
+      <div className="hairline-b flex flex-col gap-6 pb-9 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+        <h1 className="display-hero max-w-[13ch] text-balance">
+          A Different Perspective.
+        </h1>
+        <p className="body-lg max-w-sm text-pretty text-stone lg:pb-3">
+          Eyewear conceived for those who see beyond convention. One
+          silhouette, cut in Italy, released in six lenses.
+        </p>
       </div>
 
-      {CAMPAIGN_FILM && (
-        <video
-          className="absolute inset-0 -z-10 size-full object-cover opacity-60"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={hero.image.src}
-        >
-          <source src={CAMPAIGN_FILM} type="video/mp4" />
-        </video>
-      )}
+      <div className="grid gap-10 pt-10 lg:grid-cols-12 lg:gap-14">
+        <figure className="lg:col-span-7">
+          <div className="flex aspect-5/4 items-center justify-center bg-ivory-dim px-[8%] sm:aspect-16/10">
+            <Image
+              src={colorway.image.src}
+              alt={colorway.image.alt}
+              width={colorway.image.width}
+              height={colorway.image.height}
+              priority
+              sizes="(max-width: 1024px) 94vw, 58vw"
+              className="w-full"
+            />
+          </div>
+          <figcaption className="mt-3 flex justify-between text-xs text-stone">
+            <span>
+              {frame.name} — {colorway.frameFinish} / {colorway.name}
+            </span>
+            <span className="figure-num">{colorway.sku}</span>
+          </figcaption>
+        </figure>
 
-      <div className="relative flex flex-1 items-center justify-center px-6 pt-(--header-height) pb-8">
-        <div className="relative w-full max-w-5xl">
-          <Image
-            src={hero.image.src}
-            alt={hero.image.alt}
-            width={hero.image.width}
-            height={hero.image.height}
-            priority
-            sizes="(max-width: 1024px) 94vw, 64rem"
-            className="relative z-10 w-full drop-shadow-[0_40px_60px_rgba(0,0,0,0.55)]"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-x-[12%] bottom-[-6%] z-0 h-24 rounded-[100%] bg-[radial-gradient(ellipse,rgba(0,0,0,0.65),transparent_70%)] blur-xl"
-          />
-        </div>
-      </div>
+        <div className="lg:col-span-5 lg:self-center">
+          <p className="eyebrow text-stone">{frame.collection}</p>
 
-      {/* Bottom padding clears the concierge pill in the corner. */}
-      <div className="gutter relative z-10 pb-20 md:pb-24">
-        <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-2xl [animation:tamiale-rise_1.4s_var(--ease-tamiale)_0.25s_both]">
-            <p className="eyebrow text-champagne">
-              The First Collection — 001
+          <div className="mt-3 flex items-baseline justify-between gap-6">
+            <h2 className="frame-name text-4xl md:text-5xl">{frame.name}</h2>
+            <p className="frame-name figure-num text-3xl md:text-4xl">
+              {price(frame.priceBook)}
             </p>
-            <h1 className="display-hero mt-6 text-balance text-ivory">
-              A Different
-              <br />
-              Perspective.
-            </h1>
-            <p className="body-lg mt-7 max-w-md text-pretty text-ivory/60">
-              Eyewear conceived for those who see beyond convention.
+          </div>
+          <p className="mt-1.5 text-xs text-stone">{region.taxNote}</p>
+
+          <p className="mt-6 max-w-md text-pretty text-stone">
+            {frame.tagline}
+          </p>
+
+          <div className="mt-8">
+            <div className="flex items-baseline justify-between">
+              <p className="eyebrow text-stone">Lens</p>
+              <p className="text-sm">{colorway.name}</p>
+            </div>
+            <div className="mt-3.5">
+              <ColorwaySwatches
+                colorways={frame.colorways}
+                selected={colorway.id}
+                onSelect={setLens}
+              />
+            </div>
+            <p className="mt-3.5 max-w-md text-sm leading-relaxed text-stone">
+              {colorway.lensDescription}
             </p>
-            <ButtonLink
-              href="/collection"
-              tone="ivory"
-              variant="outline"
-              className="mt-10"
+          </div>
+
+          <EditionNote frame={frame} colorway={colorway} className="mt-6" />
+
+          <div className="mt-6 flex flex-col gap-2.5 sm:flex-row">
+            <Button
+              className="flex-1"
+              disabled={!colorway.availableForSale}
+              onClick={() => reserve(frame, colorway)}
             >
-              Discover the Collection
+              {colorway.availableForSale
+                ? `Reserve · ${price(frame.priceBook)}`
+                : "Spoken for"}
+            </Button>
+            <ButtonLink
+              href={`/vision-studio?lens=${colorway.id}`}
+              variant="outline"
+              className="flex-1"
+            >
+              Try it on
             </ButtonLink>
           </div>
 
-          {/* Held clear of the concierge pill in the bottom corner. */}
-          <dl className="flex gap-10 text-ivory/45 [animation:tamiale-rise_1.4s_var(--ease-tamiale)_0.5s_both] lg:mb-16 lg:flex-col lg:gap-5 lg:text-right">
-            <div>
-              <dt className="eyebrow">Silhouette</dt>
-              <dd className="mt-2 font-display text-xl text-ivory">
-                {frame.name}
-              </dd>
-            </div>
-            <div>
-              <dt className="eyebrow">Expressions</dt>
-              <dd className="mt-2 font-display text-xl text-ivory tabular-nums">
-                {frame.colorways.length}
-              </dd>
-            </div>
-            <div>
-              <dt className="eyebrow">Release</dt>
-              <dd className="mt-2 font-display text-xl text-ivory">
-                {frame.shipsFrom}
-              </dd>
-            </div>
-          </dl>
+          <p className="mt-3 text-xs text-stone">
+            Ships {frame.shipsFrom}.{" "}
+            <Link
+              href={`/collection/${frame.handle}?lens=${colorway.id}`}
+              className="text-obsidian underline underline-offset-4 transition-opacity hover:opacity-60"
+            >
+              Full specification
+            </Link>
+          </p>
+
+          <TrustRow className="mt-8 border border-ivory-hairline" />
         </div>
       </div>
     </section>

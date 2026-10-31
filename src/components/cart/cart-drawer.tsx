@@ -96,17 +96,17 @@ export function CartDrawer() {
 
                   <div className="flex flex-col gap-1.5">
                     <div className="flex items-baseline justify-between gap-4">
-                      <p className="font-display text-xl leading-tight">
+                      <p className="frame-name text-xl leading-tight">
                         {line.title}
                       </p>
-                      <p className="text-sm tabular-nums">
+                      <p className="frame-name figure-num text-base">
                         {price(line.priceBook)}
                       </p>
                     </div>
                     <p className="text-xs text-stone">
                       Onyx / {line.colorwayName}
                     </p>
-                    <p className="eyebrow mt-1 text-champagne-dim">
+                    <p className="eyebrow mt-1 text-stone">
                       Pre-order · Ships {line.shipsFrom}
                     </p>
 
@@ -148,7 +148,7 @@ export function CartDrawer() {
           <div className="shrink-0 border-t border-ivory-hairline px-7 py-7">
             <div className="flex items-baseline justify-between">
               <span className="eyebrow text-stone">Subtotal</span>
-              <span className="font-display text-2xl tabular-nums">
+              <span className="frame-name figure-num text-2xl">
                 {formatMoney(subtotal, region.currency, region.locale)}
               </span>
             </div>
@@ -159,7 +159,7 @@ export function CartDrawer() {
             {notice && (
               <p
                 role="status"
-                className="mt-5 border-l-2 border-champagne bg-ivory-dim px-4 py-3 text-xs leading-relaxed text-obsidian"
+                className="mt-5 border-l-2 border-obsidian bg-ivory-dim px-4 py-3 text-xs leading-relaxed text-obsidian"
               >
                 {notice}
               </p>

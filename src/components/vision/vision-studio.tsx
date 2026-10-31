@@ -304,7 +304,7 @@ export function VisionStudio({
         </div>
 
         {failureDetail && (
-          <p className="mt-4 border-l-2 border-champagne pl-4 text-sm text-ivory/55">
+          <p className="mt-4 border-l border-ivory/30 pl-4 text-sm text-ivory/55">
             {failureDetail}
           </p>
         )}
@@ -354,7 +354,7 @@ export function VisionStudio({
                 className={cn(
                   "cursor-pointer border px-3 py-2 text-[0.625rem] font-medium tracking-[0.16em] uppercase transition-colors duration-300",
                   styling === option.id
-                    ? "border-champagne text-champagne"
+                    ? "border-ivory text-ivory"
                     : "border-ivory/15 text-ivory/50 hover:border-ivory/50 hover:text-ivory",
                 )}
               >
@@ -365,7 +365,7 @@ export function VisionStudio({
 
           {fit ? (
             <div className="mt-7">
-              <p className="eyebrow text-champagne">Fit estimate</p>
+              <p className="eyebrow text-ivory/55">Fit estimate</p>
               <p className="display-md mt-3">{fit.headline}</p>
               <dl className="mt-6 grid grid-cols-3 gap-4 border-y border-obsidian-hairline py-5">
                 <Metric label="Face width" value={`${fit.faceWidthMm.toFixed(0)} mm`} />
@@ -535,7 +535,7 @@ function Brackets() {
           <span
             key={position}
             aria-hidden
-            className={`pointer-events-none absolute size-5 border-t border-l border-champagne/40 ${position}`}
+            className={`pointer-events-none absolute size-5 border-t border-l border-ivory/25 ${position}`}
           />
         ),
       )}

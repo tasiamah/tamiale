@@ -63,24 +63,24 @@ export default function PrivateClientPage() {
 
       <section
         id="contact"
-        className="grain scroll-mt-(--header-height) border-t border-obsidian-hairline bg-obsidian text-ivory"
+        className="grain scroll-mt-(--header-height) border-t border-ivory-hairline bg-ivory text-obsidian"
       >
         <div className="gutter grid gap-14 py-24 md:py-32 lg:grid-cols-2 lg:gap-24">
           <Reveal>
-            <p className="eyebrow text-champagne">Appointments</p>
+            <p className="eyebrow text-stone">Appointments</p>
             <h2 className="display-xl mt-6 text-balance">
               Book a private fitting.
             </h2>
-            <p className="body-lg mt-8 max-w-md text-pretty text-ivory/55">
+            <p className="body-lg mt-8 max-w-md text-pretty text-stone">
               An advisor will write within one working day to arrange a time in
               your own hours. Sessions run over video; you will need a camera
               and, ideally, a pair of glasses you already like.
             </p>
             <div className="mt-12 flex flex-col gap-2">
-              <p className="eyebrow text-ivory/45">Or write directly</p>
+              <p className="eyebrow text-stone">Or write directly</p>
               <a
                 href={`mailto:${site.email}`}
-                className="text-lg text-ivory transition-opacity hover:opacity-60"
+                className="text-lg text-obsidian transition-opacity hover:opacity-60"
               >
                 {site.email}
               </a>

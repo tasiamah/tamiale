@@ -4,21 +4,30 @@
  * Tamiale design tokens
  * ------------------------------------------------------------------ */
 @theme {
-  --color-obsidian: #111110;
-  --color-obsidian-raised: #1a1917;
-  --color-obsidian-hairline: #2a2825;
-  --color-ivory: #f3f0e9;
-  --color-ivory-dim: #e9e4da;
-  --color-ivory-hairline: #d9d3c6;
-  --color-champagne: #c1a67d;
-  --color-champagne-dim: #a98f67;
-  --color-stone: #8c8983;
-  --color-stone-dim: #6c6a65;
+  /*
+   * The house shows on paper, not on black. A gallery wall is the right
+   * backdrop for eyewear: the only colour in the room should be the lens.
+   * There is deliberately no metallic accent in this palette.
+   */
+  --color-ivory: #f6f5f2;
+  --color-ivory-raised: #ffffff;
+  --color-ivory-dim: #eceae4;
+  --color-ivory-hairline: #dedcd5;
 
-  --font-display: var(--font-tamiale-display), "Canela", "Didot",
-    "Times New Roman", serif;
-  --font-sans: var(--font-tamiale-sans), "Neue Haas Grotesk Display",
+  --color-obsidian: #141413;
+  --color-obsidian-raised: #1e1e1c;
+  --color-obsidian-hairline: #32312e;
+
+  --color-stone: #75736c;
+  --color-stone-dim: #9a978f;
+
+  /* Display is a grotesque set tight and large; the serif is kept back for
+   * the names of things and the prices beside them. */
+  --font-display: var(--font-tamiale-display), "Neue Haas Grotesk Display",
     "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: var(--font-tamiale-sans), "Neue Haas Grotesk Text",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-serif: var(--font-tamiale-serif), "Canela", "Times New Roman", serif;
 
   /* Motion. Nothing in the house moves faster than it needs to. */
   --ease-tamiale: cubic-bezier(0.22, 1, 0.36, 1);
@@ -52,8 +61,8 @@
   }
 
   :focus-visible {
-    outline: 1px solid var(--color-champagne);
-    outline-offset: 3px;
+    outline: 2px solid var(--color-obsidian);
+    outline-offset: 2px;
   }
 
   /* The house never animates at the expense of a visitor's comfort. */
@@ -95,45 +104,65 @@ body:has([data-stage="dark"]) [data-chrome-spacer] {
  * Typographic utilities
  * ------------------------------------------------------------------ */
 
-/* Oversized editorial statements. Optical sizing is handled by hand. */
+/*
+ * Display sizes. A grotesque has to be set much tighter than a serif to read
+ * as display rather than as a large paragraph, so tracking goes negative and
+ * keeps tightening as the size grows.
+ */
 @utility display-hero {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(2.75rem, 9.2vw, 9.5rem);
-  line-height: 0.92;
-  letter-spacing: -0.025em;
+  font-weight: 500;
+  font-size: clamp(2.5rem, 7.6vw, 7.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.042em;
 }
 
 @utility display-xl {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(2.25rem, 5.6vw, 5rem);
-  line-height: 1;
-  letter-spacing: -0.02em;
+  font-weight: 500;
+  font-size: clamp(2rem, 4.8vw, 4.25rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
 }
 
 @utility display-lg {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(1.875rem, 3.6vw, 3.25rem);
-  line-height: 1.05;
-  letter-spacing: -0.015em;
+  font-weight: 500;
+  font-size: clamp(1.625rem, 3.1vw, 2.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
 }
 
 @utility display-md {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(1.5rem, 2.4vw, 2.125rem);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
   line-height: 1.12;
+  letter-spacing: -0.022em;
+}
+
+/* The serif is reserved for the names of frames and the prices beside them. */
+@utility frame-name {
+  font-family: var(--font-serif);
+  font-weight: 400;
   letter-spacing: -0.01em;
 }
 
-/* Small caps label used for section numbering and metadata. */
+/* Prices and measurements line up in columns, so the figures must be even. */
+@utility figure-num {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/*
+ * Section and metadata label. Kept to retail tracking — wide letterspacing on
+ * every small label is what makes a site read as a service brand.
+ */
 @utility eyebrow {
   font-size: 0.6875rem;
   line-height: 1;
   font-weight: 500;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.085em;
   text-transform: uppercase;
 }
 
@@ -145,12 +174,12 @@ body:has([data-stage="dark"]) [data-chrome-spacer] {
 
 /* The wordmark. Letterforms are set wide enough to read as an engraving. */
 @utility wordmark {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  letter-spacing: 0.44em;
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
   /* Tracking adds trailing space; pull it back so the mark optically centres. */
-  text-indent: 0.44em;
+  text-indent: 0.26em;
 }
 
 @utility hairline-t {

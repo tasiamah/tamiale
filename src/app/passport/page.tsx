@@ -57,7 +57,7 @@ export default function PassportPage() {
                 delay={index * 70}
                 className="border-b border-ivory-hairline py-7"
               >
-                <p className="eyebrow text-champagne-dim tabular-nums">
+                <p className="eyebrow text-stone figure-num">
                   {step.index}
                 </p>
                 <h2 className="display-md mt-4">{step.title}</h2>
@@ -104,37 +104,37 @@ export default function PassportPage() {
         </div>
 
         <Reveal delay={120}>
-          <div className="grain sticky top-28 border border-obsidian-hairline bg-obsidian p-8 text-ivory">
+          <div className="grain sticky top-28 border border-ivory-hairline bg-ivory p-8 text-obsidian">
             <div className="flex items-center justify-between">
               <Wordmark size="sm" />
-              <span className="eyebrow text-ivory/35">Specimen</span>
+              <span className="eyebrow text-stone">Specimen</span>
             </div>
-            <p className="eyebrow mt-12 text-champagne">
+            <p className="eyebrow mt-12 text-stone">
               Digital Product Passport
             </p>
             <p className="display-lg mt-4">The Marina</p>
-            <p className="mt-2 text-sm text-ivory/45">
+            <p className="mt-2 text-sm text-stone">
               Edition 001 / Onyx · Champagne
             </p>
-            <dl className="mt-12 grid grid-cols-3 gap-6 border-t border-obsidian-hairline pt-6">
+            <dl className="mt-12 grid grid-cols-3 gap-6 border-t border-ivory-hairline pt-6">
               <div>
-                <dt className="eyebrow text-ivory/35">Authenticity</dt>
-                <dd className="mt-2 text-sm text-ivory">Registered</dd>
+                <dt className="eyebrow text-stone">Authenticity</dt>
+                <dd className="mt-2 text-sm text-obsidian">Registered</dd>
               </div>
               <div>
-                <dt className="eyebrow text-ivory/35">Serial</dt>
-                <dd className="mt-2 font-mono text-xs tracking-wider text-ivory">
+                <dt className="eyebrow text-stone">Serial</dt>
+                <dd className="mt-2 font-mono text-xs tracking-wider text-obsidian">
                   {SPECIMEN_SERIAL}
                 </dd>
               </div>
               <div>
-                <dt className="eyebrow text-ivory/35">Edition</dt>
-                <dd className="mt-2 text-sm text-ivory tabular-nums">
+                <dt className="eyebrow text-stone">Edition</dt>
+                <dd className="mt-2 text-sm text-obsidian tabular-nums">
                   017 / 150
                 </dd>
               </div>
             </dl>
-            <p className="mt-10 text-xs leading-relaxed text-ivory/30">
+            <p className="mt-10 text-xs leading-relaxed text-stone">
               Illustrative. Not a registered product.
             </p>
           </div>

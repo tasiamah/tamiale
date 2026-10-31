@@ -40,7 +40,7 @@ const COLORWAY_SEEDS: ColorwaySeed[] = [
     filterCategory: 2,
     gradient: true,
     sku: "TM-M-001-EMB",
-    allocation: 150,
+    editionSize: 150,
     availableForSale: true,
     imageAlt:
       "The Marina in Onyx acetate with an Ember red gradient lens, three-quarter studio view",
@@ -56,7 +56,7 @@ const COLORWAY_SEEDS: ColorwaySeed[] = [
     filterCategory: 2,
     gradient: true,
     sku: "TM-M-001-CHA",
-    allocation: 150,
+    editionSize: 150,
     availableForSale: true,
     imageAlt:
       "The Marina in Onyx acetate with a Champagne gold gradient lens, three-quarter studio view",
@@ -72,7 +72,7 @@ const COLORWAY_SEEDS: ColorwaySeed[] = [
     filterCategory: 3,
     gradient: true,
     sku: "TM-M-001-SMK",
-    allocation: 150,
+    editionSize: 150,
     availableForSale: true,
     imageAlt:
       "The Marina in Onyx acetate with a Smoke grey lens, three-quarter studio view",
@@ -88,7 +88,7 @@ const COLORWAY_SEEDS: ColorwaySeed[] = [
     filterCategory: 3,
     gradient: true,
     sku: "TM-M-001-COG",
-    allocation: 150,
+    editionSize: 150,
     availableForSale: true,
     imageAlt:
       "The Marina in Onyx acetate with a Cognac brown gradient lens, three-quarter studio view",
@@ -104,7 +104,7 @@ const COLORWAY_SEEDS: ColorwaySeed[] = [
     filterCategory: 3,
     gradient: true,
     sku: "TM-M-001-JAD",
-    allocation: 150,
+    editionSize: 150,
     availableForSale: true,
     imageAlt:
       "The Marina in Onyx acetate with a Jade green gradient lens, three-quarter studio view",
@@ -120,7 +120,7 @@ const COLORWAY_SEEDS: ColorwaySeed[] = [
     filterCategory: 3,
     gradient: true,
     sku: "TM-M-001-COB",
-    allocation: 90,
+    editionSize: 90,
     availableForSale: true,
     imageAlt:
       "The Marina in Onyx acetate with a Cobalt blue gradient lens, three-quarter studio view",

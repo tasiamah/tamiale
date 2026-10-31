@@ -61,7 +61,7 @@ export function MenuOverlay({
                   transitionDelay: open ? `${120 + index * 55}ms` : "0ms",
                 }}
               >
-                <span className="eyebrow text-champagne tabular-nums">
+                <span className="eyebrow text-ivory/40 figure-num">
                   {item.index}
                 </span>
                 <span className="display-lg text-ivory transition-[opacity,transform] duration-700 ease-tamiale group-hover:translate-x-2 group-hover:opacity-70">

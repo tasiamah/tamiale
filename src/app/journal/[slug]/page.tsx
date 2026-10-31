@@ -80,7 +80,7 @@ async function Entry({ params }: PageProps<"/journal/[slug]">) {
             return (
               <blockquote
                 key={index}
-                className="my-6 border-l-2 border-champagne py-2 pl-7"
+                className="my-6 border-l-2 border-obsidian py-2 pl-7"
               >
                 <p className="display-md text-balance text-stone-dim">
                   {block.text}

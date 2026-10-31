@@ -98,7 +98,6 @@ export function Concierge() {
           open && "pointer-events-none opacity-0",
         )}
       >
-        <Rivet className="text-champagne" />
         Concierge
       </button>
 
@@ -109,21 +108,21 @@ export function Concierge() {
         aria-label="Tamiale Concierge"
         inert={!open}
         className={cn(
-          "fixed right-0 bottom-0 z-95 flex h-[min(40rem,92dvh)] w-full flex-col border-l border-obsidian-hairline bg-obsidian text-ivory transition-[opacity,transform] duration-600 ease-tamiale sm:right-5 sm:bottom-5 sm:w-[25rem] sm:border",
+          "fixed right-0 bottom-0 z-95 flex h-[min(40rem,92dvh)] w-full flex-col border-l border-ivory-hairline bg-ivory text-obsidian transition-[opacity,transform] duration-600 ease-tamiale sm:right-5 sm:bottom-5 sm:w-[25rem] sm:border",
           open
             ? "translate-y-0 opacity-100"
             : "pointer-events-none translate-y-4 opacity-0",
         )}
       >
-        <div className="flex shrink-0 items-center justify-between border-b border-obsidian-hairline px-5 py-4">
+        <div className="flex shrink-0 items-center justify-between border-b border-ivory-hairline px-5 py-4">
           <div className="flex items-center gap-2.5">
-            <Rivet className="text-champagne" />
+            <Rivet className="text-stone" aria-hidden />
             <h2 className="eyebrow">Concierge</h2>
           </div>
           <button
             type="button"
             onClick={() => setOpen(false)}
-            className="eyebrow cursor-pointer text-ivory/50 transition-colors hover:text-ivory"
+            className="eyebrow cursor-pointer text-stone transition-colors hover:text-obsidian"
           >
             Close
           </button>
@@ -141,8 +140,8 @@ export function Concierge() {
                 className={cn(
                   "text-sm leading-relaxed",
                   turn.role === "visitor"
-                    ? "ml-auto max-w-[85%] bg-obsidian-raised px-4 py-3 text-ivory"
-                    : "text-ivory/80",
+                    ? "ml-auto max-w-[85%] bg-obsidian px-4 py-3 text-ivory"
+                    : "text-stone",
                 )}
               >
                 {turn.text}
@@ -154,7 +153,7 @@ export function Concierge() {
                       key={action.href}
                       href={action.href}
                       onClick={() => setOpen(false)}
-                      className="border border-ivory/20 px-3 py-2 text-xs text-ivory/80 transition-colors hover:border-ivory hover:text-ivory"
+                      className="border border-ivory-hairline px-3 py-2 text-xs text-stone transition-colors hover:border-obsidian hover:text-obsidian"
                     >
                       {action.label}
                     </Link>
@@ -165,7 +164,7 @@ export function Concierge() {
           ))}
 
           {pending && (
-            <p className="eyebrow text-ivory/35">Consulting the register…</p>
+            <p className="eyebrow text-stone">Consulting the register…</p>
           )}
 
           {turns.length === 1 && (
@@ -175,7 +174,7 @@ export function Concierge() {
                   key={opener}
                   type="button"
                   onClick={() => ask(opener)}
-                  className="cursor-pointer border border-ivory/15 px-3 py-2 text-left text-xs text-ivory/60 transition-colors hover:border-ivory/50 hover:text-ivory"
+                  className="cursor-pointer border border-ivory-hairline px-3 py-2 text-left text-xs text-stone transition-colors hover:border-ivory-hairline hover:text-obsidian"
                 >
                   {opener}
                 </button>
@@ -189,7 +188,7 @@ export function Concierge() {
             event.preventDefault();
             void ask(draft);
           }}
-          className="flex shrink-0 items-center gap-3 border-t border-obsidian-hairline px-5 py-4"
+          className="flex shrink-0 items-center gap-3 border-t border-ivory-hairline px-5 py-4"
         >
           <label htmlFor={inputId} className="sr-only">
             Ask the concierge
@@ -200,12 +199,12 @@ export function Concierge() {
             onChange={(event) => setDraft(event.target.value)}
             placeholder="Ask about fit, lenses or delivery"
             autoComplete="off"
-            className="flex-1 bg-transparent py-1 text-sm text-ivory placeholder:text-ivory/30 focus:outline-none"
+            className="flex-1 bg-transparent py-1 text-sm text-obsidian placeholder:text-stone focus:outline-none"
           />
           <button
             type="submit"
             disabled={pending || draft.trim().length === 0}
-            className="eyebrow cursor-pointer text-champagne transition-opacity hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-25"
+            className="eyebrow cursor-pointer text-obsidian transition-opacity hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-25"
           >
             Ask
           </button>

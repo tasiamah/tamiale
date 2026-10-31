@@ -78,7 +78,7 @@ export default async function HousePage() {
               delay={index * 70}
               className="border-t border-ivory-hairline pt-6"
             >
-              <p className="eyebrow text-champagne-dim tabular-nums">
+              <p className="eyebrow text-stone figure-num">
                 {pillar.index}
               </p>
               <h3 className="display-md mt-5">{pillar.title}</h3>
@@ -90,7 +90,7 @@ export default async function HousePage() {
         </div>
       </section>
 
-      <section className="grain border-y border-obsidian-hairline bg-obsidian text-ivory">
+      <section className="grain border-y border-ivory-hairline bg-ivory text-obsidian">
         <div className="gutter py-24 md:py-32">
           <Reveal className="mx-auto max-w-4xl text-center">
             <p className="display-lg text-balance leading-[1.15]">
