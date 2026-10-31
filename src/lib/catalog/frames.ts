@@ -28,8 +28,8 @@ type ColorwaySeed = Omit<Colorway, "image" | "frameFinish" | "frameHex"> & {
 
 const COLORWAY_SEEDS: ColorwaySeed[] = [
   {
-    id: "ember",
-    name: "Ember",
+    id: "cognac",
+    name: "Cognac",
     lensHex: "#E8402F",
     lensHexLower: "#F7A682",
     lensDescription:
@@ -37,11 +37,11 @@ const COLORWAY_SEEDS: ColorwaySeed[] = [
     vlt: 32,
     filterCategory: 2,
     gradient: true,
-    sku: "TM-M-001-EMB",
+    sku: "TM-M-001-COG",
     editionSize: 150,
     availableForSale: true,
     imageAlt:
-      "The Marina in Onyx acetate with an Ember red gradient lens, three-quarter studio view",
+      "The Marina in Onyx acetate with a Cognac gradient lens, three-quarter studio view",
   },
   {
     id: "champagne",

@@ -1,7 +1,7 @@
 import type { Dictionary } from "./en";
 
 /**
- * Product names stay as they are: The Marina, Onyx, Ember, Champagne, Smoke
+ * Product names stay as they are: The Marina, Onyx, Cognac, Champagne, Smoke
  * and Vision Studio are the house's own words and are not translated in any
  * market. "A Different Perspective." becomes "Un autre regard.", which keeps
  * the double meaning of a viewpoint and a way of looking that the literal

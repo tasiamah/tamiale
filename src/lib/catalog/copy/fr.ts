@@ -44,11 +44,11 @@ const fr: CatalogCopy = {
         },
       ],
       colorways: {
-        ember: {
+        cognac: {
           lensDescription:
             "Un dégradé rouge chaud qui brûle au sourcil et s'éclaircit vers la pommette.",
           imageAlt:
-            "The Marina en acétate Onyx avec un verre dégradé rouge Ember, vue de trois quarts en studio",
+            "The Marina en acétate Onyx avec un verre dégradé rouge Cognac, vue de trois quarts en studio",
         },
         champagne: {
           lensDescription:

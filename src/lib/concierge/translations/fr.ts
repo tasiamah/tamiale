@@ -29,12 +29,12 @@ const fr: TranslatedRegister = {
   },
   lenses: {
     terms: ["verre", "verres", "teinte", "couleur", "couleurs", "coloris", "sombre", "clair", "fonce", "foncé"],
-    answer: `Trois expressions, toutes sur la même acétate Onyx : ${lenses}. Smoke est la plus neutre et la plus sombre ; Champagne est la plus claire et la plus flatteuse en portrait ; Ember est la signature de l'édition. Chaque verre filtre les UVA et UVB jusqu'à 400 nm.`,
+    answer: `Trois expressions, toutes sur la même acétate Onyx : ${lenses}. Smoke est la plus neutre et la plus sombre ; Champagne est la plus claire et la plus flatteuse en portrait ; Cognac est la signature de l'édition. Chaque verre filtre les UVA et UVB jusqu'à 400 nm.`,
     labels: ["Comparer les trois"],
   },
   difference: {
     terms: ["difference", "différence", "comparer", "comparaison", "entre", "plutot", "plutôt"],
-    answer: `Collection 001 est une silhouette unique : le choix porte donc sur le verre et non sur la forme. La différence pratique est la lumière. Smoke, à 18 % de transmission, est le solaire des lumières vives et ouvertes ; Champagne, à 38 %, se rapproche d'un verre teinté et reste confortable à l'intérieur et au crépuscule ; Ember, à 32 %, se place entre les deux et réchauffe les temps gris. Smoke est catégorie 3, les deux autres catégorie 2.`,
+    answer: `Collection 001 est une silhouette unique : le choix porte donc sur le verre et non sur la forme. La différence pratique est la lumière. Smoke, à 18 % de transmission, est le solaire des lumières vives et ouvertes ; Champagne, à 38 %, se rapproche d'un verre teinté et reste confortable à l'intérieur et au crépuscule ; Cognac, à 32 %, se place entre les deux et réchauffe les temps gris. Smoke est catégorie 3, les deux autres catégorie 2.`,
     labels: ["Les voir côte à côte"],
   },
   suit: {
@@ -54,7 +54,7 @@ const fr: TranslatedRegister = {
   },
   uv: {
     terms: ["protection", "polarise", "polarisé", "polarisant", "categorie", "catégorie", "conduite", "conduire"],
-    answer: `Les trois verres filtrent les UVA et UVB jusqu'à 400 nm et sont fournis avec leur documentation de conformité. Smoke est de catégorie 3 ; Ember et Champagne sont de catégorie 2. Aucun des trois n'est polarisé au lancement. La catégorie 3 convient à la conduite de jour mais pas de nuit.`,
+    answer: `Les trois verres filtrent les UVA et UVB jusqu'à 400 nm et sont fournis avec leur documentation de conformité. Smoke est de catégorie 3 ; Cognac et Champagne sont de catégorie 2. Aucun des trois n'est polarisé au lancement. La catégorie 3 convient à la conduite de jour mais pas de nuit.`,
     labels: [],
   },
   tryon: {

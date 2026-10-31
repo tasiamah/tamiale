@@ -154,8 +154,8 @@ export const STYLING_ORDER: StylingPreference[] = [
  */
 const LENS_FOR_STYLE: Record<StylingPreference, string[]> = {
   understated: ["smoke", "champagne"],
-  architectural: ["smoke", "ember"],
-  bold: ["ember", "champagne"],
+  architectural: ["smoke", "cognac"],
+  bold: ["cognac", "champagne"],
   classic: ["champagne", "smoke"],
 };
 

@@ -2,7 +2,7 @@ import type { Dictionary } from "./en";
 
 /**
  * As in French, the house's own words are left alone: The Marina, Onyx,
- * Ember, Champagne, Smoke, Vision Studio. "A Different Perspective." becomes
+ * Cognac, Champagne, Smoke, Vision Studio. "A Different Perspective." becomes
  * "Ein anderer Blick.", which carries both the viewpoint and the act of
  * looking, where "Perspektive" would only carry the first.
  */

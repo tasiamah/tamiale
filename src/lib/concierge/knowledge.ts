@@ -47,13 +47,13 @@ export const knowledge: KnowledgeEntry[] = [
   {
     id: "lenses",
     terms: ["lens", "lenses", "tint", "colour", "color", "colourway", "colorway", "vlt", "dark", "darkest", "lightest tint"],
-    answer: `Three expressions, all on the same Onyx acetate: ${lensSummary}. Smoke is the most neutral and the darkest; Champagne is the lightest and the most flattering in portraits; Ember is the signature of the edition. Every lens blocks UVA and UVB to 400 nm.`,
+    answer: `Three expressions, all on the same Onyx acetate: ${lensSummary}. Smoke is the most neutral and the darkest; Champagne is the lightest and the most flattering in portraits; Cognac is the signature of the edition. Every lens blocks UVA and UVB to 400 nm.`,
     actions: [{ label: "Compare the three", href: "/collection#expressions" }],
   },
   {
     id: "difference",
     terms: ["difference", "compare", "versus", "vs", "between"],
-    answer: `Collection 001 is a single silhouette, so the choice is one of lens rather than shape. The practical difference is light: Smoke at 18% transmission is the sunglass for bright, open light; Champagne at 38% reads closer to a tinted glass and stays comfortable indoors and at dusk; Ember at 32% sits between them and warms flat weather. Smoke is category 3, the other two category 2.`,
+    answer: `Collection 001 is a single silhouette, so the choice is one of lens rather than shape. The practical difference is light: Smoke at 18% transmission is the sunglass for bright, open light; Champagne at 38% reads closer to a tinted glass and stays comfortable indoors and at dusk; Cognac at 32% sits between them and warms flat weather. Smoke is category 3, the other two category 2.`,
     actions: [{ label: "See them side by side", href: "/collection#expressions" }],
   },
   {
@@ -76,7 +76,7 @@ export const knowledge: KnowledgeEntry[] = [
   {
     id: "uv",
     terms: ["uv", "uv400", "protection", "polarised", "polarized", "category", "driving"],
-    answer: `All three lenses block UVA and UVB to 400 nm and are supplied with their conformity documentation. Smoke is filter category 3; Ember and Champagne are category 2. None of the three is polarised at launch. Category 3 is suitable for driving in daylight but not at night.`,
+    answer: `All three lenses block UVA and UVB to 400 nm and are supplied with their conformity documentation. Smoke is filter category 3; Cognac and Champagne are category 2. None of the three is polarised at launch. Category 3 is suitable for driving in daylight but not at night.`,
   },
   {
     id: "tryon",

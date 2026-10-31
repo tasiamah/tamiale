@@ -44,11 +44,11 @@ const de: CatalogCopy = {
         },
       ],
       colorways: {
-        ember: {
+        cognac: {
           lensDescription:
             "Ein warmer roter Verlauf, der an der Braue brennt und zum Wangenknochen hin aufklart.",
           imageAlt:
-            "The Marina in Onyx-Acetat mit rotem Ember-Verlaufsglas, Dreiviertelansicht im Studio",
+            "The Marina in Onyx-Acetat mit rotem Cognac-Verlaufsglas, Dreiviertelansicht im Studio",
         },
         champagne: {
           lensDescription:

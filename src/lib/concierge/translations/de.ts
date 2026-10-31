@@ -29,12 +29,12 @@ const de: TranslatedRegister = {
   },
   lenses: {
     terms: ["glas", "glaser", "gläser", "tonung", "tönung", "farbe", "farben", "dunkel", "hell"],
-    answer: `Drei Ausführungen, alle auf demselben Onyx-Acetat: ${lenses}. Smoke ist das neutralste und dunkelste Glas; Champagne ist das hellste und im Porträt das schmeichelhafteste; Ember ist die Signatur der Edition. Jedes Glas filtert UVA und UVB bis 400 nm.`,
+    answer: `Drei Ausführungen, alle auf demselben Onyx-Acetat: ${lenses}. Smoke ist das neutralste und dunkelste Glas; Champagne ist das hellste und im Porträt das schmeichelhafteste; Cognac ist die Signatur der Edition. Jedes Glas filtert UVA und UVB bis 400 nm.`,
     labels: ["Alle drei vergleichen"],
   },
   difference: {
     terms: ["unterschied", "unterschiede", "vergleich", "vergleichen", "zwischen", "welches"],
-    answer: `Collection 001 ist eine einzige Silhouette, die Wahl betrifft also das Glas und nicht die Form. Der praktische Unterschied ist das Licht. Smoke mit 18 % Transmission ist die Sonnenbrille für helles, offenes Licht; Champagne mit 38 % kommt einem getönten Glas nahe und bleibt drinnen und in der Dämmerung angenehm; Ember mit 32 % liegt dazwischen und wärmt graues Wetter auf. Smoke ist Kategorie 3, die beiden anderen Kategorie 2.`,
+    answer: `Collection 001 ist eine einzige Silhouette, die Wahl betrifft also das Glas und nicht die Form. Der praktische Unterschied ist das Licht. Smoke mit 18 % Transmission ist die Sonnenbrille für helles, offenes Licht; Champagne mit 38 % kommt einem getönten Glas nahe und bleibt drinnen und in der Dämmerung angenehm; Cognac mit 32 % liegt dazwischen und wärmt graues Wetter auf. Smoke ist Kategorie 3, die beiden anderen Kategorie 2.`,
     labels: ["Nebeneinander sehen"],
   },
   suit: {
@@ -54,7 +54,7 @@ const de: TranslatedRegister = {
   },
   uv: {
     terms: ["schutz", "polarisiert", "polarisierend", "kategorie", "autofahren", "fahren"],
-    answer: `Alle drei Gläser filtern UVA und UVB bis 400 nm und werden mit ihrer Konformitätsdokumentation geliefert. Smoke ist Filterkategorie 3; Ember und Champagne sind Kategorie 2. Keines der drei ist zum Start polarisiert. Kategorie 3 eignet sich zum Fahren bei Tag, nicht jedoch bei Nacht.`,
+    answer: `Alle drei Gläser filtern UVA und UVB bis 400 nm und werden mit ihrer Konformitätsdokumentation geliefert. Smoke ist Filterkategorie 3; Cognac und Champagne sind Kategorie 2. Keines der drei ist zum Start polarisiert. Kategorie 3 eignet sich zum Fahren bei Tag, nicht jedoch bei Nacht.`,
     labels: [],
   },
   tryon: {
