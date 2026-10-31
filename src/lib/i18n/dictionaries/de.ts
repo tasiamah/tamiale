@@ -10,7 +10,7 @@ const de: Dictionary = {
   meta: {
     statement: "Ein anderer Blick.",
     description:
-      "Tamiale ist ein zeitgenössisches Haus für Luxusbrillen. Kollektion 001 ist The Marina, eine architektonische Silhouette aus italienischem Acetat in drei Gläsern.",
+      "Tamiale ist ein zeitgenössisches Haus für Luxusbrillen. Kollektion 001 ist The Marina, eine architektonische Silhouette aus massivem Acetat in drei Gläsern.",
     keywords: [
       "Luxusbrillen",
       "Designer-Sonnenbrillen",
@@ -50,7 +50,7 @@ const de: Dictionary = {
 
   footer: {
     blurb:
-      "Ein zeitgenössisches Brillenhaus. Entworfen in Amsterdam, gefertigt in Italien, in nummerierten Editionen veröffentlicht.",
+      "Ein zeitgenössisches Brillenhaus. Entworfen in Zürich, in nummerierten Editionen veröffentlicht.",
     shippingTo: "Lieferung nach",
     clientCare: "Kundenservice",
     theHouse: "Das Haus",
@@ -167,7 +167,7 @@ const de: Dictionary = {
 
   home: {
     heroLede:
-      "Brillen für alle, die über Konventionen hinausblicken. Eine Silhouette, in Italien gefräst, in drei Gläsern veröffentlicht.",
+      "Brillen für alle, die über Konventionen hinausblicken. Eine Silhouette, in Zürich entworfen, in drei Gläsern veröffentlicht.",
     collectionTitleFirst: "Drei Gläser.",
     collectionTitleSecond: "Eine Silhouette.",
     collectionLede:
@@ -374,11 +374,11 @@ const de: Dictionary = {
     ],
     metaTitle: "Das Haus",
     metaDescription:
-      "In Amsterdam entworfen, in Italien gefertigt, in nummerierten Editionen veröffentlicht. Die Positionen des Hauses und die vier Dinge, die es nicht tun wird.",
+      "In Zürich entworfen, in nummerierten Editionen veröffentlicht. Die Positionen des Hauses und die vier Dinge, die es nicht tun wird.",
     eyebrow: "Das Haus",
     titleFirst: "Wahrer Luxus entsteht",
     titleSecond: "nie zufällig.",
-    lede: "Tamiale ist ein zeitgenössisches Brillenhaus. Entworfen in Amsterdam, gefertigt in Italien, in nummerierten Editionen veröffentlicht und schriftlich festgehalten, damit es überprüfbar bleibt.",
+    lede: "Tamiale ist ein zeitgenössisches Brillenhaus. Entworfen in Zürich, in nummerierten Editionen veröffentlicht und schriftlich festgehalten, damit es überprüfbar bleibt.",
     positionEyebrow: "Die Haltung",
     positionTitle: "Wofür das Haus steht.",
     positionLede:

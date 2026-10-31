@@ -12,7 +12,7 @@ const en = {
   meta: {
     statement: "A Different Perspective.",
     description:
-      "Tamiale is a contemporary luxury eyewear house. Collection 001 is The Marina, an architectural silhouette in Italian acetate, released in three lens expressions.",
+      "Tamiale is a contemporary luxury eyewear house. Collection 001 is The Marina, an architectural silhouette in block-milled acetate, released in three lens expressions.",
     keywords: [
       "luxury eyewear",
       "designer sunglasses",
@@ -52,7 +52,7 @@ const en = {
 
   footer: {
     blurb:
-      "A contemporary eyewear house. Designed in Amsterdam, made in Italy, released in numbered editions.",
+      "A contemporary eyewear house. Designed in Zurich, released in numbered editions.",
     shippingTo: "Shipping to",
     clientCare: "Client Care",
     theHouse: "The House",
@@ -168,7 +168,7 @@ const en = {
 
   home: {
     heroLede:
-      "Eyewear conceived for those who see beyond convention. One silhouette, cut in Italy, released in three lenses.",
+      "Eyewear conceived for those who see beyond convention. One silhouette, designed in Zurich, released in three lenses.",
     collectionTitleFirst: "Three lenses.",
     collectionTitleSecond: "One silhouette.",
     collectionLede:
@@ -374,11 +374,11 @@ const en = {
     ],
     metaTitle: "The House",
     metaDescription:
-      "Designed in Amsterdam, made in Italy, released in numbered editions. The positions the house holds, and the four things it will not do.",
+      "Designed in Zurich, released in numbered editions. The positions the house holds, and the four things it will not do.",
     eyebrow: "The House",
     titleFirst: "True luxury is",
     titleSecond: "never accidental.",
-    lede: "Tamiale is a contemporary eyewear house. Designed in Amsterdam, made in Italy, released in numbered editions, and written down so it can be checked.",
+    lede: "Tamiale is a contemporary eyewear house. Designed in Zurich, released in numbered editions, and written down so it can be checked.",
     positionEyebrow: "The position",
     positionTitle: "What the house is for.",
     positionLede: "Written as positions the house holds, rather than slogans.",

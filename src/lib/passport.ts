@@ -43,7 +43,7 @@ const REGISTRY: PassportRecord[] = [
     status: "registered",
     serviceHistory: [
       { date: "2026-12-14", event: "Registered by first owner" },
-      { date: "2027-08-02", event: "Nose pads replaced, Amsterdam atelier" },
+      { date: "2027-08-02", event: "Nose pads replaced, house service" },
     ],
   },
 ];

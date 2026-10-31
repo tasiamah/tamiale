@@ -27,7 +27,7 @@ const de: CatalogCopy = {
       ],
       materials: [
         {
-          heading: "Aus dem Block gefrästes italienisches Acetat",
+          heading: "Aus dem Block gefrästes Acetat",
           body: "Mazzucchelli-Platte, vor dem Schnitt ausgehärtet und abgelagert, dann aus dem vollen Block gefräst. Die Front wird zehn Tage lang über drei Körnungen trommelpoliert und von Hand fertiggestellt, sodass die Politur im Material sitzt und nicht in einem Lack, der sich durchscheuern kann.",
         },
         {

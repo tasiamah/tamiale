@@ -69,7 +69,7 @@ export const knowledge: KnowledgeEntry[] = [
   },
   {
     id: "materials",
-    terms: ["material", "acetate", "plastic", "hinge", "made", "manufactur", "italy", "craft", "quality"],
+    terms: ["material", "acetate", "plastic", "hinge", "made", "manufactur", "craft", "quality"],
     answer: `The front is milled from solid Mazzucchelli acetate block, tumbled for ten days across three grades and finished by hand. The hinge is a seven-barrel German nickel-silver unit sunk into the acetate, and it is replaceable without disturbing the polish. Two rivets are set by hand into each end piece.`,
     actions: [{ label: "Read the craftsmanship file", href: "/house#craftsmanship" }],
   },

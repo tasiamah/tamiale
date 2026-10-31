@@ -11,7 +11,7 @@ const fr: Dictionary = {
   meta: {
     statement: "Un autre regard.",
     description:
-      "Tamiale est une maison de lunetterie de luxe contemporaine. La Collection 001 est The Marina, une silhouette architecturale en acétate italien, déclinée en trois verres.",
+      "Tamiale est une maison de lunetterie de luxe contemporaine. La Collection 001 est The Marina, une silhouette architecturale en acétate taillé dans la masse, déclinée en trois verres.",
     keywords: [
       "lunettes de luxe",
       "lunettes de soleil de créateur",
@@ -51,7 +51,7 @@ const fr: Dictionary = {
 
   footer: {
     blurb:
-      "Une maison de lunetterie contemporaine. Dessinée à Amsterdam, fabriquée en Italie, éditée en séries numérotées.",
+      "Une maison de lunetterie contemporaine. Dessinée à Zurich, éditée en séries numérotées.",
     shippingTo: "Livraison vers",
     clientCare: "Service client",
     theHouse: "La Maison",
@@ -168,7 +168,7 @@ const fr: Dictionary = {
 
   home: {
     heroLede:
-      "Une lunetterie pensée pour celles et ceux qui voient au-delà des conventions. Une silhouette, taillée en Italie, déclinée en trois verres.",
+      "Une lunetterie pensée pour celles et ceux qui voient au-delà des conventions. Une silhouette, dessinée à Zurich, déclinée en trois verres.",
     collectionTitleFirst: "Trois verres.",
     collectionTitleSecond: "Une silhouette.",
     collectionLede:
@@ -375,11 +375,11 @@ const fr: Dictionary = {
     ],
     metaTitle: "La Maison",
     metaDescription:
-      "Dessinée à Amsterdam, fabriquée en Italie, éditée en séries numérotées. Les positions que tient la maison, et les quatre choses qu'elle ne fera pas.",
+      "Dessinée à Zurich, éditée en séries numérotées. Les positions que tient la maison, et les quatre choses qu'elle ne fera pas.",
     eyebrow: "La Maison",
     titleFirst: "Le vrai luxe n'est",
     titleSecond: "jamais accidentel.",
-    lede: "Tamiale est une maison de lunetterie contemporaine. Dessinée à Amsterdam, fabriquée en Italie, éditée en séries numérotées, et consignée par écrit pour pouvoir être vérifiée.",
+    lede: "Tamiale est une maison de lunetterie contemporaine. Dessinée à Zurich, éditée en séries numérotées, et consignée par écrit pour pouvoir être vérifiée.",
     positionEyebrow: "La position",
     positionTitle: "Ce que la maison défend.",
     positionLede:

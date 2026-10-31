@@ -48,7 +48,7 @@ const fr: TranslatedRegister = {
     labels: [],
   },
   materials: {
-    terms: ["matiere", "matière", "acetate", "acétate", "charniere", "charnière", "fabrique", "fabriqué", "fabrication", "italie", "qualite", "qualité"],
+    terms: ["matiere", "matière", "acetate", "acétate", "charniere", "charnière", "fabrique", "fabriqué", "fabrication", "qualite", "qualité"],
     answer: `La façade est taillée dans un bloc d'acétate Mazzucchelli massif, polie au tonneau pendant dix jours en trois grades et finie à la main. La charnière est une unité allemande à sept barillets en maillechort, encastrée dans l'acétate et remplaçable sans toucher au poli. Deux rivets sont posés à la main dans chaque tenon.`,
     labels: ["Lire le dossier savoir-faire"],
   },

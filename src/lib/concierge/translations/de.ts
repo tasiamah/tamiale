@@ -48,7 +48,7 @@ const de: TranslatedRegister = {
     labels: [],
   },
   materials: {
-    terms: ["material", "acetat", "kunststoff", "scharnier", "hergestellt", "herstellung", "italien", "qualitat", "qualität", "handwerk"],
+    terms: ["material", "acetat", "kunststoff", "scharnier", "hergestellt", "herstellung", "qualitat", "qualität", "handwerk"],
     answer: `Die Front wird aus massivem Mazzucchelli-Acetat gefräst, zehn Tage lang über drei Körnungen trommelpoliert und von Hand fertiggestellt. Das Scharnier ist eine deutsche Siebenkammer-Einheit aus Neusilber, in das Acetat eingelassen und austauschbar, ohne die Politur anzutasten. In jedes Endstück werden zwei Nieten von Hand gesetzt.`,
     labels: ["Die Handwerksakte lesen"],
   },

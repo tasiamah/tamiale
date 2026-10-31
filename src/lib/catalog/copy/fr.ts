@@ -27,7 +27,7 @@ const fr: CatalogCopy = {
       ],
       materials: [
         {
-          heading: "Acétate italienne taillée dans la masse",
+          heading: "Acétate taillée dans la masse",
           body: "Plaque Mazzucchelli, séchée et reposée avant la coupe, puis taillée dans le bloc plein. La façade est polie au tonneau pendant dix jours en trois grades d'abrasif et finie à la main, de sorte que le poli vit dans la matière plutôt que dans un vernis qui finit par s'user.",
         },
         {

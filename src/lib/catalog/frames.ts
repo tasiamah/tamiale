@@ -129,7 +129,7 @@ export const theMarina: Frame = {
   ],
   materials: [
     {
-      heading: "Block-milled Italian acetate",
+      heading: "Block-milled acetate",
       body: "Mazzucchelli sheet, cured and rested before cutting, then milled from solid block. The front is tumbled for ten days across three abrasive grades and finished by hand, so the polish lives in the material rather than in a lacquer that can wear through.",
     },
     {

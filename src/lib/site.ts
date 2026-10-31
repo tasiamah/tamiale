@@ -4,7 +4,7 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://tamiale.com",
   email: "info@tamiale.com",
   instagram: "https://instagram.com/tamiale",
-  foundedIn: "Amsterdam",
+  foundedIn: "Zurich",
 } as const;
 
 /**
