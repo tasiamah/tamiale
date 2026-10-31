@@ -14,13 +14,13 @@ import { getDictionary } from "@/lib/i18n/dictionary";
  * chrome and pushes the line off the bottom, and `dvh` changes as that
  * chrome retracts, which re-lays out the hero while it is being read.
  *
- * TWO FILES, NOT TWO CROPS. The campaign frame is 2.95:1 and a phone is
+ * TWO FILES, NOT TWO CROPS. The campaign frame is 2.34:1 and a phone is
  * about 1:1.9. Filling a portrait screen from the landscape file shows
- * roughly a sixth of its width, which is one face with the sunglasses cut
- * off at either edge, and no object-position rescues that: `cover` cannot
- * show more width than the box's own proportions allow. So the phone gets
- * its own portrait file, cut to the stretch of width that holds both
- * models and extended downward into the paper. See
+ * only a narrow band of its width, which is one face with the sunglasses
+ * cut off at either edge, and no object-position rescues that: `cover`
+ * cannot show more width than the box's own proportions allow. So the
+ * phone gets its own portrait file, cut to the stretch of width that holds
+ * both models and extended downward into the paper. See
  * scripts/make-portrait-hero.mjs, which derives it and explains itself.
  *
  * It is pinned to the top. The portrait file is taller than any phone in
@@ -29,10 +29,12 @@ import { getDictionary } from "@/lib/i18n/dictionary";
  * it that was never photographed.
  *
  * NOTE ON THE SOURCE: the landscape master is 1024px against a full
- * viewport, so it is enlarged roughly 1.4x on a laptop, and the portrait
- * file is cut from it and so cannot be wider than 560px. Both are soft on a
- * dense screen. A real master around 2800px, with a portrait crop shot or
- * cropped by the editor, replaces all of this and lets the script go.
+ * viewport, so it is enlarged on a laptop, and the portrait file is cut
+ * from it and so is narrower again. Both are soft on a dense screen, and
+ * the picture can only reach about half the height of a phone, because the
+ * master is 438px tall and the crop has to stay wide enough for two faces.
+ * A master around 2800px, with a frame actually composed in portrait,
+ * replaces all of this and lets the script go.
  */
 
 /*

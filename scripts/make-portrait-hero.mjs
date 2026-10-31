@@ -40,19 +40,30 @@ const SOURCE = "public/media/editorial/campaign.jpg";
 const OUTPUT = "public/media/editorial/campaign-portrait.jpg";
 
 /*
- * The two frames measure out at x 277-541 and x 634-790, found by looking
- * for columns holding near-black pixels. The crop is those plus air: cut it
- * tighter and a temple tip touches the edge of the screen.
+ * Found by looking for columns holding near-black pixels: the two frames
+ * sit at x 254-525 and x 563-730, and the second model's shoulder runs on
+ * to 809. The crop takes both heads and leaves the shoulder, because every
+ * column kept here is a column the phone has to fit across its width, and
+ * the wider this is the smaller the picture sits on the screen.
  */
-const CROP_LEFT = 250;
-const CROP_WIDTH = 560;
+const CROP_LEFT = 246;
+const CROP_RIGHT = 752;
 
 /*
- * Taller than any phone in circulation, so the picture always fills the
- * width and the only thing a short screen loses is invented floor off the
- * bottom. The hero pins this file to the top for exactly that reason.
+ * Cut to the proportions of a tall phone rather than to a round number.
+ * Every pixel of canvas beyond what the screen is shaped like is extension
+ * nobody sees, and extension is the part that was never photographed: at
+ * twice the crop width the picture was a third of the screen and the fade
+ * ran most of the way down it.
+ *
+ * The master is 438px tall whatever is done here, so the picture's share
+ * of a phone screen is 438 x 0.54 / CROP_WIDTH and nothing else in this
+ * file moves it. Cropping tighter is the only lever and both faces set the
+ * floor on how tight, which lands a little under half the screen. Filling
+ * the whole of it needs a frame shot in portrait.
  */
-const CANVAS_HEIGHT = CROP_WIDTH * 2;
+const CROP_WIDTH = CROP_RIGHT - CROP_LEFT;
+const CANVAS_HEIGHT = Math.round(CROP_WIDTH / 0.539);
 
 /**
  * Rows read at the join. Few, because this is the colour the extension has
@@ -68,8 +79,12 @@ const STRIP_ROWS = 44;
 /** Where the edge has relaxed into the bare studio sweep. */
 const RELAX = 0.02;
 
-/** Where the sweep has reached the paper, as a fraction of the extension. */
-const DISSOLVE = 0.42;
+/**
+ * Where the sweep has reached the paper, as a fraction of the extension.
+ * Short: a long fade is a large blurred area, and a large blurred area is
+ * the thing a reader notices instead of the photograph.
+ */
+const DISSOLVE = 0.2;
 
 /** Columns the sweep is resampled to: enough for the drift, too few for a lapel. */
 const SWEEP_COLUMNS = 9;
