@@ -39,7 +39,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "Duties and taxes",
         body: [
-          "Prices in Europe, the United Kingdom and the Emirates include VAT and any import duty. United States prices exclude sales tax, which is calculated at checkout against the delivery address.",
+          "Prices in Europe, the United Kingdom and the Emirates are shown with all taxes and any import duty already included. United States prices are shown before sales tax, which is calculated at checkout against the delivery address.",
           "The house does not under-declare the value of a parcel, and cannot mark an order as a gift.",
         ],
       },

@@ -29,7 +29,7 @@ const fr: LegalCopy = {
       {
         heading: "Droits et taxes",
         body: [
-          "Les prix en Europe, au Royaume-Uni et aux Émirats incluent la TVA et tout droit d'importation. Les prix aux États-Unis sont hors taxe de vente, calculée au paiement selon l'adresse de livraison.",
+          "Les prix en Europe, au Royaume-Uni et aux Émirats sont affichés toutes taxes et tout droit d'importation compris. Les prix aux États-Unis sont affichés hors taxe de vente, calculée au paiement selon l'adresse de livraison.",
           "La maison ne sous-déclare pas la valeur d'un colis et ne peut pas présenter une commande comme un cadeau.",
         ],
       },

@@ -29,7 +29,7 @@ const de: LegalCopy = {
       {
         heading: "Zölle und Steuern",
         body: [
-          "Die Preise in Europa, im Vereinigten Königreich und in den Emiraten enthalten die Mehrwertsteuer und etwaige Einfuhrzölle. Die Preise in den USA verstehen sich ohne Sales Tax, die beim Bezahlen anhand der Lieferadresse berechnet wird.",
+          "Die Preise in Europa, im Vereinigten Königreich und in den Emiraten verstehen sich inklusive aller Steuern und etwaiger Einfuhrzölle. Die Preise in den USA verstehen sich ohne Sales Tax, die beim Bezahlen anhand der Lieferadresse berechnet wird.",
           "Das Haus deklariert den Wert einer Sendung nicht zu niedrig und kann eine Bestellung nicht als Geschenk kennzeichnen.",
         ],
       },
