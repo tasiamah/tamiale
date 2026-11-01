@@ -40,6 +40,16 @@ const noopSubscribe = () => () => {};
 const readLens = () => new URLSearchParams(window.location.search).get("lens");
 const noLensOnServer = () => null;
 
+/** Which sentence in `dict.commerce` describes each framing. */
+const ALT_KEY = {
+  threeQuarter: "altThreeQuarter",
+  front: "altFront",
+  side: "altSide",
+  folded: "altFolded",
+  worn: "altWorn",
+  wornAngle: "altWornAngle",
+} as const;
+
 export function ProductStage({ frame }: { frame: Frame }) {
   /*
    * The page is prerendered, so the server cannot know `?lens`. It renders
@@ -106,44 +116,62 @@ export function ProductStage({ frame }: { frame: Frame }) {
 
         {view === "studio" && (
           <figure>
-            <div className="plate flex aspect-4/3 items-center justify-center">
+            {/*
+             * Four views of the object and then two of it worn, stacked at
+             * the full width of the column rather than shrunk into a grid.
+             * This is the one column on the page a shopper came to look at,
+             * the buy side is sticky beside it, and a frame argued on its
+             * angles is not argued at thumbnail size.
+             *
+             * Only the first is eager. The rest are a scroll away and the
+             * largest paint is decided on the first.
+             */}
+            {colorway.angles.map((angle, index) => (
+              <div
+                key={angle.id}
+                className={cn(
+                  "plate flex aspect-4/3 items-center justify-center",
+                  index > 0 && "mt-5",
+                )}
+              >
+                <Image
+                  src={angle.src}
+                  alt={fill(dict.commerce[ALT_KEY[angle.id]], {
+                    name: frame.name,
+                    lens: colorway.name,
+                  })}
+                  width={angle.width}
+                  height={angle.height}
+                  fetchPriority={index === 0 ? "high" : undefined}
+                  loading={index === 0 ? "eager" : undefined}
+                  sizes="(max-width: 1024px) 88vw, 640px"
+                  className="w-full max-w-[640px]"
+                />
+              </div>
+            ))}
+
+            {colorway.worn.map((shot) => (
               <Image
-                src={colorway.image.src}
-                alt={colorway.image.alt}
-                width={colorway.image.width}
-                height={colorway.image.height}
-                fetchPriority="high"
-                loading="eager"
-                sizes="(max-width: 1024px) 88vw, 640px"
-                className="w-full max-w-[640px]"
+                key={shot.id}
+                src={shot.src}
+                alt={fill(dict.commerce[ALT_KEY[shot.id]], {
+                  name: frame.name,
+                  lens: colorway.name,
+                })}
+                width={shot.width}
+                height={shot.height}
+                quality={90}
+                sizes="(max-width: 1024px) 92vw, 48vw"
+                className="mt-5 w-full"
               />
-            </div>
+            ))}
+
             <figcaption className="mt-8 flex justify-between text-xs text-stone-dim">
               <span>
                 {frame.name} · {colorway.frameFinish} / {colorway.name}
               </span>
               <span className="tabular-nums">{colorway.sku}</span>
             </figcaption>
-
-            {/*
-             * Worn, directly under the render and not behind one of the
-             * tabs above, because nobody clicks a tab to find out whether
-             * they want something. A pair of sunglasses is bought on how it
-             * sits on a face, and until now this page only showed the
-             * object on grey. It is lazy and below the fold, so it costs
-             * the largest paint nothing, and the buy column is sticky, so
-             * the price and the button are still there when the face
-             * arrives.
-             */}
-            <Image
-              src={colorway.worn.src}
-              alt={colorway.worn.alt}
-              width={colorway.worn.width}
-              height={colorway.worn.height}
-              quality={90}
-              sizes="(max-width: 1024px) 92vw, 48vw"
-              className="mt-5 w-full"
-            />
           </figure>
         )}
 

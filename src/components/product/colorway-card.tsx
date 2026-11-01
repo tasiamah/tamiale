@@ -55,7 +55,7 @@ export function ColorwayCard({
          * and a reader does not need the same frame described twice.
          */}
         <Image
-          src={colorway.worn.src}
+          src={colorway.worn[0].src}
           alt=""
           fill
           sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 31vw"

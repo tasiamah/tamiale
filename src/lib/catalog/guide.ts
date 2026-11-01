@@ -61,8 +61,7 @@ export const faceShapeGuide: FaceShapeGuide = {
       name: "Square",
       recognise:
         "The jaw is broad and turns at a visible corner, the hairline runs straight, and the width at the jaw is close to the width at the temple.",
-      convention:
-        "Rounded or oval frames, to soften the jaw.",
+      convention: "Rounded or oval frames, to soften the jaw.",
       marina:
         "The convention argues against it. In practice the Marina's chamfered outer shoulder is a shallower angle than the jaw beneath it, and a frame whose corners are gentler than the face's own can read as deliberate rather than as a repetition. This is the shape where trying it on matters most.",
     },

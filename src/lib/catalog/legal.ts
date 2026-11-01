@@ -104,8 +104,7 @@ export const legalDocuments: LegalDocument[] = [
   {
     slug: "privacy",
     title: "Privacy",
-    summary:
-      "What the house collects, why, and how little of it there is.",
+    summary: "What the house collects, why, and how little of it there is.",
     updated: "2026-10-01",
     sections: [
       /*

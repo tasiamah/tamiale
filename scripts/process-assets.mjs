@@ -16,9 +16,30 @@ import sharp from "sharp";
 
 const MASTER = process.argv[2];
 if (!MASTER) {
-  console.error("usage: node scripts/process-assets.mjs <master-photo>");
+  console.error(
+    "usage: node scripts/process-assets.mjs <photo> [angle] [--no-crop] [--lift N]",
+  );
   process.exit(1);
 }
+
+/**
+ * The master is one three-quarter view. The other angles are separate
+ * photographs of the same frame, so they arrive already framed and need
+ * neither the master's crop nor its place in the manifest.
+ */
+const ANGLE = process.argv[3]?.startsWith("--") ? null : (process.argv[3] ?? null);
+const NO_CROP = process.argv.includes("--no-crop");
+
+/**
+ * Studio sweeps that carry a soft contact shadow never reach the pure white
+ * the flood fill looks for, so the shadow survives the cutout as a grey
+ * smear on the plate. Lifting the highlights clips it to the sweep before
+ * the fill runs. Black acetate is unaffected: zero times anything is zero.
+ */
+const LIFT = (() => {
+  const i = process.argv.indexOf("--lift");
+  return i === -1 ? null : Number(process.argv[i + 1]);
+})();
 
 const OUT = path.resolve("public/media/product");
 
@@ -176,7 +197,10 @@ function featherAlpha(out, width, height, channels) {
 async function main() {
   await mkdir(OUT, { recursive: true });
 
-  const base = sharp(MASTER).extract(CROP).ensureAlpha();
+  let pipeline = sharp(MASTER);
+  if (!NO_CROP) pipeline = pipeline.extract(CROP);
+  if (LIFT) pipeline = pipeline.linear(255 / LIFT, 0);
+  const base = pipeline.ensureAlpha();
   const { data, info } = await base
     .clone()
     .raw()
@@ -240,7 +264,7 @@ async function main() {
       threshold: 0,
     });
 
-    const file = `marina-onyx-${way.id}.png`;
+    const file = `marina-onyx-${way.id}${ANGLE ? `-${ANGLE}` : ""}.png`;
     const meta = await image
       .clone()
       .png({ compressionLevel: 9 })
@@ -250,7 +274,12 @@ async function main() {
       .clone()
       .resize({ width: 640 })
       .webp({ quality: 88 })
-      .toFile(path.join(OUT, `marina-onyx-${way.id}-640.webp`));
+      .toFile(
+        path.join(
+          OUT,
+          `marina-onyx-${way.id}${ANGLE ? `-${ANGLE}` : ""}-640.webp`,
+        ),
+      );
 
     // Flat silhouette used as the loading placeholder and in dark sections.
     manifest.push({
@@ -262,6 +291,8 @@ async function main() {
     });
     console.log(`${file}  ${meta.width}x${meta.height}`);
   }
+
+  if (ANGLE) return;
 
   await writeFile(
     path.join(OUT, "manifest.json"),

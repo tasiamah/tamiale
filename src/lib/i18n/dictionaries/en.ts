@@ -110,7 +110,8 @@ const en = {
   },
 
   commerce: {
-    metaDescription: "{name}: limited edition black designer sunglasses in block-milled acetate, in {count} lens expressions. {edition}, shipping {month}.",
+    metaDescription:
+      "{name}: limited edition black designer sunglasses in block-milled acetate, in {count} lens expressions. {edition}, shipping {month}.",
     frontElevationMm: "Front elevation, millimetres",
     drawingPlaceholder: "Placeholder pending the factory drawing",
     lensExpression: "Lens expression",
@@ -136,6 +137,15 @@ const en = {
       editionOf: "An edition of {count} in {lens}",
       unsold: "{count} unsold",
     },
+    altThreeQuarter:
+      "{name} in Onyx acetate with a {lens} lens, three-quarter studio view",
+    altFront: "{name} in Onyx acetate with a {lens} lens, seen from the front",
+    altSide:
+      "{name} in Onyx acetate with a {lens} lens, seen from the side with the temple open",
+    altFolded: "{name} in Onyx acetate with a {lens} lens, folded",
+    altWorn: "A man wearing {name} with a {lens} lens, facing the camera",
+    altWornAngle:
+      "A man wearing {name} with a {lens} lens, turned three-quarters",
     preorderNote:
       "Reserved from the edition today and dispatched in {month}. Cancellable for a full refund at any point before it ships, and if that date moves you will hear before it passes, not after.",
     trust: {
@@ -167,7 +177,8 @@ const en = {
     yourBag: "Your bag",
     close: "Close",
     emptyTitle: "Nothing reserved yet.",
-    emptyBody: "Collection 001 is open for pre-order in three lens expressions.",
+    emptyBody:
+      "Collection 001 is open for pre-order in three lens expressions.",
     viewCollection: "View the collection",
     remove: "Remove",
     decrease: "Decrease quantity of {name}",
@@ -226,7 +237,8 @@ const en = {
       fitBody:
         "Face width and bridge gap read from the same view, compared against the published millimetres.",
       lensTitle: "Lens perspective",
-      lensBody: "See what each of the three tints does to the light in front of you.",
+      lensBody:
+        "See what each of the three tints does to the light in front of you.",
       privacyTitle: "On your device",
       privacyBody:
         "Nothing leaves the browser. No image, no video, no landmark is uploaded.",
@@ -269,8 +281,7 @@ const en = {
       "High end designer sunglasses in a single architectural silhouette. The Marina in Onyx acetate, in cognac, champagne and smoke lenses, open for pre-order.",
     eyebrow: "Collection 001",
     title: "The Icons.",
-    lede:
-      "One silhouette rather than a catalogue. The Marina is released in a single Onyx acetate and three lens expressions, each specified by the light it lets through.",
+    lede: "One silhouette rather than a catalogue. The Marina is released in a single Onyx acetate and three lens expressions, each specified by the light it lets through.",
     stats: {
       silhouettes: "Silhouettes released",
       expressions: "Lens expressions",
@@ -309,9 +320,11 @@ const en = {
     lookingForFace: "Looking for a face",
     capture: "Capture",
     transmissionReadout: "{name} · {vlt}% transmission",
-    noCamera: "No camera is available on this device, or the browser will not share one over this connection. A camera needs a secure (https) connection.",
+    noCamera:
+      "No camera is available on this device, or the browser will not share one over this connection. A camera needs a secure (https) connection.",
     engineFailed: "The tracking engine did not start.",
-    engineDegraded: "The face tracking engine could not start on this device. The camera is still live, so you can use lens perspective.",
+    engineDegraded:
+      "The face tracking engine could not start on this device. The camera is still live, so you can use lens perspective.",
     estimateMyFit: "Estimate my fit",
     faceWidth: "Face width",
     bridgeGap: "Bridge gap",
@@ -320,10 +333,13 @@ const en = {
     discard: "Discard",
     confidenceFair: "fair",
     confidenceLow: "low",
-    estimateNote: "Estimated from a single camera, assuming an average pupil distance. Confidence is {confidence}. It is not a measurement and cannot guarantee physical fit.",
-    estimateNoteLow: "Estimated from a single camera, assuming an average pupil distance. Confidence is {confidence}. Face the camera squarely and try again. It is not a measurement and cannot guarantee physical fit.",
+    estimateNote:
+      "Estimated from a single camera, assuming an average pupil distance. Confidence is {confidence}. It is not a measurement and cannot guarantee physical fit.",
+    estimateNoteLow:
+      "Estimated from a single camera, assuming an average pupil distance. Confidence is {confidence}. Face the camera squarely and try again. It is not a measurement and cannot guarantee physical fit.",
     reserveLens: "Reserve {name}",
-    recommendation: "You chose {style}. Against that, {primary} at {vlt}% transmission is the closer match, with {alternate} as the alternative. This follows your stated preference and the measured density of each lens. It is not a judgement about your face.",
+    recommendation:
+      "You chose {style}. Against that, {primary} at {vlt}% transmission is the closer match, with {alternate} as the alternative. This follows your stated preference and the measured density of each lens. It is not a judgement about your face.",
     fit: {
       shapes: {
         tapered: "tapered",
@@ -335,9 +351,12 @@ const en = {
       wide: "The front is likely to sit wide",
       narrow: "The front is likely to sit narrow",
       recommended: "Recommended to try",
-      reasonWidth: "Your face measures an estimated {width} mm temple to temple. {name} is cut for {lower} to {upper} mm.",
-      reasonBridge: "The bridge gap between your eyes reads at about {gap} mm against a {bridge} mm bridge. Worth checking against a pair you already own, since the nose profile matters as much as the gap.",
-      reasonShape: "Your proportions read as {shape}. The Marina's angular brow runs level across the face, which is the characteristic most people respond to either way.",
+      reasonWidth:
+        "Your face measures an estimated {width} mm temple to temple. {name} is cut for {lower} to {upper} mm.",
+      reasonBridge:
+        "The bridge gap between your eyes reads at about {gap} mm against a {bridge} mm bridge. Worth checking against a pair you already own, since the nose profile matters as much as the gap.",
+      reasonShape:
+        "Your proportions read as {shape}. The Marina's angular brow runs level across the face, which is the characteristic most people respond to either way.",
     },
     metaTitle: "Virtual Try On Sunglasses · AI & 3D Fit",
     metaDescription:
@@ -405,9 +424,11 @@ const en = {
 
   house: {
     pillarsEyebrow: "Four pillars",
-    manifesto: "Tamiale creates eyewear for individuals who never needed permission to stand apart.",
+    manifesto:
+      "Tamiale creates eyewear for individuals who never needed permission to stand apart.",
     registerHeading: "Join the house register.",
-    registerLede: "The register hears about a release before it is announced, and has the first opportunity to take it.",
+    registerLede:
+      "The register hears about a release before it is announced, and has the first opportunity to take it.",
     pillars: [
       {
         title: "Exclusivity",
@@ -502,18 +523,22 @@ const en = {
       email: "Email",
       region: "Where you are",
       interest: "What you would like to discuss",
-      measurements: "Optional. Measurements from a pair you already own are the single most useful thing you can bring.",
+      measurements:
+        "Optional. Measurements from a pair you already own are the single most useful thing you can bring.",
       submit: "Send the note",
       sending: "Sending…",
       thanks: "Received. An advisor will write within one working day.",
-      error: "That did not send. Write to {email} and we will pick it up there.",
+      error:
+        "That did not send. Write to {email} and we will pick it up there.",
     },
   },
 
   passport: {
     noRecordTitle: "No passport for that serial.",
-    noRecordBody: "The registry binds a serial to a unit when it is manufactured, so an unrecognised serial means one of three things: the pair has not been serialised yet, the number was mistyped, or the pair is not ours.",
-    noRecordSpecimen: "Collection 001 has not entered production, so no customer serial is live. The specimen record is",
+    noRecordBody:
+      "The registry binds a serial to a unit when it is manufactured, so an unrecognised serial means one of three things: the pair has not been serialised yet, the number was mistyped, or the pair is not ours.",
+    noRecordSpecimen:
+      "Collection 001 has not entered production, so no customer serial is live. The specimen record is",
     backToPassports: "Back to passports",
     askAdvisor: "Ask an advisor",
     verified: "Verified",
@@ -521,7 +546,8 @@ const en = {
     request: "Request",
     bookService: "Request a service",
     warrantyCovers: "What the warranty covers",
-    recordCaveat: "Illustrative record. The production registry binds each serial to a manufactured unit at the line, and a registration can be revoked or transferred by the house. A printed code on its own is not proof of authenticity.",
+    recordCaveat:
+      "Illustrative record. The production registry binds each serial to a manufactured unit at the line, and a registration can be revoked or transferred by the house. A printed code on its own is not proof of authenticity.",
     metaTitle: "Digital Passport",
     metaDescription:
       "A record the house keeps for a pair rather than for a purchase: edition number, warranty, service history and proof of purchase.",
@@ -565,10 +591,8 @@ const en = {
   },
 
   legal: {
-    policies:
-      "Policies",
-    updated:
-      "Updated {date}",
+    policies: "Policies",
+    updated: "Updated {date}",
     draftNote:
       "Draft policy, written to the positions the house has taken elsewhere on this site. It has not been reviewed by counsel and must be checked against consumer law in each market before launch.",
   },
@@ -576,7 +600,8 @@ const en = {
   myTamiale: {
     faceWidth: "Face width",
     proportion: "Proportion",
-    estimatedOn: "Estimated in your browser on {date}. No image was kept, and this figure was never sent to Tamiale.",
+    estimatedOn:
+      "Estimated in your browser on {date}. No image was kept, and this figure was never sent to Tamiale.",
     deleteProfile: "Delete this profile",
     savedSummary: "{vlt}% transmission · Category {category} · Ships {month}",
     metaTitle: "My Tamiale",

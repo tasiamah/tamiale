@@ -40,8 +40,7 @@ const fr: GuideCopy = {
       name: "Carré",
       recognise:
         "La mâchoire est large et tourne à angle visible, la racine des cheveux est droite, et la largeur à la mâchoire est proche de celle aux tempes.",
-      convention:
-        "Des montures arrondies ou ovales, pour adoucir la mâchoire.",
+      convention: "Des montures arrondies ou ovales, pour adoucir la mâchoire.",
       marina:
         "La convention s'y oppose. Dans les faits, l'épaule chanfreinée de The Marina forme un angle plus doux que la mâchoire qu'elle surplombe, et une monture dont les angles sont plus doux que ceux du visage peut se lire comme un choix plutôt que comme une répétition. C'est la forme pour laquelle l'essayage compte le plus.",
     },

@@ -21,10 +21,7 @@ export type FrameCopy = {
   measurements: { label: string; note?: string }[];
   materials: { heading: string; body: string }[];
   /** Keyed by colorway id. The lens names themselves are not translated. */
-  colorways: Record<
-    string,
-    { lensDescription: string; imageAlt: string; wornAlt: string }
-  >;
+  colorways: Record<string, { lensDescription: string; imageAlt: string }>;
 };
 
 export type CatalogCopy = {

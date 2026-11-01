@@ -82,7 +82,8 @@ const de: Dictionary = {
   },
 
   commerce: {
-    metaDescription: "{name}: schwarze Designer-Sonnenbrille in limitierter Auflage, aus massivem Acetat, in {count} Glasausführungen. {edition}, Versand im {month}.",
+    metaDescription:
+      "{name}: schwarze Designer-Sonnenbrille in limitierter Auflage, aus massivem Acetat, in {count} Glasausführungen. {edition}, Versand im {month}.",
     frontElevationMm: "Frontansicht, in Millimetern",
     drawingPlaceholder: "Vorläufig, bis die Fertigungszeichnung vorliegt",
     lensExpression: "Glasausführung",
@@ -108,6 +109,15 @@ const de: Dictionary = {
       editionOf: "Eine Edition von {count} in {lens}",
       unsold: "{count} unverkauft",
     },
+    altThreeQuarter:
+      "{name} aus Onyx-Acetat mit {lens}-Glas, Dreiviertelansicht im Studio",
+    altFront: "{name} aus Onyx-Acetat mit {lens}-Glas, Vorderansicht",
+    altSide:
+      "{name} aus Onyx-Acetat mit {lens}-Glas, Seitenansicht mit geöffnetem Bügel",
+    altFolded: "{name} aus Onyx-Acetat mit {lens}-Glas, zusammengeklappt",
+    altWorn: "Ein Mann mit The Marina und {lens}-Glas, frontal zur Kamera",
+    altWornAngle:
+      "Ein Mann mit The Marina und {lens}-Glas, im Dreiviertelprofil",
     preorderNote:
       "Heute aus der Edition reserviert und im {month} versandt. Bis zum Versand jederzeit mit voller Rückerstattung stornierbar, und sollte sich dieses Datum verschieben, erfahren Sie es davor und nicht danach.",
     trust: {
@@ -243,8 +253,7 @@ const de: Dictionary = {
       "Hochwertige Designer-Sonnenbrillen in einer einzigen architektonischen Silhouette. The Marina aus Onyx-Acetat, in Cognac, Champagne und Smoke, vorbestellbar.",
     eyebrow: "Kollektion 001",
     title: "Die Ikonen.",
-    lede:
-      "Eine Silhouette statt eines Katalogs. The Marina erscheint in einem einzigen Onyx-Acetat und drei Glasausführungen, jede bestimmt durch das Licht, das sie durchlässt.",
+    lede: "Eine Silhouette statt eines Katalogs. The Marina erscheint in einem einzigen Onyx-Acetat und drei Glasausführungen, jede bestimmt durch das Licht, das sie durchlässt.",
     stats: {
       silhouettes: "Veröffentlichte Silhouetten",
       expressions: "Glasausführungen",
@@ -283,9 +292,11 @@ const de: Dictionary = {
     lookingForFace: "Suche nach einem Gesicht",
     capture: "Aufnehmen",
     transmissionReadout: "{name} · {vlt} % Transmission",
-    noCamera: "Auf diesem Gerät ist keine Kamera verfügbar, oder der Browser gibt sie über diese Verbindung nicht frei. Eine Kamera braucht eine sichere Verbindung (https).",
+    noCamera:
+      "Auf diesem Gerät ist keine Kamera verfügbar, oder der Browser gibt sie über diese Verbindung nicht frei. Eine Kamera braucht eine sichere Verbindung (https).",
     engineFailed: "Das Tracking ist nicht gestartet.",
-    engineDegraded: "Das Gesichts-Tracking konnte auf diesem Gerät nicht starten. Die Kamera läuft weiter, Sie können also die Glasperspektive nutzen.",
+    engineDegraded:
+      "Das Gesichts-Tracking konnte auf diesem Gerät nicht starten. Die Kamera läuft weiter, Sie können also die Glasperspektive nutzen.",
     estimateMyFit: "Passform schätzen",
     faceWidth: "Gesichtsbreite",
     bridgeGap: "Augenabstand am Steg",
@@ -294,10 +305,13 @@ const de: Dictionary = {
     discard: "Verwerfen",
     confidenceFair: "brauchbar",
     confidenceLow: "gering",
-    estimateNote: "Geschätzt aus einer einzelnen Kamera, bei angenommenem durchschnittlichem Pupillenabstand. Die Zuverlässigkeit ist {confidence}. Das ist keine Messung und kann den tatsächlichen Sitz nicht garantieren.",
-    estimateNoteLow: "Geschätzt aus einer einzelnen Kamera, bei angenommenem durchschnittlichem Pupillenabstand. Die Zuverlässigkeit ist {confidence}. Blicken Sie gerade in die Kamera und versuchen Sie es erneut. Das ist keine Messung und kann den tatsächlichen Sitz nicht garantieren.",
+    estimateNote:
+      "Geschätzt aus einer einzelnen Kamera, bei angenommenem durchschnittlichem Pupillenabstand. Die Zuverlässigkeit ist {confidence}. Das ist keine Messung und kann den tatsächlichen Sitz nicht garantieren.",
+    estimateNoteLow:
+      "Geschätzt aus einer einzelnen Kamera, bei angenommenem durchschnittlichem Pupillenabstand. Die Zuverlässigkeit ist {confidence}. Blicken Sie gerade in die Kamera und versuchen Sie es erneut. Das ist keine Messung und kann den tatsächlichen Sitz nicht garantieren.",
     reserveLens: "{name} reservieren",
-    recommendation: "Sie haben {style} gewählt. Dazu passt {primary} mit {vlt} % Transmission am ehesten, {alternate} ist die Alternative. Das folgt Ihrer angegebenen Vorliebe und der gemessenen Dichte jedes Glases. Es ist kein Urteil über Ihr Gesicht.",
+    recommendation:
+      "Sie haben {style} gewählt. Dazu passt {primary} mit {vlt} % Transmission am ehesten, {alternate} ist die Alternative. Das folgt Ihrer angegebenen Vorliebe und der gemessenen Dichte jedes Glases. Es ist kein Urteil über Ihr Gesicht.",
     fit: {
       shapes: {
         tapered: "schmal zulaufend",
@@ -309,9 +323,12 @@ const de: Dictionary = {
       wide: "Die Front dürfte zu breit sitzen",
       narrow: "Die Front dürfte zu schmal sitzen",
       recommended: "Zum Anprobieren empfohlen",
-      reasonWidth: "Ihr Gesicht misst geschätzt {width} mm von Schläfe zu Schläfe. {name} ist für {lower} bis {upper} mm geschnitten.",
-      reasonBridge: "Der Abstand zwischen Ihren Augen liegt bei etwa {gap} mm gegenüber einem Steg von {bridge} mm. Prüfen Sie das an einer Brille, die Sie schon besitzen, denn das Nasenprofil zählt ebenso viel wie der Abstand.",
-      reasonShape: "Ihre Proportionen lesen sich als {shape}. Die kantige Braue von The Marina läuft waagerecht über das Gesicht, und das ist das Merkmal, auf das die meisten so oder so reagieren.",
+      reasonWidth:
+        "Ihr Gesicht misst geschätzt {width} mm von Schläfe zu Schläfe. {name} ist für {lower} bis {upper} mm geschnitten.",
+      reasonBridge:
+        "Der Abstand zwischen Ihren Augen liegt bei etwa {gap} mm gegenüber einem Steg von {bridge} mm. Prüfen Sie das an einer Brille, die Sie schon besitzen, denn das Nasenprofil zählt ebenso viel wie der Abstand.",
+      reasonShape:
+        "Ihre Proportionen lesen sich als {shape}. Die kantige Braue von The Marina läuft waagerecht über das Gesicht, und das ist das Merkmal, auf das die meisten so oder so reagieren.",
     },
     metaTitle: "Sonnenbrillen virtuell anprobieren · KI & 3D",
     metaDescription:
@@ -373,9 +390,11 @@ const de: Dictionary = {
 
   house: {
     pillarsEyebrow: "Vier Säulen",
-    manifesto: "Tamiale macht Brillen für Menschen, die nie eine Erlaubnis brauchten, um herauszustechen.",
+    manifesto:
+      "Tamiale macht Brillen für Menschen, die nie eine Erlaubnis brauchten, um herauszustechen.",
     registerHeading: "Dem Hausregister beitreten.",
-    registerLede: "Das Register erfährt von einer Veröffentlichung, bevor sie angekündigt wird, und hat die erste Gelegenheit, zuzugreifen.",
+    registerLede:
+      "Das Register erfährt von einer Veröffentlichung, bevor sie angekündigt wird, und hat die erste Gelegenheit, zuzugreifen.",
     pillars: [
       {
         title: "Exklusivität",
@@ -475,8 +494,7 @@ const de: Dictionary = {
         "Optional. Die Maße einer Brille, die Sie bereits besitzen, sind das Nützlichste, was Sie mitbringen können.",
       submit: "Nachricht senden",
       sending: "Wird gesendet…",
-      thanks:
-        "Erhalten. Ein Berater schreibt innerhalb eines Werktags.",
+      thanks: "Erhalten. Ein Berater schreibt innerhalb eines Werktags.",
       error:
         "Das Senden ist fehlgeschlagen. Schreiben Sie an {email}, und wir nehmen es dort auf.",
     },
@@ -484,8 +502,10 @@ const de: Dictionary = {
 
   passport: {
     noRecordTitle: "Kein Pass zu dieser Seriennummer.",
-    noRecordBody: "Das Register bindet eine Seriennummer bei der Fertigung an ein Stück. Eine unbekannte Nummer bedeutet daher eines von drei Dingen: Das Paar ist noch nicht serialisiert, die Nummer wurde vertippt, oder das Paar stammt nicht von uns.",
-    noRecordSpecimen: "Collection 001 ist nicht in Produktion, es ist also keine Kundenseriennummer aktiv. Der Musterdatensatz ist",
+    noRecordBody:
+      "Das Register bindet eine Seriennummer bei der Fertigung an ein Stück. Eine unbekannte Nummer bedeutet daher eines von drei Dingen: Das Paar ist noch nicht serialisiert, die Nummer wurde vertippt, oder das Paar stammt nicht von uns.",
+    noRecordSpecimen:
+      "Collection 001 ist nicht in Produktion, es ist also keine Kundenseriennummer aktiv. Der Musterdatensatz ist",
     backToPassports: "Zurück zu den Pässen",
     askAdvisor: "Einen Berater fragen",
     verified: "Geprüft",
@@ -493,7 +513,8 @@ const de: Dictionary = {
     request: "Anfrage",
     bookService: "Service anfragen",
     warrantyCovers: "Was die Garantie abdeckt",
-    recordCaveat: "Beispielhafter Datensatz. Das Produktionsregister bindet jede Seriennummer am Band an ein gefertigtes Stück, und eine Registrierung kann vom Haus widerrufen oder übertragen werden. Ein gedruckter Code allein ist kein Echtheitsnachweis.",
+    recordCaveat:
+      "Beispielhafter Datensatz. Das Produktionsregister bindet jede Seriennummer am Band an ein gefertigtes Stück, und eine Registrierung kann vom Haus widerrufen oder übertragen werden. Ein gedruckter Code allein ist kein Echtheitsnachweis.",
     metaTitle: "Digitaler Pass",
     metaDescription:
       "Ein Eintrag, den das Haus für ein Paar führt statt für einen Kauf: Editionsnummer, Garantie, Servicehistorie und Kaufnachweis.",
@@ -537,10 +558,8 @@ const de: Dictionary = {
   },
 
   legal: {
-    policies:
-      "Richtlinien",
-    updated:
-      "Aktualisiert am {date}",
+    policies: "Richtlinien",
+    updated: "Aktualisiert am {date}",
     draftNote:
       "Vorläufige Richtlinie, geschrieben nach den Positionen, die das Haus an anderer Stelle auf dieser Seite vertritt, und aus dem Englischen übersetzt. Sie wurde nicht juristisch geprüft und muss vor dem Start am Verbraucherrecht jedes Marktes gemessen werden.",
   },
@@ -548,9 +567,11 @@ const de: Dictionary = {
   myTamiale: {
     faceWidth: "Gesichtsbreite",
     proportion: "Proportion",
-    estimatedOn: "Am {date} in Ihrem Browser geschätzt. Es wurde kein Bild gespeichert, und dieser Wert wurde nie an Tamiale übermittelt.",
+    estimatedOn:
+      "Am {date} in Ihrem Browser geschätzt. Es wurde kein Bild gespeichert, und dieser Wert wurde nie an Tamiale übermittelt.",
     deleteProfile: "Dieses Profil löschen",
-    savedSummary: "{vlt} % Transmission · Kategorie {category} · Versand im {month}",
+    savedSummary:
+      "{vlt} % Transmission · Kategorie {category} · Versand im {month}",
     metaTitle: "My Tamiale",
     metaDescription:
       "Gespeicherte Fassungen und Ihr Passformprofil, nur in diesem Browser und nirgendwo sonst.",

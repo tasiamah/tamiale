@@ -50,24 +50,18 @@ const de: CatalogCopy = {
             "Ein warmes Bernsteinbraun, an der Braue am dichtesten, zum Wangenknochen hin aufklarend.",
           imageAlt:
             "The Marina in Onyx-Acetat mit Cognac-Verlaufsglas, Dreiviertelansicht im Studio",
-          wornAlt:
-            "Ein Mann mit The Marina aus Onyx-Acetat und Cognac-Verlaufsglas, Studioporträt",
         },
         champagne: {
           lensDescription:
             "Die Signatur des Hauses. Ein blasser Goldschleier, der Hauttöne warm und ehrlich hält.",
           imageAlt:
             "The Marina in Onyx-Acetat mit goldenem Champagne-Verlaufsglas, Dreiviertelansicht im Studio",
-          wornAlt:
-            "Ein Mann mit The Marina aus Onyx-Acetat und goldenem Champagne-Verlaufsglas, Studioporträt",
         },
         smoke: {
           lensDescription:
             "Neutrales Grau. Die treueste Farbwiedergabe der Kollektion.",
           imageAlt:
             "The Marina in Onyx-Acetat mit grauem Smoke-Glas, Dreiviertelansicht im Studio",
-          wornAlt:
-            "Ein Mann mit The Marina aus Onyx-Acetat und grauem Smoke-Glas, Studioporträt",
         },
       },
     },

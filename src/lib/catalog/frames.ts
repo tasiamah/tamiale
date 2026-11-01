@@ -43,10 +43,9 @@ const MARINA_GEOMETRY = {
 
 type ColorwaySeed = Omit<
   Colorway,
-  "image" | "worn" | "frameFinish" | "frameHex"
+  "image" | "angles" | "worn" | "frameFinish" | "frameHex"
 > & {
   imageAlt: string;
-  wornAlt: string;
 };
 
 const COLORWAY_SEEDS: ColorwaySeed[] = [
@@ -65,8 +64,6 @@ const COLORWAY_SEEDS: ColorwaySeed[] = [
     availableForSale: true,
     imageAlt:
       "The Marina in Onyx acetate with a Cognac gradient lens, three-quarter studio view",
-    wornAlt:
-      "A man wearing The Marina in Onyx acetate with a Cognac gradient lens, studio portrait",
   },
   {
     id: "champagne",
@@ -83,8 +80,6 @@ const COLORWAY_SEEDS: ColorwaySeed[] = [
     availableForSale: true,
     imageAlt:
       "The Marina in Onyx acetate with a Champagne gold gradient lens, three-quarter studio view",
-    wornAlt:
-      "A man wearing The Marina in Onyx acetate with a Champagne gold gradient lens, studio portrait",
   },
   {
     id: "smoke",
@@ -101,8 +96,6 @@ const COLORWAY_SEEDS: ColorwaySeed[] = [
     availableForSale: true,
     imageAlt:
       "The Marina in Onyx acetate with a Smoke grey lens, three-quarter studio view",
-    wornAlt:
-      "A man wearing The Marina in Onyx acetate with a Smoke grey lens, studio portrait",
   },
 ];
 
@@ -112,8 +105,20 @@ const MASTER_IMAGE = { width: 695, height: 219 };
 /** The campaign portrait, shot once per lens against the same backdrop. */
 const WORN_IMAGE = { width: 864, height: 1152 };
 
+/**
+ * The other three views. Only the three-quarter master is a photograph of
+ * the manufactured frame; these are reconstructions of it, re-tinted per
+ * lens by the same `pnpm assets` pass, and they want replacing with real
+ * studio frames once a sample can be shot.
+ */
+const ANGLE_SIZE = {
+  front: { width: 935, height: 272 },
+  side: { width: 876, height: 316 },
+  folded: { width: 800, height: 263 },
+} as const;
+
 const marinaColorways: Colorway[] = COLORWAY_SEEDS.map(
-  ({ imageAlt, wornAlt, ...seed }) => ({
+  ({ imageAlt, ...seed }) => ({
     ...seed,
     frameFinish: "Onyx",
     frameHex: "#14130F",
@@ -122,11 +127,40 @@ const marinaColorways: Colorway[] = COLORWAY_SEEDS.map(
       alt: imageAlt,
       ...MASTER_IMAGE,
     },
-    worn: {
-      src: `/media/product/marina-onyx-${seed.id}-worn.jpg`,
-      alt: wornAlt,
-      ...WORN_IMAGE,
-    },
+    angles: [
+      {
+        id: "threeQuarter",
+        src: `/media/product/marina-onyx-${seed.id}.png`,
+        ...MASTER_IMAGE,
+      },
+      {
+        id: "front",
+        src: `/media/product/marina-onyx-${seed.id}-front.png`,
+        ...ANGLE_SIZE.front,
+      },
+      {
+        id: "side",
+        src: `/media/product/marina-onyx-${seed.id}-side.png`,
+        ...ANGLE_SIZE.side,
+      },
+      {
+        id: "folded",
+        src: `/media/product/marina-onyx-${seed.id}-folded.png`,
+        ...ANGLE_SIZE.folded,
+      },
+    ],
+    worn: [
+      {
+        id: "worn",
+        src: `/media/product/marina-onyx-${seed.id}-worn.jpg`,
+        ...WORN_IMAGE,
+      },
+      {
+        id: "wornAngle",
+        src: `/media/product/marina-onyx-${seed.id}-worn-angle.jpg`,
+        ...WORN_IMAGE,
+      },
+    ],
   }),
 );
 

@@ -84,7 +84,8 @@ const fr: Dictionary = {
   },
 
   commerce: {
-    metaDescription: "{name} : lunettes de soleil noires de créateur en édition limitée, en acétate taillé dans la masse, en {count} verres. {edition}, expédiées en {month}.",
+    metaDescription:
+      "{name} : lunettes de soleil noires de créateur en édition limitée, en acétate taillé dans la masse, en {count} verres. {edition}, expédiées en {month}.",
     frontElevationMm: "Vue de face, en millimètres",
     drawingPlaceholder: "Provisoire, en attente du plan d'usine",
     lensExpression: "Expression du verre",
@@ -110,6 +111,16 @@ const fr: Dictionary = {
       editionOf: "Une édition de {count} en {lens}",
       unsold: "{count} non vendues",
     },
+    altThreeQuarter:
+      "{name} en acétate Onyx avec un verre {lens}, vue de trois quarts en studio",
+    altFront: "{name} en acétate Onyx avec un verre {lens}, vue de face",
+    altSide:
+      "{name} en acétate Onyx avec un verre {lens}, vue de profil, branche ouverte",
+    altFolded: "{name} en acétate Onyx avec un verre {lens}, pliée",
+    altWorn:
+      "Un homme portant The Marina avec un verre {lens}, face à l'objectif",
+    altWornAngle:
+      "Un homme portant The Marina avec un verre {lens}, de trois quarts",
     preorderNote:
       "Réservée aujourd'hui sur l'édition et expédiée en {month}. Annulable avec remboursement intégral à tout moment avant l'expédition, et si cette date bouge vous serez prévenu avant qu'elle ne passe, non après.",
     trust: {
@@ -245,8 +256,7 @@ const fr: Dictionary = {
       "Des lunettes de soleil unisexes haut de gamme dans une seule silhouette architecturale. The Marina en acétate Onyx, verres cognac, champagne et smoke.",
     eyebrow: "Collection 001",
     title: "Les Icônes.",
-    lede:
-      "Une silhouette plutôt qu'un catalogue. The Marina est éditée dans un seul acétate Onyx et trois déclinaisons de verre, chacune définie par la lumière qu'elle laisse passer.",
+    lede: "Une silhouette plutôt qu'un catalogue. The Marina est éditée dans un seul acétate Onyx et trois déclinaisons de verre, chacune définie par la lumière qu'elle laisse passer.",
     stats: {
       silhouettes: "Silhouettes éditées",
       expressions: "Déclinaisons de verre",
@@ -285,9 +295,11 @@ const fr: Dictionary = {
     lookingForFace: "Recherche d'un visage",
     capture: "Capturer",
     transmissionReadout: "{name} · {vlt} % de transmission",
-    noCamera: "Aucune caméra n'est disponible sur cet appareil, ou le navigateur refuse de la partager sur cette connexion. Une caméra exige une connexion sécurisée (https).",
+    noCamera:
+      "Aucune caméra n'est disponible sur cet appareil, ou le navigateur refuse de la partager sur cette connexion. Une caméra exige une connexion sécurisée (https).",
     engineFailed: "Le moteur de suivi n'a pas démarré.",
-    engineDegraded: "Le moteur de suivi du visage n'a pas pu démarrer sur cet appareil. La caméra reste active, vous pouvez donc utiliser la perspective du verre.",
+    engineDegraded:
+      "Le moteur de suivi du visage n'a pas pu démarrer sur cet appareil. La caméra reste active, vous pouvez donc utiliser la perspective du verre.",
     estimateMyFit: "Estimer mon ajustement",
     faceWidth: "Largeur du visage",
     bridgeGap: "Écart au pont",
@@ -296,10 +308,13 @@ const fr: Dictionary = {
     discard: "Écarter",
     confidenceFair: "correcte",
     confidenceLow: "faible",
-    estimateNote: "Estimé à partir d'une seule caméra, en supposant un écart pupillaire moyen. La confiance est {confidence}. Ce n'est pas une mesure et cela ne peut pas garantir l'ajustement réel.",
-    estimateNoteLow: "Estimé à partir d'une seule caméra, en supposant un écart pupillaire moyen. La confiance est {confidence}. Placez-vous bien face à la caméra et réessayez. Ce n'est pas une mesure et cela ne peut pas garantir l'ajustement réel.",
+    estimateNote:
+      "Estimé à partir d'une seule caméra, en supposant un écart pupillaire moyen. La confiance est {confidence}. Ce n'est pas une mesure et cela ne peut pas garantir l'ajustement réel.",
+    estimateNoteLow:
+      "Estimé à partir d'une seule caméra, en supposant un écart pupillaire moyen. La confiance est {confidence}. Placez-vous bien face à la caméra et réessayez. Ce n'est pas une mesure et cela ne peut pas garantir l'ajustement réel.",
     reserveLens: "Réserver {name}",
-    recommendation: "Vous avez choisi {style}. Sur cette base, {primary} à {vlt} % de transmission est le plus proche, avec {alternate} en alternative. Cela découle de votre préférence déclarée et de la densité mesurée de chaque verre. Ce n'est pas un jugement sur votre visage.",
+    recommendation:
+      "Vous avez choisi {style}. Sur cette base, {primary} à {vlt} % de transmission est le plus proche, avec {alternate} en alternative. Cela découle de votre préférence déclarée et de la densité mesurée de chaque verre. Ce n'est pas un jugement sur votre visage.",
     fit: {
       shapes: {
         tapered: "effilées",
@@ -311,9 +326,12 @@ const fr: Dictionary = {
       wide: "La façade risque d'être trop large",
       narrow: "La façade risque d'être trop étroite",
       recommended: "À essayer",
-      reasonWidth: "Votre visage mesure environ {width} mm d'une tempe à l'autre. {name} est taillée pour {lower} à {upper} mm.",
-      reasonBridge: "L'écart entre vos yeux se lit autour de {gap} mm face à un pont de {bridge} mm. À vérifier avec une paire que vous possédez déjà, car le profil du nez compte autant que l'écart.",
-      reasonShape: "Vos proportions se lisent comme {shape}. Le sourcil anguleux de The Marina court à l'horizontale sur le visage, et c'est la caractéristique à laquelle on réagit, dans un sens ou dans l'autre.",
+      reasonWidth:
+        "Votre visage mesure environ {width} mm d'une tempe à l'autre. {name} est taillée pour {lower} à {upper} mm.",
+      reasonBridge:
+        "L'écart entre vos yeux se lit autour de {gap} mm face à un pont de {bridge} mm. À vérifier avec une paire que vous possédez déjà, car le profil du nez compte autant que l'écart.",
+      reasonShape:
+        "Vos proportions se lisent comme {shape}. Le sourcil anguleux de The Marina court à l'horizontale sur le visage, et c'est la caractéristique à laquelle on réagit, dans un sens ou dans l'autre.",
     },
     metaTitle: "Essayage virtuel de lunettes de soleil · IA et 3D",
     metaDescription:
@@ -375,9 +393,11 @@ const fr: Dictionary = {
 
   house: {
     pillarsEyebrow: "Quatre piliers",
-    manifesto: "Tamiale crée des lunettes pour celles et ceux qui n'ont jamais eu besoin d'une permission pour se distinguer.",
+    manifesto:
+      "Tamiale crée des lunettes pour celles et ceux qui n'ont jamais eu besoin d'une permission pour se distinguer.",
     registerHeading: "Rejoindre le registre de la maison.",
-    registerLede: "Le registre apprend une sortie avant son annonce, et a la première occasion de la saisir.",
+    registerLede:
+      "Le registre apprend une sortie avant son annonce, et a la première occasion de la saisir.",
     pillars: [
       {
         title: "Exclusivité",
@@ -485,8 +505,10 @@ const fr: Dictionary = {
 
   passport: {
     noRecordTitle: "Aucun passeport pour ce numéro.",
-    noRecordBody: "Le registre lie un numéro de série à une pièce au moment de sa fabrication. Un numéro non reconnu signifie donc l'une de trois choses : la paire n'a pas encore été sérialisée, le numéro a été mal saisi, ou la paire n'est pas des nôtres.",
-    noRecordSpecimen: "Collection 001 n'est pas entrée en production, aucun numéro de série client n'est donc actif. Le spécimen est",
+    noRecordBody:
+      "Le registre lie un numéro de série à une pièce au moment de sa fabrication. Un numéro non reconnu signifie donc l'une de trois choses : la paire n'a pas encore été sérialisée, le numéro a été mal saisi, ou la paire n'est pas des nôtres.",
+    noRecordSpecimen:
+      "Collection 001 n'est pas entrée en production, aucun numéro de série client n'est donc actif. Le spécimen est",
     backToPassports: "Retour aux passeports",
     askAdvisor: "Demander à un conseiller",
     verified: "Vérifié",
@@ -494,7 +516,8 @@ const fr: Dictionary = {
     request: "Demande",
     bookService: "Demander un entretien",
     warrantyCovers: "Ce que couvre la garantie",
-    recordCaveat: "Fiche illustrative. Le registre de production lie chaque numéro de série à une pièce fabriquée en sortie de chaîne, et un enregistrement peut être révoqué ou transféré par la maison. Un code imprimé ne constitue pas à lui seul une preuve d'authenticité.",
+    recordCaveat:
+      "Fiche illustrative. Le registre de production lie chaque numéro de série à une pièce fabriquée en sortie de chaîne, et un enregistrement peut être révoqué ou transféré par la maison. Un code imprimé ne constitue pas à lui seul une preuve d'authenticité.",
     metaTitle: "Passeport numérique",
     metaDescription:
       "Un registre que la maison tient pour une paire plutôt que pour un achat : numéro d'édition, garantie, historique de service et preuve d'achat.",
@@ -538,10 +561,8 @@ const fr: Dictionary = {
   },
 
   legal: {
-    policies:
-      "Politiques",
-    updated:
-      "Mise à jour le {date}",
+    policies: "Politiques",
+    updated: "Mise à jour le {date}",
     draftNote:
       "Politique provisoire, rédigée d'après les positions que la maison a prises ailleurs sur ce site, puis traduite de l'anglais. Elle n'a pas été revue par un avocat et doit être vérifiée au regard du droit de la consommation de chaque marché avant le lancement.",
   },
@@ -549,9 +570,11 @@ const fr: Dictionary = {
   myTamiale: {
     faceWidth: "Largeur du visage",
     proportion: "Proportion",
-    estimatedOn: "Estimé dans votre navigateur le {date}. Aucune image n'a été conservée, et ce chiffre n'a jamais été transmis à Tamiale.",
+    estimatedOn:
+      "Estimé dans votre navigateur le {date}. Aucune image n'a été conservée, et ce chiffre n'a jamais été transmis à Tamiale.",
     deleteProfile: "Supprimer ce profil",
-    savedSummary: "{vlt} % de transmission · Catégorie {category} · Expédition en {month}",
+    savedSummary:
+      "{vlt} % de transmission · Catégorie {category} · Expédition en {month}",
     metaTitle: "My Tamiale",
     metaDescription:
       "Vos montures enregistrées et votre profil d'ajustement, conservés dans ce navigateur et nulle part ailleurs.",

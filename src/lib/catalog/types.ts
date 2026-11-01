@@ -5,6 +5,17 @@ export type Money = {
   currencyCode: CurrencyCode;
 };
 
+/**
+ * One framing of the product. `id` selects the sentence that describes it,
+ * so the same four views do not need writing out per lens per language.
+ */
+export type FrameView = {
+  id: "threeQuarter" | "front" | "side" | "folded" | "worn" | "wornAngle";
+  src: string;
+  width: number;
+  height: number;
+};
+
 /** A lens expression of a frame. Maps to one Shopify variant. */
 export type Colorway = {
   /** Option value handle, used in URLs and as the Shopify option value key. */
@@ -23,12 +34,17 @@ export type Colorway = {
    * question sunglasses are actually bought on. The studio render shows
    * what the object is; this shows what wearing it looks like.
    */
-  worn: {
-    src: string;
-    width: number;
-    height: number;
-    alt: string;
-  };
+  /**
+   * The object, turned. Four views because that is what a shopper is given
+   * everywhere else they buy a frame at this price, and a silhouette this
+   * particular is mostly argued from the angles.
+   *
+   * Ordered, and the first is the three-quarter master that `image` also
+   * points at. Only that one is a photograph of the manufactured frame.
+   */
+  angles: FrameView[];
+  /** The same lens worn, square to the camera and then turned. */
+  worn: FrameView[];
   /** Visible light transmission, percent. */
   vlt: number;
   /** EN ISO 12312-1 filter category. */

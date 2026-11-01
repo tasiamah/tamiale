@@ -60,7 +60,6 @@ export async function localiseFrame(
         ...colorway,
         lensDescription: translated.lensDescription,
         image: { ...colorway.image, alt: translated.imageAlt },
-        worn: { ...colorway.worn, alt: translated.wornAlt },
       };
     }),
   };
