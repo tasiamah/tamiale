@@ -33,7 +33,16 @@ export async function Footer() {
             <p className="max-w-xs text-sm leading-relaxed text-ivory/50">
               {dict.footer.blurb}
             </p>
-            <LanguageSwitcher tone="ivory" className="max-w-56" />
+            {/*
+             * The two settings that decide how the shop reads, together,
+             * because they are one question asked twice: where you are and
+             * what you read. Destination first, since it is the one that
+             * changes the prices.
+             */}
+            <div className="grid max-w-md gap-7 sm:grid-cols-2 sm:gap-8">
+              <ShipTo countries={countries} />
+              <LanguageSwitcher tone="ivory" />
+            </div>
           </div>
 
           <div className="grid gap-10 sm:grid-cols-3">
@@ -60,12 +69,11 @@ export async function Footer() {
         </div>
 
         {/*
-         * Destination on the left, ownership on the right. Both are things a
-         * shop is expected to state at the foot of the page and neither is
-         * worth a heading, so they sit on one rule as a single quiet line.
+         * Ownership, alone on the last rule. The destination used to share
+         * it, which made the one control that changes every price in the
+         * store read as a piece of legal boilerplate.
          */}
-        <div className="mt-28 flex flex-col gap-6 border-t border-obsidian-hairline pt-10 text-xs text-ivory/50 sm:flex-row sm:items-center sm:justify-between">
-          <ShipTo countries={countries} />
+        <div className="mt-24 border-t border-obsidian-hairline pt-10 text-xs text-ivory/50">
           <p>
             © Tamiale {year}. {dict.footer.rights}
           </p>
