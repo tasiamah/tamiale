@@ -56,12 +56,22 @@ const source = (file: string, width: number) =>
 
 /*
  * The widths have to come from `images.deviceSizes`; the optimiser answers
- * 400 to anything else rather than rounding. Both of these overshoot their
- * master on purpose, because the optimiser returns the source size once the
- * request passes it, so each file is served whole: 1280 wide and 720 wide.
+ * 400 to anything else rather than rounding.
+ *
+ * 1920 overshoots the wide master on purpose. The optimiser returns the
+ * source size once the request passes it, so the desktop frame is served
+ * whole at 1280.
+ *
+ * The phone is held at 640 against a 720 master, which looks like leaving
+ * the last eighty pixels on the table and is deliberate. Serving 720 cost
+ * 5.5 KB and measured 180ms of largest contentful paint, which is a fifth
+ * of the remaining budget before 2.5s, and bought almost nothing: a phone
+ * at three times density draws this picture at 1.63x either way, so both
+ * widths are enlarged and neither is sharp. Desktop had a second of room
+ * and a real gain to show for it. This one did not.
  */
 const WIDE = source("campaign.jpg", 1920);
-const TALL = source("campaign-portrait.jpg", 750);
+const TALL = source("campaign-portrait.jpg", 640);
 const PHONE = "(max-width: 1023px)";
 const DESK = "(min-width: 1024px)";
 
