@@ -7,7 +7,7 @@ import { journalEntryFor, journalFor } from "@/lib/catalog/copy/journal";
 import { journal } from "@/lib/catalog/journal";
 import { dateLocale, fill, localePath } from "@/lib/i18n/config";
 import { getDictionary, getLocale } from "@/lib/i18n/dictionary";
-import { alternatesFor } from "@/lib/i18n/metadata";
+import { alternatesFor, houseCard, openGraphFor } from "@/lib/i18n/metadata";
 import { site } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -21,15 +21,28 @@ export async function generateMetadata({
   const entry = await journalEntryFor(slug);
   if (!entry) return { title: "Not found" };
 
+  const locale = await getLocale();
+
   return {
     title: entry.title,
     description: entry.standfirst,
-    alternates: alternatesFor(`/journal/${entry.slug}`, await getLocale()),
+    alternates: alternatesFor(`/journal/${entry.slug}`, locale),
     openGraph: {
+      ...openGraphFor({
+        title: entry.title,
+        description: entry.standfirst,
+        path: `/journal/${entry.slug}`,
+        locale,
+        image: houseCard(locale, entry.title),
+      }),
       type: "article",
+      publishedTime: entry.publishedAt,
+    },
+    twitter: {
+      card: "summary_large_image",
       title: entry.title,
       description: entry.standfirst,
-      publishedTime: entry.publishedAt,
+      images: [`/media/og/tamiale-${locale}.jpg`],
     },
   };
 }

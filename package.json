@@ -12,7 +12,8 @@
     "vision:sync": "node scripts/sync-vision-runtime.mjs",
     "qa:shoot": "node scripts/shoot.mjs",
     "qa:atelier": "node scripts/atelier-sheet.mjs",
-    "qa:vision": "node scripts/vision-check.mjs"
+    "qa:vision": "node scripts/vision-check.mjs",
+    "og": "node scripts/make-og.mjs"
   },
   "dependencies": {
     "@mediapipe/tasks-vision": "^1.2.0",

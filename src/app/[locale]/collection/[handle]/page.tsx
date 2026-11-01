@@ -10,7 +10,7 @@ import { frames } from "@/lib/catalog/frames";
 import type { Frame } from "@/lib/catalog/types";
 import { fill, localePath, type Locale } from "@/lib/i18n/config";
 import { getDictionary, getLocale } from "@/lib/i18n/dictionary";
-import { alternatesFor } from "@/lib/i18n/metadata";
+import { alternatesFor, openGraphFor } from "@/lib/i18n/metadata";
 import { site } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -25,6 +25,7 @@ export async function generateMetadata({
   if (!frame) return { title: "Not found" };
 
   const dict = await getDictionary();
+  const locale = await getLocale();
 
   return {
     /*
@@ -47,11 +48,35 @@ export async function generateMetadata({
       edition: frame.edition,
       month: frame.shipsFrom,
     }),
-    alternates: alternatesFor(`/collection/${frame.handle}`, await getLocale()),
+    alternates: alternatesFor(`/collection/${frame.handle}`, locale),
+    /*
+     * The card is the frame on the ivory plate, not the catalogue cutout
+     * this used to point at. That file is a transparent PNG 219px tall,
+     * under the 600 every platform wants before it will run a card at full
+     * width, so a share was demoted to a thumbnail and the frame was drawn
+     * against whatever colour the reader's app happened to be: black on
+     * black in a dark theme.
+     */
     openGraph: {
+      ...openGraphFor({
+        title: `${frame.name} · ${site.name}`,
+        description: frame.tagline,
+        path: `/collection/${frame.handle}`,
+        locale,
+        image: {
+          url: `/media/og/${frame.handle}.jpg`,
+          width: 1200,
+          height: 630,
+          alt: `${frame.name} — ${frame.tagline}`,
+        },
+      }),
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
       title: `${frame.name} · ${site.name}`,
       description: frame.tagline,
-      images: [{ url: frame.colorways[0].image.src }],
+      images: [`/media/og/${frame.handle}.jpg`],
     },
   };
 }

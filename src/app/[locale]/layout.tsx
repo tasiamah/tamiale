@@ -15,7 +15,7 @@ import { toClientDictionary } from "@/lib/i18n/client-dictionary";
 import { SavedFramesProvider } from "@/components/account/saved-frames-provider";
 import { htmlLang, locales } from "@/lib/i18n/config";
 import { getDictionary, getLocale } from "@/lib/i18n/dictionary";
-import { alternatesFor } from "@/lib/i18n/metadata";
+import { alternatesFor, houseCard, openGraphFor } from "@/lib/i18n/metadata";
 import { site } from "@/lib/site";
 
 import "../globals.css";
@@ -74,14 +74,21 @@ export async function generateMetadata(): Promise<Metadata> {
     keywords: [...dict.meta.keywords],
     alternates: alternatesFor("/", locale),
     openGraph: {
+      ...openGraphFor({
+        title: `${dict.meta.homeTitle} · ${site.name}`,
+        description: dict.meta.description,
+        path: "/",
+        locale,
+        image: houseCard(locale, `${site.wordmark} — ${dict.meta.statement}`),
+      }),
       type: "website",
-      siteName: site.name,
-      locale: htmlLang[locale],
+    },
+    twitter: {
+      card: "summary_large_image",
       title: `${dict.meta.homeTitle} · ${site.name}`,
       description: dict.meta.description,
-      url: `${site.url}/${locale}`,
+      images: [`/media/og/tamiale-${locale}.jpg`],
     },
-    twitter: { card: "summary_large_image" },
     robots: { index: true, follow: true },
   };
 }

@@ -21,6 +21,17 @@ export const htmlLang: Record<Locale, string> = {
   de: "de",
 };
 
+/**
+ * `og:locale`, which wants language_TERRITORY and not the bare language the
+ * `lang` attribute takes. English is British here for the same reason the
+ * dates are: the shop reads to Europe first.
+ */
+export const ogLocale: Record<Locale, string> = {
+  en: "en_GB",
+  fr: "fr_FR",
+  de: "de_DE",
+};
+
 /** BCP 47 tags for `Intl`. Dates and numbers follow the reader, not the shop. */
 export const dateLocale: Record<Locale, string> = {
   en: "en-GB",
