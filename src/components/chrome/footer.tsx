@@ -3,9 +3,9 @@ import { LanguageSwitcher } from "@/components/i18n/language-switcher";
 import { ShipTo } from "@/components/chrome/ship-to";
 import { Wordmark } from "@/components/ui/wordmark";
 import { getDictionary, getLocale } from "@/lib/i18n/dictionary";
-import { dateLocale } from "@/lib/i18n/config";
+import { dateLocale, fill } from "@/lib/i18n/config";
 import { shippingCountries } from "@/lib/region";
-import { footerGroups } from "@/lib/site";
+import { footerGroups, site } from "@/lib/site";
 
 export async function Footer() {
   const dict = await getDictionary();
@@ -69,11 +69,14 @@ export async function Footer() {
         </div>
 
         {/*
-         * Ownership, alone on the last rule. The destination used to share
-         * it, which made the one control that changes every price in the
-         * store read as a piece of legal boilerplate.
+         * Who owns the brand, and the copyright. The destination used to
+         * share this rule, which made the one control that changes every
+         * price in the store read as legal boilerplate; naming the company
+         * is the thing that actually belongs here, and until now it was
+         * stated only inside the privacy policy.
          */}
-        <div className="mt-24 border-t border-obsidian-hairline pt-10 text-xs text-ivory/50">
+        <div className="mt-24 flex flex-col gap-3 border-t border-obsidian-hairline pt-10 text-xs text-ivory/50 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+          <p>{fill(dict.footer.entity, { company: site.company })}</p>
           <p>
             © Tamiale {year}. {dict.footer.rights}
           </p>

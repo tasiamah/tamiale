@@ -80,6 +80,7 @@ const fr: Dictionary = {
     accessibility: "Accessibilité",
     cameraData: "Caméra et données faciales",
     rights: "Tous droits réservés.",
+    entity: "Tamiale est une marque de {company}.",
   },
 
   commerce: {
@@ -110,7 +111,7 @@ const fr: Dictionary = {
       unsold: "{count} non vendues",
     },
     preorderNote:
-      "Réservée aujourd'hui sur l'édition et expédiée en {month}. Annulable avec remboursement intégral à tout moment avant l'expédition.",
+      "Réservée aujourd'hui sur l'édition et expédiée en {month}. Annulable avec remboursement intégral à tout moment avant l'expédition, et si cette date bouge vous serez prévenu avant qu'elle ne passe, non après.",
     trust: {
       cancelLabel: "Annulation jusqu'à l'expédition",
       cancelDetail: "Remboursement intégral, sans justification",

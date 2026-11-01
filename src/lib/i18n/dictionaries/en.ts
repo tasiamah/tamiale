@@ -106,6 +106,7 @@ const en = {
     accessibility: "Accessibility",
     cameraData: "Camera & Face Data",
     rights: "All rights reserved.",
+    entity: "Tamiale is a brand of {company}.",
   },
 
   commerce: {
@@ -136,7 +137,7 @@ const en = {
       unsold: "{count} unsold",
     },
     preorderNote:
-      "Reserved from the edition today and dispatched in {month}. Cancellable for a full refund at any point before it ships.",
+      "Reserved from the edition today and dispatched in {month}. Cancellable for a full refund at any point before it ships, and if that date moves you will hear before it passes, not after.",
     trust: {
       cancelLabel: "Cancel any time before it ships",
       cancelDetail: "Full refund, no reason needed",

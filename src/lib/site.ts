@@ -5,6 +5,14 @@ export const site = {
   email: "info@tamiale.com",
   instagram: "https://instagram.com/tamiale",
   foundedIn: "Zurich",
+  /**
+   * The legal person behind the brand. A shop that takes several hundred up
+   * front for a parcel more than a year away is asking to be trusted by
+   * people who have never heard of it, and the first thing they are owed is
+   * who they are paying. It was stated once, inside the privacy policy, and
+   * nowhere a buyer would look.
+   */
+  company: "A & H Consulting Group LLC",
 } as const;
 
 /**
