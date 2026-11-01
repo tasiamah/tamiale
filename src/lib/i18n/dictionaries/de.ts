@@ -206,6 +206,15 @@ const de: Dictionary = {
     },
     visionCta: "Studio öffnen",
     craftEyebrow: "Handwerkskunst",
+    materialTitle: "Gefräst, nicht gegossen.",
+    materialLede:
+      "Jede Front wird aus einem einzigen Block italienischen Acetats gefräst, anschließend über mehrere Tage trommelpoliert und von Hand nachgearbeitet. Die Millimeter dazu stehen auf der Seite der Fassung.",
+    craftAlt:
+      "Die Marina auf einer Travertinkante im streifenden Nachmittagslicht.",
+    portraitAlt:
+      "Die Marina aus Onyx-Acetat mit Cognac-Gläsern, frontal im Studioporträt getragen.",
+    houseAlt:
+      "Ein cremefarbener Mantel und die Marina vor einer sonnenbeschienenen Putzwand.",
     craftTitle: "Was die Maße tatsächlich bedeuten.",
     craftLede:
       "Statt Qualität zu behaupten, veröffentlicht das Haus die Zahlen und die Verfahren dahinter. Jede Zahl unten steht auf der technischen Zeichnung.",

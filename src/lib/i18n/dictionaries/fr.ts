@@ -208,6 +208,15 @@ const fr: Dictionary = {
     },
     visionCta: "Ouvrir le studio",
     craftEyebrow: "Savoir-faire",
+    materialTitle: "Taillée, non moulée.",
+    materialLede:
+      "Chaque face est fraisée dans un bloc unique d'acétate italien, puis tonnelée et polie à la main pendant plusieurs jours. Les millimètres de ce processus figurent sur la page de la monture.",
+    craftAlt:
+      "La Marina posée sur une pierre de travertin dans la lumière rasante de l'après-midi.",
+    portraitAlt:
+      "La Marina en acétate Onyx et verres cognac, portée de face dans un portrait studio.",
+    houseAlt:
+      "Un manteau crème et la Marina, devant un mur de plâtre baigné de soleil.",
     craftTitle: "Ce que les mesures veulent vraiment dire.",
     craftLede:
       "Plutôt que de revendiquer la qualité, la maison publie les chiffres et les procédés qui les produisent. Chaque nombre ci-dessous figure sur le dessin technique.",

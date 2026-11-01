@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
+import { Craft } from "@/components/home/craft";
 import { Editorial } from "@/components/home/editorial";
 import { Philosophy } from "@/components/home/philosophy";
 import { PrivateAccess } from "@/components/home/private-access";
 import { VisionTeaser } from "@/components/home/vision-teaser";
-import { Craftsmanship } from "@/components/product/craftsmanship";
 import { ExpressionGrid } from "@/components/product/expression-grid";
 import { ButtonLink } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
@@ -89,7 +89,7 @@ export default async function HomePage() {
        * block gone they count again, which is the only thing a number on
        * a section is for.
        */}
-      <Craftsmanship frame={frame} index="03" />
+      <Craft frame={frame} index="03" />
       <Philosophy />
       <PrivateAccess index="05" />
     </>

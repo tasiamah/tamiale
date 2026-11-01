@@ -232,6 +232,15 @@ const en = {
     },
     visionCta: "Open the studio",
     craftEyebrow: "Craftsmanship",
+    materialTitle: "Cut, not moulded.",
+    materialLede:
+      "Each front is milled from a single block of Italian acetate, then tumbled and hand polished over several days. The millimetres behind that process are published on the frame's own page.",
+    craftAlt:
+      "The Marina folded on a travertine ledge in raking afternoon light.",
+    portraitAlt:
+      "The Marina in Onyx acetate with cognac lenses, worn straight on in a studio portrait.",
+    houseAlt:
+      "A cream tailored coat and The Marina, against a sunlit plaster wall.",
     craftTitle: "What the measurements actually mean.",
     craftLede:
       "Rather than claim quality, the house publishes the figures and the processes behind them. Every number below appears on the technical drawing.",

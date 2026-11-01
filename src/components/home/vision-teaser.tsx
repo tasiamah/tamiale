@@ -1,4 +1,5 @@
-import { FrameDrawing } from "@/components/product/frame-drawing";
+import Image from "next/image";
+
 import { ButtonLink } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { getDictionary } from "@/lib/i18n/dictionary";
@@ -48,22 +49,35 @@ export async function VisionTeaser({ frame }: { frame: Frame }) {
           </ButtonLink>
         </Reveal>
 
-        {/* A still of the studio interface: the house's own instrument, not a plugin. */}
+        {/*
+         * What the studio shows you, which is a face wearing the frame.
+         * A wireframe of the front elevation stood here, floating in a dark
+         * panel under viewfinder brackets. It described the instrument
+         * accurately and sold nothing: a visitor who cannot picture the
+         * Marina on themselves is not helped by a line drawing of it. The
+         * brackets stay, because over a photograph they read as the thing
+         * they are imitating.
+         */}
         <Reveal delay={140}>
-          <div className="relative aspect-4/5 w-full border border-obsidian-hairline bg-[radial-gradient(ellipse_at_50%_35%,#201e1b,#111110_70%)] sm:aspect-4/3 lg:aspect-4/5">
+          <div className="relative aspect-4/5 w-full overflow-hidden border border-obsidian-hairline bg-obsidian-raised sm:aspect-4/3 lg:aspect-4/5">
+            <Image
+              src="/media/editorial/studio-portrait.jpg"
+              alt={dict.home.portraitAlt}
+              fill
+              sizes="(max-width: 1024px) 92vw, 46vw"
+              quality={90}
+              className="object-cover object-top"
+            />
+            {/* Keeps the readouts legible against the lit part of the frame. */}
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-linear-to-t from-obsidian/70 via-transparent to-obsidian/35"
+            />
+
             <Bracket className="top-4 left-4" />
             <Bracket className="top-4 right-4 rotate-90" />
             <Bracket className="right-4 bottom-4 rotate-180" />
             <Bracket className="bottom-4 left-4 -rotate-90" />
-
-            <div className="absolute inset-0 flex items-center justify-center px-[14%]">
-              <FrameDrawing
-                frame={frame}
-                tone="ivory"
-                dimensions={false}
-                className="w-full opacity-70 [&_path]:stroke-ivory"
-              />
-            </div>
 
             <div className="absolute inset-x-6 bottom-6 flex items-center justify-between">
               <span className="eyebrow text-ivory/40">{dict.home.visionEyebrow}</span>
