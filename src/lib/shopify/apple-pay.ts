@@ -113,8 +113,8 @@ export async function validateApplePayMerchant(
       validationURL,
       {
         method: "POST",
-        cert: applePay.cert,
-        key: applePay.key,
+        cert: applePay.identityCert,
+        key: applePay.identityKey,
         headers: {
           "content-type": "application/json",
           "content-length": Buffer.byteLength(body),

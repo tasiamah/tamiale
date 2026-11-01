@@ -11,9 +11,19 @@ import { isShopifyConfigured } from "./client";
  */
 export const applePay = {
   merchantId: process.env.APPLE_PAY_MERCHANT_ID,
-  /** PEM, issued by Apple against the merchant identifier. */
-  cert: process.env.APPLE_PAY_MERCHANT_CERT,
-  key: process.env.APPLE_PAY_MERCHANT_KEY,
+  /*
+   * The merchant identity certificate, PEM, and the RSA key it was made
+   * with. Apple issues two certificates against a merchant identifier and
+   * they are not interchangeable. This is the one that authenticates a
+   * session with Apple's servers, which is the only thing this origin does.
+   *
+   * The other, the payment processing certificate, never comes near this
+   * code: Shopify issues its own signing request for it and decrypts the
+   * token itself, so the key that could read a card is theirs to hold and
+   * not ours to lose.
+   */
+  identityCert: process.env.APPLE_PAY_MERCHANT_IDENTITY_CERT,
+  identityKey: process.env.APPLE_PAY_MERCHANT_IDENTITY_KEY,
   /** The text Apple serves back to itself to prove this origin is ours. */
   domainAssociation: process.env.APPLE_PAY_DOMAIN_ASSOCIATION,
 } as const;
@@ -27,7 +37,7 @@ export function isApplePayConfigured(): boolean {
   return Boolean(
     isShopifyConfigured() &&
     applePay.merchantId &&
-    applePay.cert &&
-    applePay.key,
+    applePay.identityCert &&
+    applePay.identityKey,
   );
 }

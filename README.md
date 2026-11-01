@@ -145,8 +145,8 @@ breaking the build.
 | `CLIENT_REGISTER_WEBHOOK_URL` | Private-client forms say they are not yet connected |
 | `CLIENT_REGISTER_WEBHOOK_TOKEN` | Webhook is sent unauthenticated |
 | `APPLE_PAY_MERCHANT_ID` | Apple Pay button never renders, Reserve is unchanged |
-| `APPLE_PAY_MERCHANT_CERT` | As above |
-| `APPLE_PAY_MERCHANT_KEY` | As above |
+| `APPLE_PAY_MERCHANT_IDENTITY_CERT` | As above |
+| `APPLE_PAY_MERCHANT_IDENTITY_KEY` | As above |
 | `APPLE_PAY_DOMAIN_ASSOCIATION` | Apple cannot verify the domain, so the sheet is refused |
 | `NEXT_PUBLIC_SITE_URL` | Canonical URLs and sitemap fall back to localhost |
 
@@ -157,12 +157,17 @@ grants from three parties, and all three before the button appears.
 
 1. A Storefront access token carrying `write_cart_wallet_payments`. The scope
    is gated and has to be requested from Shopify.
-2. An Apple merchant identifier with a payment processing certificate, from an
-   Apple Developer Program account.
+2. An Apple merchant identifier, and against it two certificates that are
+   easy to confuse. The **payment processing** certificate is made from a
+   signing request Shopify generates and is uploaded back to Shopify, which
+   is what decrypts the token; it never touches this repository. The
+   **merchant identity** certificate is the RSA one this origin presents to
+   Apple when validating a session, and it is the only one these variables
+   hold.
 3. The domain registered against that identifier, which Apple confirms by
    fetching `/.well-known/apple-developer-merchantid-domain-association`. The
-   proxy deliberately leaves that path alone; a locale redirect there reads as
-   a failed verification.
+   proxy deliberately leaves that path alone; Apple will not follow a
+   redirect there and reads one as a failed verification.
 
 Note that the values must be present at build time, not only at run time. The
 button is additionally hidden on any device whose browser does not implement
