@@ -225,7 +225,12 @@ body:has([data-stage="dark"]) [data-chrome-spacer] {
 /* The wordmark. Letterforms are set wide enough to read as an engraving. */
 @utility wordmark {
   font-family: var(--font-grotesque);
-  font-weight: 400;
+  /*
+   * A step above the text around it. The mark was set at the same weight as
+   * a paragraph, which at this tracking left it looking like a caption of
+   * the page rather than the name above it.
+   */
+  font-weight: 500;
   letter-spacing: 0.34em;
   text-transform: uppercase;
   /* Tracking adds trailing space; pull it back so the mark optically centres. */

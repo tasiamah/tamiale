@@ -5,7 +5,7 @@ import { useCallback, useState, useSyncExternalStore } from "react";
 import { Link } from "@/components/i18n/link";
 import { useCart } from "@/components/cart/cart-provider";
 import { useDictionary } from "@/components/i18n/dictionary-provider";
-import { Wordmark } from "@/components/ui/wordmark";
+import { HouseMark } from "@/components/ui/wordmark";
 
 import { AnnouncementBar } from "./announcement-bar";
 import { MenuOverlay } from "./menu-overlay";
@@ -84,16 +84,16 @@ export function Header() {
           </div>
 
           {/*
-           * Full height rather than hugging the text. The wordmark is a 13px
-           * line sitting in the middle of an 84px bar, which on a phone is a
-           * target you miss more often than you hit.
+           * Full height rather than hugging the text. The mark sits in the
+           * middle of an 84px bar, which on a phone is a target you miss
+           * more often than you hit.
            */}
           <Link
             href="/"
             aria-label={dict.header.home}
             className="flex h-full items-center justify-center px-4 transition-opacity duration-300 hover:opacity-60"
           >
-            <Wordmark size="md" />
+            <HouseMark />
           </Link>
 
           <div className="flex h-full items-center justify-end gap-8">
