@@ -13,6 +13,21 @@ export function isShopifyConfigured(): boolean {
   return Boolean(DOMAIN && TOKEN);
 }
 
+/*
+ * The Headless channel issues two tokens against one storefront and they are
+ * not read on the same header. The public one is meant to be seen, is rate
+ * limited per buyer and goes on X-Shopify-Storefront-Access-Token. The
+ * private one is server only, carries the scopes this app was actually
+ * granted, and on that header is refused with a bare 401 whose body is an
+ * empty string, which is a long afternoon if you do not already know.
+ *
+ * Choosing by prefix means either kind can be dropped into the environment
+ * without a second variable to keep in step with it.
+ */
+const TOKEN_HEADER = TOKEN?.startsWith("shpat_")
+  ? "Shopify-Storefront-Private-Token"
+  : "X-Shopify-Storefront-Access-Token";
+
 export class ShopifyError extends Error {
   constructor(
     message: string,
@@ -47,7 +62,7 @@ export async function storefront<T>(
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-Shopify-Storefront-Access-Token": TOKEN as string,
+        [TOKEN_HEADER]: TOKEN as string,
       },
       body: JSON.stringify({ query, variables }),
       cache: init?.cache,
