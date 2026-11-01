@@ -79,14 +79,32 @@ export async function storefront<T>(
 
   const payload = (await response.json()) as StorefrontResponse<T>;
 
-  if (payload.errors?.length) {
+  /*
+   * GraphQL answers a query field by field, so a refusal on one of them
+   * arrives as an error beside a perfectly good product. Treating that as a
+   * failed request is how a missing inventory scope takes down the buy
+   * button on a frame that is in stock and purchasable: everything the
+   * checkout needs was in the response and we threw it away.
+   *
+   * So the data decides. Absent, this failed and says so. Present, the
+   * caller gets it and the warning goes where it can be read, because a
+   * field quietly going null is still a thing someone has to fix.
+   */
+  if (!payload.data) {
     throw new ShopifyError(
-      payload.errors.map((error) => error.message).join("; "),
+      payload.errors?.length
+        ? payload.errors.map((error) => error.message).join("; ")
+        : "Storefront API returned no data",
       payload.errors,
     );
   }
-  if (!payload.data) {
-    throw new ShopifyError("Storefront API returned no data");
+
+  if (payload.errors?.length) {
+    console.warn(
+      `[tamiale] storefront answered with ${payload.errors.length} field error(s): ${payload.errors
+        .map((error) => error.message)
+        .join("; ")}`,
+    );
   }
 
   return payload.data;
