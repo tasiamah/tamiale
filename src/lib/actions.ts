@@ -39,6 +39,28 @@ async function forward(
       signal: AbortSignal.timeout(8000),
     });
     if (!response.ok) throw new Error(`register responded ${response.status}`);
+
+    /*
+     * A status code is not always the whole answer. Google Apps Script, the
+     * cheapest thing to point this at, replies 200 to everything including
+     * the requests it refused, so trusting the code alone would tell a
+     * visitor they are on the list while the sheet stayed empty. If the
+     * destination says anything about whether it accepted, believe it.
+     */
+    const body = await response.text();
+    if (body) {
+      try {
+        const parsed = JSON.parse(body) as { ok?: boolean };
+        if (parsed?.ok === false) {
+          throw new Error(`register declined: ${body.slice(0, 200)}`);
+        }
+      } catch (parseError) {
+        // Not JSON, or JSON we have no opinion about. A 200 stands.
+        if (parseError instanceof Error && parseError.message.startsWith("register declined")) {
+          throw parseError;
+        }
+      }
+    }
   } catch (error) {
     console.error(`[tamiale] ${kind} registration failed:`, error);
     return {

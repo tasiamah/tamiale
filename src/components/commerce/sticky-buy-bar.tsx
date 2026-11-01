@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useSyncExternalStore } from "react";
+import { useEffect, useState } from "react";
 
 import { useRegion } from "@/components/chrome/region-provider";
 import { fill, useDictionary } from "@/components/i18n/dictionary-provider";
@@ -10,23 +10,36 @@ import { cn } from "@/lib/cn";
 import type { Colorway, Frame } from "@/lib/catalog/types";
 
 /**
- * On a handset the purchase panel scrolls away within one swipe, leaving the
- * whole specification with no way to act on it. The bar follows down the page
- * and appears once the panel is behind you.
+ * Whether the real purchase panel is somewhere other than on the screen.
+ *
+ * The bar used to wait for 560px of scrolling, on the reasoning that the
+ * panel had just gone past by then. That stopped being true when the gallery
+ * grew to six views: on a handset the panel now sits nearly four screens
+ * down, so the rule was hiding the only way to buy for the whole of the
+ * first screen, which is the part of the page everyone sees and many never
+ * scroll past.
+ *
+ * Watching the panel is what the scroll figure was always standing in for,
+ * and it cannot drift out of date when the page above it changes again.
  */
-const APPEARS_AFTER = 560;
+function useBuyPanelOffScreen(): boolean {
+  // Visible until proven otherwise, so the bar is painted rather than
+  // animated in. On a handset the panel is never on the first screen.
+  const [onScreen, setOnScreen] = useState(false);
 
-function useScrolledPast(threshold: number): boolean {
-  const subscribe = useCallback((listener: () => void) => {
-    window.addEventListener("scroll", listener, { passive: true });
-    return () => window.removeEventListener("scroll", listener);
+  useEffect(() => {
+    const panel = document.querySelector("[data-buy-panel]");
+    if (!panel) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setOnScreen(entry.isIntersecting),
+      { threshold: 0 },
+    );
+    observer.observe(panel);
+    return () => observer.disconnect();
   }, []);
 
-  return useSyncExternalStore(
-    subscribe,
-    () => window.scrollY > threshold,
-    () => false,
-  );
+  return !onScreen;
 }
 
 export function StickyBuyBar({
@@ -39,7 +52,7 @@ export function StickyBuyBar({
   const dict = useDictionary();
   const { price } = useRegion();
   const reserve = useReserve();
-  const shown = useScrolledPast(APPEARS_AFTER);
+  const shown = useBuyPanelOffScreen();
 
   // Below `lg` this bar owns the bottom edge, so the bag bar stands down.
   useClaimBottomBar();

@@ -289,6 +289,9 @@ export function ProductStage({
         </div>
 
         <Button
+          // Watched by the sticky bar, which stands down while this is in
+          // view rather than putting two Reserve buttons on one screen.
+          data-buy-panel
           className="mt-10 w-full"
           disabled={!colorway.availableForSale}
           onClick={() => reserve(frame, colorway)}
