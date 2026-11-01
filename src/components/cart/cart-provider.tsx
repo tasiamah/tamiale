@@ -11,10 +11,13 @@ import {
 } from "react";
 
 import type { CurrencyCode } from "@/lib/catalog/types";
+import { fill } from "@/lib/i18n/config";
 import { startCheckout } from "@/lib/shopify/cart";
+import { site } from "@/lib/site";
 import { usePersistentState } from "@/lib/use-persistent-state";
 
 import { useRegion } from "@/components/chrome/region-provider";
+import { useDictionary } from "@/components/i18n/dictionary-provider";
 
 const STORAGE_KEY = "tamiale.bag";
 const MAX_PER_LINE = 4;
@@ -42,7 +45,7 @@ type CartContextValue = {
   subtotal: number;
   isOpen: boolean;
   isCheckingOut: boolean;
-  notice: string | null;
+  notice: ReactNode;
   open: () => void;
   close: () => void;
   add: (line: Omit<BagLine, "quantity"> & { quantity?: number }) => void;
@@ -70,12 +73,13 @@ function isBagLine(value: unknown): value is BagLine {
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const { region } = useRegion();
+  const dict = useDictionary();
   const [stored, setStored] = usePersistentState<BagLine[]>(
     STORAGE_KEY,
     NO_LINES,
   );
   const [isOpen, setIsOpen] = useState(false);
-  const [notice, setNotice] = useState<string | null>(null);
+  const [notice, setNotice] = useState<ReactNode>(null);
   const [isCheckingOut, startCheckoutTransition] = useTransition();
 
   // Storage is shared with other tabs and with earlier builds of the site, so
@@ -148,11 +152,40 @@ export function CartProvider({ children }: { children: ReactNode }) {
       );
       if (result.ok) {
         window.location.href = result.url;
-      } else {
-        setNotice(result.message);
+        return;
       }
+
+      /*
+       * `startCheckout` answers in English, because it runs on the server
+       * with no locale and its wording is addressed to whoever is building
+       * the shop. That is the right message for the one case nobody has
+       * configured anything, and the wrong one to show a French customer
+       * holding a full bag. The house has its own sentence for it, in all
+       * three languages, offering the advisor as the way through.
+       */
+      if (result.reason !== "not-configured") {
+        setNotice(result.message);
+        return;
+      }
+
+      const [before, after] = fill(dict.cart.unavailableNote, {
+        email: site.email,
+      }).split(site.email);
+
+      setNotice(
+        <>
+          {before}
+          <a
+            href={`mailto:${site.email}`}
+            className="underline underline-offset-2 transition-opacity hover:opacity-60"
+          >
+            {site.email}
+          </a>
+          {after}
+        </>,
+      );
     });
-  }, [lines, region.countryCode]);
+  }, [lines, region.countryCode, dict]);
 
   const value = useMemo<CartContextValue>(
     () => ({

@@ -204,7 +204,7 @@ const de: LegalCopy = {
       {
         heading: "Anwendbares Recht",
         body: [
-          "Diese Bedingungen unterliegen niederländischem Recht, unbeschadet der zwingenden Verbraucherschutzrechte, die Ihnen in Ihrem Wohnsitzland zustehen.",
+          "Diese Bedingungen unterliegen schweizerischem Recht, unbeschadet der zwingenden Verbraucherschutzrechte, die Ihnen in Ihrem Wohnsitzland zustehen.",
         ],
       },
     ],

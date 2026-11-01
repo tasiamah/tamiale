@@ -233,7 +233,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "Governing law",
         body: [
-          "These terms are governed by the law of the Netherlands, without prejudice to the mandatory consumer protections available to you in your own country of residence.",
+          "These terms are governed by the law of Switzerland, without prejudice to the mandatory consumer protections available to you in your own country of residence.",
         ],
       },
     ],

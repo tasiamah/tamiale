@@ -204,7 +204,7 @@ const fr: LegalCopy = {
       {
         heading: "Droit applicable",
         body: [
-          "Les présentes conditions sont régies par le droit néerlandais, sans préjudice des protections impératives du consommateur dont vous disposez dans votre pays de résidence.",
+          "Les présentes conditions sont régies par le droit suisse, sans préjudice des protections impératives du consommateur dont vous disposez dans votre pays de résidence.",
         ],
       },
     ],
