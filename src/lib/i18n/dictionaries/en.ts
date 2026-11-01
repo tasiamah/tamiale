@@ -268,7 +268,8 @@ const en = {
       "High end designer sunglasses in a single architectural silhouette. The Marina in Onyx acetate, in cognac, champagne and smoke lenses, open for pre-order.",
     eyebrow: "Collection 001",
     title: "The Icons.",
-    lede: "The house opens with one silhouette rather than a catalogue. The Marina is drawn as a flattened hexagon, eight edges where most frames use a curve, released in a single Onyx acetate with three lens expressions, each specified by the light it lets through.",
+    lede:
+      "One silhouette rather than a catalogue. The Marina is released in a single Onyx acetate and three lens expressions, each specified by the light it lets through.",
     stats: {
       silhouettes: "Silhouettes released",
       expressions: "Lens expressions",

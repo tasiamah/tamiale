@@ -242,7 +242,8 @@ const de: Dictionary = {
       "Hochwertige Designer-Sonnenbrillen in einer einzigen architektonischen Silhouette. The Marina aus Onyx-Acetat, in Cognac, Champagne und Smoke, vorbestellbar.",
     eyebrow: "Kollektion 001",
     title: "Die Ikonen.",
-    lede: "Das Haus eröffnet mit einer Silhouette statt mit einem Katalog. The Marina ist als abgeflachtes Sechseck gezeichnet, acht Kanten dort, wo die meisten Fassungen eine Kurve verwenden, veröffentlicht in einem einzigen Onyx-Acetat und drei Glasausführungen, jede bestimmt durch das Licht, das sie durchlässt.",
+    lede:
+      "Eine Silhouette statt eines Katalogs. The Marina erscheint in einem einzigen Onyx-Acetat und drei Glasausführungen, jede bestimmt durch das Licht, das sie durchlässt.",
     stats: {
       silhouettes: "Veröffentlichte Silhouetten",
       expressions: "Glasausführungen",

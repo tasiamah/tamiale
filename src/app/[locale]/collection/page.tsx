@@ -26,16 +26,37 @@ export default async function CollectionPage() {
 
   return (
     <>
-      <header className="gutter border-b border-ivory-hairline section-y">
+      {/*
+       * Short, because this is the page a shopper opens to see the frames.
+       * It used to run a hero-sized title, a four line paragraph and four
+       * stacked statistics before the first photograph, which cost the
+       * whole of a laptop screen and about eleven hundred pixels on a
+       * phone: everything above the fold was prose about a product that
+       * was nowhere in sight.
+       */}
+      <header className="gutter border-b border-ivory-hairline pt-14 pb-12 md:pt-20 md:pb-16">
         <Reveal className="mx-auto flex max-w-2xl flex-col items-center text-center">
           <p className="eyebrow text-stone">{frame.collection}</p>
-          <h1 className="display-hero mt-8 text-balance">{dict.collection.title}</h1>
-          <p className="body-lg mt-8 max-w-xl text-pretty text-stone-dim">
+          <h1 className="display-xl mt-6 text-balance">{dict.collection.title}</h1>
+          <p className="body-lg mt-6 max-w-xl text-pretty text-stone-dim">
             {dict.collection.lede}
           </p>
         </Reveal>
+      </header>
 
-        <dl className="mt-20 grid gap-y-10 border-t border-ivory-hairline pt-10 sm:grid-cols-2 lg:grid-cols-4">
+      <section
+        id="expressions"
+        className="gutter scroll-mt-(--chrome-height) pt-12 pb-24 md:pt-16 md:pb-32"
+      >
+        <ExpressionGrid frame={frame} />
+
+        {/*
+         * The collection's figures, under the frames they describe rather
+         * than over them. Two columns on a phone: in one they were four
+         * full width rows, which was most of a screen spent on four short
+         * numbers.
+         */}
+        <dl className="mt-24 grid grid-cols-2 gap-y-10 border-t border-ivory-hairline pt-10 lg:grid-cols-4">
           {[
             [dict.collection.stats.silhouettes, "1"],
             [dict.collection.stats.expressions, String(frame.colorways.length)],
@@ -48,10 +69,6 @@ export default async function CollectionPage() {
             </div>
           ))}
         </dl>
-      </header>
-
-      <section id="expressions" className="gutter scroll-mt-(--chrome-height) section-y">
-        <ExpressionGrid frame={frame} />
       </section>
 
       <section className="grain border-t border-ivory-hairline bg-ivory text-obsidian">

@@ -244,7 +244,8 @@ const fr: Dictionary = {
       "Des lunettes de soleil unisexes haut de gamme dans une seule silhouette architecturale. The Marina en acétate Onyx, verres cognac, champagne et smoke.",
     eyebrow: "Collection 001",
     title: "Les Icônes.",
-    lede: "La maison ouvre avec une silhouette plutôt qu'un catalogue. The Marina est dessinée comme un hexagone aplati, huit arêtes là où la plupart des montures emploient une courbe, éditée dans un seul acétate Onyx et trois déclinaisons de verre, chacune définie par la lumière qu'elle laisse passer.",
+    lede:
+      "Une silhouette plutôt qu'un catalogue. The Marina est éditée dans un seul acétate Onyx et trois déclinaisons de verre, chacune définie par la lumière qu'elle laisse passer.",
     stats: {
       silhouettes: "Silhouettes éditées",
       expressions: "Déclinaisons de verre",
