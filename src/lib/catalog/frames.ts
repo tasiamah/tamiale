@@ -41,8 +41,12 @@ const MARINA_GEOMETRY = {
   weightGrams: 28,
 };
 
-type ColorwaySeed = Omit<Colorway, "image" | "frameFinish" | "frameHex"> & {
+type ColorwaySeed = Omit<
+  Colorway,
+  "image" | "worn" | "frameFinish" | "frameHex"
+> & {
   imageAlt: string;
+  wornAlt: string;
 };
 
 const COLORWAY_SEEDS: ColorwaySeed[] = [
@@ -61,6 +65,8 @@ const COLORWAY_SEEDS: ColorwaySeed[] = [
     availableForSale: true,
     imageAlt:
       "The Marina in Onyx acetate with a Cognac gradient lens, three-quarter studio view",
+    wornAlt:
+      "A woman wearing The Marina in Onyx acetate with a Cognac gradient lens, studio portrait",
   },
   {
     id: "champagne",
@@ -77,6 +83,8 @@ const COLORWAY_SEEDS: ColorwaySeed[] = [
     availableForSale: true,
     imageAlt:
       "The Marina in Onyx acetate with a Champagne gold gradient lens, three-quarter studio view",
+    wornAlt:
+      "A woman wearing The Marina in Onyx acetate with a Champagne gold gradient lens, studio portrait",
   },
   {
     id: "smoke",
@@ -93,14 +101,19 @@ const COLORWAY_SEEDS: ColorwaySeed[] = [
     availableForSale: true,
     imageAlt:
       "The Marina in Onyx acetate with a Smoke grey lens, three-quarter studio view",
+    wornAlt:
+      "A woman wearing The Marina in Onyx acetate with a Smoke grey lens, studio portrait",
   },
 ];
 
 /** Studio renders derived from the master photograph by `pnpm assets`. */
 const MASTER_IMAGE = { width: 695, height: 219 };
 
+/** The campaign portrait, shot once per lens against the same backdrop. */
+const WORN_IMAGE = { width: 864, height: 1152 };
+
 const marinaColorways: Colorway[] = COLORWAY_SEEDS.map(
-  ({ imageAlt, ...seed }) => ({
+  ({ imageAlt, wornAlt, ...seed }) => ({
     ...seed,
     frameFinish: "Onyx",
     frameHex: "#14130F",
@@ -108,6 +121,11 @@ const marinaColorways: Colorway[] = COLORWAY_SEEDS.map(
       src: `/media/product/marina-onyx-${seed.id}.png`,
       alt: imageAlt,
       ...MASTER_IMAGE,
+    },
+    worn: {
+      src: `/media/product/marina-onyx-${seed.id}-worn.jpg`,
+      alt: wornAlt,
+      ...WORN_IMAGE,
     },
   }),
 );
@@ -201,9 +219,6 @@ export function findFrame(handle: string): Frame | undefined {
   return frames.find((frame) => frame.handle === handle);
 }
 
-export function findColorway(
-  frame: Frame,
-  id: string | undefined,
-): Colorway {
+export function findColorway(frame: Frame, id: string | undefined): Colorway {
   return frame.colorways.find((way) => way.id === id) ?? frame.colorways[0];
 }

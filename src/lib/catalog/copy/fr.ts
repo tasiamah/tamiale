@@ -24,7 +24,10 @@ const fr: CatalogCopy = {
         { label: "Largeur totale de façade" },
         { label: "Épaisseur de façade", note: "À la ligne de sourcil" },
         { label: "Poids", note: "Complète, verres compris" },
-        { label: "Largeur de visage conseillée", note: "D'une tempe à l'autre" },
+        {
+          label: "Largeur de visage conseillée",
+          note: "D'une tempe à l'autre",
+        },
       ],
       materials: [
         {
@@ -50,18 +53,24 @@ const fr: CatalogCopy = {
             "Un brun ambré chaud, le plus dense au sourcil, qui s'éclaircit vers la pommette.",
           imageAlt:
             "The Marina en acétate Onyx avec un verre dégradé Cognac, vue de trois quarts en studio",
+          wornAlt:
+            "Une femme portant The Marina en acétate Onyx avec un verre dégradé Cognac, portrait en studio",
         },
         champagne: {
           lensDescription:
             "La signature de la maison. Un voile d'or pâle qui garde les carnations chaudes et justes.",
           imageAlt:
             "The Marina en acétate Onyx avec un verre dégradé doré Champagne, vue de trois quarts en studio",
+          wornAlt:
+            "Une femme portant The Marina en acétate Onyx avec un verre dégradé doré Champagne, portrait en studio",
         },
         smoke: {
           lensDescription:
             "Gris neutre. Le rendu des couleurs le plus fidèle de la collection.",
           imageAlt:
             "The Marina en acétate Onyx avec un verre gris Smoke, vue de trois quarts en studio",
+          wornAlt:
+            "Une femme portant The Marina en acétate Onyx avec un verre gris Smoke, portrait en studio",
         },
       },
     },

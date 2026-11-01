@@ -124,6 +124,26 @@ export function ProductStage({ frame }: { frame: Frame }) {
               </span>
               <span className="tabular-nums">{colorway.sku}</span>
             </figcaption>
+
+            {/*
+             * Worn, directly under the render and not behind one of the
+             * tabs above, because nobody clicks a tab to find out whether
+             * they want something. A pair of sunglasses is bought on how it
+             * sits on a face, and until now this page only showed the
+             * object on grey. It is lazy and below the fold, so it costs
+             * the largest paint nothing, and the buy column is sticky, so
+             * the price and the button are still there when the face
+             * arrives.
+             */}
+            <Image
+              src={colorway.worn.src}
+              alt={colorway.worn.alt}
+              width={colorway.worn.width}
+              height={colorway.worn.height}
+              quality={90}
+              sizes="(max-width: 1024px) 92vw, 48vw"
+              className="mt-5 w-full"
+            />
           </figure>
         )}
 

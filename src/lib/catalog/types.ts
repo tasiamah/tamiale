@@ -18,6 +18,17 @@ export type Colorway = {
   /** Second stop of the gradient, read at the lower edge of the lens. */
   lensHexLower: string;
   lensDescription: string;
+  /**
+   * The lens worn, so the page that asks for the money can answer the
+   * question sunglasses are actually bought on. The studio render shows
+   * what the object is; this shows what wearing it looks like.
+   */
+  worn: {
+    src: string;
+    width: number;
+    height: number;
+    alt: string;
+  };
   /** Visible light transmission, percent. */
   vlt: number;
   /** EN ISO 12312-1 filter category. */
