@@ -48,19 +48,35 @@ function variantForColorway(
 /**
  * Overlays live commerce data onto the editorial frame. Anything Shopify does
  * not know about, such as story, measurements and lens physics, is untouched.
+ *
+ * Price is deliberately among the things left untouched. This query is not
+ * sent in a country context, so Shopify answers in the shop's own currency
+ * for every visitor, and letting that land in the price book would quote a
+ * Swiss shopper in dirhams. The published book stays authoritative for what
+ * the page says and the market prices in Shopify are set to match it.
  */
 function mergeCommerce(frame: Frame, product: ShopifyProduct): Frame {
   const minPrice = product.priceRange.minVariantPrice;
   const currency = minPrice.currencyCode as CurrencyCode;
   const amount = Number(minPrice.amount);
+  const published = frame.priceBook[currency];
+
+  /*
+   * Two prices set by hand in two places will eventually disagree, and of
+   * everything that can quietly go wrong here this is the one that costs
+   * both the sale and the trust: the page promises a number and the
+   * checkout asks for a different one. Nobody is watching Shopify and the
+   * price book at the same time, so say it where the logs will.
+   */
+  if (published !== undefined && Math.abs(published - amount) > 0.01) {
+    console.warn(
+      `[tamiale] ${frame.handle} is published at ${published} ${currency} and priced at ${amount} ${currency} in Shopify. The checkout will charge Shopify's figure.`,
+    );
+  }
 
   return {
     ...frame,
     shopifyProductId: product.id,
-    price: { amount, currencyCode: currency },
-    // Shopify is authoritative for the market it was queried in; the
-    // remaining markets keep their published figures until queried.
-    priceBook: { ...frame.priceBook, [currency]: amount },
     colorways: frame.colorways.map((colorway) => {
       const variant = variantForColorway(product, colorway.name);
       if (!variant) return { ...colorway, availableForSale: false };
