@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 
 import { QuietLink } from "@/components/ui/button";
 import { guideFor } from "@/lib/catalog/copy/guide";
@@ -31,15 +30,17 @@ export async function generateMetadata({
   };
 }
 
-export default function GuidePage(props: PageProps<"/[locale]/guide/[slug]">) {
-  return (
-    <Suspense fallback={<div className="gutter py-32" aria-hidden />}>
-      <Guide {...props} />
-    </Suspense>
-  );
-}
-
-async function Guide({ params }: PageProps<"/[locale]/guide/[slug]">) {
+/*
+ * No Suspense boundary. The guide is one slug, listed in
+ * `generateStaticParams`, and every word of it is known at build time, so
+ * there is nothing here worth streaming. Behind a boundary the shell painted
+ * an empty placeholder with the footer directly under it and then dropped
+ * several thousand pixels of article in above, which moved the footer off
+ * the screen: a layout shift of 0.543 against the 0.1 Google calls good.
+ */
+export default async function GuidePage({
+  params,
+}: PageProps<"/[locale]/guide/[slug]">) {
   const { slug } = await params;
   if (slug !== faceShapeGuide.slug) notFound();
 

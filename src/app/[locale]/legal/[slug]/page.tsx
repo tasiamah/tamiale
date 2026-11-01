@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 
 import { Link } from "@/components/i18n/link";
 import { Reveal } from "@/components/ui/reveal";
@@ -31,15 +30,14 @@ export async function generateMetadata({
   };
 }
 
-export default function LegalPage(props: PageProps<"/[locale]/legal/[slug]">) {
-  return (
-    <Suspense fallback={<div className="gutter py-32" aria-hidden />}>
-      <Document {...props} />
-    </Suspense>
-  );
-}
-
-async function Document({ params }: PageProps<"/[locale]/legal/[slug]">) {
+/*
+ * Static documents, every slug listed in `generateStaticParams`, so they are
+ * rendered into the shell rather than streamed in above the footer. See the
+ * journal entry page for what that cost.
+ */
+export default async function LegalPage({
+  params,
+}: PageProps<"/[locale]/legal/[slug]">) {
   const { slug } = await params;
   const dict = await getDictionary();
   const document = await legalDocumentFor(slug);

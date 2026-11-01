@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 
 import { Link } from "@/components/i18n/link";
 import { QuietLink } from "@/components/ui/button";
@@ -35,15 +34,17 @@ export async function generateMetadata({
   };
 }
 
-export default function JournalEntryPage(props: PageProps<"/[locale]/journal/[slug]">) {
-  return (
-    <Suspense fallback={<div className="gutter py-32" aria-hidden />}>
-      <Entry {...props} />
-    </Suspense>
-  );
-}
-
-async function Entry({ params }: PageProps<"/[locale]/journal/[slug]">) {
+/*
+ * Every entry is listed in `generateStaticParams` and written at build time,
+ * so there is nothing to stream. Behind a boundary the shell painted an empty
+ * placeholder with the footer under it and then inserted the entry above,
+ * which moved the footer down the length of the article. The guide page was
+ * long enough for that to show up as a layout shift of 0.543; these were only
+ * spared by being a little shorter.
+ */
+export default async function JournalEntryPage({
+  params,
+}: PageProps<"/[locale]/journal/[slug]">) {
   const { slug } = await params;
   const dict = await getDictionary();
   const locale = await getLocale();
