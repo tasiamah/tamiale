@@ -92,6 +92,13 @@ const de: LegalCopy = {
     summary: "Was das Haus erhebt, warum, und wie wenig es ist.",
     sections: [
       {
+        heading: "Wer verantwortlich ist",
+        body: [
+          "Tamiale ist eine Marke der A & H Consulting Group LLC, die sie besitzt und die für alles auf dieser Seite Beschriebene Verantwortlicher im Sinne der DSGVO ist.",
+          "Fragen zu Ihren Daten und die unten unter Ihre Rechte beschriebenen Anträge richten Sie bitte an info@tamiale.com.",
+        ],
+      },
+      {
         heading: "Was erhoben wird",
         body: [
           "Zur Abwicklung einer Bestellung: Ihr Name, Liefer- und Rechnungsanschrift, E-Mail-Adresse und die Bestellung selbst. Kartendaten werden vom Zahlungsdienstleister verarbeitet und erreichen die Systeme von Tamiale nie.",

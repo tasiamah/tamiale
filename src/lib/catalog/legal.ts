@@ -108,6 +108,20 @@ export const legalDocuments: LegalDocument[] = [
       "What the house collects, why, and how little of it there is.",
     updated: "2026-10-01",
     sections: [
+      /*
+       * The controller has to be named, and named first. Article 13 of the
+       * GDPR makes its identity one of the things a reader is owed at the
+       * point of collection, and a policy that describes what is held
+       * without saying who holds it answers the second question before the
+       * first.
+       */
+      {
+        heading: "Who is responsible",
+        body: [
+          "Tamiale is a brand of A & H Consulting Group LLC, which owns it and is the data controller for everything described on this page.",
+          "Questions about your data, and the requests described under Your rights below, go to info@tamiale.com.",
+        ],
+      },
       {
         heading: "What is collected",
         body: [

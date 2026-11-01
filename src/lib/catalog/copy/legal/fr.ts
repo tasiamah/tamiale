@@ -92,6 +92,13 @@ const fr: LegalCopy = {
     summary: "Ce que la maison collecte, pourquoi, et à quel point c'est peu.",
     sections: [
       {
+        heading: "Qui est responsable",
+        body: [
+          "Tamiale est une marque de A & H Consulting Group LLC, qui en est propriétaire et qui est responsable du traitement de tout ce qui est décrit sur cette page.",
+          "Les questions relatives à vos données, et les demandes décrites sous Vos droits ci-dessous, sont à adresser à info@tamiale.com.",
+        ],
+      },
+      {
         heading: "Ce qui est collecté",
         body: [
           "Pour honorer une commande : votre nom, vos adresses de livraison et de facturation, votre adresse e-mail et la commande elle-même. Les données de carte bancaire sont traitées par le prestataire de paiement et n'atteignent jamais les systèmes de Tamiale.",
