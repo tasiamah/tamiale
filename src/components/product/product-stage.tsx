@@ -11,6 +11,7 @@ import { EditionNote } from "@/components/commerce/edition-note";
 import { StickyBuyBar } from "@/components/commerce/sticky-buy-bar";
 import { fill, useDictionary } from "@/components/i18n/dictionary-provider";
 import { TrustRow } from "@/components/commerce/trust-row";
+import { ApplePayButton } from "@/components/commerce/apple-pay-button";
 import { useReserve } from "@/components/commerce/use-reserve";
 import { ColorwaySwatches } from "@/components/product/colorway-swatches";
 import { FrameDrawing } from "@/components/product/frame-drawing";
@@ -34,7 +35,6 @@ const Atelier = dynamic(
 
 type MediaView = "studio" | "atelier" | "elevation";
 
-
 const noopSubscribe = () => () => {};
 /** Read once on the client; `selectColorway` is the source of truth after. */
 const readLens = () => new URLSearchParams(window.location.search).get("lens");
@@ -50,7 +50,14 @@ const ALT_KEY = {
   wornAngle: "altWornAngle",
 } as const;
 
-export function ProductStage({ frame }: { frame: Frame }) {
+export function ProductStage({
+  frame,
+  applePay = false,
+}: {
+  frame: Frame;
+  /** Whether the house can actually take a wallet payment yet. */
+  applePay?: boolean;
+}) {
   /*
    * The page is prerendered, so the server cannot know `?lens`. It renders
    * the first lens and the reader's choice is swapped in on hydration, which
@@ -290,6 +297,12 @@ export function ProductStage({ frame }: { frame: Frame }) {
             ? dict.commerce.reserve
             : dict.commerce.expressionSpokenFor}
         </Button>
+
+        <ApplePayButton
+          frame={frame}
+          colorway={colorway}
+          configured={applePay}
+        />
 
         <ButtonLink
           href={`/vision-studio?lens=${colorway.id}`}

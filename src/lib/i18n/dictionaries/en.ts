@@ -119,6 +119,7 @@ const en = {
     filterCategory: "Filter category",
     lens: "Lens",
     reserve: "Reserve",
+    payWithApplePay: "Pay with Apple Pay",
     reserveFor: "Reserve · {price}",
     reserveThisPair: "Reserve this pair · {price}",
     spokenFor: "Spoken for",

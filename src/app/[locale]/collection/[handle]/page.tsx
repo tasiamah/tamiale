@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Link } from "@/components/i18n/link";
 import { Craftsmanship } from "@/components/product/craftsmanship";
 import { ProductStage } from "@/components/product/product-stage";
+import { isApplePayConfigured } from "@/lib/shopify/apple-pay-config";
 import { Reveal } from "@/components/ui/reveal";
 import { frameFor } from "@/lib/catalog/content";
 import { frames } from "@/lib/catalog/frames";
@@ -100,7 +101,10 @@ export default async function FramePage({
 
   return (
     <>
-      <nav aria-label={dict.collection.breadcrumbCollection} className="gutter pt-10 pb-8">
+      <nav
+        aria-label={dict.collection.breadcrumbCollection}
+        className="gutter pt-10 pb-8"
+      >
         <ol className="flex gap-2 eyebrow text-stone">
           <li>
             <Link href="/collection" className="hover:text-obsidian">
@@ -112,7 +116,7 @@ export default async function FramePage({
         </ol>
       </nav>
 
-      <ProductStage frame={frame} />
+      <ProductStage frame={frame} applePay={isApplePayConfigured()} />
 
       <section className="border-t border-ivory-hairline bg-ivory">
         <div className="gutter grid gap-14 section-y lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">

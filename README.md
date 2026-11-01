@@ -144,7 +144,30 @@ breaking the build.
 | `OPENAI_MODEL` | Falls back to a default |
 | `CLIENT_REGISTER_WEBHOOK_URL` | Private-client forms say they are not yet connected |
 | `CLIENT_REGISTER_WEBHOOK_TOKEN` | Webhook is sent unauthenticated |
+| `APPLE_PAY_MERCHANT_ID` | Apple Pay button never renders, Reserve is unchanged |
+| `APPLE_PAY_MERCHANT_CERT` | As above |
+| `APPLE_PAY_MERCHANT_KEY` | As above |
+| `APPLE_PAY_DOMAIN_ASSOCIATION` | Apple cannot verify the domain, so the sheet is refused |
 | `NEXT_PUBLIC_SITE_URL` | Canonical URLs and sitemap fall back to localhost |
+
+Apple Pay is placed against the Storefront cart rather than handed to
+Shopify's checkout, which is the one thing headless buys here: the order is
+submitted from the product page and the buyer never leaves it. It needs three
+grants from three parties, and all three before the button appears.
+
+1. A Storefront access token carrying `write_cart_wallet_payments`. The scope
+   is gated and has to be requested from Shopify.
+2. An Apple merchant identifier with a payment processing certificate, from an
+   Apple Developer Program account.
+3. The domain registered against that identifier, which Apple confirms by
+   fetching `/.well-known/apple-developer-merchantid-domain-association`. The
+   proxy deliberately leaves that path alone; a locale redirect there reads as
+   a failed verification.
+
+Note that the values must be present at build time, not only at run time. The
+button is additionally hidden on any device whose browser does not implement
+Apple Pay, which is every browser outside Safari and Apple hardware, so the
+Reserve path remains the one every visitor can use.
 
 The concierge never answers from the model alone: retrieval runs first, and the
 model is only allowed to rephrase what was retrieved. An advisor who says "I'll

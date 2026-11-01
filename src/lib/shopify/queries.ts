@@ -74,3 +74,161 @@ export const CART_CREATE = /* GraphQL */ `
     }
   }
 `;
+
+/*
+ * Wallet payment, the four calls that place an order without ever loading
+ * Shopify's checkout. The iOS kit drives Apple Pay through exactly these;
+ * nothing about them is native, so a browser holding an Apple Pay token can
+ * make the same sequence.
+ */
+
+/** The address Apple returns, and the shipping rate it implies. */
+export const CART_DELIVERY_ADDRESS = /* GraphQL */ `
+  mutation CartDeliveryAddress(
+    $cartId: ID!
+    $address: MailingAddressInput!
+    $email: String
+  ) {
+    cartBuyerIdentityUpdate(
+      cartId: $cartId
+      buyerIdentity: {
+        email: $email
+        deliveryAddressPreferences: [{ deliveryAddress: $address }]
+      }
+    ) {
+      cart {
+        id
+        cost {
+          totalAmount {
+            amount
+            currencyCode
+          }
+        }
+        deliveryGroups(first: 1) {
+          edges {
+            node {
+              id
+              deliveryOptions {
+                handle
+                title
+                estimatedCost {
+                  amount
+                  currencyCode
+                }
+              }
+            }
+          }
+        }
+      }
+      userErrors {
+        field
+        message
+      }
+    }
+  }
+`;
+
+export const CART_SELECT_DELIVERY = /* GraphQL */ `
+  mutation CartSelectDelivery(
+    $cartId: ID!
+    $selected: [CartSelectedDeliveryOptionInput!]!
+  ) {
+    cartSelectedDeliveryOptionsUpdate(
+      cartId: $cartId
+      selectedDeliveryOptions: $selected
+    ) {
+      cart {
+        id
+        cost {
+          totalAmount {
+            amount
+            currencyCode
+          }
+        }
+      }
+      userErrors {
+        field
+        message
+      }
+    }
+  }
+`;
+
+/** Hands Shopify the token Apple handed us. */
+export const CART_PAYMENT_UPDATE = /* GraphQL */ `
+  mutation CartPaymentUpdate($cartId: ID!, $payment: CartPaymentInput!) {
+    cartPaymentUpdate(cartId: $cartId, payment: $payment) {
+      cart {
+        id
+        checkoutUrl
+      }
+      userErrors {
+        field
+        message
+      }
+    }
+  }
+`;
+
+/**
+ * Two stages, and both can refuse. Since Storefront 2025-07 the violations
+ * that used to surface at submit surface here instead, so the prepare result
+ * has to be read rather than assumed.
+ */
+export const CART_PREPARE_FOR_COMPLETION = /* GraphQL */ `
+  mutation CartPrepareForCompletion($cartId: ID!) {
+    cartPrepareForCompletion(cartId: $cartId) {
+      result {
+        __typename
+        ... on CartStatusReady {
+          cart {
+            id
+          }
+        }
+        ... on CartThrottled {
+          pollAfter
+        }
+        ... on CartStatusNotReady {
+          errors {
+            code
+            message
+          }
+        }
+      }
+      userErrors {
+        field
+        message
+      }
+    }
+  }
+`;
+
+export const CART_SUBMIT_FOR_COMPLETION = /* GraphQL */ `
+  mutation CartSubmitForCompletion($cartId: ID!, $attemptToken: String!) {
+    cartSubmitForCompletion(cartId: $cartId, attemptToken: $attemptToken) {
+      result {
+        __typename
+        ... on SubmitSuccess {
+          redirectUrl
+        }
+        ... on SubmitFailed {
+          checkoutUrl
+          errors {
+            code
+            message
+          }
+        }
+        ... on SubmitThrottled {
+          pollAfter
+        }
+        ... on SubmitAlreadyAccepted {
+          attemptId
+        }
+      }
+      userErrors {
+        field
+        message
+      }
+    }
+  }
+`;

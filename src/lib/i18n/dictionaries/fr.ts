@@ -93,6 +93,7 @@ const fr: Dictionary = {
     filterCategory: "Catégorie de filtre",
     lens: "Verre",
     reserve: "Réserver",
+    payWithApplePay: "Payer avec Apple Pay",
     reserveFor: "Réserver · {price}",
     reserveThisPair: "Réserver cette paire · {price}",
     spokenFor: "Déjà attribuée",

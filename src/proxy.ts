@@ -84,7 +84,12 @@ export const config = {
     /*
      * Everything except the API, Next's own assets, and the files that must
      * stay at the domain root for crawlers and browsers to find them.
+     *
+     * `.well-known` is in that last group and is easy to miss, because the
+     * things that read it are not browsers and will not follow a redirect.
+     * Apple fetches the merchant association from the bare origin and takes
+     * a 307 to /en as a failure, which refuses the domain.
      */
-    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|media|vision|.*\\.[a-z0-9]+$).*)",
+    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|media|vision|\\.well-known|.*\\.[a-z0-9]+$).*)",
   ],
 };
