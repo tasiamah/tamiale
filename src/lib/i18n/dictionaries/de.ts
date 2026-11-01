@@ -227,7 +227,7 @@ const de: Dictionary = {
     registerEyebrow: "Das Register",
     registerTitle: "Privater Zugang.",
     registerLede:
-      "Die Editionen sind klein und werden dem Register des Hauses angeboten, bevor sie angekündigt werden. Keine Kampagnen, keine Rabatte. Nur eine Nachricht, wenn etwas fertig ist, und die erste Gelegenheit, es zu nehmen.",
+      "Die Editionen sind klein und werden dem Register des Hauses angeboten, bevor sie angekündigt werden. Eine Nachricht, wenn etwas fertig ist, und die erste Gelegenheit, es zu nehmen.",
     registerPlaceholder: "sie@beispiel.com",
     registerCta: "Zugang anfragen",
     registerNote:
@@ -378,7 +378,7 @@ const de: Dictionary = {
     pillars: [
       {
         title: "Exklusivität",
-        body: "Die Editionen sind nummeriert und klein. Ist eine Ausführung vergriffen, wird sie nicht neu aufgelegt, und das Haus reduziert nicht, was übrig bleibt.",
+        body: "Die Editionen sind nummeriert und klein. Ist eine Ausführung vergriffen, wird sie nicht neu aufgelegt, und was übrig bleibt, behält seinen Preis.",
       },
       {
         title: "Intelligenter Luxus",

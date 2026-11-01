@@ -229,7 +229,7 @@ const fr: Dictionary = {
     registerEyebrow: "Le Registre",
     registerTitle: "Accès privé.",
     registerLede:
-      "Les éditions sont restreintes et proposées au registre de la maison avant toute annonce. Aucune campagne, aucune remise. Simplement un mot lorsqu'une pièce est prête, et la première occasion de la prendre.",
+      "Les éditions sont restreintes et proposées au registre de la maison avant toute annonce. Un mot lorsqu'une pièce est prête, et la première occasion de la prendre.",
     registerPlaceholder: "vous@exemple.com",
     registerCta: "Demander l'accès",
     registerNote:
@@ -380,7 +380,7 @@ const fr: Dictionary = {
     pillars: [
       {
         title: "Exclusivité",
-        body: "Les éditions sont numérotées et restreintes. Quand une expression est épuisée, elle n'est pas rééditée, et la maison ne solde pas ce qu'il reste.",
+        body: "Les éditions sont numérotées et restreintes. Quand une expression est épuisée, elle n'est pas rééditée, et ce qu'il reste garde son prix.",
       },
       {
         title: "Luxe intelligent",

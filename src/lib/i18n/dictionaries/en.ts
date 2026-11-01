@@ -253,7 +253,7 @@ const en = {
     registerEyebrow: "The Register",
     registerTitle: "Private access.",
     registerLede:
-      "Editions are small and are offered to the house register before they are announced. No campaigns and no discounts. Just a note when something is ready, and the first opportunity to take it.",
+      "Editions are small and are offered to the house register before they are announced. A note when something is ready, and the first opportunity to take it.",
     registerPlaceholder: "you@example.com",
     registerCta: "Request access",
     registerNote:
@@ -410,7 +410,7 @@ const en = {
     pillars: [
       {
         title: "Exclusivity",
-        body: "Editions are numbered and small. When an expression is gone it is not reissued, and the house does not discount what is left.",
+        body: "Editions are numbered and small. When an expression is gone it is not reissued, and what remains is held at its price.",
       },
       {
         title: "Intelligent luxury",
