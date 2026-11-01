@@ -51,7 +51,7 @@ const de: CatalogCopy = {
           imageAlt:
             "The Marina in Onyx-Acetat mit Cognac-Verlaufsglas, Dreiviertelansicht im Studio",
           wornAlt:
-            "Eine Frau mit The Marina aus Onyx-Acetat und Cognac-Verlaufsglas, Studioporträt",
+            "Ein Mann mit The Marina aus Onyx-Acetat und Cognac-Verlaufsglas, Studioporträt",
         },
         champagne: {
           lensDescription:
@@ -59,7 +59,7 @@ const de: CatalogCopy = {
           imageAlt:
             "The Marina in Onyx-Acetat mit goldenem Champagne-Verlaufsglas, Dreiviertelansicht im Studio",
           wornAlt:
-            "Eine Frau mit The Marina aus Onyx-Acetat und goldenem Champagne-Verlaufsglas, Studioporträt",
+            "Ein Mann mit The Marina aus Onyx-Acetat und goldenem Champagne-Verlaufsglas, Studioporträt",
         },
         smoke: {
           lensDescription:
@@ -67,7 +67,7 @@ const de: CatalogCopy = {
           imageAlt:
             "The Marina in Onyx-Acetat mit grauem Smoke-Glas, Dreiviertelansicht im Studio",
           wornAlt:
-            "Eine Frau mit The Marina aus Onyx-Acetat und grauem Smoke-Glas, Studioporträt",
+            "Ein Mann mit The Marina aus Onyx-Acetat und grauem Smoke-Glas, Studioporträt",
         },
       },
     },

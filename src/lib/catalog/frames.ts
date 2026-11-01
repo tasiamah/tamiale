@@ -66,7 +66,7 @@ const COLORWAY_SEEDS: ColorwaySeed[] = [
     imageAlt:
       "The Marina in Onyx acetate with a Cognac gradient lens, three-quarter studio view",
     wornAlt:
-      "A woman wearing The Marina in Onyx acetate with a Cognac gradient lens, studio portrait",
+      "A man wearing The Marina in Onyx acetate with a Cognac gradient lens, studio portrait",
   },
   {
     id: "champagne",
@@ -84,7 +84,7 @@ const COLORWAY_SEEDS: ColorwaySeed[] = [
     imageAlt:
       "The Marina in Onyx acetate with a Champagne gold gradient lens, three-quarter studio view",
     wornAlt:
-      "A woman wearing The Marina in Onyx acetate with a Champagne gold gradient lens, studio portrait",
+      "A man wearing The Marina in Onyx acetate with a Champagne gold gradient lens, studio portrait",
   },
   {
     id: "smoke",
@@ -102,7 +102,7 @@ const COLORWAY_SEEDS: ColorwaySeed[] = [
     imageAlt:
       "The Marina in Onyx acetate with a Smoke grey lens, three-quarter studio view",
     wornAlt:
-      "A woman wearing The Marina in Onyx acetate with a Smoke grey lens, studio portrait",
+      "A man wearing The Marina in Onyx acetate with a Smoke grey lens, studio portrait",
   },
 ];
 

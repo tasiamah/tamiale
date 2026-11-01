@@ -54,7 +54,7 @@ const fr: CatalogCopy = {
           imageAlt:
             "The Marina en acétate Onyx avec un verre dégradé Cognac, vue de trois quarts en studio",
           wornAlt:
-            "Une femme portant The Marina en acétate Onyx avec un verre dégradé Cognac, portrait en studio",
+            "Un homme portant The Marina en acétate Onyx avec un verre dégradé Cognac, portrait en studio",
         },
         champagne: {
           lensDescription:
@@ -62,7 +62,7 @@ const fr: CatalogCopy = {
           imageAlt:
             "The Marina en acétate Onyx avec un verre dégradé doré Champagne, vue de trois quarts en studio",
           wornAlt:
-            "Une femme portant The Marina en acétate Onyx avec un verre dégradé doré Champagne, portrait en studio",
+            "Un homme portant The Marina en acétate Onyx avec un verre dégradé doré Champagne, portrait en studio",
         },
         smoke: {
           lensDescription:
@@ -70,7 +70,7 @@ const fr: CatalogCopy = {
           imageAlt:
             "The Marina en acétate Onyx avec un verre gris Smoke, vue de trois quarts en studio",
           wornAlt:
-            "Une femme portant The Marina en acétate Onyx avec un verre gris Smoke, portrait en studio",
+            "Un homme portant The Marina en acétate Onyx avec un verre gris Smoke, portrait en studio",
         },
       },
     },
