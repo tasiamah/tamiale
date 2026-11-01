@@ -30,9 +30,15 @@ import { getDictionary } from "@/lib/i18n/dictionary";
  * out a little under half, and everything below that was invented. The
  * portrait master removes the arithmetic along with the invention.
  *
- * NOTE ON THE SOURCES: 1024px wide and 720px wide respectively, so both are
- * enlarged on a dense screen and are soft under close inspection. Masters
- * around 2800px replace them with no change to anything here.
+ * NOTE ON THE SOURCES: 1280x720 and 720x1280. Neither is a 4K frame and
+ * neither can be made into one by enlarging it, so both are still short of
+ * a dense screen: the desktop frame is drawn at about 1.13x on a 1440px
+ * window, the phone frame at about 1.15x. That is close enough to read as
+ * a photograph rather than as a blur, which the old 1024x438 wide master
+ * was not: it had to be drawn at 1.78x to cover the same box.
+ *
+ * A real 4K master replaces either file as it stands. Raise the widths
+ * below to match it and nothing else here changes.
  */
 
 /*
@@ -48,8 +54,14 @@ import { getDictionary } from "@/lib/i18n/dictionary";
 const source = (file: string, width: number) =>
   `/_next/image?url=${encodeURIComponent(`/media/editorial/${file}`)}&w=${width}&q=90`;
 
-const WIDE = source("campaign.jpg", 1080);
-const TALL = source("campaign-portrait.jpg", 640);
+/*
+ * The widths have to come from `images.deviceSizes`; the optimiser answers
+ * 400 to anything else rather than rounding. Both of these overshoot their
+ * master on purpose, because the optimiser returns the source size once the
+ * request passes it, so each file is served whole: 1280 wide and 720 wide.
+ */
+const WIDE = source("campaign.jpg", 1920);
+const TALL = source("campaign-portrait.jpg", 750);
 const PHONE = "(max-width: 1023px)";
 const DESK = "(min-width: 1024px)";
 
