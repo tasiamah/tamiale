@@ -5,7 +5,8 @@ import { useActionState, useId } from "react";
 import { useRegion } from "@/components/chrome/region-provider";
 import { useDictionary } from "@/components/i18n/dictionary-provider";
 import { Button } from "@/components/ui/button";
-import { IDLE, requestEnquiry } from "@/lib/actions";
+import { requestEnquiry } from "@/lib/actions";
+import { IDLE } from "@/lib/form-result";
 import { REGIONS } from "@/lib/region";
 import { cn } from "@/lib/cn";
 

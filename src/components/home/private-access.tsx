@@ -5,7 +5,8 @@ import { useActionState, useId } from "react";
 import { useDictionary } from "@/components/i18n/dictionary-provider";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
-import { IDLE, requestPrivateAccess } from "@/lib/actions";
+import { requestPrivateAccess } from "@/lib/actions";
+import { IDLE } from "@/lib/form-result";
 import { cn } from "@/lib/cn";
 
 export function PrivateAccess({

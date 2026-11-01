@@ -1,11 +1,6 @@
 "use server";
 
-export type FormResult = {
-  status: "idle" | "ok" | "pending-connection" | "error";
-  message: string;
-};
-
-export const IDLE: FormResult = { status: "idle", message: "" };
+import type { FormResult } from "./form-result";
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
