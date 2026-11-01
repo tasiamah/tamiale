@@ -5,7 +5,7 @@ import { useCallback, useState, useSyncExternalStore } from "react";
 import { Link } from "@/components/i18n/link";
 import { useCart } from "@/components/cart/cart-provider";
 import { useDictionary } from "@/components/i18n/dictionary-provider";
-import { HouseMark } from "@/components/ui/wordmark";
+import { Wordmark } from "@/components/ui/wordmark";
 
 import { AnnouncementBar } from "./announcement-bar";
 import { MenuOverlay } from "./menu-overlay";
@@ -93,7 +93,7 @@ export function Header() {
             aria-label={dict.header.home}
             className="flex h-full items-center justify-center px-4 transition-opacity duration-300 hover:opacity-60"
           >
-            <HouseMark />
+            <Wordmark size="xl" />
           </Link>
 
           <div className="flex h-full items-center justify-end gap-8">
