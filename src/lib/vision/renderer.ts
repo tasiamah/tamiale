@@ -114,18 +114,26 @@ export function drawOverlay(
   context.fill();
   context.restore();
 
-  // 2. The temple that the turn of the head reveals, behind the front.
+  /*
+   * 2. The temple that the turn of the head reveals, behind the front.
+   *
+   * Two fifths of a 145mm temple is 58mm of acetate laid flat across the
+   * cheek, tapering to a point: at any real angle the arm had left the
+   * face and become a wing. What a camera actually sees of a temple is the
+   * near end of it before the head takes the rest, so it is short, and it
+   * keeps most of its depth over that length because a temple does.
+   */
   const reveal = Math.min(1, Math.abs(Math.sin(pose.yaw)) * 2.8);
   if (reveal > 0.03) {
     const [hx, hy] = outline.hingePoints[pose.yaw > 0 ? 1 : 0];
     const direction = Math.sign(hx) || 1;
-    const length = frame.geometry.templeLength * reveal * 0.4;
+    const length = frame.geometry.templeLength * reveal * 0.18;
     context.save();
     context.fillStyle = colorway.frameHex;
     context.beginPath();
     context.moveTo(hx, hy - 3.8);
-    context.lineTo(hx + direction * length, hy - 1.2 + length * 0.12);
-    context.lineTo(hx + direction * length, hy + 1.8 + length * 0.12);
+    context.lineTo(hx + direction * length, hy - 2.6 + length * 0.1);
+    context.lineTo(hx + direction * length, hy + 2.2 + length * 0.1);
     context.lineTo(hx, hy + 3.8);
     context.closePath();
     context.fill();

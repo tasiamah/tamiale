@@ -8,33 +8,46 @@
 export type Point = readonly [number, number];
 
 /**
- * The lens aperture as a normalised polygon, traced off the product
- * photograph: the glass is the only warm mid-dark region in the picture, so
- * it separates cleanly, and its convex hull reduced to eight corners is the
- * cut. The frame sits at 5.8 degrees in that shot, measured from the line
- * between the two lens centres and taken out before normalising.
+ * The lens aperture as a normalised polygon: a flattened octagon, level at
+ * the brow and the base, with a chamfer off each of the four corners and a
+ * near-vertical edge at the nose and at the temple.
  *
- * Eight edges, which is what the house says the front is cut with and what
- * the photograph shows: a level brow, a short chamfer off each end of it,
- * a near-vertical outer edge, a level base, and a long rake back up to the
- * bridge. The previous polygon had seven, a brow that sloped toward the
- * nose and a single raked base, and read as a soft lozenge rather than
- * something milled.
+ * This used to be traced off the product photograph, and the photograph is
+ * a three-quarter view. Scaling u and v into [0,1] separately takes out the
+ * aspect ratio but not the perspective, and perspective is the half that
+ * matters: in that shot the far edge of the lens is foreshortened and the
+ * verticals converge, so the trace came back as a sheared polygon with a
+ * base raking some fifteen degrees down toward the temple and a brow
+ * dipping toward the nose. Mirrored into a pair it read as a swept wing,
+ * and the two nasal corners rose into a narrow peak that the bridge then
+ * had to span, which is where the aviator's double bridge came from.
  *
- * The photograph is a three-quarter view and so compressed horizontally.
- * That does not survive normalising u and v to [0,1] separately, which is
- * why the aspect ratio of the real lens lives in the spec below rather than
- * in these numbers.
+ * A front elevation cannot be recovered from a single three-quarter frame
+ * without knowing the angle, so it is stated instead. The chamfers are
+ * measured off the near lens of the master as a fraction of its own width
+ * and height, which perspective leaves roughly intact, and the shape is
+ * made symmetric about both axes because the milled part is.
+ *
+ * The chamfers were a quarter of the width and a quarter of the height,
+ * which cut so far into each corner that the brow and the base were half
+ * the lens and the thing rendered solid read as a stop sign. Measured off
+ * the campaign frame, levelled on the line between the two lens centres,
+ * the brow runs about seven tenths of the width and the temple edge about
+ * six tenths of the height, so the corners come off at roughly a seventh
+ * and a fifth. That is the difference between an octagon and a rectangle
+ * with its corners taken off, and the second is the frame.
+ *
+ * The aspect ratio of the real lens lives in the spec below, not here.
  */
 const APERTURE_UNIT: Point[] = [
-  [0.142, 0.027],
-  [0.7, 0.02],
-  [0.89, 0.19],
-  [1.0, 0.673],
-  [0.891, 0.975],
-  [0.311, 0.96],
-  [0.059, 0.583],
-  [0.0, 0.267],
+  [0.145, 0.0],
+  [0.855, 0.0],
+  [1.0, 0.205],
+  [1.0, 0.795],
+  [0.855, 1.0],
+  [0.145, 1.0],
+  [0.0, 0.795],
+  [0.0, 0.205],
 ];
 
 export type FrameSpec = {
@@ -110,7 +123,13 @@ export function buildOutline(spec: FrameSpec): FrameOutline {
    * that carries the hinge. The end piece is then solved so the outer edge
    * lands exactly on the published total front width.
    */
-  const RIM_THICKNESS = 4.6;
+  /*
+   * Measured the same way as the chamfers: the acetate above the glass is
+   * about an eighth of the lens height in the campaign frame, which on a
+   * thirty millimetre lens is a little under four. At 4.6 the brow was
+   * heavy enough to close the gap over the bridge into a solid bar.
+   */
+  const RIM_THICKNESS = 3.9;
   const normals = miterNormals(apertureRight);
   const minApertureX = Math.min(...apertureRight.map(([x]) => x));
   const maxApertureX = Math.max(...apertureRight.map(([x]) => x));
@@ -137,35 +156,42 @@ export function buildOutline(spec: FrameSpec): FrameOutline {
   const rimBottom = Math.max(...rimRight.map(([, y]) => y));
   const rimOuter = Math.max(...rimRight.map(([x]) => x));
   /**
-   * A shallow keyhole bridge. It has to land on the rims' own nasal edge
-   * rather than on a nominal bridge width, or it floats free of the fronts:
-   * those edges rake inward, so the span is wide at the brow and narrow at
-   * the nose.
+   * A shallow keyhole bridge, spanning the rims' own nasal edge so that it
+   * lands on the fronts rather than floating at some nominal width.
+   *
+   * Its depth is stated rather than taken from whichever pair of vertices
+   * happen to be adjacent. It used to read the leftmost vertex and the one
+   * after it, which worked only because the traced aperture was raked
+   * enough to have a single leftmost corner near the brow. A nasal edge
+   * that is actually vertical has two corners at that same x, so the pair
+   * became the whole edge and the bridge grew to the full height of the
+   * lens: a block of acetate across the nose from brow to cheek.
    */
-  const nasal = rimRight.reduce(
-    (best, [x], index) => (x < rimRight[best][0] ? index : best),
-    0,
+  const nasalX = Math.min(...rimRight.map(([x]) => x));
+  const innerX = nasalX;
+  const topY = Math.min(
+    ...rimRight.filter(([x]) => x <= nasalX + 0.01).map(([, y]) => y),
   );
-  const [innerX, innerY] = rimRight[nasal];
-  const [upperX, upperY] = rimRight[(nasal + 1) % rimRight.length];
   /*
-   * How far the keyhole is cut up into the saddle, as a fraction of the drop
-   * from the brow to the rims' nasal corner. At a half, lifted by a further
-   * third at the centre, the cut reached almost to the brow line and the two
-   * rims met in a narrow peak: an aviator's double bridge, not this frame.
-   * A fifth leaves the saddle solid and takes a shallow scoop out of its
-   * underside, which is what the photograph shows.
+   * How far the saddle comes down the nasal edge. The frame wears its
+   * bridge high: a little under half the lens, which leaves the nose open
+   * below it, as the photograph shows.
    */
-  const arch = (innerY - upperY) * 0.2;
+  const bottomY = topY + spec.lensHeight * 0.46;
+  /*
+   * The keyhole, cut up into the underside of the saddle. Deep enough to
+   * read as a cut and shallow enough to leave the saddle solid.
+   */
+  const arch = (bottomY - topY) * 0.42;
 
   const bridge: Point[] = [
-    [-upperX, upperY],
-    [upperX, upperY],
-    [innerX, innerY],
-    [innerX * 0.52, innerY - arch],
-    [0, innerY - arch * 0.9],
-    [-innerX * 0.52, innerY - arch],
-    [-innerX, innerY],
+    [-innerX, topY],
+    [innerX, topY],
+    [innerX, bottomY],
+    [innerX * 0.55, bottomY - arch],
+    [0, bottomY - arch * 0.85],
+    [-innerX * 0.55, bottomY - arch],
+    [-innerX, bottomY],
   ];
 
   const hingeY = rimTop + (rimBottom - rimTop) * 0.32;
