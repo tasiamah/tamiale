@@ -40,3 +40,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# scratch space for one-off QA and measurement scripts
+# kept inside the project so pnpm resolves devDependencies, and reused
+# rather than deleted so routine work never needs an rm
+scratch/
