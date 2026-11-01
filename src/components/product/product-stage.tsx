@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useCallback, useState } from "react";
+import { useCallback, useState, useSyncExternalStore } from "react";
 
 import { Link } from "@/components/i18n/link";
 import { useSavedFrames } from "@/components/account/saved-frames-provider";
@@ -35,14 +35,26 @@ const Atelier = dynamic(
 type MediaView = "studio" | "atelier" | "elevation";
 
 
-export function ProductStage({
-  frame,
-  initialColorwayId,
-}: {
-  frame: Frame;
-  initialColorwayId: string;
-}) {
-  const [colorwayId, setColorwayId] = useState(initialColorwayId);
+const noopSubscribe = () => () => {};
+/** Read once on the client; `selectColorway` is the source of truth after. */
+const readLens = () => new URLSearchParams(window.location.search).get("lens");
+const noLensOnServer = () => null;
+
+export function ProductStage({ frame }: { frame: Frame }) {
+  /*
+   * The page is prerendered, so the server cannot know `?lens`. It renders
+   * the first lens and the reader's choice is swapped in on hydration, which
+   * costs a shared link one frame of the wrong tint and buys the page a
+   * static shell. Same geometry either way, so nothing moves.
+   */
+  const lensInUrl = useSyncExternalStore(
+    noopSubscribe,
+    readLens,
+    noLensOnServer,
+  );
+  const [chosen, setChosen] = useState<string | null>(null);
+  const colorwayId = chosen ?? lensInUrl ?? frame.colorways[0].id;
+  const setColorwayId = setChosen;
   const dict = useDictionary();
   const [view, setView] = useState<MediaView>("studio");
   const mediaViews: { id: MediaView; label: string }[] = [

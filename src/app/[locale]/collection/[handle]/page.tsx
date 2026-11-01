@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 
 import { Link } from "@/components/i18n/link";
 import { Craftsmanship } from "@/components/product/craftsmanship";
 import { ProductStage } from "@/components/product/product-stage";
 import { Reveal } from "@/components/ui/reveal";
 import { frameFor } from "@/lib/catalog/content";
-import { findColorway, frames } from "@/lib/catalog/frames";
+import { frames } from "@/lib/catalog/frames";
 import type { Frame } from "@/lib/catalog/types";
 import { fill, localePath, type Locale } from "@/lib/i18n/config";
 import { getDictionary, getLocale } from "@/lib/i18n/dictionary";
@@ -58,21 +57,15 @@ export async function generateMetadata({
 }
 
 /**
- * The whole view depends on the handle, so it sits behind one boundary. With
- * `generateStaticParams` the published frames prerender complete; the
- * skeleton is only ever seen on a navigation to an unknown handle.
+ * Rendered whole, with no streaming boundary. The lens in `?lens` used to be
+ * read here, which made the page dynamic: the shell painted a skeleton, the
+ * real stage arrived above the footer and moved it, and the photograph that
+ * is the largest contentful paint could not be found by the browser until
+ * the stage had streamed. `ProductStage` picks the lens out of the URL on the
+ * client instead, so the published frames prerender complete.
  */
-export default function FramePage(props: PageProps<"/[locale]/collection/[handle]">) {
-  return (
-    <Suspense fallback={<PageSkeleton />}>
-      <FrameView {...props} />
-    </Suspense>
-  );
-}
-
-async function FrameView({
+export default async function FramePage({
   params,
-  searchParams,
 }: PageProps<"/[locale]/collection/[handle]">) {
   const { handle } = await params;
   const dict = await getDictionary();
@@ -94,7 +87,7 @@ async function FrameView({
         </ol>
       </nav>
 
-      <ResolvedStage frame={frame} searchParams={searchParams} />
+      <ProductStage frame={frame} />
 
       <section className="border-t border-ivory-hairline bg-ivory">
         <div className="gutter grid gap-14 section-y lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
@@ -128,34 +121,6 @@ async function FrameView({
         }}
       />
     </>
-  );
-}
-
-async function ResolvedStage({
-  frame,
-  searchParams,
-}: {
-  frame: Frame;
-  searchParams: PageProps<"/[locale]/collection/[handle]">["searchParams"];
-}) {
-  const { lens } = await searchParams;
-  const colorway = findColorway(frame, typeof lens === "string" ? lens : undefined);
-  return <ProductStage frame={frame} initialColorwayId={colorway.id} />;
-}
-
-function PageSkeleton() {
-  return (
-    <div className="gutter pt-20 pb-20">
-      <div className="grid gap-14 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
-        <div className="aspect-4/3 w-full animate-pulse bg-ivory-dim" />
-        <div className="flex flex-col gap-5">
-          <div className="h-3 w-40 animate-pulse bg-ivory-dim" />
-          <div className="h-14 w-72 animate-pulse bg-ivory-dim" />
-          <div className="h-8 w-28 animate-pulse bg-ivory-dim" />
-          <div className="mt-6 h-11 w-full max-w-sm animate-pulse bg-ivory-dim" />
-        </div>
-      </div>
-    </div>
   );
 }
 
