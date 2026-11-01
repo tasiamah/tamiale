@@ -22,7 +22,7 @@ export function ColorwayCard({
 
   return (
     <article className={cn("group relative", className)}>
-      <div className="plate relative flex aspect-5/4 items-center justify-center sm:aspect-16/10">
+      <div className="plate relative flex aspect-5/4 items-center justify-center overflow-hidden sm:aspect-16/10">
         <div
           aria-hidden
           className="absolute inset-0 opacity-0 transition-opacity duration-1000 ease-tamiale group-hover:opacity-100"
@@ -36,7 +36,30 @@ export function ColorwayCard({
           width={colorway.image.width}
           height={colorway.image.height}
           sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 31vw"
-          className="relative z-10 w-full"
+          className="relative z-10 w-full transition-opacity duration-700 ease-tamiale group-hover:opacity-0"
+        />
+
+        {/*
+         * The same lens worn, underneath the cursor rather than behind a
+         * click. The object answers what it is and the face answers whether
+         * you want it, and on a grid whose whole question is "which lens"
+         * the second answer is the one being compared.
+         *
+         * The portrait is taller than the tile, so it is cropped to a band
+         * across the eyes, and the band has to be placed by hand: the
+         * glasses sit about a third of the way down the frame, and how much
+         * of the picture survives the crop changes with the tile's own
+         * ratio, which changes at `sm`.
+         *
+         * Decorative, because the render above it already carries the alt
+         * and a reader does not need the same frame described twice.
+         */}
+        <Image
+          src={colorway.worn.src}
+          alt=""
+          fill
+          sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 31vw"
+          className="absolute inset-0 z-20 object-cover object-[center_8%] opacity-0 transition-opacity duration-700 ease-tamiale group-hover:opacity-100 sm:object-[center_18%]"
         />
       </div>
 
