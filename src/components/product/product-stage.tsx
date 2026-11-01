@@ -137,7 +137,7 @@ export function ProductStage({
               <div
                 key={angle.id}
                 className={cn(
-                  "plate flex aspect-4/3 items-center justify-center",
+                  "plate flex aspect-4/3 items-center justify-center bg-studio",
                   index > 0 && "mt-5",
                 )}
               >

@@ -18,6 +18,14 @@
   --color-ivory-dim: #ebe7de;
   --color-ivory-hairline: #e2ddd2;
 
+  /*
+   * The sweep the frames are photographed against, sampled from the worn
+   * portraits so the cut-out angles and the campaign shots stand on one
+   * ground. Not a paper tone and not used as one: it belongs behind an
+   * object, never behind text.
+   */
+  --color-studio: #c5c0bc;
+
   --color-obsidian: #16150f;
   --color-obsidian-raised: #201f18;
   --color-obsidian-hairline: #33312a;

@@ -22,7 +22,7 @@ export function ColorwayCard({
 
   return (
     <article className={cn("group relative", className)}>
-      <div className="plate relative flex aspect-5/4 items-center justify-center overflow-hidden sm:aspect-16/10">
+      <div className="plate relative flex aspect-5/4 items-center justify-center overflow-hidden bg-studio sm:aspect-16/10">
         <div
           aria-hidden
           className="absolute inset-0 opacity-0 transition-opacity duration-1000 ease-tamiale group-hover:opacity-100"
